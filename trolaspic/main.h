@@ -18,7 +18,7 @@
 #ifndef DEBUG_MATTEO
     #define PERCORSO "."
 #else
-    #define PERCORSO "./NetBeansProjects/trolaspic~subversion/trolaspic"
+    #define PERCORSO "./NetBeansProjects/trolaspic_code/trunk/trolaspic"
 #endif
 
 #define VERSION "0.0.19a"
@@ -42,9 +42,9 @@ struct passaggio_t {
 //#define image        elem4
 
 enum t_incrocio {
-    rotatoria,
-    incrocio_croce,
-    incrocio_semafori
+    rotatoria,          //r
+    incrocio_normale,   //n
+    incrocio_semafori   //s
 };
 
 
@@ -58,14 +58,19 @@ typedef lista_archi lista_strade;
 typedef nodo incrocio;
 
 
+typedef nodo incrocio;
 struct nodo {
     /** Tipologia di incrocio */
     t_incrocio tipo_incrocio;
 
     /** Lista di adiacenza delle strade a cui si accede all'incrocio */
-    lista_strade* elem_lista;
+    lista_strade elem_lista[];
+
+    /** Numero di elementi nella lista di adiacenza*/
+    int num_elem_lista;
 };
 
+typedef archi strade;
 struct archi {
     /** nome della via */
     char* nome;
@@ -83,9 +88,9 @@ struct archi {
     //tipo di curvatura della strada
 };
 
+
+typedef lista_archi lista_strade;
 struct lista_archi {
-    /** Elemento successivo nella lista di adiacenza */
-    lista_archi* successivo;
 
     /** Strada associata a questo elemento della lista */
     strade* strada;

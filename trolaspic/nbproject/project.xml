@@ -13,6 +13,8 @@
             <sourceRootList/>
             <confList>
                 <confElem>Debug</confElem>
+                <confElem>Debug_matteo</confElem>
+                <confElem>Debug_robby</confElem>
                 <confElem>Release</confElem>
             </confList>
         </data>
