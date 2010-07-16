@@ -35,7 +35,7 @@ void min_heapify(CodaPriorita* Array,CodaPriorita i){
     CodaPriorita lefto = left(i);
     CodaPriorita righto = right(i);
     CodaPriorita minimo = i;
-    if(lefto < Array[0] && Array[lefto] < Array[i]) minimo = lefto;
+    if(lefto < Array[0] && Array[lefto] < Array[minimo]) minimo = lefto;
     if(righto < Array[0] && Array[righto] < Array[minimo]) minimo = righto;
     if(minimo == i) return;
     scambia(Array,i,minimo);

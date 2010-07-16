@@ -57,7 +57,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=
+LDLIBSOPTIONS=-lgtk-x11-2.0
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -70,42 +70,42 @@ dist/Debug/GNU-Linux-x86/trolaspic: ${OBJECTFILES}
 ${OBJECTDIR}/priority_queue.o: priority_queue.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/priority_queue.o priority_queue.cpp
+	$(COMPILE.cc) -g -DDEBUG -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/gio-unix-2.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/directfb -I/usr/include/libpng12 -MMD -MP -MF $@.d -o ${OBJECTDIR}/priority_queue.o priority_queue.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -g -DDEBUG -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/gio-unix-2.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/directfb -I/usr/include/libpng12 -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
 
 ${OBJECTDIR}/pathfinder.o: pathfinder.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/pathfinder.o pathfinder.cpp
+	$(COMPILE.cc) -g -DDEBUG -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/gio-unix-2.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/directfb -I/usr/include/libpng12 -MMD -MP -MF $@.d -o ${OBJECTDIR}/pathfinder.o pathfinder.cpp
 
 ${OBJECTDIR}/gestione_drawing_area.o: gestione_drawing_area.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/gestione_drawing_area.o gestione_drawing_area.cpp
+	$(COMPILE.cc) -g -DDEBUG -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/gio-unix-2.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/directfb -I/usr/include/libpng12 -MMD -MP -MF $@.d -o ${OBJECTDIR}/gestione_drawing_area.o gestione_drawing_area.cpp
 
 ${OBJECTDIR}/heap.o: heap.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/heap.o heap.cpp
+	$(COMPILE.cc) -g -DDEBUG -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/gio-unix-2.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/directfb -I/usr/include/libpng12 -MMD -MP -MF $@.d -o ${OBJECTDIR}/heap.o heap.cpp
 
 ${OBJECTDIR}/creazione_interfaccia.o: creazione_interfaccia.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/creazione_interfaccia.o creazione_interfaccia.cpp
+	$(COMPILE.cc) -g -DDEBUG -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/gio-unix-2.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/directfb -I/usr/include/libpng12 -MMD -MP -MF $@.d -o ${OBJECTDIR}/creazione_interfaccia.o creazione_interfaccia.cpp
 
 ${OBJECTDIR}/grafo.o: grafo.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/grafo.o grafo.cpp
+	$(COMPILE.cc) -g -DDEBUG -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/gio-unix-2.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/directfb -I/usr/include/libpng12 -MMD -MP -MF $@.d -o ${OBJECTDIR}/grafo.o grafo.cpp
 
 ${OBJECTDIR}/g_callback.o: g_callback.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/g_callback.o g_callback.cpp
+	$(COMPILE.cc) -g -DDEBUG -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/gio-unix-2.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/directfb -I/usr/include/libpng12 -MMD -MP -MF $@.d -o ${OBJECTDIR}/g_callback.o g_callback.cpp
 
 # Subprojects
 .build-subprojects:

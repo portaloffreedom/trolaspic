@@ -7,7 +7,7 @@
 
 #ifndef HEAP_H
 #define	HEAP_H
-#define CodaPriorita int
+#include "main.h"
 
 const int MAX_HEAP_DIM = 1024000;
 

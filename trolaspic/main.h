@@ -23,6 +23,7 @@
 
 #define VERSION "0.0.19a"
 
+
 struct passaggio_t {
     GtkWidget* finestra;
     GtkWidget* info_i;
@@ -47,6 +48,11 @@ enum t_incrocio {
     incrocio_semafori   //s
 };
 
+enum stato_t {    inizio,
+                visitato,
+                fine,
+                non_visitato
+};
 
 //referenza per il la vera dichiarazione sotto
 struct archi;
@@ -60,6 +66,10 @@ typedef nodo incrocio;
 
 typedef nodo incrocio;
 struct nodo {
+    /** Coordinate dell'incrocio*/
+    int x;
+    int y;
+    
     /** Tipologia di incrocio */
     t_incrocio tipo_incrocio;
 
@@ -102,6 +112,16 @@ struct lista_archi {
      */
     double rotazione;
 };
+
+struct elemento_coda{
+    stato_t stato;
+    incrocio* nodografo;
+    int h_score;
+    int g_score;
+    int f_score;
+};
+
+#define CodaPriorita elemento_coda
 
 #endif	/* MAIN_H */
 
