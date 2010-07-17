@@ -48,11 +48,6 @@ enum t_incrocio {
     incrocio_semafori   //s
 };
 
-enum stato_t {    inizio,
-                visitato,
-                fine,
-                non_visitato
-};
 
 //referenza per il la vera dichiarazione sotto
 struct archi;
@@ -74,7 +69,7 @@ struct nodo {
     t_incrocio tipo_incrocio;
 
     /** Lista di adiacenza delle strade a cui si accede all'incrocio */
-    lista_strade elem_lista[];
+    lista_strade* elem_lista;
 
     /** Numero di elementi nella lista di adiacenza*/
     int num_elem_lista;
@@ -113,15 +108,7 @@ struct lista_archi {
     double rotazione;
 };
 
-struct elemento_coda{
-    stato_t stato;
-    incrocio* nodografo;
-    int h_score;
-    int g_score;
-    int f_score;
-};
 
-#define CodaPriorita elemento_coda
 
 #endif	/* MAIN_H */
 

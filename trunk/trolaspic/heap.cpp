@@ -2,6 +2,9 @@
 using namespace std;
 #include "heap.h"
 #include "main.h"
+#include "priority_queue.h"
+
+#ifdef DEBUG_ROB
 
 #ifdef DEBUG
 void stampaheap(CodaPriorita* Array){
@@ -46,3 +49,4 @@ void build_min_heap(CodaPriorita* Array){
     for(CodaPriorita i=Array[0]/2;i>0;--i) min_heapify(Array,i);
 };
 
+#endif

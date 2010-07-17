@@ -8,6 +8,23 @@
 #ifndef PRIORITY_QUEUE_H
 #define	PRIORITY_QUEUE_H
 #include "heap.h"
+#include "main.h"
+
+enum stato_t {  inizio,
+                visitato,
+                fine,
+                non_visitato
+};
+
+struct elemento_coda{
+    stato_t stato;
+    incrocio* nodografo;
+    int h_score;
+    int g_score;
+    int f_score;
+};
+
+typedef elemento_coda CodaPriorita;
 
 CodaPriorita* costrcoda(int grandezza);
 CodaPriorita minimum(CodaPriorita* Array);
