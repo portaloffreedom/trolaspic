@@ -86,8 +86,9 @@ struct archi {
     /** Lunghezza in m o Km della strada */
     double lunghezza;
 
-    /** Velocità massima o media di percorrenza della strada (m/s oppure Km/h) */
-    double velocita;
+    /** moltiplicativo -> maggiore di uno è più pesante la strada / minore di
+     * uno è più leggero */
+    double scorribilita;
 
 
     //tipo di curvatura della strada
