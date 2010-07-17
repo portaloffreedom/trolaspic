@@ -5,8 +5,31 @@
 #include "creazione_interfaccia.h"
 using namespace std;
 
+int leggi_prox_int(ifstream* source){
+    int numero;
+    char carattere;
+    while (true)
+    {
+        source>>carattere;
+        if (carattere=='#'){
+            while (carattere!='\n')
+                source>>carattere;
+            continue;
+        }
+        int posizione = source.tellg();
+        source.seekg(--posizione);
+        source>>numero;
+        break;
+    }
+
+    return  numero;
+}
+char leggi_prox_char(ifstream* source);
+char *leggi_prox_stringa(ifstream* source);
+
 void carica_mappa(const char *filename)
 {
+    
     int i;
     for (i=0; filename[i]!='\0';i++) {
         //DBG(cout<<':'<<i<<'_'<<filename[i]<<endl)
@@ -27,13 +50,15 @@ void carica_mappa(const char *filename)
     }
     DBG(cout<<filename<<endl);
     DBG(cout<<filename_map<<endl);
+    
 
 
     ifstream mappa (filename_map);
     if (!mappa)
         cerr<<"File "<<filename_map<<" non aperto correttamente\n";
-    
-    
+
+    int numero_nodi = leggi_prox_int(mappa);
+
 
     delete[] filename_map;
     mappa.close();
@@ -81,7 +106,7 @@ void response_carica (passaggio_t *window)
             gtk_image_set_from_pixbuf (GTK_IMAGE(window->image), immagine_mappa);
             
             //**Alternativa, caricamento direttamente da file
-            //gtk_image_set_from_file (
+            //gtk_image_set_from_file ((GTK_IMAGE(window->image), filename);
 
             
             //******************************************************************
