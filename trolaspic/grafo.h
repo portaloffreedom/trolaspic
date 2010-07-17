@@ -7,24 +7,11 @@
 
 #ifndef GRAFO_H
 #define	GRAFO_H
-enum tipo_nodo{ strada,
-                incrocio,
-                strada_senza_uscita,
-                senso_unico,
-                autostrada,
+struct adj_node {
+  int node;
+  float weight;
+  struct adj_node* next;
 };
-
-struct NodoMappa {
-    int x;
-    int y;
-    tipo_nodo tipologia;
-    float lunghezza;
-    float vel_max;
-};
-
-#define GraphType NodoMappa
-
-void Riempi_grafo();
 
 #endif	/* GRAFO_H */
 
