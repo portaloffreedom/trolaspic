@@ -5,6 +5,8 @@
 #include "heap.h"
 using namespace std;
 
+#ifdef DEBUG_ROB
+const int INFINITO = numeric_limits<int>::max();
 
 CodaPriorita minimum(CodaPriorita* Array){
     return Array[1];
@@ -42,7 +44,7 @@ void insert(CodaPriorita* Array,CodaPriorita key){
         return;
     }
     Array[0]++;
-    Array[Array[0]].f_score = numeric_limits<int>::max();
+    Array[Array[0]].f_score = INFINITO;
     decrease_key(Array,Array[0],key);
 };
 
@@ -52,3 +54,4 @@ CodaPriorita* costrcoda(){
     coda[0]=0;
     return coda;
 };
+#endif
