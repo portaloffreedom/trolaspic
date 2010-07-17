@@ -5,7 +5,7 @@
 #include "creazione_interfaccia.h"
 using namespace std;
 
-int leggi_prox_int(ifstream* source){
+int leggi_prox_int(ifstream &source){
     int numero;
     char carattere;
     while (true)
@@ -24,8 +24,8 @@ int leggi_prox_int(ifstream* source){
 
     return  numero;
 }
-char leggi_prox_char(ifstream* source);
-char *leggi_prox_stringa(ifstream* source);
+char leggi_prox_char(ifstream &source);
+char *leggi_prox_stringa(ifstream &source);
 
 void carica_mappa(const char *filename)
 {

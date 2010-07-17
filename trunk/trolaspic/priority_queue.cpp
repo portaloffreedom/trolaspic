@@ -25,12 +25,12 @@ CodaPriorita extract_min(CodaPriorita* Array){
 };
 
 void decrease_key(CodaPriorita* Array,int i,CodaPriorita key){
-    if(key.f_score < Array[i].f_score){
+    if(key < Array[i]){
         cerr<<"La chiave e' piu' grande di quella corrente\n";
         return;
     }
-    Array[i].f_score = key.f_score;
-    while(i>1 && Array[parent(i)].f_score > Array[i].f_score){
+    Array[i] = key;
+    while(i>1 && Array[parent(i)] > Array[i]){
         CodaPriorita parente = parent(i);
         scambia(Array,i,parente);
         i = parente;
