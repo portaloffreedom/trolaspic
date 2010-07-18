@@ -10,6 +10,7 @@
 #include "heap.h"
 #include "main.h"
 
+#ifdef DEBUG_ROB0
 enum stato_t {  inizio,
                 visitato,
                 fine,
@@ -24,13 +25,14 @@ struct elemento_coda{
     int f_score;
 };
 
-typedef elemento_coda CodaPriorita;
+typedef nodo CodaPriorita;
 
 CodaPriorita* costrcoda(int grandezza);
 CodaPriorita minimum(CodaPriorita* Array);
 CodaPriorita extract_min(CodaPriorita* Array);
 void decrease_key(CodaPriorita* Array,int i,CodaPriorita key);
 void insert(CodaPriorita* Array,CodaPriorita key);
+#endif
 
 #endif	/* PRIORITY_QUEUE_H */
 
