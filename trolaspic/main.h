@@ -120,8 +120,8 @@ enum colour_t {bianco,grigio,nero};
  */
 struct adiacenza{
     /** L'indice del nodo nel grafo
-     * \n Questo indice viene usato per prelevare il nodo dal grafo
-     * \n e non dalla lista.
+     * Questo indice viene usato per prelevare il nodo dal grafo
+     * e non dalla lista.
      */
     int nodo;
 
@@ -134,7 +134,7 @@ struct adiacenza{
     list<adiacenza> adiacente;
 };
 
-/** Struct per la rappresetnazione dei nodi di cui e' composto il grafo
+/** Struct per la rappresentazione dei nodi di cui e' composto il grafo
  */
 struct nodo {
     /** Coordinata orizzontale del nodo sulla mappa
@@ -144,7 +144,7 @@ struct nodo {
      */
     int y;
 
-    /** Colore da impostare secondo l-algoritmo dijkstra.
+    /** Colore da impostare secondo làalgoritmo dijkstra.
      * \n Bianco se il nodo non e' mai stato visitato
      * \n Grigio se il nodo e' stato visitato ma i suoi archi non sono stati tutti rilassati
      * \n Nero se il nodo e' stato visitato e ha gli archi tutti rilassati
@@ -164,6 +164,9 @@ struct nodo {
      * \n con la distanza delle strade
      */
     float peso;
+
+    /** Questo parametro serve a ricostruire il tragitto dopo aver usato dijkstra*/
+    int padre;
 
     /** Tutti i nodi che e' possibile raggiungere da questo
      */

@@ -1,8 +1,7 @@
 #include <iostream>
-#include <list>
 #include <cmath>
 #include <queue>
-#include "main.h"
+#include <algorithm>
 #include "grafo.h"
 using namespace std;
 /*
@@ -32,6 +31,7 @@ using namespace std;
 //15                  dist[v] := alt
 //16                  previous[v] := u
 //17      return S
+ *
 //  Iterazione per trovare il tragitto
 //1  S := empty sequence
 //2  u := target
@@ -41,59 +41,80 @@ using namespace std;
  *  */
 
 #ifdef DEBUG_ROB
-#define MAXINT (int)(pow(2,31)-1)
-#define MAX 100
 
-
-int graph[MAX][MAX];
-int total;
-
-
-int distances[MAX];
-int father[MAX];
-bool visit[MAX];
-
-void dijkstra(int start)
+/**
+ * @function Algoritmo Dijkstra modificato per trovare la strada minima fra
+ * due punti di un grafo orientato.
+ * @param start : Nodo da cui vogliamo iniziare la ricerca
+ * @param fine : Nodo a cui vogliamo arrivare partendo da Start.
+ */
+int dijkstra(const int start,const int fine)
 {
-  priority_queue<pair<int,int> > queue;
-  pair <int,int> nodotmp;
-  int i, j;
+  priority_queue<pair<float,int> > queue; // Crea una coda di paia nodo/peso
+  pair <float,int> nodotmp;   //crea una variabile temporanea di tipo nodo/peso.
+                            //accessibili con nodotmp.first e nodotmp.second
+  int indexnode, j, temp; //contatori??
+  float temppeso;
+//  /* Questo for e' inutile visto che tutto viene fatto quando e' inizializzato il grafo*/
+//  for (int i=1; i<=total; i++) {
+//    distances[i] = MAXINT;
+//    father[i] = -1;
+//    visit[i] = false;
+//  }                             // DEPRECATED
 
-  for (int i=1; i<=total; i++) {
-    distances[i] = MAXINT;
-    father[i] = -1;
-    visit[i] = false;
-  }
+  GRAFO[start]->peso = 0;
 
-  distances[start] = 0;
-  queue.push(pair <int,int> (distances[start], start));
+  /* Inserisco nella coda il nodo di inizio e il suo peso*/
+  queue.push(pair <float,int> (GRAFO[start]->peso/* il peso del nodo*/, start /* il nodo da cui partire*/));
 
-  while(!queue.empty()) {
-    nodotmp = queue.top();
+  adiacenza* templist;
+  /* Finche' la coda e' piena processo tutti i nodi adiacenti a questo*/
+  while(!queue.empty())
+  {
+    nodotmp = queue.top(); // Prelevo il nodo dalla coda (sono sicuro che non e' vuota)
     queue.pop();
-    i = nodotmp.second;
-    if (!visit[i]) {
-      visit[i] = true;
-      for (j = 1; j<=total; j++)
-        if (!visit[j] && graph[i][j] > 0 && distances[i] + graph[i][j] < distances[j]) {
-          distances[j] = distances[i] + graph[i][j];
-          father[j] = i;
-          queue.push(pair <int,int>(-distances[j], j));
-        }
+
+    if(indexnode == fine) return fine;
+    indexnode = nodotmp.second; //l'indice del nodo
+    if (!(GRAFO[indexnode]->visitato == bianco))
+    {    //se il nodo non e' stato visitato
+      GRAFO[indexnode]->visitato = nero;  //marcalo come visitato
+      templist = GRAFO[indexnode]->adiacente.begin();
+      for (j = 0; j<GRAFO[indexnode]->adiacente.size(); j++)
+      {    //per ogni vicino che non e' stato visitato inseriscilo nella coda
+          // Salvo il nodo e il peso
+          temp = (templist + j)->nodo;
+          temppeso = (templist + j)->peso;
+
+          if        (!( GRAFO[temp]->visitato == bianco)
+                        && temppeso > 0
+                        && GRAFO[indexnode]->peso + temppeso < GRAFO[temp]->peso)
+          {
+            GRAFO[temp]->peso = GRAFO[indexnode]->peso + temppeso; // Aggiorna il peso del nodo
+            GRAFO[temp]->padre = indexnode;    // aggiorna il padre del nodo
+            queue.push(pair <float,int>(-GRAFO[temp]->peso, temp)); //aggiungilo alla coda
+          }
+      }
+
     }
+
   }
+  return start;
 }
 
-
+// Ricostruisci il tragitto inizio/fine partendo dalla fine
+// Il nuovo concetto sara' quello di creare una lista di nodi che formano il tragitto cosi'
+// da poter ricaricare il grafo e tenere quindi i nodi trovati.
 void getPath(int end) {
-  cout << end << " ";
-  while (father[end]!= -1) {
-    cout << father[end] << " ";
-    end = father[end];
+  cout << end << " "; // DEPRECATED
+  while (GRAFO[end]->padre > -1) { //quando trovi il nodo senza padre hai trovato l'inizio
+    cout << GRAFO[end]->padre << " "; // DEPRECATED (solo debug serve)
+    end = GRAFO[end]->padre; // end adesso e' il padre del vecchio end (cioe' del nodo precedente)
   }
-  cout << endl;
+  cout << endl; // DEPRECATED (solo per debug serve)
 }
 
+/*
 int main()
 {
    int a, b, c;
@@ -112,16 +133,17 @@ int main()
    dijkstra(1);
    getPath(3);
 
-   /*for (int i=1; i<=total; i++) {
-     dijkstra(i);
-     for(int i=1; i<=total; i++)
-        cout << distances[i] << " ";
-     cout << endl;
-     for(int i=1; i<=total; i++)
-        cout << father[i] << " ";
-     cout << endl;
-     getPath(5);
-   }*/
+//   for (int i=1; i<=total; i++) {
+//     dijkstra(i);
+//     for(int i=1; i<=total; i++)
+//        cout << distances[i] << " ";
+//     cout << endl;
+//     for(int i=1; i<=total; i++)
+//        cout << father[i] << " ";
+//     cout << endl;
+//     getPath(5);
+//   }
    return 0;
-}
+}*/
+
 #endif
