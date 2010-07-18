@@ -1,7 +1,9 @@
-#include "grafo.h"
+#include "main.h"
 #include <iostream>
+#include <limits>
 using namespace std;
 
+nodo* GRAPH;
 #ifdef DEBUG_ROB
 const float INFINITO = numeric_limits<float>::max();
 
@@ -37,7 +39,7 @@ void aggiungi_adiacenza(int nod,int adj,float peso){
     temp = new adiacenza;
     temp->nodo = adj;
     temp->peso = peso;
-    GRAFO[nod]->adiacente.push_back(temp);
+    GRAPH[nod].adiacente.push_back(*temp);
 };
 
 /**
@@ -49,16 +51,16 @@ void graph_builder(ifstream &file){
     int y = 0;
     int node = preleva_nodo(file,x,y);
     while(node > 0){
-        GRAFO[node]->x = x;
-        GRAFO[node]->y = y;
-        GRAFO[node]->visitato = bianco;
-        GRAFO[node]->padre = -1;
-        GRAFO[node]->peso = INFINITO;
+        GRAPH[node].x = x;
+        GRAPH[node].y = y;
+        GRAPH[node].visitato = bianco;
+        GRAPH[node].padre = -1;
+        GRAPH[node].peso = INFINITO;
 
         adiacenza adj;
         adj.nodo = preleva_adiacenze(file,adj.peso);
         while(adj.nodo > 0){
-            GRAFO[node]->adiacente.push_back(adj);
+            GRAPH[node].adiacente.push_back(adj);
             adj.nodo = preleva_adiacenze(file,adj.peso);
         }
         node = preleva_nodo(file,x,y);
@@ -72,11 +74,11 @@ void graph_builder(ifstream &file){
  * @param file Uno stream input da dove leggere i dati del grafo
  */
 void graph_loader(GtkWidget* widget,ifstream &file){
-    if(GRAFO != 0) delete[] GRAFO;
+    if(GRAPH != 0) delete[] GRAPH;
     int grandezza;
     //Preleva dal file la grandezza, crea con questa un grafo grande "grandezza + 1"
     // ....... inserire il codice qui
-    GRAFO = new nodo[grandezza + 1];
+    GRAPH = new nodo[grandezza + 1];
     //scrivi la grandezza nella posizione 0, in x e y. Poni peso = 0
     // ..... inserire il codice qui
     graph_builder(file);

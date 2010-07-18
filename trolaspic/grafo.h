@@ -16,7 +16,6 @@ using namespace std;
  * e precisamente nelle variabili x e y. peso viene posto a zero e la lista di adiacenza
  * non contiene nessun elemento.
  */
-nodo* GRAFO;
 
 void graph_loader(GtkWidget* widget,ifstream &file);
 

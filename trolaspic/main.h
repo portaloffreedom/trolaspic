@@ -172,6 +172,7 @@ struct nodo {
      */
     list<adiacenza> adiacente;
 };
+
 #endif
 
 #endif	/* MAIN_H */
