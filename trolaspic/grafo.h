@@ -7,11 +7,7 @@
 
 #ifndef GRAFO_H
 #define	GRAFO_H
-struct adj_node {
-  int node;
-  float weight;
-  struct adj_node* next;
-};
+
 
 #endif	/* GRAFO_H */
 

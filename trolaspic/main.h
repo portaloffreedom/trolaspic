@@ -8,6 +8,8 @@
 #ifndef MAIN_H
 #define	MAIN_H
 #include <gtk/gtk.h>
+#include <list>
+using namespace std;
 
 #ifdef DEBUG
     #define DBG(A) A;
@@ -45,10 +47,11 @@ struct passaggio_t {
 enum t_incrocio {
     rotatoria,          //r
     incrocio_normale,   //n
-    incrocio_semafori   //s
+    incrocio_semafori,  //s
+    strada              //
 };
 
-
+#ifdef DEBUG_MATTEO
 //referenza per il la vera dichiarazione sotto
 struct archi;
 struct nodo;
@@ -109,7 +112,64 @@ struct lista_archi {
     double rotazione;
 };
 
+#elif DEBUG_ROB
+//Nuovo metodo per la creazione dei nodi
+enum colour_t {bianco,grigio,nero};
 
+/** Struct che rappresenta gli archi fra un nodo e l'altro
+ */
+struct adiacenza{
+    /** L'indice del nodo nel grafo
+     * \n Questo indice viene usato per prelevare il nodo dal grafo
+     * \n e non dalla lista.
+     */
+    int nodo;
+
+    /** Il peso dell'arco fra il nodo chiamante e il nodo indicato.
+     */
+    float peso;
+
+    /** Il prossimo nodo adiacente. NULL se non ci sono altri nodi.
+     */
+    list<adiacenza> adiacente;
+};
+
+/** Struct per la rappresetnazione dei nodi di cui e' composto il grafo
+ */
+struct nodo {
+    /** Coordinata orizzontale del nodo sulla mappa
+     */
+    int x;
+    /** Coordinata Verticale del nodo sulla mappa
+     */
+    int y;
+
+    /** Colore da impostare secondo l-algoritmo dijkstra.
+     * \n Bianco se il nodo non e' mai stato visitato
+     * \n Grigio se il nodo e' stato visitato ma i suoi archi non sono stati tutti rilassati
+     * \n Nero se il nodo e' stato visitato e ha gli archi tutti rilassati
+     */
+    colour_t visitato;
+
+    /** Tipo di incrocio che rappreenta questo nodo.
+     * \n Rotatoria
+     * \n Incrocio senza semaforo
+     * \n Incrocio con semaforo
+     * \n semplice strada (utile se rappresentiamo una strada come l'unione di tanti nodi)
+     */
+    t_incrocio tipo;
+
+    /** Quanto pesa passare da questo nodo.
+     * \n Questo peso e' usato da Dijkstra e non ha niente a che fare
+     * \n con la distanza delle strade
+     */
+    float peso;
+
+    /** Tutti i nodi che e' possibile raggiungere da questo
+     */
+    list<adiacenza> adiacente;
+};
+#endif
 
 #endif	/* MAIN_H */
 

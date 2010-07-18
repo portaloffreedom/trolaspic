@@ -39,6 +39,7 @@ using namespace std;
 //4      insert u at the beginning of S
 //5      u := previous[u]
  *  */
+
 #ifdef DEBUG_ROB
 #define MAXINT (int)(pow(2,31)-1)
 #define MAX 100
