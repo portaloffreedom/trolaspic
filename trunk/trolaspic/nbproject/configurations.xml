@@ -9,9 +9,7 @@
       <itemPath>g_callback.h</itemPath>
       <itemPath>gestione_drawing_area.h</itemPath>
       <itemPath>grafo.h</itemPath>
-      <itemPath>heap.h</itemPath>
       <itemPath>main.h</itemPath>
-      <itemPath>priority_queue.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -26,10 +24,8 @@
       <itemPath>g_callback.cpp</itemPath>
       <itemPath>gestione_drawing_area.cpp</itemPath>
       <itemPath>grafo.cpp</itemPath>
-      <itemPath>heap.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
       <itemPath>pathfinder.cpp</itemPath>
-      <itemPath>priority_queue.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"

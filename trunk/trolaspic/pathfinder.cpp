@@ -40,6 +40,7 @@ using namespace std;
 //5      u := previous[u]
  *  */
 
+extern nodo* GRAPH;
 #ifdef DEBUG_ROB
 
 /**
@@ -53,8 +54,7 @@ int dijkstra(const int start,const int fine)
   priority_queue<pair<float,int> > queue; // Crea una coda di paia nodo/peso
   pair <float,int> nodotmp;   //crea una variabile temporanea di tipo nodo/peso.
                             //accessibili con nodotmp.first e nodotmp.second
-  int indexnode, j, temp; //contatori??
-  float temppeso;
+  int indexnode;
 //  /* Questo for e' inutile visto che tutto viene fatto quando e' inizializzato il grafo*/
 //  for (int i=1; i<=total; i++) {
 //    distances[i] = MAXINT;
@@ -62,12 +62,12 @@ int dijkstra(const int start,const int fine)
 //    visit[i] = false;
 //  }                             // DEPRECATED
 
-  GRAFO[start]->peso = 0;
+  GRAPH[start].peso = 0;
 
   /* Inserisco nella coda il nodo di inizio e il suo peso*/
-  queue.push(pair <float,int> (GRAFO[start]->peso/* il peso del nodo*/, start /* il nodo da cui partire*/));
+  queue.push(pair <float,int> (GRAPH[start].peso/* il peso del nodo*/, start /* il nodo da cui partire*/));
 
-  adiacenza* templist;
+  adiacenza templist;
   /* Finche' la coda e' piena processo tutti i nodi adiacenti a questo*/
   while(!queue.empty())
   {
@@ -76,24 +76,23 @@ int dijkstra(const int start,const int fine)
 
     if(indexnode == fine) return fine;
     indexnode = nodotmp.second; //l'indice del nodo
-    if (!(GRAFO[indexnode]->visitato == bianco))
+    if (!(GRAPH[indexnode].visitato == bianco))
     {    //se il nodo non e' stato visitato
-      GRAFO[indexnode]->visitato = nero;  //marcalo come visitato
-      templist = GRAFO[indexnode]->adiacente.begin();
-      for (j = 0; j<GRAFO[indexnode]->adiacente.size(); j++)
+      GRAPH[indexnode].visitato = nero;  //marcalo come visitato
+      templist = GRAPH[indexnode].adiacente.front();
+      GRAPH[indexnode].adiacente.pop_front();
+      for (int j = 0; j<GRAPH[indexnode].adiacente.size(); j++)
       {    //per ogni vicino che non e' stato visitato inseriscilo nella coda
           // Salvo il nodo e il peso
-          temp = (templist + j)->nodo;
-          temppeso = (templist + j)->peso;
-
-          if        (!( GRAFO[temp]->visitato == bianco)
-                        && temppeso > 0
-                        && GRAFO[indexnode]->peso + temppeso < GRAFO[temp]->peso)
+          if        (!( GRAPH[templist.nodo].visitato == bianco)
+                        && (templist.peso > 0)
+                        && GRAPH[indexnode].peso + templist.peso < GRAPH[templist.nodo].peso)
           {
-            GRAFO[temp]->peso = GRAFO[indexnode]->peso + temppeso; // Aggiorna il peso del nodo
-            GRAFO[temp]->padre = indexnode;    // aggiorna il padre del nodo
-            queue.push(pair <float,int>(-GRAFO[temp]->peso, temp)); //aggiungilo alla coda
+            GRAPH[templist.nodo].peso = GRAPH[indexnode].peso + templist.peso; // Aggiorna il peso del nodo
+            GRAPH[templist.nodo].padre = indexnode;    // aggiorna il padre del nodo
+            queue.push(pair <float,int>(-GRAPH[templist.nodo].peso, templist.nodo)); //aggiungilo alla coda
           }
+          GRAPH[indexnode].adiacente.push_back(templist);
       }
 
     }
@@ -107,9 +106,9 @@ int dijkstra(const int start,const int fine)
 // da poter ricaricare il grafo e tenere quindi i nodi trovati.
 void getPath(int end) {
   cout << end << " "; // DEPRECATED
-  while (GRAFO[end]->padre > -1) { //quando trovi il nodo senza padre hai trovato l'inizio
-    cout << GRAFO[end]->padre << " "; // DEPRECATED (solo debug serve)
-    end = GRAFO[end]->padre; // end adesso e' il padre del vecchio end (cioe' del nodo precedente)
+  while (GRAPH[end].padre > -1) { //quando trovi il nodo senza padre hai trovato l'inizio
+    cout << GRAPH[end].padre << " "; // DEPRECATED (solo debug serve)
+    end = GRAPH[end].padre; // end adesso e' il padre del vecchio end (cioe' del nodo precedente)
   }
   cout << endl; // DEPRECATED (solo per debug serve)
 }
