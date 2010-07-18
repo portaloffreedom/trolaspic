@@ -114,36 +114,4 @@ void getPath(int end) {
   cout << endl; // DEPRECATED (solo per debug serve)
 }
 
-/*
-int main()
-{
-   int a, b, c;
-   int tedges;
-   memset(graph, 0, sizeof(graph));
-   cin >> total >> tedges;
-   for (int i=0; i<tedges; i++) {
-     cin >> a >> b >> c;
-     graph[a][b] = c;
-   }
-   for(int i=1; i<=total; i++) {
-      for(int j=1; j<=total; j++)
-         printf("%d ", graph[i][j]);
-      printf("\n");
-   }
-   dijkstra(1);
-   getPath(3);
-
-//   for (int i=1; i<=total; i++) {
-//     dijkstra(i);
-//     for(int i=1; i<=total; i++)
-//        cout << distances[i] << " ";
-//     cout << endl;
-//     for(int i=1; i<=total; i++)
-//        cout << father[i] << " ";
-//     cout << endl;
-//     getPath(5);
-//   }
-   return 0;
-}*/
-
 #endif

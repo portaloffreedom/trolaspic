@@ -23,7 +23,7 @@ using namespace std;
     #define PERCORSO "./NetBeansProjects/trolaspic_code/trunk/trolaspic"
 #endif
 
-#define VERSION "0.0.19a"
+#define VERSION "0.0.20a"
 
 
 struct passaggio_t {
