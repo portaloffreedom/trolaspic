@@ -43,13 +43,20 @@ using namespace std;
 extern nodo* GRAPH;
 #ifdef DEBUG_ROB
 
+float leggi_peso_km(arco arco){
+    return arco.kilometri;
+};
+
+float leggi_peso_tempo(arco arco){
+    return arco.secondi;
+};
 /**
  * @function Algoritmo Dijkstra modificato per trovare la strada minima fra
  * due punti di un grafo orientato.
  * @param start : Nodo da cui vogliamo iniziare la ricerca
  * @param fine : Nodo a cui vogliamo arrivare partendo da Start.
  */
-int dijkstra(const int start,const int fine,float leggi_peso_arco(arco))
+int dijkstra(const int start,const int fine,float leggi_peso_arco(arco arco))
 {
   priority_queue<pair<float,int> > queue; // Crea una coda di paia nodo/peso
   pair <float,int> nodotmp;   //crea una variabile temporanea di tipo nodo/peso.
@@ -85,10 +92,11 @@ int dijkstra(const int start,const int fine,float leggi_peso_arco(arco))
       {    //per ogni vicino che non e' stato visitato inseriscilo nella coda
           // Salvo il nodo e il peso
           if        (!( GRAPH[templist.nodo].visitato == nero)
-                        && (templist.peso > 0)
-                        && GRAPH[indexnode].peso + templist.peso < GRAPH[templist.nodo].peso)
+                        && (leggi_peso_arco(templist) > 0)
+                        && GRAPH[indexnode].peso + leggi_peso_arco(templist) < GRAPH[templist.nodo].peso)
           {
-            GRAPH[templist.nodo].peso = GRAPH[indexnode].peso + templist.peso; // Aggiorna il peso del nodo
+            GRAPH[templist.nodo].visitato = grigio;
+            GRAPH[templist.nodo].peso = GRAPH[indexnode].peso + leggi_peso_arco(templist); // Aggiorna il peso del nodo
             GRAPH[templist.nodo].padre = indexnode;    // aggiorna il padre del nodo
             queue.push(pair <float,int>(-GRAPH[templist.nodo].peso, templist.nodo)); //aggiungilo alla coda
           }
