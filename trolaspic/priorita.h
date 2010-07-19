@@ -7,10 +7,10 @@
 
 #ifndef PRIORITA_H
 #define	PRIORITA_H
-
+typedef int nome_nodo;
 struct elem_priorita {
-    int nodo;
-    float peso;
+    nome_nodo nodo;
+    double peso;
 };
 typedef elem_priorita* coda_priorita;
 
@@ -35,7 +35,7 @@ elem_priorita estrai_minimo(coda_priorita &coda);
  * @param peso : peso
  * @param nome_nodo :
  */
-void inserisci(coda_priorita &coda, int nome_nodo, float peso);
+void inserisci(coda_priorita &coda, int nome_nodo, double peso);
 /** Abbassa la priorità (verrà estratta prima) dell'elemento "nome_nodo" riassegnandogli
  * la chiave "nuovo_peso"
  *
@@ -44,7 +44,7 @@ void inserisci(coda_priorita &coda, int nome_nodo, float peso);
  * @param nuovo_peso che si vuole cambiare (deve essere per forza più basso del primo)
  * @return true-> operazione conclusa con successo / false-> operazione fallita
  */
-bool cambia_chiave(coda_priorita &coda, int nome_nodo, float nuovo_peso);
+bool cambia_chiave(coda_priorita coda, nome_nodo quale_nodo, double nuovo_peso);
 
 
 #endif	/* PRIORITA_H */
