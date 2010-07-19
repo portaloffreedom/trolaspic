@@ -49,7 +49,7 @@ extern nodo* GRAPH;
  * @param start : Nodo da cui vogliamo iniziare la ricerca
  * @param fine : Nodo a cui vogliamo arrivare partendo da Start.
  */
-int dijkstra(const int start,const int fine)
+int dijkstra(const int start,const int fine,float leggi_peso_arco(arco))
 {
   priority_queue<pair<float,int> > queue; // Crea una coda di paia nodo/peso
   pair <float,int> nodotmp;   //crea una variabile temporanea di tipo nodo/peso.
@@ -76,15 +76,15 @@ int dijkstra(const int start,const int fine)
 
     if(indexnode == fine) return fine;
     indexnode = nodotmp.second; //l'indice del nodo
-    if (!(GRAPH[indexnode].visitato == bianco))
-    {    //se il nodo non e' stato visitato
+    if (!(GRAPH[indexnode].visitato == nero))
+    {    //se il nodo non e' stato visitato mai
       GRAPH[indexnode].visitato = nero;  //marcalo come visitato
       templist = GRAPH[indexnode].adiacente.front();
       GRAPH[indexnode].adiacente.pop_front();
       for (int j = 0; j<GRAPH[indexnode].adiacente.size(); j++)
       {    //per ogni vicino che non e' stato visitato inseriscilo nella coda
           // Salvo il nodo e il peso
-          if        (!( GRAPH[templist.nodo].visitato == bianco)
+          if        (!( GRAPH[templist.nodo].visitato == nero)
                         && (templist.peso > 0)
                         && GRAPH[indexnode].peso + templist.peso < GRAPH[templist.nodo].peso)
           {

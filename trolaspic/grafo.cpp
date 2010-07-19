@@ -293,7 +293,9 @@ const float INFINITO = numeric_limits<float>::max();
  * @param y riferimento dove scrivere la coordinata y del nodo
  * @return Restituisce -1 se non c'e' altro da prelevare, altrimenti da l'indice del nodo
  */
-int preleva_nodo(ifstream &file,int &x,int &y);
+int preleva_nodo(ifstream &file,int &x,int &y){
+
+};
 
 /**
  * @function preleva_adiacenze viene usato per prendere le adiacenze di un nodo.

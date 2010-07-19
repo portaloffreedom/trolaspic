@@ -56,9 +56,9 @@ void response_carica (passaggio_t *window)
             //******************************************************************
             //*** CARICAMENTO DEI NODI DELLA MAPPA (.MAP) **********************
             //******************************************************************
-
+#ifdef DEBUG_MATTEO
             carica_mappa(filename);
-
+#endif
             //******************************************************************
 
             gtk_statusbar_push( GTK_STATUSBAR(window->statusbar), window->statusbar_id, "mappa aperta con successo" );

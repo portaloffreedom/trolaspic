@@ -139,7 +139,7 @@ struct nodo {
      */
     int y;
 
-    /** Colore da impostare secondo làalgoritmo dijkstra.
+    /** Colore da impostare secondo l'algoritmo dijkstra.
      * \n Bianco se il nodo non e' mai stato visitato
      * \n Grigio se il nodo e' stato visitato ma i suoi archi non sono stati tutti rilassati
      * \n Nero se il nodo e' stato visitato e ha gli archi tutti rilassati
