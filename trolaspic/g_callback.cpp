@@ -3,66 +3,10 @@
 #include <fstream>
 #include "main.h"
 #include "creazione_interfaccia.h"
+#include "grafo.h"
 using namespace std;
 
-int leggi_prox_int(ifstream &source){
-    int numero;
-    char carattere;
-    while (true)
-    {
-        source>>carattere;
-        if (carattere=='#'){
-            while (carattere!='\n')
-                source>>carattere;
-            continue;
-        }
-        int posizione = source.tellg();
-        source.seekg(--posizione);
-        source>>numero;
-        break;
-    }
 
-    return  numero;
-}
-char leggi_prox_char(ifstream &source);
-char *leggi_prox_stringa(ifstream &source);
-
-void carica_mappa(const char *filename)
-{
-    
-    int i;
-    for (i=0; filename[i]!='\0';i++) {
-        //DBG(cout<<':'<<i<<'_'<<filename[i]<<endl)
-    }
-    DBG(cout<<endl)
-    /*for (; filename[i]!='.'; i--){
-        DBG(cout<<':'<<i<<'_'<<filename[i]<<endl)
-    }*/
-
-    char *filename_map= new char[i];
-    filename_map[i--]='\0';
-    filename_map[i--]='p';
-    filename_map[i--]='a';
-    filename_map[i--]='m';
-    //filename_map[--i]='m';
-    for (; i>=0;i--){
-        filename_map[i]=filename[i];
-    }
-    DBG(cout<<filename<<endl);
-    DBG(cout<<filename_map<<endl);
-    
-
-
-    ifstream mappa (filename_map);
-    if (!mappa)
-        cerr<<"File "<<filename_map<<" non aperto correttamente\n";
-
-    int numero_nodi = leggi_prox_int(mappa);
-
-
-    delete[] filename_map;
-    mappa.close();
-}
 
 
 gboolean delete_event_window(GtkWidget* window, GdkEvent* evento,GtkWidget* dialogo)
