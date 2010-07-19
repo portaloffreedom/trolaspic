@@ -9,7 +9,7 @@
 #define	PRIORITA_H
 
 struct elem_priorita {
-    int posizione;
+    int nodo;
     float peso;
 };
 typedef elem_priorita* coda_priorita;
