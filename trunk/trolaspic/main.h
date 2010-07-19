@@ -44,14 +44,9 @@ struct passaggio_t {
 //#define calcola_i    elem3
 //#define image        elem4
 
-enum t_incrocio {
-    rotatoria,          //r
-    incrocio_normale,   //n
-    incrocio_semafori,  //s
-    strada              //
-};
 
-#ifdef DEBUG_MATTEO
+
+#ifdef DEBUG_mMATTEO
 //referenza per il la vera dichiarazione sotto
 struct archi;
 struct nodo;

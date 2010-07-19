@@ -33,11 +33,9 @@ OBJECTDIR=build/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/priority_queue.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/pathfinder.o \
 	${OBJECTDIR}/gestione_drawing_area.o \
-	${OBJECTDIR}/heap.o \
 	${OBJECTDIR}/creazione_interfaccia.o \
 	${OBJECTDIR}/grafo.o \
 	${OBJECTDIR}/g_callback.o
@@ -67,11 +65,6 @@ dist/Debug/GNU-Linux-x86/trolaspic: ${OBJECTFILES}
 	${MKDIR} -p dist/Debug/GNU-Linux-x86
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/trolaspic ${OBJECTFILES} ${LDLIBSOPTIONS} 
 
-${OBJECTDIR}/priority_queue.o: priority_queue.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} $@.d
-	$(COMPILE.cc) -g -DDEBUG -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/gio-unix-2.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/directfb -I/usr/include/libpng12 -MMD -MP -MF $@.d -o ${OBJECTDIR}/priority_queue.o priority_queue.cpp
-
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
@@ -86,11 +79,6 @@ ${OBJECTDIR}/gestione_drawing_area.o: gestione_drawing_area.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -g -DDEBUG -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/gio-unix-2.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/directfb -I/usr/include/libpng12 -MMD -MP -MF $@.d -o ${OBJECTDIR}/gestione_drawing_area.o gestione_drawing_area.cpp
-
-${OBJECTDIR}/heap.o: heap.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} $@.d
-	$(COMPILE.cc) -g -DDEBUG -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/gio-unix-2.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/directfb -I/usr/include/libpng12 -MMD -MP -MF $@.d -o ${OBJECTDIR}/heap.o heap.cpp
 
 ${OBJECTDIR}/creazione_interfaccia.o: creazione_interfaccia.cpp 
 	${MKDIR} -p ${OBJECTDIR}
