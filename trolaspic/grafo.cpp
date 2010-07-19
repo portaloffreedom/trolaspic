@@ -282,7 +282,7 @@ void carica_mappa(const char *filename)
 
 
 
-#ifdef DEBUG_ROB
+#ifdef DEBUG_ROB0
 const float INFINITO = numeric_limits<float>::max();
 
 /**
