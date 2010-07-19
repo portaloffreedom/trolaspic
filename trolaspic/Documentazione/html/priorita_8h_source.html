@@ -49,10 +49,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00007"></a>00007 
 <a name="l00008"></a>00008 <span class="preprocessor">#ifndef PRIORITA_H</span>
 <a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define PRIORITA_H</span>
-<a name="l00010"></a>00010 <span class="preprocessor"></span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span><span class="keyword">typedef</span> <span class="keywordtype">int</span> nome_nodo;
 <a name="l00011"></a><a class="code" href="structelem__priorita.html">00011</a> <span class="keyword">struct </span><a class="code" href="structelem__priorita.html">elem_priorita</a> {
-<a name="l00012"></a>00012     <span class="keywordtype">int</span> <a class="code" href="structnodo.html">nodo</a>;
-<a name="l00013"></a>00013     <span class="keywordtype">float</span> peso;
+<a name="l00012"></a>00012     nome_nodo <a class="code" href="structnodo.html">nodo</a>;
+<a name="l00013"></a>00013     <span class="keywordtype">double</span> peso;
 <a name="l00014"></a>00014 };
 <a name="l00015"></a>00015 <span class="keyword">typedef</span> <a class="code" href="structelem__priorita.html">elem_priorita</a>* <a class="code" href="structelem__priorita.html">coda_priorita</a>;
 <a name="l00016"></a>00016 
@@ -60,8 +60,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00023"></a>00023 
 <a name="l00029"></a>00029 <a class="code" href="structelem__priorita.html">elem_priorita</a> estrai_minimo(<a class="code" href="structelem__priorita.html">coda_priorita</a> &amp;coda);
 <a name="l00030"></a>00030 
-<a name="l00038"></a>00038 <span class="keywordtype">void</span> inserisci(<a class="code" href="structelem__priorita.html">coda_priorita</a> &amp;coda, <span class="keywordtype">int</span> nome_nodo, <span class="keywordtype">float</span> peso);
-<a name="l00047"></a>00047 <span class="keywordtype">bool</span> cambia_chiave(<a class="code" href="structelem__priorita.html">coda_priorita</a> &amp;coda, <span class="keywordtype">int</span> nome_nodo, <span class="keywordtype">float</span> nuovo_peso);
+<a name="l00038"></a>00038 <span class="keywordtype">void</span> inserisci(<a class="code" href="structelem__priorita.html">coda_priorita</a> &amp;coda, <span class="keywordtype">int</span> nome_nodo, <span class="keywordtype">double</span> peso);
+<a name="l00047"></a>00047 <span class="keywordtype">bool</span> cambia_chiave(<a class="code" href="structelem__priorita.html">coda_priorita</a> coda, nome_nodo quale_nodo, <span class="keywordtype">double</span> nuovo_peso);
 <a name="l00048"></a>00048 
 <a name="l00049"></a>00049 
 <a name="l00050"></a>00050 <span class="preprocessor">#endif  </span><span class="comment">/* PRIORITA_H */</span>
@@ -81,7 +81,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generato il Mon Jul 19 23:21:42 2010 per Trolaspic da&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generato il Tue Jul 20 01:09:43 2010 per Trolaspic da&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>
