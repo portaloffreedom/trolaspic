@@ -1,17 +1,11 @@
 #include <iostream>
 #include "priorita.h"
+#include <limits>
 using namespace std;
 
 //Implementazione del min-heap
-#ifdef DEBUG
-void stampaheap(elem_priorita* coda){
-    for(int riga=1, i=1; i<dim_coda(coda) ;riga++){
-        for(int limite=(1<<riga);i<dim_coda(coda) && i<limite;i++)
-            cout<<coda[i].peso<<'\t'<<flush;
-        cout<<endl;
-    }
-}
-#endif
+
+const double meno_INFINITO = -(numeric_limits<double>::min());
 
 int parent(int i){
     return i/2;
@@ -42,7 +36,17 @@ void dim_coda_decrease(coda_priorita coda){
     coda[0].nodo--;
 }
 
-void min_heapify(elem_priorita* coda,int posizione){
+#ifdef DEBUG
+void stampaheap(elem_priorita* coda){
+    for(int riga=1, i=1; i<dim_coda(coda) ;riga++){
+        for(int limite=(1<<riga);i<dim_coda(coda) && i<limite;i++)
+            cout<<coda[i].peso<<'\t'<<flush;
+        cout<<endl;
+    }
+}
+#endif
+
+void min_heapifizza(elem_priorita* coda,int posizione){
     int sinistro = left (posizione);
     int destro   = right(posizione);
     int minimo   =       posizione;
@@ -51,12 +55,12 @@ void min_heapify(elem_priorita* coda,int posizione){
     if(destro   < dim_coda(coda) && coda[destro].peso   < coda[minimo].peso   ) minimo = destro;
     if(minimo == posizione) return;
     scambia(coda,posizione,minimo);
-    min_heapify(coda,minimo);
+    min_heapifizza(coda,minimo);
 }
 
 void build_min_heap(elem_priorita* coda){
     for(int i=dim_coda(coda)/2; i>0; --i)
-        min_heapify(coda,i);
+        min_heapifizza(coda,i);
 }
 
 coda_priorita inizializza_coda (int dimensioni_max){
@@ -74,13 +78,60 @@ coda_priorita inizializza_coda (int dimensioni_max){
 
 
 elem_priorita estrai_minimo(elem_priorita* coda){
+    elem_priorita minimo = coda[1];
     coda[1]= coda[dim_coda(coda)];
+    dim_coda_decrease(coda);
+    min_heapifizza(coda,1);
+    return minimo;
 }
 
-elem_priorita inserisci(elem_priorita* coda, float key, int informazione){
-    
+bool diminuisci_chiave(coda_priorita coda, int pos, double nuovo_peso){
+    if (nuovo_peso > coda[pos].peso){
+        cerr<<"errore, operazione di cambio chiave non corretta(chiave nuova"
+                " maggiore di quella vecchia)\n";
+        return false;
+    }
+    coda[pos].peso = nuovo_peso;
+    while (pos>1 && coda[parent(pos)].peso < coda[pos].peso){
+        scambia(coda, pos, parent(pos));
+        pos= parent(pos);
+    }
+    return true;
 }
 
-elem_priorita cambia_chiave(elem_priorita* &coda){
+int find (coda_priorita coda, nome_nodo nome,int i){
+    for (int i=1; i<=dim_coda(coda); i++){
+        if (coda[i].nodo = nome)
+            return i;
+    }
+    return -1;
+    //tentativo (inutile) di fare la ricerca ricorsiva
+    /*if (i < dim_coda(coda)){
+        if (coda[i].nodo = nome)
+            return nome;
+            
+        int pos_s = find(coda, nome_nodo nome, int left(i));
+        if (pos_s == -1){
+            int pos_d = find(coda, nome_nodo nome, int right(i));
+            return pos_d;
+        }
+        else return pos_s;
+        
+    }
+    else return -1;*/
+}
 
+bool cambia_chiave(coda_priorita coda, nome_nodo quale_nodo, double nuovo_peso){
+    int pos= find (coda, quale_nodo, 1);
+    if (pos==-1){
+        cerr<<"chiave da diminuire non trovata\n";
+        return false;
+    }
+    return diminuisci_chiave(coda, pos, nuovo_peso);
+}
+
+void inserisci(elem_priorita* coda, double key, nome_nodo nome){
+    dim_coda_increase(coda);
+    coda[dim_coda(coda)].peso= meno_INFINITO;
+    diminuisci_chiave(coda, dim_coda(coda), key);
 }

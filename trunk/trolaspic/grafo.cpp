@@ -44,10 +44,10 @@ int leggi_prox_int(ifstream &source){
 /** Serve per nascondere alla funzione i commenti nello stream
  *
  * @param stream sorgente da cui prelevare il carattere
- * @return il float prelevato dallo stream
+ * @return il double prelevato dallo stream
  */
-int leggi_prox_float(ifstream &source){
-    float numero;
+int leggi_prox_double(ifstream &source){
+    double numero;
     char carattere;
     while (true)
     {
@@ -204,8 +204,8 @@ void carica_mappa(const char *filename)
             
             arco arco;
             arco.nodo= direzione_strada;
-            arco.kilometri= leggi_prox_float(mappa);
-            arco.secondi  = leggi_prox_float(mappa);
+            arco.kilometri= leggi_prox_double(mappa);
+            arco.secondi  = leggi_prox_double(mappa);
 
             GRAPH[nome_incrocio].adiacente.push_back(arco);
             
@@ -283,7 +283,7 @@ void carica_mappa(const char *filename)
 
 
 #ifdef DEBUG_ROB0
-const float INFINITO = numeric_limits<float>::max();
+const double INFINITO = numeric_limits<double>::max();
 
 /**
  * @function preleva_nodo usa uno stream di input per leggere il nodo da inserire
@@ -305,7 +305,7 @@ int preleva_nodo(ifstream &file,int &x,int &y){
  * @param peso passato per riferimento, scrive il peso dell'arco
  * @return restituisce il nodo adiacente, zero altrimenti.
  */
-int preleva_adiacenze(ifstream &file,float &peso);
+int preleva_adiacenze(ifstream &file,double &peso);
 
 /**
  * @function aggiungi_adiacenza Viene usata per costruire un'adiacenza fra due nodi.
@@ -314,7 +314,7 @@ int preleva_adiacenze(ifstream &file,float &peso);
  * @param adj il nodo da aggiungere all'adiacenza del primo.
  * @param peso il peso associato all'arco
  */
-void aggiungi_adiacenza(int nod,int adj,float peso){
+void aggiungi_adiacenza(int nod,int adj,double peso){
     adiacenza* temp;
     temp = new adiacenza;
     temp->nodo = adj;
