@@ -38,6 +38,7 @@
                    displayName="Important Files"
                    projectFiles="false"
                    kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Doxyfile</itemPath>
       <itemPath>Makefile</itemPath>
       <itemPath>Mappe/modena.map</itemPath>
       <itemPath>Mappe/modena.png</itemPath>
@@ -136,7 +137,6 @@
           </incDir>
           <preprocessorList>
             <Elem>DEBUG</Elem>
-            <Elem>DEBUG_ROB</Elem>
           </preprocessorList>
         </ccTool>
         <linkerTool>
