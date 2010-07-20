@@ -51,7 +51,7 @@ int leggi_prox_int(ifstream &source){
  * @param stream sorgente da cui prelevare il carattere
  * @return il double prelevato dallo stream
  */
-int leggi_prox_double(ifstream &source){
+double leggi_prox_double(ifstream &source){
     double numero;
     char carattere;
     while (true)

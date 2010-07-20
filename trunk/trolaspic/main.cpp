@@ -25,32 +25,18 @@ int main(int argc, char** argv) {
     const int dimensioni_coda = 30;
     coda_priorita coda = inizializza_coda (dimensioni_coda);
 
-    inserisci (coda, 3.5,  5 );
-    inserisci (coda, 4.6,  6 );
-    inserisci (coda, 5.7,  5 );
-    inserisci (coda, 2.8,  5 );
-    inserisci (coda, 3.9,  5 );
-    inserisci (coda, 4.1,  1 );
-    inserisci (coda, 65.12, 12);
-    inserisci (coda, 3.13, 13);
-    inserisci (coda, 324.14, 14);
+    inserisci (coda, 0.4,  3 );
+    inserisci (coda, 2.5,  28 );
+    inserisci (coda, 1.3,  1 );
 
     stampaheap (coda);
 
     elem_priorita elemento;
-    elemento= estrai_minimo(coda);
-    cout<<"nome_nodo: "<<elemento.nodo<<" - peso: "<<elemento.peso<<endl;
-    elemento= estrai_minimo(coda);
-    cout<<"nome_nodo: "<<elemento.nodo<<" - peso: "<<elemento.peso<<endl;
-    elemento= estrai_minimo(coda);
-    cout<<"nome_nodo: "<<elemento.nodo<<" - peso: "<<elemento.peso<<endl;
-    elemento= estrai_minimo(coda);
-    cout<<"nome_nodo: "<<elemento.nodo<<" - peso: "<<elemento.peso<<endl;
-    elemento= estrai_minimo(coda);
-    cout<<"nome_nodo: "<<elemento.nodo<<" - peso: "<<elemento.peso<<endl;
-    elemento= estrai_minimo(coda);
-    cout<<"nome_nodo: "<<elemento.nodo<<" - peso: "<<elemento.peso<<endl;
-
+    for (int i=0; i<3; i++){
+        elemento= estrai_minimo(coda);
+        cout<<"nome_nodo: "<<elemento.nodo<<" - peso: "<<elemento.peso<<endl;
+    }
+    
     elimina_coda (coda);
 #endif
 
