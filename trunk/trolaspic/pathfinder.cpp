@@ -96,7 +96,7 @@ int dijkstra(const int start,const int fine,double leggi_peso_arco(arco arco))
         return fine; //altri controlli
     }
     //-------
-    if (GRAPH[indexnode].visitato != nero)
+    if (GRAPH[indexnode].visitato == grigio)
     {    //se il nodo non e' stato visitato mai
       GRAPH[indexnode].visitato = nero;  //marcalo come visitato
 

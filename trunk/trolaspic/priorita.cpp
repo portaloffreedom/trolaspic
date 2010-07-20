@@ -84,7 +84,8 @@ elem_priorita estrai_minimo(coda_priorita coda){
     minimo.nodo = 0;
     minimo.peso = 0;
     if(coda[0].nodo == 0) return minimo;
-    minimo = coda[1];
+    minimo.nodo = coda[1].nodo;
+    minimo.peso = coda[1].peso;
     coda[1]= coda[dim_coda(coda)];
     dim_coda_decrease(coda);
     min_heapifizza(coda,1);
@@ -138,7 +139,8 @@ bool cambia_chiave(coda_priorita coda, nome_nodo quale_nodo, double nuovo_peso){
 
 void inserisci(elem_priorita* coda, double key, nome_nodo nome){
     dim_coda_increase(coda);
-    coda[dim_coda(coda)].peso= INFINITO;
+    coda[dim_coda(coda)].peso = INFINITO;
+    coda[dim_coda(coda)].nodo = nome;
     coda[dim_coda(coda)].nodo= nome;
     diminuisci_chiave(coda, dim_coda(coda), key);
 }
