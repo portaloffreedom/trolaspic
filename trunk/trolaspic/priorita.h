@@ -26,7 +26,7 @@ coda_priorita inizializza_coda (int dimensioni_max);
  * @param coda : la coda ritornata dall'inizializza_coda
  * @return l'elemento estratto
  */
-elem_priorita estrai_minimo(coda_priorita &coda);
+elem_priorita estrai_minimo(coda_priorita coda);
 
 /** Inserisce un elemento nella coda (non controlla se ci potrebbe essere overflow
  * ->causato da troppi elementi nella coda)
@@ -35,7 +35,7 @@ elem_priorita estrai_minimo(coda_priorita &coda);
  * @param peso : peso
  * @param nome_nodo :
  */
-void inserisci(coda_priorita &coda, int nome_nodo, double peso);
+void inserisci(coda_priorita coda,double peso,nome_nodo nome_nodo);
 /** Abbassa la priorità (verrà estratta prima) dell'elemento "nome_nodo" riassegnandogli
  * la chiave "nuovo_peso"
  *
@@ -46,6 +46,6 @@ void inserisci(coda_priorita &coda, int nome_nodo, double peso);
  */
 bool cambia_chiave(coda_priorita coda, nome_nodo quale_nodo, double nuovo_peso);
 
-
+bool coda_vuota(coda_priorita coda);
 #endif	/* PRIORITA_H */
 

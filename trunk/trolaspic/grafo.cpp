@@ -162,8 +162,9 @@ void carica_mappa(const char *filename)
 
     const int numero_nodi = leggi_prox_int(mappa);
     GRAPH = new nodo[numero_nodi+1];
+    GRAPH[0].x = numero_nodi;
 
-     for (int i=0; i<=12; i++){
+     for (int i=1; i<=numero_nodi; i++){
         //Lettura del numero dell'incrocio
         int nome_incrocio= leggi_prox_int(mappa);
         //Lettura delle coordinate del nodo
@@ -183,7 +184,7 @@ void carica_mappa(const char *filename)
                 tipo_incrocio= rotatoria;
                 break;
             default:
-                cerr<<"\nErrore nella lettura del tipo di icrocio numero "<<nome_incrocio<<
+                cerr<<"\nErrore nella lettura del tipo di incrocio numero "<<nome_incrocio<<
                         "\nIncrocio settato come normale.\n";
             case 'n':
                 tipo_incrocio= incrocio_normale;
@@ -273,7 +274,9 @@ void carica_mappa(const char *filename)
     mappa.close();
 }
 
-
+int dim_grafo(void){
+    return GRAPH[0].x;
+}
 
 
 
