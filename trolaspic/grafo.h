@@ -30,8 +30,8 @@ struct adiacenza{
     int nodo;
 
     /** Il peso dell'arco fra il nodo chiamante e il nodo indicato.*/
-    float kilometri;
-    float secondi;
+    double kilometri;
+    double secondi;
     
 };
 typedef adiacenza arco;
@@ -71,7 +71,7 @@ struct nodo {
      * \n Questo peso e' usato da Dijkstra e non ha niente a che fare
      * \n con la distanza delle strade
      */
-    float peso;
+    double peso;
 
     /** Questo parametro serve a ricostruire il tragitto dopo aver usato dijkstra*/
     int padre;

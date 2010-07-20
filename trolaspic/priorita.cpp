@@ -1,6 +1,7 @@
 #include <iostream>
 #include "priorita.h"
 #include <limits>
+#include <cstring>
 using namespace std;
 
 //Implementazione del min-heap
@@ -33,6 +34,7 @@ void dim_coda_increase(coda_priorita coda){
     coda[0].nodo++;
 }
 void dim_coda_decrease(coda_priorita coda){
+    if(coda[0].nodo == 0) return;
     coda[0].nodo--;
 }
 
@@ -66,6 +68,7 @@ void build_min_heap(elem_priorita* coda){
 coda_priorita inizializza_coda (int dimensioni_max){
     dimensioni_max++;
     coda_priorita coda= new elem_priorita[dimensioni_max];
+    memset(coda,NULL,dimensioni_max);
     dim_coda_set(coda,0); //setta le dimensioni della coda
     return coda;
 }
@@ -76,8 +79,12 @@ void elimina_coda (coda_priorita coda){
 };
 
 
-elem_priorita estrai_minimo(elem_priorita* coda){
-    elem_priorita minimo = coda[1];
+elem_priorita estrai_minimo(coda_priorita coda){
+    elem_priorita minimo;
+    minimo.nodo = 0;
+    minimo.peso = 0;
+    if(coda[0].nodo == 0) return minimo;
+    minimo = coda[1];
     coda[1]= coda[dim_coda(coda)];
     dim_coda_decrease(coda);
     min_heapifizza(coda,1);
