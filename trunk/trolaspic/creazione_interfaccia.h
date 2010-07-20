@@ -10,7 +10,11 @@
 
 #include <gtk/gtk.h>
 #include "main.h"
-
+/** Crea la finestra principale con tutti gli oggetti
+ *
+ * @return una struttura contenente tutti i puntatoti ai GtkWidget da utlizzare
+ * nel main (per collegare i segnali giusti).
+ */
 passaggio_t *crea_finestra_principale ();
 
 /** Finestra di diaologo
@@ -28,7 +32,22 @@ passaggio_t *crea_finestra_principale ();
  */
 GtkWidget *crea_finestra_dialogo (GtkWidget* window, const gchar *testo);
 
+/** Crea la finestra di dialogo contenente le info del programma
+ *
+ * @param GtkWidget* window: finestra da cui dipende
+ * @param const gchar *testo: testo da mettere nell'info
+ * @return Il Widget del dialogo
+ */
 GtkWidget *crea_finestra_info (GtkWidget* window, const gchar* testo);
+
+/** Crea la finestra di dialogo per far partire la ricerca
+ * \n da completare
+ *
+ * @param window 
+ * @param limite_nodi
+ * @return alcuni passaggi XD
+ */
+passaggio_t *crea_finestra_richiesta_percorso (GtkWidget* window, int limite_nodi);
 
 #endif	/* CREAZIONE_INTERFACCIA_H */
 

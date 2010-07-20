@@ -14,6 +14,10 @@ nodo* GRAPH = 0;
 const int MAX_LUNGH_STRINGA= 30;
 const int MAX_SALTO= 500;
 
+int dim_grafo(void){
+    return GRAPH[0].x;
+}
+
 /** Serve per nascondere alla funzione i commenti nello stream
  *
  * @param stream sorgente da cui prelevare il carattere
@@ -124,7 +128,7 @@ char *leggi_prox_stringa(ifstream &source){
  *
  * @param nome del file (trasforma da solo in .map)
  */
-void carica_mappa(const char *filename)
+int carica_mappa(const char *filename)
 {
 
     int i;
@@ -153,7 +157,7 @@ void carica_mappa(const char *filename)
     ifstream mappa (filename_map);
     if (!mappa) {
         cerr<<"File "<<filename_map<<" non aperto correttamente\n";
-        return;
+        return 0;
     }
     
     //Distruggi l'array dei nodi precendente
@@ -162,7 +166,8 @@ void carica_mappa(const char *filename)
 
     const int numero_nodi = leggi_prox_int(mappa);
     GRAPH = new nodo[numero_nodi+1];
-    GRAPH[0].x = numero_nodi;
+    GRAPH[0].x = numero_nodi; //imposta le dimensioni del grafo.
+                              //leggibile con la funzione "void dim_grafo(void)"
 
      for (int i=1; i<=numero_nodi; i++){
         //Lettura del numero dell'incrocio
@@ -272,98 +277,5 @@ void carica_mappa(const char *filename)
 
     delete[] filename_map;
     mappa.close();
+    return numero_nodi;
 }
-
-int dim_grafo(void){
-    return GRAPH[0].x;
-}
-
-
-
-
-
-
-
-
-#ifdef DEBUG_ROB0
-const double INFINITO = numeric_limits<double>::max();
-
-/**
- * @function preleva_nodo usa uno stream di input per leggere il nodo da inserire
- * nel grafo
- * @param file lo stream input da dove leggere le proprieta' del nodo
- * @param x riferimento dove scrivere la coordinata x del nodo
- * @param y riferimento dove scrivere la coordinata y del nodo
- * @return Restituisce -1 se non c'e' altro da prelevare, altrimenti da l'indice del nodo
- */
-int preleva_nodo(ifstream &file,int &x,int &y){
-
-};
-
-/**
- * @function preleva_adiacenze viene usato per prendere le adiacenze di un nodo.
- * preleva sia le adiacenze che il loro peso relativo. In sostanza, prende tutti
- * i dati che servono per creare l'arco
- * @param file stream di input da dove leggere i dati.
- * @param peso passato per riferimento, scrive il peso dell'arco
- * @return restituisce il nodo adiacente, zero altrimenti.
- */
-int preleva_adiacenze(ifstream &file,double &peso);
-
-/**
- * @function aggiungi_adiacenza Viene usata per costruire un'adiacenza fra due nodi.
- * costruisce nella pratica un grafo orientato.
- * @param nod il nodo a cui dobbiamo aggiungere l'adiacenza
- * @param adj il nodo da aggiungere all'adiacenza del primo.
- * @param peso il peso associato all'arco
- */
-void aggiungi_adiacenza(int nod,int adj,double peso){
-    adiacenza* temp;
-    temp = new adiacenza;
-    temp->nodo = adj;
-    temp->peso = peso;
-    GRAPH[nod].adiacente.push_back(*temp);
-};
-
-/**
- * @function graph_builder Termina la costruzione del grafo inserendo tutti i
- * colori dei nodi come bianchi.
- */
-void graph_builder(ifstream &file){
-    int x = 0;
-    int y = 0;
-    int node = preleva_nodo(file,x,y);
-    while(node > 0){
-        GRAPH[node].x = x;
-        GRAPH[node].y = y;
-        GRAPH[node].visitato = bianco;
-        GRAPH[node].padre = -1;
-        GRAPH[node].peso = INFINITO;
-
-        adiacenza adj;
-        adj.nodo = preleva_adiacenze(file,adj.peso);
-        while(adj.nodo > 0){
-            GRAPH[node].adiacente.push_back(adj);
-            adj.nodo = preleva_adiacenze(file,adj.peso);
-        }
-        node = preleva_nodo(file,x,y);
-    }
-};
-
-
-/**
- * @function graph_loader Carica il grafo da file e lo costruisce per essere usato con dijkstra
- * @param widget Usato per le GTK
- * @param file Uno stream input da dove leggere i dati del grafo
- */
-void graph_loader(GtkWidget* widget,ifstream &file){
-    if(GRAPH != 0) delete[] GRAPH;
-    int grandezza;
-    //Preleva dal file la grandezza, crea con questa un grafo grande "grandezza + 1"
-    // ....... inserire il codice qui
-    GRAPH = new nodo[grandezza + 1];
-    //scrivi la grandezza nella posizione 0, in x e y. Poni peso = 0
-    // ..... inserire il codice qui
-    graph_builder(file);
-};
-#endif

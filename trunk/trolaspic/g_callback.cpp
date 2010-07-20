@@ -56,9 +56,7 @@ void response_carica (passaggio_t *window)
             //******************************************************************
             //*** CARICAMENTO DEI NODI DELLA MAPPA (.MAP) **********************
             //******************************************************************
-#ifdef DEBUG_MATTEO
-            carica_mappa(filename);
-#endif
+            window->massimo_numero_nodi = carica_mappa(filename);
             //******************************************************************
 
             gtk_statusbar_push( GTK_STATUSBAR(window->statusbar), window->statusbar_id, "mappa aperta con successo" );
@@ -76,8 +74,7 @@ gboolean delete_event(GtkWidget* oggetto)
     return TRUE;
 }
 
-void mostra_info (GtkWidget* finestra)
-{
+void mostra_info (GtkWidget* finestra){
     const gchar testo[]=
                     "Trovami la strada più corta\n"
                     "\n"
@@ -96,5 +93,22 @@ void mostra_info (GtkWidget* finestra)
 
     gtk_dialog_run (GTK_DIALOG (info));
     gtk_widget_destroy(info);
+    return;
+}
+
+void response_calcola (passaggio_t *window){
+    passaggio_t *dialogo = crea_finestra_richiesta_percorso (window->finestra, window->massimo_numero_nodi);
+
+    switch (gtk_dialog_run (GTK_DIALOG (dialogo->finestra))) {
+
+        case GTK_RESPONSE_ACCEPT: {
+            gint culo_partenza = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON(dialogo->info_i/*partenza_t*/ ));
+            gint culo_arrivo = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON(dialogo->esci_i/*arrivo_t*/ ));
+            DBG(cout<<"partenza: "<<culo_partenza<<endl)
+            DBG(cout<<"arrivo:   "<<culo_arrivo  <<endl)
+        }
+        default:
+            gtk_widget_destroy (dialogo->finestra);
+    }
     return;
 }

@@ -154,3 +154,74 @@ GtkWidget *crea_finestra_info (GtkWidget* window, const gchar* testo){
 
     return info;
 }
+
+passaggio_t *crea_finestra_richiesta_percorso (GtkWidget* window, int limite_nodi){
+        GtkWidget *dialogo= gtk_dialog_new_with_buttons ("Percorso", GTK_WINDOW(window),
+                GTK_DIALOG_MODAL,
+                    GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT,GTK_STOCK_OK, GTK_RESPONSE_ACCEPT, NULL);
+
+    GtkWidget *content_area= gtk_dialog_get_content_area(GTK_DIALOG(dialogo));
+
+
+    GtkWidget *scatola_dialogo_v = gtk_vbox_new(FALSE,0);
+    gtk_container_add(GTK_CONTAINER(content_area), scatola_dialogo_v);
+
+    GtkWidget *titolo= gtk_label_new("Quale Percorso vuoi fare?");
+    gtk_box_pack_start (GTK_BOX(scatola_dialogo_v), titolo, TRUE, TRUE, 0);
+
+    //creazione scatola per richiesta partenza
+    GtkWidget *scatola_partenza = gtk_hbox_new(FALSE,11);
+    gtk_box_pack_start (GTK_BOX(scatola_dialogo_v), scatola_partenza, TRUE, TRUE, 0);
+
+    GtkWidget *label_partenza= gtk_label_new("Partenza");
+    gtk_box_pack_start (GTK_BOX(scatola_partenza), label_partenza, FALSE, FALSE, 0);
+
+    GtkObject *partenza_spin_adjustament = gtk_adjustment_new(
+                                                1, //gdouble value,
+                                                1, //gdouble lower,
+                                                static_cast<gdouble>(limite_nodi),
+                                                1,
+                                                5,
+                                                NULL );
+    GtkWidget *partenza_SpinButton = gtk_spin_button_new( GTK_ADJUSTMENT(partenza_spin_adjustament), 0,0 );
+    gtk_box_pack_start (GTK_BOX(scatola_partenza), partenza_SpinButton, FALSE, FALSE, 0);
+
+    //creazione scatola per richiesta arrivo
+    GtkWidget *scatola_arrivo   = gtk_hbox_new(FALSE,30);
+    gtk_box_pack_start (GTK_BOX(scatola_dialogo_v), scatola_arrivo  , TRUE, TRUE, 0);
+    
+    GtkWidget *label_arrivo= gtk_label_new("Arrivo");
+    gtk_box_pack_start (GTK_BOX(scatola_arrivo)  , label_arrivo  , FALSE, FALSE, 0);
+
+    GtkObject *arrivo_spin_adjustament = gtk_adjustment_new(
+                                                1, //gdouble value,
+                                                1, //gdouble lower,
+                                                static_cast<gdouble>(limite_nodi),
+                                                1,
+                                                5,
+                                                NULL );
+    GtkWidget *arrivo_SpinButton = gtk_spin_button_new( GTK_ADJUSTMENT(arrivo_spin_adjustament), 0,0 );
+    gtk_box_pack_start (GTK_BOX(scatola_arrivo)  , arrivo_SpinButton  , FALSE, FALSE, 0);
+
+
+    //--------------------------------------------------------------------------
+
+    gtk_window_set_resizable (GTK_WINDOW(dialogo), FALSE);
+
+    gtk_widget_show(scatola_dialogo_v);
+    gtk_widget_show(titolo);
+    gtk_widget_show(scatola_partenza);
+    gtk_widget_show(label_partenza);
+    gtk_widget_show(partenza_SpinButton);
+    gtk_widget_show(scatola_arrivo);
+    gtk_widget_show(label_arrivo);
+    gtk_widget_show(arrivo_SpinButton);
+
+    passaggio_t *passaggio = new passaggio_t ;
+    passaggio->finestra   = dialogo;
+    passaggio->partenza_t = partenza_SpinButton;
+    passaggio->arrivo_t   = arrivo_SpinButton;
+
+    return passaggio;
+}
+    
