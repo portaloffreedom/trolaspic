@@ -18,7 +18,7 @@ int right (int i){
     return (2*i)+1;
 }
 
-void scambia(elem_priorita* coda,int a, int b){
+void scambia(coda_priorita coda,int a, int b){
     elem_priorita temp = coda[a];
     coda[a] = coda[b];
     coda[b] = temp;
