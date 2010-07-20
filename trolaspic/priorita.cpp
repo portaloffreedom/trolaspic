@@ -53,7 +53,7 @@ void min_heapifizza(elem_priorita* coda,int posizione){
     int destro   = right(posizione);
     int minimo   =       posizione;
     
-    if(sinistro < dim_coda(coda) && coda[sinistro].peso < coda[posizione].peso) minimo = sinistro;
+    if(sinistro < dim_coda(coda) && coda[sinistro].peso < coda[minimo].peso) minimo = sinistro;
     if(destro   < dim_coda(coda) && coda[destro].peso   < coda[minimo].peso   ) minimo = destro;
     if(minimo == posizione) return;
     scambia(coda,posizione,minimo);
@@ -61,7 +61,7 @@ void min_heapifizza(elem_priorita* coda,int posizione){
 }
 
 void build_min_heap(elem_priorita* coda){
-    for(int i=dim_coda(coda)/2; i>0; --i)
+    for(int i=dim_coda(coda)/2; i>0; i--)
         min_heapifizza(coda,i);
 }
 

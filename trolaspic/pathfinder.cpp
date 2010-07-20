@@ -100,13 +100,13 @@ int dijkstra(const int start,const int fine,double leggi_peso_arco(arco arco))
     {    //se il nodo non e' stato visitato mai
       GRAPH[indexnode].visitato = nero;  //marcalo come visitato
 
-      for (int j = 0; j<GRAPH[indexnode].size_list; j++)
+      for (int j = 1; j<GRAPH[indexnode].size_list; j++)
       {    //per ogni vicino che non e' stato visitato inseriscilo nella coda
           // Salvo il nodo e il peso
       templist = GRAPH[indexnode].adiacente.front();
       GRAPH[indexnode].adiacente.pop_front();
           if        (!( GRAPH[templist.nodo].visitato == nero)
-                        && (leggi_peso_arco(templist) > 0)
+                        && (leggi_peso_arco(templist) > 0.00000001)
                         && (GRAPH[indexnode].peso + leggi_peso_arco(templist)) < GRAPH[templist.nodo].peso)
           {
 
