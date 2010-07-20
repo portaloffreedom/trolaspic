@@ -92,9 +92,9 @@ elem_priorita estrai_minimo(coda_priorita coda){
     return minimo;
 }
 
-bool diminuisci_chiave(coda_priorita coda, int pos, double nuovo_peso){
+bool diminuisci_chiave(coda_priorita coda, int pos, double nuovo_peso, nome_nodo quale_nodo){
     if (nuovo_peso > coda[pos].peso){
-        cerr<<"errore, operazione di cambio chiave non corretta(chiave nuova"
+        cerr<<"errore, operazione di cambio chiave di "<<quale_nodo<<" non corretta(chiave nuova"
                 " maggiore di quella vecchia)\n";
         return false;
     }
@@ -134,7 +134,7 @@ bool cambia_chiave(coda_priorita coda, nome_nodo quale_nodo, double nuovo_peso){
         cerr<<"chiave da diminuire non trovata\n";
         return false;
     }
-    return diminuisci_chiave(coda, pos, nuovo_peso);
+    return diminuisci_chiave(coda, pos, nuovo_peso, quale_nodo);
 }
 
 void inserisci(elem_priorita* coda, double key, nome_nodo nome){
@@ -142,7 +142,7 @@ void inserisci(elem_priorita* coda, double key, nome_nodo nome){
     coda[dim_coda(coda)].peso = INFINITO;
     coda[dim_coda(coda)].nodo = nome;
     coda[dim_coda(coda)].nodo= nome;
-    diminuisci_chiave(coda, dim_coda(coda), key);
+    diminuisci_chiave(coda, dim_coda(coda), key, nome);
 }
 
 bool coda_vuota(coda_priorita coda) {
