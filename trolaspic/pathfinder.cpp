@@ -1,8 +1,6 @@
 #include <iostream>
-#include <cmath>
-#include <queue>
-#include <algorithm>
 #include "grafo.h"
+#include "priorita.h"
 using namespace std;
 /*
 //Usa l'algoritmo di Dijkstra per trovare la distanza.
@@ -41,25 +39,29 @@ using namespace std;
  *  */
 
 extern nodo* GRAPH;
+
 #ifdef DEBUG_ROB
 
-float leggi_peso_km(arco arco){
+double leggi_peso_km(arco arco){
     return arco.kilometri;
 };
 
-float leggi_peso_tempo(arco arco){
+double leggi_peso_tempo(arco arco){
     return arco.secondi;
 };
+
 /**
  * @function Algoritmo Dijkstra modificato per trovare la strada minima fra
  * due punti di un grafo orientato.
  * @param start : Nodo da cui vogliamo iniziare la ricerca
  * @param fine : Nodo a cui vogliamo arrivare partendo da Start.
  */
-int dijkstra(const int start,const int fine,float leggi_peso_arco(arco arco))
+
+int dijkstra(const int start,const int fine,double leggi_peso_arco(arco arco))
 {
-  priority_queue<pair<float,int> > queue; // Crea una coda di paia nodo/peso
-  pair <float,int> nodotmp;   //crea una variabile temporanea di tipo nodo/peso.
+  coda_priorita queue; // Crea una coda di paia nodo/peso
+  queue = inizializza_coda(dim_grafo());
+  elem_priorita nodotmp;   //crea una variabile temporanea di tipo nodo/peso.
                             //accessibili con nodotmp.first e nodotmp.second
   int indexnode;
 //  /* Questo for e' inutile visto che tutto viene fatto quando e' inizializzato il grafo*/
@@ -68,37 +70,46 @@ int dijkstra(const int start,const int fine,float leggi_peso_arco(arco arco))
 //    father[i] = -1;
 //    visit[i] = false;
 //  }                             // DEPRECATED
-
+  
   GRAPH[start].peso = 0;
-
+  GRAPH[start].visitato = grigio;
   /* Inserisco nella coda il nodo di inizio e il suo peso*/
-  queue.push(pair <float,int> (GRAPH[start].peso/* il peso del nodo*/, start /* il nodo da cui partire*/));
+  inserisci(queue,GRAPH[start].peso/* il peso del nodo*/, start /* il nodo da cui partire*/);
 
   adiacenza templist;
-  /* Finche' la coda e' piena processo tutti i nodi adiacenti a questo*/
-  while(!queue.empty())
+  /* Finche' la coda e' piena processo tutti i nodi adiacenti a questo
+   * che hanno la priorita' maggiore */
+  while(!coda_vuota(queue))
   {
-    nodotmp = queue.top(); // Prelevo il nodo dalla coda (sono sicuro che non e' vuota)
-    queue.pop();
-
-    if(indexnode == fine) return fine;
-    indexnode = nodotmp.second; //l'indice del nodo
-    if (!(GRAPH[indexnode].visitato == nero))
+    nodotmp = estrai_minimo(queue); // Prelevo il nodo dalla coda (sono sicuro che non e' vuota)
+    indexnode = nodotmp.nodo; //l'indice del nodo
+    if(indexnode == fine) return fine; //altri controlli
+    //-------
+    if (GRAPH[indexnode].visitato == grigio)
     {    //se il nodo non e' stato visitato mai
       GRAPH[indexnode].visitato = nero;  //marcalo come visitato
+
       templist = GRAPH[indexnode].adiacente.front();
       GRAPH[indexnode].adiacente.pop_front();
-      for (int j = 0; j<GRAPH[indexnode].adiacente.size(); j++)
+
+      for (int j = 0; j<GRAPH[indexnode].size_list; j++)
       {    //per ogni vicino che non e' stato visitato inseriscilo nella coda
           // Salvo il nodo e il peso
           if        (!( GRAPH[templist.nodo].visitato == nero)
                         && (leggi_peso_arco(templist) > 0)
                         && GRAPH[indexnode].peso + leggi_peso_arco(templist) < GRAPH[templist.nodo].peso)
           {
-            GRAPH[templist.nodo].visitato = grigio;
+
             GRAPH[templist.nodo].peso = GRAPH[indexnode].peso + leggi_peso_arco(templist); // Aggiorna il peso del nodo
             GRAPH[templist.nodo].padre = indexnode;    // aggiorna il padre del nodo
-            queue.push(pair <float,int>(-GRAPH[templist.nodo].peso, templist.nodo)); //aggiungilo alla coda
+            //il peso lo metto in negativo perche' questa e' una coda di max priorita'
+            if( GRAPH[templist.nodo].visitato == grigio )
+                cambia_chiave(queue,templist.nodo,GRAPH[templist.nodo].peso);
+            else{
+                GRAPH[templist.nodo].visitato = grigio;
+                inserisci(queue,GRAPH[templist.nodo].peso, templist.nodo); //aggiungilo alla coda
+            }
+            
           }
           GRAPH[indexnode].adiacente.push_back(templist);
       }

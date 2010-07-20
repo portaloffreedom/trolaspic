@@ -5,7 +5,7 @@ using namespace std;
 
 //Implementazione del min-heap
 
-const double meno_INFINITO = -(numeric_limits<double>::min());
+const double INFINITO = numeric_limits<double>::max();
 
 int parent(int i){
     return i/2;
@@ -70,11 +70,10 @@ coda_priorita inizializza_coda (int dimensioni_max){
     return coda;
 }
 
-
-
-
-
-
+void elimina_coda (coda_priorita coda){
+    delete[] coda;
+    return;
+};
 
 
 elem_priorita estrai_minimo(elem_priorita* coda){
@@ -99,7 +98,7 @@ bool diminuisci_chiave(coda_priorita coda, int pos, double nuovo_peso){
     return true;
 }
 
-int find (coda_priorita coda, nome_nodo nome,int i){
+int find (coda_priorita coda, nome_nodo nome){
     for (int i=1; i<=dim_coda(coda); i++){
         if (coda[i].nodo = nome)
             return i;
@@ -122,7 +121,7 @@ int find (coda_priorita coda, nome_nodo nome,int i){
 }
 
 bool cambia_chiave(coda_priorita coda, nome_nodo quale_nodo, double nuovo_peso){
-    int pos= find (coda, quale_nodo, 1);
+    int pos= find (coda, quale_nodo);
     if (pos==-1){
         cerr<<"chiave da diminuire non trovata\n";
         return false;
@@ -132,6 +131,11 @@ bool cambia_chiave(coda_priorita coda, nome_nodo quale_nodo, double nuovo_peso){
 
 void inserisci(elem_priorita* coda, double key, nome_nodo nome){
     dim_coda_increase(coda);
-    coda[dim_coda(coda)].peso= meno_INFINITO;
+    coda[dim_coda(coda)].peso= INFINITO;
     diminuisci_chiave(coda, dim_coda(coda), key);
+}
+
+bool coda_vuota(coda_priorita coda) {
+    if (dim_coda(coda)==0)  return true;
+                            return false;
 }
