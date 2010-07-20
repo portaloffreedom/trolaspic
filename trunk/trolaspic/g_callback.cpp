@@ -3,6 +3,7 @@
 #include <fstream>
 #include "main.h"
 #include "creazione_interfaccia.h"
+#include "pathfinder.h"
 #include "grafo.h"
 using namespace std;
 
@@ -106,6 +107,7 @@ void response_calcola (passaggio_t *window){
             gint culo_arrivo = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON(dialogo->esci_i/*arrivo_t*/ ));
             DBG(cout<<"partenza: "<<culo_partenza<<endl)
             DBG(cout<<"arrivo:   "<<culo_arrivo  <<endl)
+            getPath(dijkstra(culo_partenza,culo_arrivo,leggi_peso_km));
         }
         default:
             gtk_widget_destroy (dialogo->finestra);

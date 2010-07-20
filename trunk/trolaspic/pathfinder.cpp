@@ -1,6 +1,6 @@
 #include <iostream>
-#include "grafo.h"
-#include "priorita.h"
+#include "pathfinder.h"
+#include <limits>
 using namespace std;
 /*
 //Usa l'algoritmo di Dijkstra per trovare la distanza.
@@ -38,9 +38,18 @@ using namespace std;
 //5      u := previous[u]
  *  */
 
+static const double INFINITO = numeric_limits<double>::max();
 extern nodo* GRAPH;
 
 #ifdef DEBUG_ROB
+
+void reset_graph(void){
+    for(int i=1;i<=GRAPH[0].x;i++){
+        GRAPH[i].padre = -1;
+        GRAPH[i].visitato = bianco;
+        GRAPH[i].peso = INFINITO;
+    }
+};
 
 double leggi_peso_km(arco arco){
     return arco.kilometri;
@@ -82,22 +91,25 @@ int dijkstra(const int start,const int fine,double leggi_peso_arco(arco arco))
   while(!coda_vuota(queue))
   {
     nodotmp = estrai_minimo(queue); // Prelevo il nodo dalla coda (sono sicuro che non e' vuota)
+    if(nodotmp == NULL) return start;
     indexnode = nodotmp.nodo; //l'indice del nodo
-    if(indexnode == fine) return fine; //altri controlli
+    if(indexnode == fine){
+        
+        return fine; //altri controlli
+    }
     //-------
-    if (GRAPH[indexnode].visitato == grigio)
+    if (GRAPH[indexnode].visitato != nero)
     {    //se il nodo non e' stato visitato mai
       GRAPH[indexnode].visitato = nero;  //marcalo come visitato
-
-      templist = GRAPH[indexnode].adiacente.front();
-      GRAPH[indexnode].adiacente.pop_front();
 
       for (int j = 0; j<GRAPH[indexnode].size_list; j++)
       {    //per ogni vicino che non e' stato visitato inseriscilo nella coda
           // Salvo il nodo e il peso
+      templist = GRAPH[indexnode].adiacente.front();
+      GRAPH[indexnode].adiacente.pop_front();
           if        (!( GRAPH[templist.nodo].visitato == nero)
                         && (leggi_peso_arco(templist) > 0)
-                        && GRAPH[indexnode].peso + leggi_peso_arco(templist) < GRAPH[templist.nodo].peso)
+                        && (GRAPH[indexnode].peso + leggi_peso_arco(templist)) < GRAPH[templist.nodo].peso)
           {
 
             GRAPH[templist.nodo].peso = GRAPH[indexnode].peso + leggi_peso_arco(templist); // Aggiorna il peso del nodo
@@ -117,6 +129,7 @@ int dijkstra(const int start,const int fine,double leggi_peso_arco(arco arco))
     }
 
   }
+  elimina_coda(queue);
   return start;
 }
 
@@ -125,11 +138,11 @@ int dijkstra(const int start,const int fine,double leggi_peso_arco(arco arco))
 // da poter ricaricare il grafo e tenere quindi i nodi trovati.
 void getPath(int end) {
   cout << end << " "; // DEPRECATED
-  while (GRAPH[end].padre > -1) { //quando trovi il nodo senza padre hai trovato l'inizio
+  while (GRAPH[end].padre != -1) { //quando trovi il nodo senza padre hai trovato l'inizio
     cout << GRAPH[end].padre << " "; // DEPRECATED (solo debug serve)
     end = GRAPH[end].padre; // end adesso e' il padre del vecchio end (cioe' del nodo precedente)
   }
   cout << endl; // DEPRECATED (solo per debug serve)
+  reset_graph();
 }
-
 #endif

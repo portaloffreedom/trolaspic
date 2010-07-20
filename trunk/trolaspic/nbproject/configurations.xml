@@ -10,6 +10,7 @@
       <itemPath>gestione_drawing_area.h</itemPath>
       <itemPath>grafo.h</itemPath>
       <itemPath>main.h</itemPath>
+      <itemPath>pathfinder.h</itemPath>
       <itemPath>priorita.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"

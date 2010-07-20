@@ -13,6 +13,7 @@ nodo* GRAPH = 0;
 
 const int MAX_LUNGH_STRINGA= 30;
 const int MAX_SALTO= 500;
+static const double INFINITO = numeric_limits<double>::max();
 
 int dim_grafo(void){
     return GRAPH[0].x;
@@ -176,6 +177,9 @@ int carica_mappa(const char *filename)
         mappa.ignore(MAX_SALTO,'(');
         GRAPH[nome_incrocio].x= leggi_prox_int(mappa);
         GRAPH[nome_incrocio].y= leggi_prox_int(mappa);
+        GRAPH[nome_incrocio].padre = -1;
+        GRAPH[nome_incrocio].visitato = bianco;
+        GRAPH[nome_incrocio].peso = INFINITO;
 
         //Lettura del tipo di incrocio
         mappa.ignore(MAX_SALTO,')');
