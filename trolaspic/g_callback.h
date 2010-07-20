@@ -16,6 +16,7 @@ gboolean delete_event(GtkWidget* oggetto);
 void response_dialogo (GtkWidget *finestra);
 void response_carica (passaggio_t *window);
 void mostra_info (GtkWidget* finestra);
+void response_calcola (passaggio_t *window);
 
 #endif	/* G_CALLBACK_H */
 

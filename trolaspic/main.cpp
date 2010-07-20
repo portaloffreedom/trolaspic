@@ -25,7 +25,7 @@ int main(int argc, char** argv) {
     g_signal_connect_swapped (window->info_i, "activate", G_CALLBACK(mostra_info), window->finestra);
     g_signal_connect_swapped (window->esci_i, "activate", G_CALLBACK (response_dialogo), window->finestra);
     g_signal_connect_swapped (window->carica_i, "activate", G_CALLBACK (response_carica), window);
-    //g_signal_connect_swapped (window->calcola_i, "activate", G_CALLBACK (menuitem_response), NULL);
+    g_signal_connect_swapped (window->calcola_i, "activate", G_CALLBACK (response_calcola), window);
     g_signal_connect (window->finestra, "delete-event", G_CALLBACK (response_dialogo), window->finestra);
     //**************************************************************************
 

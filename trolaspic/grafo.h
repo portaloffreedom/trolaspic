@@ -11,8 +11,9 @@
 #include "main.h"
 
 using namespace std;
-
+/** enumerato per i colori della visita */
 enum colour_t {bianco,grigio,nero};
+/** enumerato per la tipoligia di incrocio */
 enum t_incrocio {
     rotatoria,          //r
     incrocio_normale,   //n
@@ -20,8 +21,7 @@ enum t_incrocio {
     strada              //
 };
 
-/** Struct che rappresenta gli archi fra un nodo e l'altro
- */
+/** Struct che rappresenta gli archi fra un nodo e l'altro */
 struct adiacenza{
     /** L'indice del nodo nel grafo
      * Questo indice viene usato per prelevare il nodo dal grafo
@@ -36,8 +36,7 @@ struct adiacenza{
 };
 typedef adiacenza arco;
 
-/** Struct per la rappresentazione dei nodi di cui e' composto il grafo
- */
+/** Struct per la rappresentazione dei nodi di cui e' composto il grafo */
 struct nodo {
     /** Coordinata orizzontale del nodo sulla mappa */
     int x;
@@ -85,7 +84,7 @@ struct nodo {
  */
 
 //void graph_loader(GtkWidget* widget,ifstream &file);
-void carica_mappa(const char *filename);
+int carica_mappa(const char *filename);
 
 int dim_grafo(void);
 
