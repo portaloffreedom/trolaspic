@@ -91,7 +91,7 @@ int dijkstra(const int start,const int fine,double leggi_peso_arco(arco arco))
   while(!coda_vuota(queue))
   {
     nodotmp = estrai_minimo(queue); // Prelevo il nodo dalla coda (sono sicuro che non e' vuota)
-    if(nodotmp == NULL) return start;
+    if(nodotmp.nodo == 0) return start;
     indexnode = nodotmp.nodo; //l'indice del nodo
     if(indexnode == fine){
         

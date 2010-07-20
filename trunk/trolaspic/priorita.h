@@ -47,5 +47,6 @@ void inserisci(coda_priorita coda,double peso,nome_nodo nome_nodo);
 bool cambia_chiave(coda_priorita coda, nome_nodo quale_nodo, double nuovo_peso);
 
 bool coda_vuota(coda_priorita coda);
+void elimina_coda(coda_priorita coda);
 #endif	/* PRIORITA_H */
 
