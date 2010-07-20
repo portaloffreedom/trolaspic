@@ -40,8 +40,8 @@ void dim_coda_decrease(coda_priorita coda){
 
 #ifdef DEBUG
 void stampaheap(elem_priorita* coda){
-    for(int riga=1, i=1; i<dim_coda(coda) ;riga++){
-        for(int limite=(1<<riga);i<dim_coda(coda) && i<limite;i++)
+    for(int riga=1, i=1; i<=dim_coda(coda) ;riga++){
+        for(int limite=(1<<riga);i<=dim_coda(coda) && i<limite;i++)
             cout<<coda[i].peso<<'\t'<<flush;
         cout<<endl;
     }
@@ -98,7 +98,7 @@ bool diminuisci_chiave(coda_priorita coda, int pos, double nuovo_peso){
         return false;
     }
     coda[pos].peso = nuovo_peso;
-    while (pos>1 && coda[parent(pos)].peso < coda[pos].peso){
+    while (pos>1 && coda[parent(pos)].peso > coda[pos].peso){
         scambia(coda, pos, parent(pos));
         pos= parent(pos);
     }
@@ -139,6 +139,7 @@ bool cambia_chiave(coda_priorita coda, nome_nodo quale_nodo, double nuovo_peso){
 void inserisci(elem_priorita* coda, double key, nome_nodo nome){
     dim_coda_increase(coda);
     coda[dim_coda(coda)].peso= INFINITO;
+    coda[dim_coda(coda)].nodo= nome;
     diminuisci_chiave(coda, dim_coda(coda), key);
 }
 

@@ -46,7 +46,23 @@ void inserisci(coda_priorita coda,double peso,nome_nodo nome_nodo);
  */
 bool cambia_chiave(coda_priorita coda, nome_nodo quale_nodo, double nuovo_peso);
 
+/** Funzione per controllare se la funzione è vuota
+ *
+ * @param coda da esaminare
+ * @return vero se vuota, falso se c'è almeno un elemento
+ */
 bool coda_vuota(coda_priorita coda);
-void elimina_coda(coda_priorita coda);
+
+/** Corrispettivo del decostruttore delle classi. Va chiamato per deallocare la
+ * memoria occupata dalla coda.
+ *
+ * @param coda da eliminare
+ */
+void elimina_coda (coda_priorita coda);
+
+#ifdef DEBUG
+void stampaheap(elem_priorita* coda);
+#endif
+
 #endif	/* PRIORITA_H */
 
