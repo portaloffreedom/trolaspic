@@ -41,8 +41,6 @@ using namespace std;
 static const double INFINITO = numeric_limits<double>::max();
 extern nodo* GRAPH;
 
-#ifdef DEBUG_ROB
-
 void reset_graph(void){
     for(int i=1;i<=GRAPH[0].x;i++){
         GRAPH[i].padre = -1;
@@ -145,4 +143,3 @@ void getPath(int end) {
   cout << endl; // DEPRECATED (solo per debug serve)
   reset_graph();
 }
-#endif
