@@ -115,7 +115,7 @@ int find (coda_priorita coda, nome_nodo nome){
 }
 
 bool cambia_chiave(coda_priorita coda, nome_nodo quale_nodo, double nuovo_peso){
-    int pos= find (coda, quale_nodo);
+    int pos = find (coda, quale_nodo);
     if (pos==-1){
         cerr<<"chiave da diminuire non trovata\n";
         return false;

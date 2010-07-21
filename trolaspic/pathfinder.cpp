@@ -1,6 +1,7 @@
 #include <iostream>
 #include "pathfinder.h"
 #include <limits>
+#include <queue>
 using namespace std;
 /*
 //Usa l'algoritmo di Dijkstra per trovare la distanza.
@@ -63,7 +64,7 @@ double leggi_peso_tempo(arco arco){
  * @param start : Nodo da cui vogliamo iniziare la ricerca
  * @param fine : Nodo a cui vogliamo arrivare partendo da Start.
  */
-
+#ifdef DEBUG_ROB0
 int dijkstra(const int start,const int fine,double leggi_peso_arco(arco arco))
 {
   coda_priorita queue; // Crea una coda di paia nodo/peso
@@ -71,12 +72,6 @@ int dijkstra(const int start,const int fine,double leggi_peso_arco(arco arco))
   elem_priorita nodotmp;   //crea una variabile temporanea di tipo nodo/peso.
                             //accessibili con nodotmp.first e nodotmp.second
   int indexnode;
-//  /* Questo for e' inutile visto che tutto viene fatto quando e' inizializzato il grafo*/
-//  for (int i=1; i<=total; i++) {
-//    distances[i] = MAXINT;
-//    father[i] = -1;
-//    visit[i] = false;
-//  }                             // DEPRECATED
   
   GRAPH[start].peso = 0;
   GRAPH[start].visitato = grigio;
@@ -100,7 +95,7 @@ int dijkstra(const int start,const int fine,double leggi_peso_arco(arco arco))
     {    //se il nodo non e' stato visitato mai
       GRAPH[indexnode].visitato = nero;  //marcalo come visitato
 
-      for (int j = 1; j<GRAPH[indexnode].size_list; j++)
+      for (int j = 1; j<=GRAPH[indexnode].size_list; j++)
       {    //per ogni vicino che non e' stato visitato inseriscilo nella coda
           // Salvo il nodo e il peso
       templist = GRAPH[indexnode].adiacente.front();
@@ -130,7 +125,63 @@ int dijkstra(const int start,const int fine,double leggi_peso_arco(arco arco))
   elimina_coda(queue);
   return start;
 }
+#endif
 
+#ifdef DEBUG_ROB
+int dijkstra(const int start,const int fine,double leggi_peso_arco(arco arco))
+{
+    priority_queue<pair<double,int> > queue;
+    pair <double,int> nodotmp;
+
+  int indexnode;
+
+  GRAPH[start].peso = 0;
+  GRAPH[start].visitato = grigio;
+  /* Inserisco nella coda il nodo di inizio e il suo peso*/
+  queue.push(pair<double,int>(GRAPH[start].peso/* il peso del nodo*/, start /* il nodo da cui partire*/));
+
+  adiacenza templist;
+  /* Finche' la coda e' piena processo tutti i nodi adiacenti a questo
+   * che hanno la priorita' maggiore */
+  while(!queue.empty())
+  {
+    nodotmp = queue.top(); // Prelevo il nodo dalla coda (sono sicuro che non e' vuota)
+    queue.pop();
+    if(nodotmp.second == 0) return start;
+    indexnode = nodotmp.second; //l'indice del nodo
+    if(indexnode == fine){
+
+        return fine; //altri controlli
+    }
+    //-------
+    if (GRAPH[indexnode].visitato == grigio)
+    {    //se il nodo non e' stato visitato mai
+      GRAPH[indexnode].visitato = nero;  //marcalo come visitato
+
+      for (int j = 1; j<=GRAPH[indexnode].size_list; j++)
+      {    //per ogni vicino che non e' stato visitato inseriscilo nella coda
+          // Salvo il nodo e il peso
+      templist = GRAPH[indexnode].adiacente.front();
+      GRAPH[indexnode].adiacente.pop_front();
+          if        (!( GRAPH[templist.nodo].visitato == nero)
+                        && (leggi_peso_arco(templist) > 0.00000001)
+                        && (GRAPH[indexnode].peso + leggi_peso_arco(templist)) < GRAPH[templist.nodo].peso)
+          {
+
+            GRAPH[templist.nodo].peso = GRAPH[indexnode].peso + leggi_peso_arco(templist); // Aggiorna il peso del nodo
+            GRAPH[templist.nodo].padre = indexnode;    // aggiorna il padre del nodo
+            //il peso lo metto in negativo perche' questa e' una coda di max priorita'
+                GRAPH[templist.nodo].visitato = grigio;
+                queue.push(pair<double,int>(-GRAPH[templist.nodo].peso, templist.nodo)); //aggiungilo alla coda
+
+          }
+          GRAPH[indexnode].adiacente.push_back(templist);
+      }
+    }
+  }
+  return start;
+}
+#endif
 // Ricostruisci il tragitto inizio/fine partendo dalla fine
 // Il nuovo concetto sara' quello di creare una lista di nodi che formano il tragitto cosi'
 // da poter ricaricare il grafo e tenere quindi i nodi trovati.
