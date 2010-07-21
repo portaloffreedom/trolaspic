@@ -11,6 +11,9 @@ const int MAX_LUNGH_STRINGA= 30;
 const int MAX_SALTO= 500;
 static const double INFINITO = numeric_limits<double>::max();
 
+/** Distrugge il grafo e ne setta il puntatore a zero.
+ * Questa funzione distrugge inoltre le liste di tutti i nodi del grafo,compresa la lista dei nodi della soluzione. */
+
 void distruggi_grafo(){
     if(GRAPH == 0) return;
     int dim = dim_grafo();
@@ -21,8 +24,10 @@ void distruggi_grafo(){
     GRAPH = 0;
 };
 
+/** Controlla quanto è grande il grafo.
+ * @return Restituisce la dimensione del grafo */
 int dim_grafo(void){
-    return GRAPH[0].x;
+    return GRAPH[0].padre;
 }
 
 /** Serve per nascondere alla funzione i commenti nello stream
