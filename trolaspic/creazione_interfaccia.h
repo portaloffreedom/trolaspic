@@ -47,7 +47,7 @@ GtkWidget *crea_finestra_info (GtkWidget* window, const gchar* testo);
  * @param limite_nodi
  * @return alcuni passaggi XD
  */
-passaggio_t *crea_finestra_richiesta_percorso (GtkWidget* window, int limite_nodi);
+passaggio_t2 *crea_finestra_richiesta_percorso (GtkWidget* window, int limite_nodi);
 
 #endif	/* CREAZIONE_INTERFACCIA_H */
 

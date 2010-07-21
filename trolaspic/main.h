@@ -23,8 +23,12 @@ using namespace std;
     #define PERCORSO "./NetBeansProjects/trolaspic_code/trunk/trolaspic"
 #endif
 
-#define VERSION "0.2.1a - Fillix"
+#define VERSION "0.2.2a - Fillix"
 
+enum tipo_calcolo {
+    per_tempo,
+    per_distanza
+};
 
 struct passaggio_t {
     GtkWidget* finestra;
@@ -38,8 +42,17 @@ struct passaggio_t {
     int massimo_numero_nodi;
 };
 
-#define partenza_t info_i
-#define arrivo_t esci_i
+struct passaggio_t2 {
+    GtkWidget* finestra;
+    GtkWidget* partenza_t;
+    GtkWidget* arrivo_t;
+    GtkWidget* radio_distanza;
+    GtkWidget* radio_tempo;
+    tipo_calcolo t_calcolo;
+};
+
+extern bool mappa_caricata;
+
 
 #endif	/* MAIN_H */
 
