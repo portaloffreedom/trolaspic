@@ -27,7 +27,7 @@ void cairo_disegna (const gchar *filename){
         filename_png[i]=filename[i];
     }
     DBG(cout<<filename<<endl);
-    DBG(cout<<filename_map<<endl);
+    DBG(cout<<filename_png<<endl);
 
     //**************************************************************************
 
