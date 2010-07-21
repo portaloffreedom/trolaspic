@@ -11,7 +11,6 @@
       <itemPath>grafo.h</itemPath>
       <itemPath>main.h</itemPath>
       <itemPath>pathfinder.h</itemPath>
-      <itemPath>priorita.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -28,7 +27,7 @@
       <itemPath>grafo.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
       <itemPath>pathfinder.cpp</itemPath>
-      <itemPath>priorita.cpp</itemPath>
+      <itemPath>../../../fimeshor~subversion/fimeshor-linux/priorita.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"

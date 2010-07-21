@@ -38,9 +38,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
   <div class="tabs">
     <ul>
       <li><a href="files.html"><span>Elenco&nbsp;dei&nbsp;file</span></a></li>
+      <li><a href="globals.html"><span>Elementi&nbsp;globali</span></a></li>
     </ul>
   </div>
-<h1>priorita.h</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* </span>
+<h1>priorita.h</h1><a href="priorita_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* </span>
 <a name="l00002"></a>00002 <span class="comment"> * File:   priorita.h</span>
 <a name="l00003"></a>00003 <span class="comment"> * Author: matteo</span>
 <a name="l00004"></a>00004 <span class="comment"> *</span>
@@ -49,30 +50,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00007"></a>00007 
 <a name="l00008"></a>00008 <span class="preprocessor">#ifndef PRIORITA_H</span>
 <a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define PRIORITA_H</span>
-<a name="l00010"></a>00010 <span class="preprocessor"></span><span class="keyword">typedef</span> <span class="keywordtype">int</span> nome_nodo;
+<a name="l00010"></a><a class="code" href="priorita_8h.html#aa26eec08d809f275c6e9d827da727f86">00010</a> <span class="preprocessor"></span><span class="keyword">typedef</span> <span class="keywordtype">int</span> <a class="code" href="priorita_8h.html#aa26eec08d809f275c6e9d827da727f86">nome_nodo</a>;
 <a name="l00011"></a><a class="code" href="structelem__priorita.html">00011</a> <span class="keyword">struct </span><a class="code" href="structelem__priorita.html">elem_priorita</a> {
-<a name="l00012"></a>00012     nome_nodo <a class="code" href="structnodo.html">nodo</a>;
-<a name="l00013"></a>00013     <span class="keywordtype">double</span> peso;
+<a name="l00012"></a><a class="code" href="structelem__priorita.html#ae3ec0ed135c9599057b73a8af1c56a0d">00012</a>     <a class="code" href="priorita_8h.html#aa26eec08d809f275c6e9d827da727f86">nome_nodo</a> <a class="code" href="structnodo.html" title="Struct per la rappresentazione dei nodi di cui e&amp;#39; composto il grafo.">nodo</a>;
+<a name="l00013"></a><a class="code" href="structelem__priorita.html#ae8c47cc09c3f945b6031ee6a44bf0fd0">00013</a>     <span class="keywordtype">double</span> <a class="code" href="structelem__priorita.html#ae8c47cc09c3f945b6031ee6a44bf0fd0">peso</a>;
 <a name="l00014"></a>00014 };
-<a name="l00015"></a>00015 <span class="keyword">typedef</span> <a class="code" href="structelem__priorita.html">elem_priorita</a>* <a class="code" href="structelem__priorita.html">coda_priorita</a>;
+<a name="l00015"></a><a class="code" href="priorita_8h.html#a6040fa3300daa159846dda300407757e">00015</a> <span class="keyword">typedef</span> <a class="code" href="structelem__priorita.html">elem_priorita</a>* <a class="code" href="structelem__priorita.html">coda_priorita</a>;
 <a name="l00016"></a>00016 
-<a name="l00022"></a>00022 <a class="code" href="structelem__priorita.html">coda_priorita</a> inizializza_coda (<span class="keywordtype">int</span> dimensioni_max);
+<a name="l00022"></a>00022 <a class="code" href="structelem__priorita.html">coda_priorita</a> <a class="code" href="priorita_8cpp.html#a945e9390b8b5906d689535e6a459114f" title="Va chiamata per creare la coda di priorità.">inizializza_coda</a> (<span class="keywordtype">int</span> dimensioni_max);
 <a name="l00023"></a>00023 
-<a name="l00029"></a>00029 <a class="code" href="structelem__priorita.html">elem_priorita</a> estrai_minimo(<a class="code" href="structelem__priorita.html">coda_priorita</a> &amp;coda);
+<a name="l00029"></a>00029 <a class="code" href="structelem__priorita.html">elem_priorita</a> <a class="code" href="priorita_8cpp.html#ae329e8253c0d80e08c925eefa93649e0" title="Estrae il valore minimo della coda (eliminato dalla coda).">estrai_minimo</a>(<a class="code" href="structelem__priorita.html">coda_priorita</a> coda);
 <a name="l00030"></a>00030 
-<a name="l00038"></a>00038 <span class="keywordtype">void</span> inserisci(<a class="code" href="structelem__priorita.html">coda_priorita</a> &amp;coda, <span class="keywordtype">int</span> nome_nodo, <span class="keywordtype">double</span> peso);
-<a name="l00047"></a>00047 <span class="keywordtype">bool</span> cambia_chiave(<a class="code" href="structelem__priorita.html">coda_priorita</a> coda, nome_nodo quale_nodo, <span class="keywordtype">double</span> nuovo_peso);
+<a name="l00038"></a>00038 <span class="keywordtype">void</span> <a class="code" href="priorita_8cpp.html#af03da49525a6365ae697dc82ca035b2f">inserisci</a>(<a class="code" href="structelem__priorita.html">coda_priorita</a> coda,<span class="keywordtype">double</span> peso,<a class="code" href="priorita_8h.html#aa26eec08d809f275c6e9d827da727f86">nome_nodo</a> <a class="code" href="priorita_8h.html#aa26eec08d809f275c6e9d827da727f86">nome_nodo</a>);
+<a name="l00047"></a>00047 <span class="keywordtype">bool</span> <a class="code" href="priorita_8cpp.html#a7372a2cce207c7824e0344e52d2f9b40" title="Abbassa la priorità (verrà estratta prima) dell&amp;#39;elemento &amp;quot;nome_nodo&amp;quot;...">cambia_chiave</a>(<a class="code" href="structelem__priorita.html">coda_priorita</a> coda, <a class="code" href="priorita_8h.html#aa26eec08d809f275c6e9d827da727f86">nome_nodo</a> quale_nodo, <span class="keywordtype">double</span> nuovo_peso);
 <a name="l00048"></a>00048 
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050 <span class="preprocessor">#endif  </span><span class="comment">/* PRIORITA_H */</span>
-<a name="l00051"></a>00051 
+<a name="l00054"></a>00054 <span class="keywordtype">bool</span> <a class="code" href="priorita_8cpp.html#a4be3937562f96d6429e8dacd78ce30ac" title="Funzione per controllare se la funzione è vuota.">coda_vuota</a>(<a class="code" href="structelem__priorita.html">coda_priorita</a> coda);
+<a name="l00055"></a>00055 
+<a name="l00061"></a>00061 <span class="keywordtype">void</span> <a class="code" href="priorita_8cpp.html#a6be81ec957e02903cacdb54879ba2d75" title="Corrispettivo del decostruttore delle classi.">elimina_coda</a> (<a class="code" href="structelem__priorita.html">coda_priorita</a> coda);
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063 <span class="preprocessor">#ifdef DEBUG</span>
+<a name="l00064"></a>00064 <span class="preprocessor"></span><span class="keywordtype">void</span> stampaheap(<a class="code" href="structelem__priorita.html">elem_priorita</a>* coda);
+<a name="l00065"></a>00065 <span class="preprocessor">#endif</span>
+<a name="l00066"></a>00066 <span class="preprocessor"></span>
+<a name="l00067"></a>00067 <span class="preprocessor">#endif  </span><span class="comment">/* PRIORITA_H */</span>
+<a name="l00068"></a>00068 
 </pre></div></div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>Tutto</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Strutture dati</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Variabili</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>Tutto</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Strutture dati</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>File</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Funzioni</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&nbsp;</span>Variabili</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&nbsp;</span>Ridefinizioni di tipo (typedef)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&nbsp;</span>Tipi enumerati (enum)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&nbsp;</span>Valori dei tipi enumerati</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&nbsp;</span>Definizioni</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -81,7 +89,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generato il Tue Jul 20 01:09:43 2010 per Trolaspic da&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generato il Wed Jul 21 17:17:11 2010 per Trolaspic da&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

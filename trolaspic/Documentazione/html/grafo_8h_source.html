@@ -38,9 +38,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
   <div class="tabs">
     <ul>
       <li><a href="files.html"><span>Elenco&nbsp;dei&nbsp;file</span></a></li>
+      <li><a href="globals.html"><span>Elementi&nbsp;globali</span></a></li>
     </ul>
   </div>
-<h1>grafo.h</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* </span>
+<h1>grafo.h</h1><a href="grafo_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* </span>
 <a name="l00002"></a>00002 <span class="comment"> * File:   grafo.h</span>
 <a name="l00003"></a>00003 <span class="comment"> * Author: stengun</span>
 <a name="l00004"></a>00004 <span class="comment"> *</span>
@@ -50,59 +51,60 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00008"></a>00008 <span class="preprocessor">#ifndef GRAFO_H</span>
 <a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define GRAFO_H</span>
 <a name="l00010"></a>00010 <span class="preprocessor"></span><span class="preprocessor">#include &lt;fstream&gt;</span>
-<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;main.h&quot;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;<a class="code" href="main_8h.html">main.h</a>&quot;</span>
 <a name="l00012"></a>00012 
 <a name="l00013"></a>00013 <span class="keyword">using namespace </span>std;
-<a name="l00014"></a>00014 
-<a name="l00015"></a>00015 <span class="keyword">enum</span> colour_t {bianco,grigio,nero};
-<a name="l00016"></a>00016 <span class="keyword">enum</span> t_incrocio {
-<a name="l00017"></a>00017     rotatoria,          <span class="comment">//r</span>
-<a name="l00018"></a>00018     incrocio_normale,   <span class="comment">//n</span>
-<a name="l00019"></a>00019     incrocio_semafori,  <span class="comment">//s</span>
-<a name="l00020"></a>00020     strada              <span class="comment">//</span>
-<a name="l00021"></a>00021 };
-<a name="l00022"></a>00022 
-<a name="l00025"></a><a class="code" href="structadiacenza.html">00025</a> <span class="keyword">struct </span><a class="code" href="structadiacenza.html">adiacenza</a>{
-<a name="l00030"></a><a class="code" href="structadiacenza.html#a979000bd61559a22dcc424e9f04481ab">00030</a>     <span class="keywordtype">int</span> <a class="code" href="structnodo.html">nodo</a>;
+<a name="l00015"></a><a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5a026ab1209905ffcd141965d2a55f14d3">00015</a> <span class="keyword">enum</span> <a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5" title="enumerato per i colori della visita">colour_t</a> {<a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5a3226bf95e2fad7dccac1089fb62a60d5">bianco</a>,<a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5a16d16c4bd6892954a40f8d5105483c5a">grigio</a>,<a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5a026ab1209905ffcd141965d2a55f14d3">nero</a>};
+<a name="l00017"></a><a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3">00017</a> <span class="keyword">enum</span> <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3" title="enumerato per la tipoligia di incrocio">t_incrocio</a> {
+<a name="l00018"></a><a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3ac2443694aae00ca087b9bfefccc770c4">00018</a>     <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3ac2443694aae00ca087b9bfefccc770c4">rotatoria</a>,          <span class="comment">//r</span>
+<a name="l00019"></a><a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3a4eff13ef35c9a96c9ab332340761a0f6">00019</a>     <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3a4eff13ef35c9a96c9ab332340761a0f6">incrocio_normale</a>,   <span class="comment">//n</span>
+<a name="l00020"></a><a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3a719129611a5479c8f9a1d24d091ba679">00020</a>     <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3a719129611a5479c8f9a1d24d091ba679">incrocio_semafori</a>,  <span class="comment">//s</span>
+<a name="l00021"></a><a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3a561b73c5039faff30c65abb315df7635">00021</a>     <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3a561b73c5039faff30c65abb315df7635">strada</a>              <span class="comment">//</span>
+<a name="l00022"></a>00022 };
+<a name="l00023"></a>00023 
+<a name="l00025"></a><a class="code" href="structadiacenza.html">00025</a> <span class="keyword">struct </span><a class="code" href="structadiacenza.html" title="Struct che rappresenta gli archi fra un nodo e l&amp;#39;altro.">adiacenza</a>{
+<a name="l00030"></a><a class="code" href="structadiacenza.html#a979000bd61559a22dcc424e9f04481ab">00030</a>     <span class="keywordtype">int</span> <a class="code" href="structnodo.html" title="Struct per la rappresentazione dei nodi di cui e&amp;#39; composto il grafo.">nodo</a>;
 <a name="l00031"></a>00031 
-<a name="l00033"></a><a class="code" href="structadiacenza.html#ac3f013d2a86d00cce52a3ee23545a16e">00033</a>     <span class="keywordtype">float</span> <a class="code" href="structadiacenza.html#ac3f013d2a86d00cce52a3ee23545a16e">kilometri</a>;
-<a name="l00034"></a>00034     <span class="keywordtype">float</span> secondi;
+<a name="l00033"></a><a class="code" href="structadiacenza.html#a36b0702ffb002532fdb95b2c7174ae23">00033</a>     <span class="keywordtype">double</span> <a class="code" href="structadiacenza.html#a36b0702ffb002532fdb95b2c7174ae23" title="Il peso dell&amp;#39;arco fra il nodo chiamante e il nodo indicato.">kilometri</a>;
+<a name="l00034"></a><a class="code" href="structadiacenza.html#a64865462a95428742eed016ee8bfcdd1">00034</a>     <span class="keywordtype">double</span> <a class="code" href="structadiacenza.html#a64865462a95428742eed016ee8bfcdd1">secondi</a>;
 <a name="l00035"></a>00035     
 <a name="l00036"></a>00036 };
-<a name="l00037"></a>00037 <span class="keyword">typedef</span> <a class="code" href="structadiacenza.html">adiacenza</a> <a class="code" href="structadiacenza.html">arco</a>;
+<a name="l00037"></a><a class="code" href="grafo_8h.html#a2acdbc8e59194b1fb0c52b9fb6e48b44">00037</a> <span class="keyword">typedef</span> <a class="code" href="structadiacenza.html" title="Struct che rappresenta gli archi fra un nodo e l&amp;#39;altro.">adiacenza</a> <a class="code" href="structadiacenza.html" title="Struct che rappresenta gli archi fra un nodo e l&amp;#39;altro.">arco</a>;
 <a name="l00038"></a>00038 
-<a name="l00041"></a><a class="code" href="structnodo.html">00041</a> <span class="keyword">struct </span><a class="code" href="structnodo.html">nodo</a> {
-<a name="l00043"></a><a class="code" href="structnodo.html#a4e346a7300837310d594e854b0918b01">00043</a>     <span class="keywordtype">int</span> <a class="code" href="structnodo.html#a4e346a7300837310d594e854b0918b01">x</a>;
-<a name="l00045"></a><a class="code" href="structnodo.html#a454518f55fe41aa89177dbbf19a349e4">00045</a>     <span class="keywordtype">int</span> <a class="code" href="structnodo.html#a454518f55fe41aa89177dbbf19a349e4">y</a>;
-<a name="l00046"></a>00046 
-<a name="l00053"></a><a class="code" href="structnodo.html#ae242f8d8dd28c74789c66f76ccbc6179">00053</a>     t_incrocio <a class="code" href="structnodo.html#ae242f8d8dd28c74789c66f76ccbc6179">tipo</a>;
-<a name="l00054"></a>00054 
-<a name="l00056"></a><a class="code" href="structnodo.html#acde832d9079cd541214312f347ef0712">00056</a>     list&lt;adiacenza&gt; <a class="code" href="structnodo.html#acde832d9079cd541214312f347ef0712">adiacente</a>;
-<a name="l00057"></a>00057 
-<a name="l00059"></a><a class="code" href="structnodo.html#ad020a139f05c481569b2c453b56971b4">00059</a>     <span class="keywordtype">int</span> <a class="code" href="structnodo.html#ad020a139f05c481569b2c453b56971b4">size_list</a>;
+<a name="l00040"></a><a class="code" href="structnodo.html">00040</a> <span class="keyword">struct </span><a class="code" href="structnodo.html" title="Struct per la rappresentazione dei nodi di cui e&amp;#39; composto il grafo.">nodo</a> {
+<a name="l00042"></a><a class="code" href="structnodo.html#a4e346a7300837310d594e854b0918b01">00042</a>     <span class="keywordtype">int</span> <a class="code" href="structnodo.html#a4e346a7300837310d594e854b0918b01" title="Coordinata orizzontale del nodo sulla mappa.">x</a>;
+<a name="l00044"></a><a class="code" href="structnodo.html#a454518f55fe41aa89177dbbf19a349e4">00044</a>     <span class="keywordtype">int</span> <a class="code" href="structnodo.html#a454518f55fe41aa89177dbbf19a349e4" title="Coordinata Verticale del nodo sulla mappa.">y</a>;
+<a name="l00045"></a>00045 
+<a name="l00052"></a><a class="code" href="structnodo.html#ae242f8d8dd28c74789c66f76ccbc6179">00052</a>     <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3" title="enumerato per la tipoligia di incrocio">t_incrocio</a> <a class="code" href="structnodo.html#ae242f8d8dd28c74789c66f76ccbc6179" title="Tipo di incrocio che rappreenta questo nodo.">tipo</a>;
+<a name="l00053"></a>00053 
+<a name="l00055"></a><a class="code" href="structnodo.html#acde832d9079cd541214312f347ef0712">00055</a>     list&lt;adiacenza&gt; <a class="code" href="structnodo.html#acde832d9079cd541214312f347ef0712" title="Tutti i nodi che e&amp;#39; possibile raggiungere da questo.">adiacente</a>;
+<a name="l00056"></a>00056 
+<a name="l00058"></a><a class="code" href="structnodo.html#ad020a139f05c481569b2c453b56971b4">00058</a>     <span class="keywordtype">int</span> <a class="code" href="structnodo.html#ad020a139f05c481569b2c453b56971b4" title="Quanto è grande la lista di adiacenza.">size_list</a>;
+<a name="l00059"></a>00059 
 <a name="l00060"></a>00060 
 <a name="l00061"></a>00061 
-<a name="l00062"></a>00062 
-<a name="l00063"></a>00063     <span class="comment">//ROBA CHE SERVE SOLO PER LA RICERCA ---------------------------------------</span>
-<a name="l00069"></a><a class="code" href="structnodo.html#a2694acb99e1095c70b3c80d57be82c6c">00069</a> <span class="comment"></span>    colour_t <a class="code" href="structnodo.html#a2694acb99e1095c70b3c80d57be82c6c">visitato</a>;
-<a name="l00070"></a>00070 
-<a name="l00075"></a><a class="code" href="structnodo.html#a2b4a9ed0747f972dc47ea12c935cb9dd">00075</a>     <span class="keywordtype">float</span> <a class="code" href="structnodo.html#a2b4a9ed0747f972dc47ea12c935cb9dd">peso</a>;
-<a name="l00076"></a>00076 
-<a name="l00078"></a><a class="code" href="structnodo.html#a0ee242378ff48b176c09cdc2e61295cb">00078</a>     <span class="keywordtype">int</span> <a class="code" href="structnodo.html#a0ee242378ff48b176c09cdc2e61295cb">padre</a>;
-<a name="l00079"></a>00079 };
-<a name="l00080"></a>00080 
-<a name="l00087"></a>00087 <span class="comment">//void graph_loader(GtkWidget* widget,ifstream &amp;file);</span>
-<a name="l00088"></a>00088 <span class="keywordtype">void</span> carica_mappa(<span class="keyword">const</span> <span class="keywordtype">char</span> *filename);
-<a name="l00089"></a>00089 
-<a name="l00090"></a>00090 <span class="preprocessor">#endif  </span><span class="comment">/* GRAFO_H */</span>
-<a name="l00091"></a>00091 
+<a name="l00062"></a>00062     <span class="comment">//ROBA CHE SERVE SOLO PER LA RICERCA ---------------------------------------</span>
+<a name="l00068"></a><a class="code" href="structnodo.html#a2694acb99e1095c70b3c80d57be82c6c">00068</a> <span class="comment"></span>    <a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5" title="enumerato per i colori della visita">colour_t</a> <a class="code" href="structnodo.html#a2694acb99e1095c70b3c80d57be82c6c" title="Colore da impostare secondo l&amp;#39;algoritmo dijkstra.">visitato</a>;
+<a name="l00069"></a>00069 
+<a name="l00074"></a><a class="code" href="structnodo.html#ad9af03d4d3cfe325790568dc7a99e479">00074</a>     <span class="keywordtype">double</span> <a class="code" href="structnodo.html#ad9af03d4d3cfe325790568dc7a99e479" title="Quanto pesa passare da questo nodo.">peso</a>;
+<a name="l00075"></a>00075 
+<a name="l00077"></a><a class="code" href="structnodo.html#a0ee242378ff48b176c09cdc2e61295cb">00077</a>     <span class="keywordtype">int</span> <a class="code" href="structnodo.html#a0ee242378ff48b176c09cdc2e61295cb" title="Questo parametro serve a ricostruire il tragitto dopo aver usato dijkstra.">padre</a>;
+<a name="l00078"></a>00078 };
+<a name="l00079"></a>00079 
+<a name="l00080"></a>00080 <span class="comment">//void graph_loader(GtkWidget* widget,ifstream &amp;file);</span>
+<a name="l00081"></a>00081 <span class="keywordtype">int</span> <a class="code" href="grafo_8cpp.html#a6e90297598b0cc70283302fcaeb73c68" title="Carica dal file .map e crea il grafo.">carica_mappa</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *filename);
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083 <span class="keywordtype">int</span> <a class="code" href="grafo_8cpp.html#ab98d31ac652b48847b494a98da97c386">dim_grafo</a>(<span class="keywordtype">void</span>);
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085 <span class="preprocessor">#endif  </span><span class="comment">/* GRAFO_H */</span>
+<a name="l00086"></a>00086 
 </pre></div></div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>Tutto</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Strutture dati</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Variabili</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>Tutto</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Strutture dati</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>File</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Funzioni</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&nbsp;</span>Variabili</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&nbsp;</span>Ridefinizioni di tipo (typedef)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&nbsp;</span>Tipi enumerati (enum)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&nbsp;</span>Valori dei tipi enumerati</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&nbsp;</span>Definizioni</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -111,7 +113,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generato il Tue Jul 20 01:09:43 2010 per Trolaspic da&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generato il Wed Jul 21 17:55:16 2010 per Trolaspic da&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

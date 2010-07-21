@@ -44,20 +44,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div>
 <div class="contents">
 <h1>Riferimenti per la struct nodo</h1><!-- doxytag: class="nodo" -->
+<p>Struct per la rappresentazione dei nodi di cui e' composto il grafo.  
+<a href="#_details">Continua...</a></p>
+
 <p><code>#include &lt;<a class="el" href="grafo_8h_source.html">grafo.h</a>&gt;</code></p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="2"><h2>Campi</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnodo.html#a4e346a7300837310d594e854b0918b01">x</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Coordinata orizzontale del nodo sulla mappa.  <a href="#a4e346a7300837310d594e854b0918b01"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnodo.html#a454518f55fe41aa89177dbbf19a349e4">y</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">t_incrocio&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnodo.html#ae242f8d8dd28c74789c66f76ccbc6179">tipo</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Coordinata Verticale del nodo sulla mappa.  <a href="#a454518f55fe41aa89177dbbf19a349e4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3">t_incrocio</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnodo.html#ae242f8d8dd28c74789c66f76ccbc6179">tipo</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Tipo di incrocio che rappreenta questo nodo.  <a href="#ae242f8d8dd28c74789c66f76ccbc6179"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">list&lt; <a class="el" href="structadiacenza.html">adiacenza</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnodo.html#acde832d9079cd541214312f347ef0712">adiacente</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Tutti i nodi che e' possibile raggiungere da questo.  <a href="#acde832d9079cd541214312f347ef0712"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnodo.html#ad020a139f05c481569b2c453b56971b4">size_list</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">colour_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnodo.html#a2694acb99e1095c70b3c80d57be82c6c">visitato</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">float&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnodo.html#a2b4a9ed0747f972dc47ea12c935cb9dd">peso</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Quanto è grande la lista di adiacenza.  <a href="#ad020a139f05c481569b2c453b56971b4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5">colour_t</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnodo.html#a2694acb99e1095c70b3c80d57be82c6c">visitato</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Colore da impostare secondo l'algoritmo dijkstra.  <a href="#a2694acb99e1095c70b3c80d57be82c6c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnodo.html#ad9af03d4d3cfe325790568dc7a99e479">peso</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Quanto pesa passare da questo nodo.  <a href="#ad9af03d4d3cfe325790568dc7a99e479"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnodo.html#a0ee242378ff48b176c09cdc2e61295cb">padre</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Questo parametro serve a ricostruire il tragitto dopo aver usato dijkstra.  <a href="#a0ee242378ff48b176c09cdc2e61295cb"></a><br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Descrizione dettagliata</h2>
-<p>Struct per la rappresentazione dei nodi di cui e' composto il grafo </p>
+<p>Struct per la rappresentazione dei nodi di cui e' composto il grafo. </p>
 <hr/><h2>Documentazione dei campi</h2>
 <a class="anchor" id="acde832d9079cd541214312f347ef0712"></a><!-- doxytag: member="nodo::adiacente" ref="acde832d9079cd541214312f347ef0712" args="" -->
 <div class="memitem">
@@ -69,7 +80,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
       </table>
 </div>
 <div class="memdoc">
-<p>Tutti i nodi che e' possibile raggiungere da questo </p>
+
+<p>Tutti i nodi che e' possibile raggiungere da questo. </p>
 
 </div>
 </div>
@@ -83,21 +95,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
       </table>
 </div>
 <div class="memdoc">
-<p>Questo parametro serve a ricostruire il tragitto dopo aver usato dijkstra </p>
+
+<p>Questo parametro serve a ricostruire il tragitto dopo aver usato dijkstra. </p>
 
 </div>
 </div>
-<a class="anchor" id="a2b4a9ed0747f972dc47ea12c935cb9dd"></a><!-- doxytag: member="nodo::peso" ref="a2b4a9ed0747f972dc47ea12c935cb9dd" args="" -->
+<a class="anchor" id="ad9af03d4d3cfe325790568dc7a99e479"></a><!-- doxytag: member="nodo::peso" ref="ad9af03d4d3cfe325790568dc7a99e479" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float <a class="el" href="structnodo.html#a2b4a9ed0747f972dc47ea12c935cb9dd">nodo::peso</a></td>
+          <td class="memname">double <a class="el" href="structnodo.html#ad9af03d4d3cfe325790568dc7a99e479">nodo::peso</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Quanto pesa passare da questo nodo. <br/>
+
+<p>Quanto pesa passare da questo nodo. </p>
+<p><br/>
  Questo peso e' usato da Dijkstra e non ha niente a che fare <br/>
  con la distanza delle strade </p>
 
@@ -113,7 +128,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
       </table>
 </div>
 <div class="memdoc">
-<p>Quanto è grande la lista di adiacenza </p>
+
+<p>Quanto è grande la lista di adiacenza. </p>
 
 </div>
 </div>
@@ -122,12 +138,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">t_incrocio <a class="el" href="structnodo.html#ae242f8d8dd28c74789c66f76ccbc6179">nodo::tipo</a></td>
+          <td class="memname"><a class="el" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3">t_incrocio</a> <a class="el" href="structnodo.html#ae242f8d8dd28c74789c66f76ccbc6179">nodo::tipo</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Tipo di incrocio che rappreenta questo nodo. <br/>
+
+<p>Tipo di incrocio che rappreenta questo nodo. </p>
+<p><br/>
  Rotatoria <br/>
  Incrocio senza semaforo <br/>
  Incrocio con semaforo <br/>
@@ -140,12 +158,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">colour_t <a class="el" href="structnodo.html#a2694acb99e1095c70b3c80d57be82c6c">nodo::visitato</a></td>
+          <td class="memname"><a class="el" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5">colour_t</a> <a class="el" href="structnodo.html#a2694acb99e1095c70b3c80d57be82c6c">nodo::visitato</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Colore da impostare secondo l'algoritmo dijkstra. <br/>
+
+<p>Colore da impostare secondo l'algoritmo dijkstra. </p>
+<p><br/>
  Bianco se il nodo non e' mai stato visitato <br/>
  Grigio se il nodo e' stato visitato ma i suoi archi non sono stati tutti rilassati <br/>
  Nero se il nodo e' stato visitato e ha gli archi tutti rilassati </p>
@@ -162,7 +182,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
       </table>
 </div>
 <div class="memdoc">
-<p>Coordinata orizzontale del nodo sulla mappa </p>
+
+<p>Coordinata orizzontale del nodo sulla mappa. </p>
 
 </div>
 </div>
@@ -176,7 +197,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
       </table>
 </div>
 <div class="memdoc">
-<p>Coordinata Verticale del nodo sulla mappa </p>
+
+<p>Coordinata Verticale del nodo sulla mappa. </p>
 
 </div>
 </div>
@@ -189,7 +211,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>Tutto</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Strutture dati</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Variabili</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>Tutto</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Strutture dati</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>File</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Funzioni</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&nbsp;</span>Variabili</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&nbsp;</span>Ridefinizioni di tipo (typedef)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&nbsp;</span>Tipi enumerati (enum)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&nbsp;</span>Valori dei tipi enumerati</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&nbsp;</span>Definizioni</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -198,7 +220,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generato il Tue Jul 20 01:09:43 2010 per Trolaspic da&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generato il Wed Jul 21 17:55:16 2010 per Trolaspic da&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

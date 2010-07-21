@@ -1,0 +1,354 @@
+<!-- This comment will put IE 6, 7 and 8 in quirks mode -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Trolaspic: Riferimenti per il file priorita.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Generato da Doxygen 1.6.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Pagina&nbsp;Principale</span></a></li>
+      <li><a href="annotated.html"><span>Strutture&nbsp;dati</span></a></li>
+      <li class="current"><a href="files.html"><span>File</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <img id="MSearchSelect" src="search/search.png"
+             onmouseover="return searchBox.OnSearchSelectShow()"
+             onmouseout="return searchBox.OnSearchSelectHide()"
+             alt=""/>
+        <input type="text" id="MSearchField" value="Cerca" accesskey="S"
+             onfocus="searchBox.OnSearchFieldFocus(true)" 
+             onblur="searchBox.OnSearchFieldFocus(false)" 
+             onkeyup="searchBox.OnSearchFieldChange(event)"/>
+        <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Elenco&nbsp;dei&nbsp;file</span></a></li>
+      <li><a href="globals.html"><span>Elementi&nbsp;globali</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Riferimenti per il file priorita.h</h1>
+<p><a href="priorita_8h_source.html">Vai al codice sorgente di questo file.</a></p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Strutture dati</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structelem__priorita.html">elem_priorita</a></td></tr>
+<tr><td colspan="2"><h2>Ridefinizioni di tipo (typedef)</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="priorita_8h.html#aa26eec08d809f275c6e9d827da727f86">nome_nodo</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="structelem__priorita.html">elem_priorita</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="priorita_8h.html#a6040fa3300daa159846dda300407757e">coda_priorita</a></td></tr>
+<tr><td colspan="2"><h2>Funzioni</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structelem__priorita.html">coda_priorita</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="priorita_8h.html#a945e9390b8b5906d689535e6a459114f">inizializza_coda</a> (int dimensioni_max)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Va chiamata per creare la coda di priorità.  <a href="#a945e9390b8b5906d689535e6a459114f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structelem__priorita.html">elem_priorita</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="priorita_8h.html#ae329e8253c0d80e08c925eefa93649e0">estrai_minimo</a> (<a class="el" href="structelem__priorita.html">coda_priorita</a> coda)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Estrae il valore minimo della coda (eliminato dalla coda).  <a href="#ae329e8253c0d80e08c925eefa93649e0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="priorita_8h.html#a5430a9a2f5a00f424be15679f6b492e8">inserisci</a> (<a class="el" href="structelem__priorita.html">coda_priorita</a> coda, double peso, <a class="el" href="priorita_8h.html#aa26eec08d809f275c6e9d827da727f86">nome_nodo</a> <a class="el" href="priorita_8h.html#aa26eec08d809f275c6e9d827da727f86">nome_nodo</a>)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Inserisce un elemento nella coda (non controlla se ci potrebbe essere overflow -&gt;causato da troppi elementi nella coda).  <a href="#a5430a9a2f5a00f424be15679f6b492e8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="priorita_8h.html#a7372a2cce207c7824e0344e52d2f9b40">cambia_chiave</a> (<a class="el" href="structelem__priorita.html">coda_priorita</a> coda, <a class="el" href="priorita_8h.html#aa26eec08d809f275c6e9d827da727f86">nome_nodo</a> quale_nodo, double nuovo_peso)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Abbassa la priorità (verrà estratta prima) dell'elemento "nome_nodo" riassegnandogli la chiave "nuovo_peso".  <a href="#a7372a2cce207c7824e0344e52d2f9b40"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="priorita_8h.html#a4be3937562f96d6429e8dacd78ce30ac">coda_vuota</a> (<a class="el" href="structelem__priorita.html">coda_priorita</a> coda)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Funzione per controllare se la funzione è vuota.  <a href="#a4be3937562f96d6429e8dacd78ce30ac"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="priorita_8h.html#a6be81ec957e02903cacdb54879ba2d75">elimina_coda</a> (<a class="el" href="structelem__priorita.html">coda_priorita</a> coda)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Corrispettivo del decostruttore delle classi.  <a href="#a6be81ec957e02903cacdb54879ba2d75"></a><br/></td></tr>
+</table>
+<hr/><h2>Documentazione delle ridefinizioni di tipo (typedef)</h2>
+<a class="anchor" id="a6040fa3300daa159846dda300407757e"></a><!-- doxytag: member="priorita.h::coda_priorita" ref="a6040fa3300daa159846dda300407757e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="structelem__priorita.html">elem_priorita</a>* <a class="el" href="structelem__priorita.html">coda_priorita</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa26eec08d809f275c6e9d827da727f86"></a><!-- doxytag: member="priorita.h::nome_nodo" ref="aa26eec08d809f275c6e9d827da727f86" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef int <a class="el" href="priorita_8h.html#aa26eec08d809f275c6e9d827da727f86">nome_nodo</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>Documentazione delle funzioni</h2>
+<a class="anchor" id="a7372a2cce207c7824e0344e52d2f9b40"></a><!-- doxytag: member="priorita.h::cambia_chiave" ref="a7372a2cce207c7824e0344e52d2f9b40" args="(coda_priorita coda, nome_nodo quale_nodo, double nuovo_peso)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cambia_chiave </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structelem__priorita.html">coda_priorita</a>&nbsp;</td>
+          <td class="paramname"> <em>coda</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="priorita_8h.html#aa26eec08d809f275c6e9d827da727f86">nome_nodo</a>&nbsp;</td>
+          <td class="paramname"> <em>quale_nodo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>nuovo_peso</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Abbassa la priorità (verrà estratta prima) dell'elemento "nome_nodo" riassegnandogli la chiave "nuovo_peso". </p>
+<dl><dt><b>Parametri:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>coda</em>&nbsp;</td><td>sulla quale si vuole operare </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>nome_nodo</em>&nbsp;</td><td>che si vuole modificare </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>nuovo_peso</em>&nbsp;</td><td>che si vuole cambiare (deve essere per forza più basso del primo) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Restituisce:</b></dt><dd>true-&gt; operazione conclusa con successo / false-&gt; operazione fallita </dd></dl>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00117"></a>00117                                                                                {
+<a name="l00118"></a>00118     <span class="keywordtype">int</span> pos = <a class="code" href="priorita_8cpp.html#a1b678d1e87334c560ac12c0198bc8232">find</a> (coda, quale_nodo);
+<a name="l00119"></a>00119     <span class="keywordflow">if</span> (pos==-1){
+<a name="l00120"></a>00120         cerr&lt;&lt;<span class="stringliteral">&quot;chiave da diminuire non trovata\n&quot;</span>;
+<a name="l00121"></a>00121         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00122"></a>00122     }
+<a name="l00123"></a>00123     <span class="keywordflow">return</span> <a class="code" href="priorita_8cpp.html#ad23fedcba95720cc0fd4f05cabb0d65e">diminuisci_chiave</a>(coda, pos, nuovo_peso, quale_nodo);
+<a name="l00124"></a>00124 }
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="a4be3937562f96d6429e8dacd78ce30ac"></a><!-- doxytag: member="priorita.h::coda_vuota" ref="a4be3937562f96d6429e8dacd78ce30ac" args="(coda_priorita coda)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool coda_vuota </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structelem__priorita.html">coda_priorita</a>&nbsp;</td>
+          <td class="paramname"> <em>coda</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Funzione per controllare se la funzione è vuota. </p>
+<dl><dt><b>Parametri:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>coda</em>&nbsp;</td><td>da esaminare </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Restituisce:</b></dt><dd>vero se vuota, falso se c'è almeno un elemento </dd></dl>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00134"></a>00134                                     {
+<a name="l00135"></a>00135     <span class="keywordflow">if</span> (<a class="code" href="priorita_8cpp.html#ae4664d619e9c254f2aede8e211538dcd">dim_coda</a>(coda)==0)  <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00136"></a>00136                             <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00137"></a>00137 }</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="a6be81ec957e02903cacdb54879ba2d75"></a><!-- doxytag: member="priorita.h::elimina_coda" ref="a6be81ec957e02903cacdb54879ba2d75" args="(coda_priorita coda)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void elimina_coda </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structelem__priorita.html">coda_priorita</a>&nbsp;</td>
+          <td class="paramname"> <em>coda</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Corrispettivo del decostruttore delle classi. </p>
+<p>Va chiamato per deallocare la memoria occupata dalla coda.</p>
+<dl><dt><b>Parametri:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>coda</em>&nbsp;</td><td>da eliminare </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00076"></a>00076                                       {
+<a name="l00077"></a>00077     <span class="keyword">delete</span>[] coda;
+<a name="l00078"></a>00078     <span class="keywordflow">return</span>;
+<a name="l00079"></a>00079 };
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="ae329e8253c0d80e08c925eefa93649e0"></a><!-- doxytag: member="priorita.h::estrai_minimo" ref="ae329e8253c0d80e08c925eefa93649e0" args="(coda_priorita coda)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structelem__priorita.html">elem_priorita</a> estrai_minimo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structelem__priorita.html">coda_priorita</a>&nbsp;</td>
+          <td class="paramname"> <em>coda</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Estrae il valore minimo della coda (eliminato dalla coda). </p>
+<dl><dt><b>Parametri:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>coda</em>&nbsp;</td><td>: la coda ritornata dall'inizializza_coda </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Restituisce:</b></dt><dd>l'elemento estratto </dd></dl>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00082"></a>00082                                                {
+<a name="l00083"></a>00083     <a class="code" href="structelem__priorita.html">elem_priorita</a> minimo;
+<a name="l00084"></a>00084     minimo.<a class="code" href="structelem__priorita.html#ae3ec0ed135c9599057b73a8af1c56a0d">nodo</a> = 0;
+<a name="l00085"></a>00085     minimo.<a class="code" href="structelem__priorita.html#ae8c47cc09c3f945b6031ee6a44bf0fd0">peso</a> = 0;
+<a name="l00086"></a>00086     <span class="keywordflow">if</span>(coda[0].<a class="code" href="structnodo.html" title="Struct per la rappresentazione dei nodi di cui e&amp;#39; composto il grafo.">nodo</a> == 0) <span class="keywordflow">return</span> minimo;
+<a name="l00087"></a>00087     minimo.<a class="code" href="structelem__priorita.html#ae3ec0ed135c9599057b73a8af1c56a0d">nodo</a> = coda[1].<a class="code" href="structelem__priorita.html#ae3ec0ed135c9599057b73a8af1c56a0d">nodo</a>;
+<a name="l00088"></a>00088     minimo.<a class="code" href="structelem__priorita.html#ae8c47cc09c3f945b6031ee6a44bf0fd0">peso</a> = coda[1].<a class="code" href="structelem__priorita.html#ae8c47cc09c3f945b6031ee6a44bf0fd0">peso</a>;
+<a name="l00089"></a>00089     coda[1]= coda[<a class="code" href="priorita_8cpp.html#ae4664d619e9c254f2aede8e211538dcd">dim_coda</a>(coda)];
+<a name="l00090"></a>00090     <a class="code" href="priorita_8cpp.html#a9fd948515104c44e0725d7a1828a5410">dim_coda_decrease</a>(coda);
+<a name="l00091"></a>00091     <a class="code" href="priorita_8cpp.html#afa6a140d56d480f43371f4cbd1ba93c6">min_heapifizza</a>(coda,1);
+<a name="l00092"></a>00092     <span class="keywordflow">return</span> minimo;
+<a name="l00093"></a>00093 }
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="a945e9390b8b5906d689535e6a459114f"></a><!-- doxytag: member="priorita.h::inizializza_coda" ref="a945e9390b8b5906d689535e6a459114f" args="(int dimensioni_max)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structelem__priorita.html">coda_priorita</a> inizializza_coda </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>dimensioni_max</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Va chiamata per creare la coda di priorità. </p>
+<dl><dt><b>Parametri:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>dimensioni_max</em>&nbsp;</td><td>le dimensioni massime di elementi nella coda </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Restituisce:</b></dt><dd>la coda di priorità </dd></dl>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00068"></a>00068                                                    {
+<a name="l00069"></a>00069     dimensioni_max++;
+<a name="l00070"></a>00070     <a class="code" href="structelem__priorita.html">coda_priorita</a> coda= <span class="keyword">new</span> <a class="code" href="structelem__priorita.html">elem_priorita</a>[dimensioni_max];
+<a name="l00071"></a>00071     memset(coda,NULL,dimensioni_max);
+<a name="l00072"></a>00072     <a class="code" href="priorita_8cpp.html#abf25c95bc35640d9475f88daf3951328">dim_coda_set</a>(coda,0); <span class="comment">//setta le dimensioni della coda</span>
+<a name="l00073"></a>00073     <span class="keywordflow">return</span> coda;
+<a name="l00074"></a>00074 }
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="a5430a9a2f5a00f424be15679f6b492e8"></a><!-- doxytag: member="priorita.h::inserisci" ref="a5430a9a2f5a00f424be15679f6b492e8" args="(coda_priorita coda, double peso, nome_nodo nome_nodo)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inserisci </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structelem__priorita.html">coda_priorita</a>&nbsp;</td>
+          <td class="paramname"> <em>coda</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>peso</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="priorita_8h.html#aa26eec08d809f275c6e9d827da727f86">nome_nodo</a>&nbsp;</td>
+          <td class="paramname"> <em>nome_nodo</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Inserisce un elemento nella coda (non controlla se ci potrebbe essere overflow -&gt;causato da troppi elementi nella coda). </p>
+<dl><dt><b>Parametri:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>coda</em>&nbsp;</td><td>: riferimento alla coda da utilizzare </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>peso</em>&nbsp;</td><td>: peso </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>nome_nodo</em>&nbsp;</td><td>: </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>Tutto</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Strutture dati</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>File</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Funzioni</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&nbsp;</span>Variabili</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&nbsp;</span>Ridefinizioni di tipo (typedef)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&nbsp;</span>Tipi enumerati (enum)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&nbsp;</span>Valori dei tipi enumerati</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&nbsp;</span>Definizioni</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address style="text-align: right;"><small>Generato il Wed Jul 21 17:17:11 2010 per Trolaspic da&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!-- This comment will put IE 6, 7 and 8 in quirks mode -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Trolaspic: Riferimenti per il file main.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Generato da Doxygen 1.6.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Pagina&nbsp;Principale</span></a></li>
+      <li><a href="annotated.html"><span>Strutture&nbsp;dati</span></a></li>
+      <li class="current"><a href="files.html"><span>File</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <img id="MSearchSelect" src="search/search.png"
+             onmouseover="return searchBox.OnSearchSelectShow()"
+             onmouseout="return searchBox.OnSearchSelectHide()"
+             alt=""/>
+        <input type="text" id="MSearchField" value="Cerca" accesskey="S"
+             onfocus="searchBox.OnSearchFieldFocus(true)" 
+             onblur="searchBox.OnSearchFieldFocus(false)" 
+             onkeyup="searchBox.OnSearchFieldChange(event)"/>
+        <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Elenco&nbsp;dei&nbsp;file</span></a></li>
+      <li><a href="globals.html"><span>Elementi&nbsp;globali</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Riferimenti per il file main.cpp</h1><code>#include &lt;gtk/gtk.h&gt;</code><br/>
+<code>#include &lt;iostream&gt;</code><br/>
+<code>#include &quot;<a class="el" href="main_8h_source.html">main.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="creazione__interfaccia_8h_source.html">creazione_interfaccia.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="gestione__drawing__area_8h_source.html">gestione_drawing_area.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="main_8cpp.html">g_callback.h</a>&quot;</code><br/>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Funzioni</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
+</table>
+<hr/><h2>Documentazione delle funzioni</h2>
+<a class="anchor" id="a3c04138a5bfe5d72780bb7e82a18e627"></a><!-- doxytag: member="main.cpp::main" ref="a3c04138a5bfe5d72780bb7e82a18e627" args="(int argc, char **argv)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&nbsp;</td>
+          <td class="paramname"> <em>argv</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p><div class="fragment"><pre class="fragment"><a name="l00039"></a>00039                                 {
+<a name="l00040"></a>00040     gtk_init(&amp;argc, &amp;argv);
+<a name="l00041"></a>00041 
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043     <span class="comment">//**************************************************************************</span>
+<a name="l00044"></a>00044     <a class="code" href="structpassaggio__t.html">passaggio_t</a> *window= <a class="code" href="creazione__interfaccia_8cpp.html#ac2d0492ff1c555bc0cdb452b2f051034" title="Crea la finestra principale con tutti gli oggetti.">crea_finestra_principale</a>();
+<a name="l00045"></a>00045     gtk_widget_show(window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716">finestra</a>);
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048     g_signal_connect_swapped (window-&gt;<a class="code" href="structpassaggio__t.html#aca3ce88e19981e9dcb95d81847accacd">info_i</a>,   <span class="stringliteral">&quot;activate&quot;</span>,     G_CALLBACK (<a class="code" href="g__callback_8cpp.html#ae74861d87a5de6e4cc15a79240b592f7">mostra_info</a>),      window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716">finestra</a>);
+<a name="l00049"></a>00049     g_signal_connect_swapped (window-&gt;<a class="code" href="structpassaggio__t.html#aa329b6ef38c6eeca1bdee5fff61756ff">esci_i</a>,   <span class="stringliteral">&quot;activate&quot;</span>,     G_CALLBACK (<a class="code" href="g__callback_8cpp.html#a381c43e6bf734ff6081e0ea730fd590a">response_dialogo</a>), window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716">finestra</a>);
+<a name="l00050"></a>00050     g_signal_connect_swapped (window-&gt;<a class="code" href="structpassaggio__t.html#a5a082534a42d7c5cffcbdbd70cc5e19d">carica_i</a>, <span class="stringliteral">&quot;activate&quot;</span>,     G_CALLBACK (<a class="code" href="g__callback_8cpp.html#a34f2cecd360bb543d0ee438f8d311cea">response_carica</a>),  window          );
+<a name="l00051"></a>00051     g_signal_connect         (window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716">finestra</a>, <span class="stringliteral">&quot;delete-event&quot;</span>, G_CALLBACK (<a class="code" href="g__callback_8cpp.html#a381c43e6bf734ff6081e0ea730fd590a">response_dialogo</a>), window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716">finestra</a>);
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053     window-&gt;<a class="code" href="structpassaggio__t.html#a01624ae4eed6b66ca275ea8457aec982">calcola_id</a> =
+<a name="l00054"></a>00054         g_signal_connect_swapped (window-&gt;<a class="code" href="structpassaggio__t.html#a1c2b2a5d65cba6d29c9c5341739c4230">calcola_i</a>, <span class="stringliteral">&quot;activate&quot;</span>, G_CALLBACK (<a class="code" href="g__callback_8cpp.html#ab61304513439f02c464a3674b71b87c8">response_calcola</a>), window);
+<a name="l00055"></a>00055     window-&gt;<a class="code" href="structpassaggio__t.html#aa13f695bba4cfbe364a8f042c3300706">errore_id</a>  =
+<a name="l00056"></a>00056         g_signal_connect_swapped (window-&gt;<a class="code" href="structpassaggio__t.html#a1c2b2a5d65cba6d29c9c5341739c4230">calcola_i</a>, <span class="stringliteral">&quot;activate&quot;</span>, G_CALLBACK (<a class="code" href="g__callback_8cpp.html#a0f6a82aef80971e0ce9a7e61ba7230fa">response_non_calcola</a>), window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716">finestra</a>);
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058     g_signal_handler_block( window-&gt;<a class="code" href="structpassaggio__t.html#a1c2b2a5d65cba6d29c9c5341739c4230">calcola_i</a>, window-&gt;<a class="code" href="structpassaggio__t.html#a01624ae4eed6b66ca275ea8457aec982">calcola_id</a>);
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060     <span class="comment">//**************************************************************************</span>
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063     gtk_main();
+<a name="l00064"></a>00064     <span class="keyword">delete</span>[] window;
+<a name="l00065"></a>00065     <span class="keywordflow">return</span> 0;
+<a name="l00066"></a>00066 }
+</pre></div></p>
+
+</div>
+</div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>Tutto</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Strutture dati</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>File</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Funzioni</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&nbsp;</span>Variabili</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&nbsp;</span>Ridefinizioni di tipo (typedef)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&nbsp;</span>Tipi enumerati (enum)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&nbsp;</span>Valori dei tipi enumerati</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&nbsp;</span>Definizioni</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address style="text-align: right;"><small>Generato il Wed Jul 21 17:55:16 2010 per Trolaspic da&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

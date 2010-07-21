@@ -38,9 +38,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
   <div class="tabs">
     <ul>
       <li><a href="files.html"><span>Elenco&nbsp;dei&nbsp;file</span></a></li>
+      <li><a href="globals.html"><span>Elementi&nbsp;globali</span></a></li>
     </ul>
   </div>
-<h1>main.h</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* </span>
+<h1>main.h</h1><a href="main_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* </span>
 <a name="l00002"></a>00002 <span class="comment"> * File:   main.h</span>
 <a name="l00003"></a>00003 <span class="comment"> * Author: matteo</span>
 <a name="l00004"></a>00004 <span class="comment"> *</span>
@@ -56,94 +57,53 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00014"></a>00014 <span class="preprocessor">#ifdef DEBUG</span>
 <a name="l00015"></a>00015 <span class="preprocessor"></span><span class="preprocessor">    #define DBG(A) A;</span>
 <a name="l00016"></a>00016 <span class="preprocessor"></span><span class="preprocessor">#else</span>
-<a name="l00017"></a>00017 <span class="preprocessor"></span><span class="preprocessor">    #define DBG(A)</span>
+<a name="l00017"></a><a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">00017</a> <span class="preprocessor"></span><span class="preprocessor">    #define DBG(A)</span>
 <a name="l00018"></a>00018 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
 <a name="l00019"></a>00019 <span class="preprocessor"></span>
 <a name="l00020"></a>00020 <span class="preprocessor">#ifndef DEBUG_MATTEO</span>
-<a name="l00021"></a>00021 <span class="preprocessor"></span><span class="preprocessor">    #define PERCORSO &quot;.&quot;</span>
+<a name="l00021"></a><a class="code" href="main_8h.html#ac4a939527af8f4f3e120c09cc1473cec">00021</a> <span class="preprocessor"></span><span class="preprocessor">    #define PERCORSO &quot;.&quot;</span>
 <a name="l00022"></a>00022 <span class="preprocessor"></span><span class="preprocessor">#else</span>
 <a name="l00023"></a>00023 <span class="preprocessor"></span><span class="preprocessor">    #define PERCORSO &quot;./NetBeansProjects/trolaspic_code/trunk/trolaspic&quot;</span>
 <a name="l00024"></a>00024 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
 <a name="l00025"></a>00025 <span class="preprocessor"></span>
-<a name="l00026"></a>00026 <span class="preprocessor">#define VERSION &quot;0.0.20a&quot;</span>
+<a name="l00026"></a><a class="code" href="main_8h.html#a1c6d5de492ac61ad29aec7aa9a436bbf">00026</a> <span class="preprocessor">#define VERSION &quot;0.2.3.1a - Fillix&quot;</span>
 <a name="l00027"></a>00027 <span class="preprocessor"></span>
-<a name="l00028"></a>00028 
-<a name="l00029"></a><a class="code" href="structpassaggio__t.html">00029</a> <span class="keyword">struct </span><a class="code" href="structpassaggio__t.html">passaggio_t</a> {
-<a name="l00030"></a>00030     GtkWidget* finestra;
-<a name="l00031"></a>00031     GtkWidget* info_i;
-<a name="l00032"></a>00032     GtkWidget* esci_i;
-<a name="l00033"></a>00033     GtkWidget* carica_i;
-<a name="l00034"></a>00034     GtkWidget* calcola_i;
-<a name="l00035"></a>00035     GtkWidget* image;
-<a name="l00036"></a>00036     GtkWidget* statusbar;
-<a name="l00037"></a>00037     gint statusbar_id;
-<a name="l00038"></a>00038 };
-<a name="l00039"></a>00039 
-<a name="l00040"></a>00040 
-<a name="l00041"></a>00041 <span class="comment">//#define finestra     elem0</span>
-<a name="l00042"></a>00042 <span class="comment">//#define esci_i       elem1</span>
-<a name="l00043"></a>00043 <span class="comment">//#define carica_i     elem2</span>
-<a name="l00044"></a>00044 <span class="comment">//#define calcola_i    elem3</span>
-<a name="l00045"></a>00045 <span class="comment">//#define image        elem4</span>
-<a name="l00046"></a>00046 
-<a name="l00047"></a>00047 
-<a name="l00048"></a>00048 
-<a name="l00049"></a>00049 <span class="preprocessor">#ifdef DEBUG_mMATTEO</span>
-<a name="l00050"></a>00050 <span class="preprocessor"></span><span class="comment">//referenza per il la vera dichiarazione sotto</span>
-<a name="l00051"></a>00051 <span class="keyword">struct </span>archi;
-<a name="l00052"></a>00052 <span class="keyword">struct </span><a class="code" href="structnodo.html">nodo</a>;
-<a name="l00053"></a>00053 <span class="keyword">struct </span>lista_archi;
+<a name="l00028"></a><a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bf">00028</a> <span class="keyword">enum</span> <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bf">tipo_calcolo</a> {
+<a name="l00029"></a><a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bfa427ed8e19072736c76c868f1556b36d5">00029</a>     <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bfa427ed8e19072736c76c868f1556b36d5">per_tempo</a>,
+<a name="l00030"></a><a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bfacc850434d7f4bfd58679685788302a96">00030</a>     <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bfacc850434d7f4bfd58679685788302a96">per_distanza</a>
+<a name="l00031"></a>00031 };
+<a name="l00032"></a>00032 
+<a name="l00033"></a><a class="code" href="structpassaggio__t.html">00033</a> <span class="keyword">struct </span><a class="code" href="structpassaggio__t.html">passaggio_t</a> {
+<a name="l00034"></a><a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716">00034</a>     GtkWidget* <a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716">finestra</a>;
+<a name="l00035"></a><a class="code" href="structpassaggio__t.html#aca3ce88e19981e9dcb95d81847accacd">00035</a>     GtkWidget* <a class="code" href="structpassaggio__t.html#aca3ce88e19981e9dcb95d81847accacd">info_i</a>;
+<a name="l00036"></a><a class="code" href="structpassaggio__t.html#aa329b6ef38c6eeca1bdee5fff61756ff">00036</a>     GtkWidget* <a class="code" href="structpassaggio__t.html#aa329b6ef38c6eeca1bdee5fff61756ff">esci_i</a>;
+<a name="l00037"></a><a class="code" href="structpassaggio__t.html#a5a082534a42d7c5cffcbdbd70cc5e19d">00037</a>     GtkWidget* <a class="code" href="structpassaggio__t.html#a5a082534a42d7c5cffcbdbd70cc5e19d">carica_i</a>;
+<a name="l00038"></a><a class="code" href="structpassaggio__t.html#a1c2b2a5d65cba6d29c9c5341739c4230">00038</a>     GtkWidget* <a class="code" href="structpassaggio__t.html#a1c2b2a5d65cba6d29c9c5341739c4230">calcola_i</a>;
+<a name="l00039"></a><a class="code" href="structpassaggio__t.html#ad50630b1eb694021a5e7e79231ed0afb">00039</a>     GtkWidget* <a class="code" href="structpassaggio__t.html#ad50630b1eb694021a5e7e79231ed0afb">image</a>;
+<a name="l00040"></a><a class="code" href="structpassaggio__t.html#acaf6299dada3ac41ec74f34c6250d7f6">00040</a>     <span class="keywordtype">int</span> <a class="code" href="structpassaggio__t.html#acaf6299dada3ac41ec74f34c6250d7f6">massimo_numero_nodi</a>;
+<a name="l00041"></a><a class="code" href="structpassaggio__t.html#a01624ae4eed6b66ca275ea8457aec982">00041</a>     gulong <a class="code" href="structpassaggio__t.html#a01624ae4eed6b66ca275ea8457aec982">calcola_id</a>;
+<a name="l00042"></a><a class="code" href="structpassaggio__t.html#aa13f695bba4cfbe364a8f042c3300706">00042</a>     gulong <a class="code" href="structpassaggio__t.html#aa13f695bba4cfbe364a8f042c3300706">errore_id</a>;
+<a name="l00043"></a>00043 };
+<a name="l00044"></a>00044 
+<a name="l00045"></a><a class="code" href="structpassaggio__t2.html">00045</a> <span class="keyword">struct </span><a class="code" href="structpassaggio__t2.html">passaggio_t2</a> {
+<a name="l00046"></a><a class="code" href="structpassaggio__t2.html#a6aa1208081e1c1c4bc6b2ac19537774e">00046</a>     GtkWidget* <a class="code" href="structpassaggio__t2.html#a6aa1208081e1c1c4bc6b2ac19537774e">finestra</a>;
+<a name="l00047"></a><a class="code" href="structpassaggio__t2.html#ad74401e2d4f8ce223f9a1e5ddcb4923a">00047</a>     GtkWidget* <a class="code" href="structpassaggio__t2.html#ad74401e2d4f8ce223f9a1e5ddcb4923a">partenza_t</a>;
+<a name="l00048"></a><a class="code" href="structpassaggio__t2.html#a2d96950f3d71abbff31f7b91a57d899f">00048</a>     GtkWidget* <a class="code" href="structpassaggio__t2.html#a2d96950f3d71abbff31f7b91a57d899f">arrivo_t</a>;
+<a name="l00049"></a><a class="code" href="structpassaggio__t2.html#aa0413153e37605629717448f97c6075a">00049</a>     GtkWidget* <a class="code" href="structpassaggio__t2.html#aa0413153e37605629717448f97c6075a">radio_distanza</a>;
+<a name="l00050"></a><a class="code" href="structpassaggio__t2.html#ab262b8237f260da45f3478f3b407c717">00050</a>     GtkWidget* <a class="code" href="structpassaggio__t2.html#ab262b8237f260da45f3478f3b407c717">radio_tempo</a>;
+<a name="l00051"></a><a class="code" href="structpassaggio__t2.html#a79a70aec19148e59d3a9c7d93358e02e">00051</a>     <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bf">tipo_calcolo</a> <a class="code" href="structpassaggio__t2.html#a79a70aec19148e59d3a9c7d93358e02e">t_calcolo</a>;
+<a name="l00052"></a>00052 };
+<a name="l00053"></a>00053 
 <a name="l00054"></a>00054 
-<a name="l00055"></a>00055 <span class="keyword">typedef</span> archi strade;
-<a name="l00056"></a>00056 <span class="keyword">typedef</span> lista_archi lista_strade;
-<a name="l00057"></a>00057 <span class="keyword">typedef</span> <a class="code" href="structnodo.html">nodo</a> incrocio;
-<a name="l00058"></a>00058 
-<a name="l00059"></a>00059 
-<a name="l00060"></a>00060 <span class="keyword">typedef</span> <a class="code" href="structnodo.html">nodo</a> incrocio;
-<a name="l00061"></a>00061 <span class="keyword">struct </span><a class="code" href="structnodo.html">nodo</a> {
-<a name="l00063"></a>00063     <span class="keywordtype">int</span> <a class="code" href="structnodo.html#a4e346a7300837310d594e854b0918b01">x</a>;
-<a name="l00064"></a>00064     <span class="keywordtype">int</span> <a class="code" href="structnodo.html#a454518f55fe41aa89177dbbf19a349e4">y</a>;
-<a name="l00065"></a>00065     
-<a name="l00067"></a>00067     t_incrocio tipo_incrocio;
-<a name="l00068"></a>00068 
-<a name="l00070"></a>00070     lista_strade* elem_lista;
-<a name="l00071"></a>00071 
-<a name="l00073"></a>00073     <span class="keywordtype">int</span> num_elem_lista;
-<a name="l00074"></a>00074 };
-<a name="l00075"></a>00075 
-<a name="l00076"></a>00076 <span class="keyword">typedef</span> archi strade;
-<a name="l00077"></a>00077 <span class="keyword">struct </span>archi {
-<a name="l00079"></a>00079     <span class="keywordtype">char</span>* nome;
-<a name="l00080"></a>00080 
-<a name="l00082"></a>00082     incrocio* direzione;
-<a name="l00083"></a>00083 
-<a name="l00085"></a>00085     <span class="keywordtype">double</span> lunghezza;
-<a name="l00086"></a>00086 
-<a name="l00089"></a>00089     <span class="keywordtype">double</span> scorribilita;
-<a name="l00090"></a>00090 
-<a name="l00091"></a>00091 
-<a name="l00092"></a>00092     <span class="comment">//tipo di curvatura della strada</span>
-<a name="l00093"></a>00093 };
-<a name="l00094"></a>00094 
-<a name="l00095"></a>00095 
-<a name="l00096"></a>00096 <span class="keyword">typedef</span> lista_archi lista_strade;
-<a name="l00097"></a>00097 <span class="keyword">struct </span>lista_archi {
-<a name="l00098"></a>00098 
-<a name="l00100"></a>00100     strade* strada;
-<a name="l00101"></a>00101     
-<a name="l00107"></a>00107     <span class="keywordtype">double</span> rotazione;
-<a name="l00108"></a>00108 };
-<a name="l00109"></a>00109 <span class="preprocessor">#endif</span>
-<a name="l00110"></a>00110 <span class="preprocessor"></span>
-<a name="l00111"></a>00111 <span class="preprocessor">#endif  </span><span class="comment">/* MAIN_H */</span>
-<a name="l00112"></a>00112 
+<a name="l00055"></a>00055 <span class="preprocessor">#endif  </span><span class="comment">/* MAIN_H */</span>
+<a name="l00056"></a>00056 
 </pre></div></div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>Tutto</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Strutture dati</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Variabili</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>Tutto</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Strutture dati</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>File</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Funzioni</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&nbsp;</span>Variabili</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&nbsp;</span>Ridefinizioni di tipo (typedef)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&nbsp;</span>Tipi enumerati (enum)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&nbsp;</span>Valori dei tipi enumerati</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&nbsp;</span>Definizioni</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -152,7 +112,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generato il Tue Jul 20 01:09:43 2010 per Trolaspic da&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generato il Wed Jul 21 17:55:16 2010 per Trolaspic da&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>
