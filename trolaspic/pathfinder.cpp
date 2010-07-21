@@ -12,7 +12,7 @@ static const double INFINITO = numeric_limits<double>::max();
  * Viene chiamata da ::dijkstra e da :: endPath dopo aver trovato il percorso da seguire
  */
 void reset_graph(void){
-    for(int i=1;i<=GRAPH[0].x;i++){
+    for(int i=1;i<=dim_grafo();i++){
         GRAPH[i].padre = -1;
         GRAPH[i].visitato = bianco;
         GRAPH[i].peso = INFINITO;
@@ -112,14 +112,13 @@ int dijkstra(const int start,const int fine,double leggi_peso_arco(arco arco))
  */
 void getPath(int end) {
     GRAPH[0].size_list = 0;
-    while(!GRAPH[0].adiacente.empty()) GRAPH[0].adiacente.pop_front();
+    if(!GRAPH[0].adiacente.empty()) GRAPH[0].adiacente.clear();
     cout << end << " "; // DEPRECATED
     adiacenza temp;
     temp.nodo = end;
     while (GRAPH[temp.nodo].padre != -1) { //quando trovi il nodo senza padre hai trovato l'inizio
         cout << GRAPH[temp.nodo].padre << " "; // DEPRECATED (solo debug serve)
         GRAPH[0].adiacente.push_front(temp);
-        GRAPH[0].size_list++;
         temp.nodo = GRAPH[temp.nodo].padre; // end adesso e' il padre del vecchio end (cioe' del nodo precedente)
     }
     cout << endl; // DEPRECATED (solo per debug serve)
