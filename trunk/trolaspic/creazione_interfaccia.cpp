@@ -2,7 +2,7 @@
 #include <fstream>
 #include <gtk/gtk.h>
 #include "main.h"
-#include "g_callback.h"
+//#include "g_callback.h"
 #include "gestione_drawing_area.h"
 using namespace std;
 
@@ -155,7 +155,7 @@ GtkWidget *crea_finestra_info (GtkWidget* window, const gchar* testo){
     return info;
 }
 
-passaggio_t *crea_finestra_richiesta_percorso (GtkWidget* window, int limite_nodi){
+passaggio_t2 *crea_finestra_richiesta_percorso (GtkWidget* window, int limite_nodi){
         GtkWidget *dialogo= gtk_dialog_new_with_buttons ("Percorso", GTK_WINDOW(window),
                 GTK_DIALOG_MODAL,
                     GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT,GTK_STOCK_OK, GTK_RESPONSE_ACCEPT, NULL);
@@ -171,7 +171,7 @@ passaggio_t *crea_finestra_richiesta_percorso (GtkWidget* window, int limite_nod
 
     //creazione scatola per richiesta partenza
     GtkWidget *scatola_partenza = gtk_hbox_new(FALSE,11);
-    gtk_box_pack_start (GTK_BOX(scatola_dialogo_v), scatola_partenza, TRUE, TRUE, 0);
+    gtk_box_pack_start (GTK_BOX(scatola_dialogo_v), scatola_partenza, TRUE, TRUE, 5);
 
     GtkWidget *label_partenza= gtk_label_new("Partenza");
     gtk_box_pack_start (GTK_BOX(scatola_partenza), label_partenza, FALSE, FALSE, 0);
@@ -184,11 +184,11 @@ passaggio_t *crea_finestra_richiesta_percorso (GtkWidget* window, int limite_nod
                                                 5,
                                                 NULL );
     GtkWidget *partenza_SpinButton = gtk_spin_button_new( GTK_ADJUSTMENT(partenza_spin_adjustament), 0,0 );
-    gtk_box_pack_start (GTK_BOX(scatola_partenza), partenza_SpinButton, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX(scatola_partenza), partenza_SpinButton, TRUE, TRUE, 0);
 
     //creazione scatola per richiesta arrivo
     GtkWidget *scatola_arrivo   = gtk_hbox_new(FALSE,30);
-    gtk_box_pack_start (GTK_BOX(scatola_dialogo_v), scatola_arrivo  , TRUE, TRUE, 0);
+    gtk_box_pack_start (GTK_BOX(scatola_dialogo_v), scatola_arrivo  , TRUE, TRUE, 5);
     
     GtkWidget *label_arrivo= gtk_label_new("Arrivo");
     gtk_box_pack_start (GTK_BOX(scatola_arrivo)  , label_arrivo  , FALSE, FALSE, 0);
@@ -201,7 +201,24 @@ passaggio_t *crea_finestra_richiesta_percorso (GtkWidget* window, int limite_nod
                                                 5,
                                                 NULL );
     GtkWidget *arrivo_SpinButton = gtk_spin_button_new( GTK_ADJUSTMENT(arrivo_spin_adjustament), 0,0 );
-    gtk_box_pack_start (GTK_BOX(scatola_arrivo)  , arrivo_SpinButton  , FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX(scatola_arrivo)  , arrivo_SpinButton  , TRUE, TRUE, 0);
+
+
+    //--------------------------------------------------------------------------
+
+    GtkWidget *label_radio = gtk_label_new("Quale Percorso vuoi fare?");
+    gtk_box_pack_start (GTK_BOX(scatola_dialogo_v), label_radio  , TRUE, TRUE, 0);
+
+
+    GtkWidget *scatola_radio_button   = gtk_hbox_new(FALSE,10);
+    gtk_box_pack_start (GTK_BOX(scatola_dialogo_v), scatola_radio_button  , TRUE, TRUE, 5);
+
+    GtkWidget *r_button_distanza = gtk_radio_button_new_with_label (NULL, "Distanza");
+    gtk_box_pack_start (GTK_BOX(scatola_radio_button), r_button_distanza  , TRUE, TRUE, 0);
+    gtk_toggle_button_set_active( GTK_TOGGLE_BUTTON (r_button_distanza),true );
+
+    GtkWidget *r_button_tempo = gtk_radio_button_new_with_label_from_widget (GTK_RADIO_BUTTON (r_button_distanza),"Tempo");
+    gtk_box_pack_start (GTK_BOX(scatola_radio_button), r_button_tempo  , TRUE, TRUE, 0);
 
 
     //--------------------------------------------------------------------------
@@ -216,11 +233,18 @@ passaggio_t *crea_finestra_richiesta_percorso (GtkWidget* window, int limite_nod
     gtk_widget_show(scatola_arrivo);
     gtk_widget_show(label_arrivo);
     gtk_widget_show(arrivo_SpinButton);
+    gtk_widget_show(label_radio);
+    gtk_widget_show(scatola_radio_button);
+    gtk_widget_show(r_button_distanza);
+    gtk_widget_show(r_button_tempo);
 
-    passaggio_t *passaggio = new passaggio_t ;
+    passaggio_t2 *passaggio = new passaggio_t2 ;
     passaggio->finestra   = dialogo;
     passaggio->partenza_t = partenza_SpinButton;
     passaggio->arrivo_t   = arrivo_SpinButton;
+    passaggio->radio_distanza = r_button_distanza;
+    passaggio->radio_tempo    = r_button_tempo;
+    passaggio->t_calcolo      = per_distanza;
 
     return passaggio;
 }

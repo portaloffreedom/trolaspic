@@ -8,8 +8,6 @@
 using namespace std;
 
 
-
-
 gboolean delete_event_window(GtkWidget* window, GdkEvent* evento,GtkWidget* dialogo)
 {
     DBG(cout<<"delete event occurred on Widget "<<window<<endl)
@@ -61,6 +59,7 @@ void response_carica (passaggio_t *window)
             //******************************************************************
 
             gtk_statusbar_push( GTK_STATUSBAR(window->statusbar), window->statusbar_id, "mappa aperta con successo" );
+            mappa_caricata= true;
             delete[] filename;
         }
         default:
@@ -97,17 +96,46 @@ void mostra_info (GtkWidget* finestra){
     return;
 }
 
+
+void set_distanza (passaggio_t2 *dialogo){
+    dialogo->t_calcolo = per_distanza;
+}
+
+void set_tempo (passaggio_t2 *dialogo){
+    dialogo->t_calcolo = per_tempo;
+}
+
 void response_calcola (passaggio_t *window){
-    passaggio_t *dialogo = crea_finestra_richiesta_percorso (window->finestra, window->massimo_numero_nodi);
+    if (!mappa_caricata){
+        cerr<<"Impossibile calcolare un percorso, mappa non caricata.\n";
+        return;
+    }
+    passaggio_t2 *dialogo = crea_finestra_richiesta_percorso (window->finestra, window->massimo_numero_nodi);
+    g_signal_connect_swapped (dialogo->radio_distanza, "clicked", G_CALLBACK(set_distanza), dialogo);
+    g_signal_connect_swapped (dialogo->radio_tempo,    "clicked", G_CALLBACK(set_tempo), dialogo);
 
     switch (gtk_dialog_run (GTK_DIALOG (dialogo->finestra))) {
 
         case GTK_RESPONSE_ACCEPT: {
-            gint culo_partenza = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON(dialogo->info_i/*partenza_t*/ ));
-            gint culo_arrivo = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON(dialogo->esci_i/*arrivo_t*/ ));
-            DBG(cout<<"partenza: "<<culo_partenza<<endl)
-            DBG(cout<<"arrivo:   "<<culo_arrivo  <<endl)
-            getPath(dijkstra(culo_partenza,culo_arrivo,leggi_peso_km));
+            gint nome_partenza = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON(dialogo->partenza_t ));
+            gint nome_arrivo = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON(dialogo->arrivo_t ));
+            DBG(cout<<"partenza: "<<nome_partenza<<endl)
+            DBG(cout<<"arrivo:   "<<nome_arrivo  <<endl)
+
+            cout<<"tipo di scelta: ";
+            switch (dialogo->t_calcolo){
+                case per_tempo:
+                    DBG(cout<<"per tempo\n";)
+                    getPath(dijkstra(nome_partenza,nome_arrivo,leggi_peso_tempo));
+                    break;
+                case per_distanza:
+                    DBG(cout<<"per distanza\n";)
+                    getPath(dijkstra(nome_partenza,nome_arrivo,leggi_peso_km));
+                    break;
+                default:
+                    cerr<<"Selta non inizializzata! O.o\n";
+                    break;
+            }
         }
         default:
             gtk_widget_destroy (dialogo->finestra);

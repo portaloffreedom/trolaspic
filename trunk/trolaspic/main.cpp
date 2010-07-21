@@ -18,6 +18,8 @@
 
 using namespace std;
 
+bool mappa_caricata=false;
+
 
 int main(int argc, char** argv) {
     gtk_init(&argc, &argv);
