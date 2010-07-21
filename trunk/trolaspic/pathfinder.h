@@ -9,7 +9,6 @@
 #define	PATHFINDER_H
 
 #include "grafo.h"
-#include "priorita.h"
 
 double leggi_peso_tempo(arco arco);
 double leggi_peso_km(arco arco);

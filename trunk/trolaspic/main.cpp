@@ -1,8 +1,23 @@
-/*
- * File:   main.cpp
- * Author: matteo
+/**
+ * @mainpage TROLASPIC - Trovami LA Strada PIu' Corta
+ * \n Manuale di utilizzo di TROLASPIC
+ * \n - @subpage Intro
+ * \n - @subpage using
+ * \n @author Badabing inc
  *
- * Created on 7 luglio 2010, 19.59
+ * @page Intro Introduzione a Trolaspic
+ * \n Trolaspic è un programma open source molto semplice per trovare la distanza minima fra dei punti di passaggio.
+ * \n Il suo punto di forza risiede nella semplicità del programma stesso, non difficile e facilmente comprensibile.
+ * \n Può essere usato per svariati tipi di soluzioni, come la ricerca di percorsi in mappe stradali.
+ * \n Il metodo utilizzato per la ricerca del percorso più breve è quello dell'algoritmo Dijkstra. L'algoritmo Dijkstra opera solo su grafi con archi che hanno pesi positivi.
+ * \n Vedi anche:
+ * \n - \ref using
+ * @page using Using trolaspic
+ * \n  L'utilizzo di Trolaspic è molto semplice. Carica mappe scritte in un formato speciale.map con l'immagine relativa.
+ * \n Clicca sul nodo dove vuoi partire e sul nodo dove vuoi arrivare, premendo calcola il risultato verrà visualizzato a schermo.
+ * \n Vedi anche:
+ * \n - \ref Intro
+ *
  */
 
 #include <gtk/gtk.h>

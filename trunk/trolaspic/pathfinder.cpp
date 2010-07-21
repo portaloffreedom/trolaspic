@@ -3,45 +3,13 @@
 #include <limits>
 #include <queue>
 using namespace std;
-/*
-//Usa l'algoritmo di Dijkstra per trovare la distanza.
-
-// 1  function Dijkstra(Graph, source):
-// 2      for each vertex v in Graph:           // Initializations
-// 3          dist[v] := infinity               // Unknown distance function from source to v
-// 4          previous[v] := undefined          // Previous node in optimal path from source
-// 5      dist[source] := 0                     // Distance from source to source
-// 6      Q := the set of all nodes in Graph
-//        S := empty sequence
-//        // All nodes in the graph are unoptimized - thus are in Q
-// 7      while Q is not empty:                 // The main loop
-// 8          u := vertex in Q with smallest dist[]
-//            if u := target:
-                  //3  while previous[u] is defined:
-                  //4      insert u at the beginning of S
-                  //5      u := previous[u]
-                  //   break
-// 9          if dist[u] = infinity:            // non ho trovato un tragitto da inizio e fine
-//10              break                         // all remaining vertices are inaccessible from source
-//11          remove u from Q
-//12          for each neighbor v of u:         // where v has not yet been removed from Q.
-//13              alt := dist[u] + dist_between(u, v)
-//14              if alt < dist[v]:             // Relax (u,v,a)
-//15                  dist[v] := alt
-//16                  previous[v] := u
-//17      return S
- *
-//  Iterazione per trovare il tragitto
-//1  S := empty sequence
-//2  u := target
-//3  while previous[u] is defined:
-//4      insert u at the beginning of S
-//5      u := previous[u]
- *  */
 
 static const double INFINITO = numeric_limits<double>::max();
 extern nodo* GRAPH;
 
+/** Resetta il grafo con i valori standard. 
+ * Viene chiamata da ::dijkstra e da :: endPath dopo aver trovato il percorso da seguire
+ */
 void reset_graph(void){
     for(int i=1;i<=GRAPH[0].x;i++){
         GRAPH[i].padre = -1;
@@ -50,83 +18,36 @@ void reset_graph(void){
     }
 };
 
+
+/** Dato un arco, restituisce i suoi kilometri.
+ * La funzione è di appoggio a ::dijkstra e viene usata solo da passare
+ * come parametro puntatore a una funzione.
+ * @param arco : l'arco di cui leggere i kilometri
+ */
 double leggi_peso_km(arco arco){
     return arco.kilometri;
 };
 
+/** Dato un arco, restituisce il tempo che occore per percorrerlo.
+ * La funzione è di appoggio a ::dijkstra e viene usata solo da passare
+ * come parametro puntatore a una funzione.
+ * @param arco : l'arco di cui leggere il tempo
+ */
 double leggi_peso_tempo(arco arco){
     return arco.secondi;
 };
 
 /**
- * @function Algoritmo Dijkstra modificato per trovare la strada minima fra
- * due punti di un grafo orientato.
+ * Algoritmo Dijkstra modificato per trovare la strada minima fra
+ * \n due punti di un grafo orientato.
  * @param start : Nodo da cui vogliamo iniziare la ricerca
  * @param fine : Nodo a cui vogliamo arrivare partendo da Start.
+ * @param leggi_peso_arco : La funzione da usare per prelevare il peso di un arco.
+ * \n e' necessario per la differenza del percorso calcolato in base al tempo o alla distanza
+ *
+ * @return Ritorna il nodo finale se il grafo ha trovato la strada con successo
+ * \n altrimenti restituisce il nodo iniziale
  */
-#ifdef DEBUG_ROB0
-int dijkstra(const int start,const int fine,double leggi_peso_arco(arco arco))
-{
-  coda_priorita queue; // Crea una coda di paia nodo/peso
-  queue = inizializza_coda(dim_grafo());
-  elem_priorita nodotmp;   //crea una variabile temporanea di tipo nodo/peso.
-                            //accessibili con nodotmp.first e nodotmp.second
-  int indexnode;
-  
-  GRAPH[start].peso = 0;
-  GRAPH[start].visitato = grigio;
-  /* Inserisco nella coda il nodo di inizio e il suo peso*/
-  inserisci(queue,GRAPH[start].peso/* il peso del nodo*/, start /* il nodo da cui partire*/);
-
-  adiacenza templist;
-  /* Finche' la coda e' piena processo tutti i nodi adiacenti a questo
-   * che hanno la priorita' maggiore */
-  while(!coda_vuota(queue))
-  {
-    nodotmp = estrai_minimo(queue); // Prelevo il nodo dalla coda (sono sicuro che non e' vuota)
-    if(nodotmp.nodo == 0) return start;
-    indexnode = nodotmp.nodo; //l'indice del nodo
-    if(indexnode == fine){
-        
-        return fine; //altri controlli
-    }
-    //-------
-    if (GRAPH[indexnode].visitato == grigio)
-    {    //se il nodo non e' stato visitato mai
-      GRAPH[indexnode].visitato = nero;  //marcalo come visitato
-
-      for (int j = 1; j<=GRAPH[indexnode].size_list; j++)
-      {    //per ogni vicino che non e' stato visitato inseriscilo nella coda
-          // Salvo il nodo e il peso
-      templist = GRAPH[indexnode].adiacente.front();
-      GRAPH[indexnode].adiacente.pop_front();
-          if        (!( GRAPH[templist.nodo].visitato == nero)
-                        && (leggi_peso_arco(templist) > 0.00000001)
-                        && (GRAPH[indexnode].peso + leggi_peso_arco(templist)) < GRAPH[templist.nodo].peso)
-          {
-
-            GRAPH[templist.nodo].peso = GRAPH[indexnode].peso + leggi_peso_arco(templist); // Aggiorna il peso del nodo
-            GRAPH[templist.nodo].padre = indexnode;    // aggiorna il padre del nodo
-            //il peso lo metto in negativo perche' questa e' una coda di max priorita'
-            if( GRAPH[templist.nodo].visitato == grigio )
-                cambia_chiave(queue,templist.nodo,GRAPH[templist.nodo].peso);
-            else{
-                GRAPH[templist.nodo].visitato = grigio;
-                inserisci(queue,GRAPH[templist.nodo].peso, templist.nodo); //aggiungilo alla coda
-            }
-            
-          }
-          GRAPH[indexnode].adiacente.push_back(templist);
-      }
-
-    }
-
-  }
-  elimina_coda(queue);
-  return start;
-}
-#endif
-
 
 int dijkstra(const int start,const int fine,double leggi_peso_arco(arco arco))
 {
@@ -179,18 +100,27 @@ int dijkstra(const int start,const int fine,double leggi_peso_arco(arco arco))
       }
     }
   }
+  reset_graph();
   return start;
 }
 
-// Ricostruisci il tragitto inizio/fine partendo dalla fine
-// Il nuovo concetto sara' quello di creare una lista di nodi che formano il tragitto cosi'
-// da poter ricaricare il grafo e tenere quindi i nodi trovati.
+/** Ricostruisci il tragitto inizio/fine.
+ * Crea una lista dei nodi trovati dentro GRAPH[0].adiacenza.
+ * 
+ * @param end Dato un nodo, segue tutti i suoi parent fino ad arrivare al nodo start.
+ */
 void getPath(int end) {
-  cout << end << " "; // DEPRECATED
-  while (GRAPH[end].padre != -1) { //quando trovi il nodo senza padre hai trovato l'inizio
-    cout << GRAPH[end].padre << " "; // DEPRECATED (solo debug serve)
-    end = GRAPH[end].padre; // end adesso e' il padre del vecchio end (cioe' del nodo precedente)
-  }
-  cout << endl; // DEPRECATED (solo per debug serve)
-  reset_graph();
+    GRAPH[0].size_list = 0;
+    while(!GRAPH[0].adiacente.empty()) GRAPH[0].adiacente.pop_front();
+    cout << end << " "; // DEPRECATED
+    adiacenza temp;
+    temp.nodo = end;
+    while (GRAPH[temp.nodo].padre != -1) { //quando trovi il nodo senza padre hai trovato l'inizio
+        cout << GRAPH[temp.nodo].padre << " "; // DEPRECATED (solo debug serve)
+        GRAPH[0].adiacente.push_front(temp);
+        GRAPH[0].size_list++;
+        temp.nodo = GRAPH[temp.nodo].padre; // end adesso e' il padre del vecchio end (cioe' del nodo precedente)
+    }
+    cout << endl; // DEPRECATED (solo per debug serve)
+reset_graph();
 }

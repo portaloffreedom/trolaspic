@@ -21,7 +21,8 @@ enum t_incrocio {
     strada              //
 };
 
-/** Struct che rappresenta gli archi fra un nodo e l'altro */
+/** Struct che rappresenta gli archi fra un nodo e l'altro.
+ * L'arco indica il nodo, il tempo che impieghi a percorrerlo e la distanza che percorri. */
 struct adiacenza{
     /** L'indice del nodo nel grafo
      * Questo indice viene usato per prelevare il nodo dal grafo
@@ -36,7 +37,8 @@ struct adiacenza{
 };
 typedef adiacenza arco;
 
-/** Struct per la rappresentazione dei nodi di cui e' composto il grafo */
+/** Struct per la rappresentazione dei nodi di cui e' composto il grafo.
+ * Il nodo del grafo è indicato con due coordinate che lo identificano univocamente sulla mappa */
 struct nodo {
     /** Coordinata orizzontale del nodo sulla mappa */
     int x;
@@ -76,12 +78,6 @@ struct nodo {
     /** Questo parametro serve a ricostruire il tragitto dopo aver usato dijkstra*/
     int padre;
 };
-
-/** @param GRAFO Il grafo e' rappresentato come una lista di adiacenza.
- * nella posizione 0 viene inserita la grandezza dell'array che contiene il grafo
- * e precisamente nelle variabili x e y. peso viene posto a zero e la lista di adiacenza
- * non contiene nessun elemento.
- */
 
 //void graph_loader(GtkWidget* widget,ifstream &file);
 int carica_mappa(const char *filename);

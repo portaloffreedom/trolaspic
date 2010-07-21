@@ -38,9 +38,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
   <div class="tabs">
     <ul>
       <li><a href="files.html"><span>Elenco&nbsp;dei&nbsp;file</span></a></li>
+      <li><a href="globals.html"><span>Elementi&nbsp;globali</span></a></li>
     </ul>
   </div>
-<h1>creazione_interfaccia.h</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* </span>
+<h1>creazione_interfaccia.h</h1><a href="creazione__interfaccia_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* </span>
 <a name="l00002"></a>00002 <span class="comment"> * File:   creazione_interfaccia.h</span>
 <a name="l00003"></a>00003 <span class="comment"> * Author: matteo</span>
 <a name="l00004"></a>00004 <span class="comment"> *</span>
@@ -51,23 +52,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define CREAZIONE_INTERFACCIA_H</span>
 <a name="l00010"></a>00010 <span class="preprocessor"></span>
 <a name="l00011"></a>00011 <span class="preprocessor">#include &lt;gtk/gtk.h&gt;</span>
-<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;main.h&quot;</span>
-<a name="l00013"></a>00013 
-<a name="l00014"></a>00014 <a class="code" href="structpassaggio__t.html">passaggio_t</a> *crea_finestra_principale ();
-<a name="l00015"></a>00015 
-<a name="l00029"></a>00029 GtkWidget *crea_finestra_dialogo (GtkWidget* window, <span class="keyword">const</span> gchar *testo);
-<a name="l00030"></a>00030 
-<a name="l00031"></a>00031 GtkWidget *crea_finestra_info (GtkWidget* window, <span class="keyword">const</span> gchar* testo);
-<a name="l00032"></a>00032 
-<a name="l00033"></a>00033 <span class="preprocessor">#endif  </span><span class="comment">/* CREAZIONE_INTERFACCIA_H */</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="main_8h.html">main.h</a>&quot;</span>
+<a name="l00018"></a>00018 <a class="code" href="structpassaggio__t.html">passaggio_t</a> *<a class="code" href="creazione__interfaccia_8cpp.html#ac2d0492ff1c555bc0cdb452b2f051034" title="Crea la finestra principale con tutti gli oggetti.">crea_finestra_principale</a> ();
+<a name="l00019"></a>00019 
+<a name="l00033"></a>00033 GtkWidget *<a class="code" href="creazione__interfaccia_8cpp.html#a123c5cb16300bf9aa6e82cdc0d621f1e" title="Finestra di diaologo.">crea_finestra_dialogo</a> (GtkWidget* window, <span class="keyword">const</span> gchar *testo);
 <a name="l00034"></a>00034 
+<a name="l00041"></a>00041 GtkWidget *<a class="code" href="creazione__interfaccia_8cpp.html#a37cbc1f54780d838465ebce6d2f5ba44" title="Crea la finestra di dialogo contenente le info del programma.">crea_finestra_info</a> (GtkWidget* window, <span class="keyword">const</span> gchar* testo);
+<a name="l00042"></a>00042 
+<a name="l00050"></a>00050 <a class="code" href="structpassaggio__t2.html">passaggio_t2</a> *<a class="code" href="creazione__interfaccia_8cpp.html#a81cfb4cea17c0b794ee27a38c8208eec" title="Crea la finestra di dialogo per far partire la ricerca   da completare.">crea_finestra_richiesta_percorso</a> (GtkWidget* window, <span class="keywordtype">int</span> limite_nodi);
+<a name="l00051"></a>00051 
+<a name="l00057"></a>00057 GtkWidget *<a class="code" href="creazione__interfaccia_8cpp.html#ab9f04d1638062a227868b9870732ac93" title="Crea la finestra che avvisa che avvisa che nessuna mappa è stata caricata.">crea_finestra_non_carica</a>(GtkWidget* parent);
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059 <span class="preprocessor">#endif  </span><span class="comment">/* CREAZIONE_INTERFACCIA_H */</span>
+<a name="l00060"></a>00060 
 </pre></div></div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>Tutto</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Strutture dati</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Variabili</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>Tutto</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Strutture dati</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>File</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Funzioni</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&nbsp;</span>Variabili</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&nbsp;</span>Ridefinizioni di tipo (typedef)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&nbsp;</span>Tipi enumerati (enum)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&nbsp;</span>Valori dei tipi enumerati</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&nbsp;</span>Definizioni</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -76,7 +80,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generato il Tue Jul 20 01:09:43 2010 per Trolaspic da&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generato il Wed Jul 21 17:55:16 2010 per Trolaspic da&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

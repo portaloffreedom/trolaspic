@@ -7,13 +7,19 @@ using namespace std;
 
 nodo* GRAPH = 0;
 
-
-
-
-
 const int MAX_LUNGH_STRINGA= 30;
 const int MAX_SALTO= 500;
 static const double INFINITO = numeric_limits<double>::max();
+
+void distruggi_grafo(){
+    if(GRAPH == 0) return;
+    int dim = dim_grafo();
+    for(int i = dim;i>=0;i--){
+        GRAPH[i].adiacente.clear();
+    }
+    delete[] GRAPH;
+    GRAPH = 0;
+};
 
 int dim_grafo(void){
     return GRAPH[0].x;
@@ -167,7 +173,7 @@ int carica_mappa(const char *filename)
 
     const int numero_nodi = leggi_prox_int(mappa);
     GRAPH = new nodo[numero_nodi+1];
-    GRAPH[0].x = numero_nodi; //imposta le dimensioni del grafo.
+    GRAPH[0].padre = numero_nodi; //imposta le dimensioni del grafo.
                               //leggibile con la funzione "void dim_grafo(void)"
 
      for (int i=1; i<=numero_nodi; i++){
@@ -223,61 +229,6 @@ int carica_mappa(const char *filename)
         mappa.ignore(MAX_SALTO,'$');
 
      }
-
-    /*
-    incrocio* lista_incroci= new incrocio[numero_nodi+1];
-
-    for (int i=0; i<=numero_nodi; i++){
-
-        //Lettura del numero dell'incrocio;
-        int nome_incrocio= leggi_prox_int(mappa);
-
-        //Lettura delle coordinate del nodo
-        mappa.ignore(MAX_SALTO,'(');
-        lista_incroci[nome_incrocio].x= leggi_prox_int(mappa);
-        lista_incroci[nome_incrocio].y= leggi_prox_int(mappa);
-
-        //Lettura del tipo di incrocio
-        mappa.ignore(MAX_SALTO,')');
-        char tipo_incrocio_char= leggi_prox_char(mappa);
-        t_incrocio tipo_incrocio;
-        switch (tipo_incrocio_char){
-            case 's':
-                tipo_incrocio= incrocio_semafori;
-                break;
-            case 'r':
-                tipo_incrocio= rotatoria;
-                break;
-            default:
-                cerr<<"\nErrore nella lettura del tipo di icrocio numero "<<nome_incrocio<<
-                        "\nIncrocio settato come normale.\n";
-            case 'n':
-                tipo_incrocio= incrocio_normale;
-        }
-        lista_incroci[nome_incrocio].tipo_incrocio = tipo_incrocio;
-
-
-
-        //--(lettura quanti archi collegati)--
-        mappa.ignore(MAX_SALTO,':');
-        const int quanti_archi= leggi_prox_int (mappa);
-        lista_incroci[nome_incrocio].num_elem_lista= quanti_archi;
-        //Lettura dei vari archi collegati
-        lista_strade* lista_adiacenze= new lista_strade[quanti_archi];
-        lista_incroci[nome_incrocio].elem_lista= lista_adiacenze;
-        for (int i=0; i<quanti_archi;i++){
-            lista_adiacenze[i].strada= new strade;
-            mappa.ignore(MAX_SALTO,'(');
-            int direzione_strada= leggi_prox_int(mappa);
-            lista_adiacenze[i].strada->direzione= &lista_incroci[direzione_strada];
-            mappa.ignore(MAX_SALTO,')');
-        }
-
-        //lista_incroci[nome_incrocio]
-     *
-
-    }*/
-
 
     delete[] filename_map;
     mappa.close();
