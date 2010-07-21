@@ -85,5 +85,6 @@ int carica_mappa(const char *filename);
 
 int dim_grafo(void);
 
+
 #endif	/* GRAFO_H */
 

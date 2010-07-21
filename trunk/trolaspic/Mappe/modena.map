@@ -3,6 +3,9 @@
 # s→ incrocio con semafori
 # r→ rotatoria
 
+#Dimensioni dell'immagine da caricare
+896 x 657
+
 #Quanti nodi ci sono nella mappa
 28
 
