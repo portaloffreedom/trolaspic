@@ -36,7 +36,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/pathfinder.o \
 	${OBJECTDIR}/gestione_drawing_area.o \
-	${OBJECTDIR}/_ext/1494493771/priorita.o \
 	${OBJECTDIR}/creazione_interfaccia.o \
 	${OBJECTDIR}/grafo.o \
 	${OBJECTDIR}/g_callback.o
@@ -80,11 +79,6 @@ ${OBJECTDIR}/gestione_drawing_area.o: gestione_drawing_area.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -g -DDEBUG -DDEBUG_MATTEO -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/gio-unix-2.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/directfb -I/usr/include/libpng12 -MMD -MP -MF $@.d -o ${OBJECTDIR}/gestione_drawing_area.o gestione_drawing_area.cpp
-
-${OBJECTDIR}/_ext/1494493771/priorita.o: ../../../fimeshor~subversion/fimeshor-linux/priorita.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/1494493771
-	${RM} $@.d
-	$(COMPILE.cc) -g -DDEBUG -DDEBUG_MATTEO -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/gio-unix-2.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/directfb -I/usr/include/libpng12 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1494493771/priorita.o ../../../fimeshor~subversion/fimeshor-linux/priorita.cpp
 
 ${OBJECTDIR}/creazione_interfaccia.o: creazione_interfaccia.cpp 
 	${MKDIR} -p ${OBJECTDIR}
