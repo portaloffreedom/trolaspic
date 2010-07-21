@@ -99,7 +99,7 @@ bool diminuisci_chiave(coda_priorita coda, int pos, double nuovo_peso, nome_nodo
         return false;
     }
     coda[pos].peso = nuovo_peso;
-    while (pos>1 && coda[parent(pos)].peso > coda[pos].peso){
+    while (pos>1 && coda[pos].peso < coda[parent(pos)].peso){
         scambia(coda, pos, parent(pos));
         pos= parent(pos);
     }
@@ -112,20 +112,6 @@ int find (coda_priorita coda, nome_nodo nome){
             return i;
     }
     return -1;
-    //tentativo (inutile) di fare la ricerca ricorsiva
-    /*if (i < dim_coda(coda)){
-        if (coda[i].nodo = nome)
-            return nome;
-            
-        int pos_s = find(coda, nome_nodo nome, int left(i));
-        if (pos_s == -1){
-            int pos_d = find(coda, nome_nodo nome, int right(i));
-            return pos_d;
-        }
-        else return pos_s;
-        
-    }
-    else return -1;*/
 }
 
 bool cambia_chiave(coda_priorita coda, nome_nodo quale_nodo, double nuovo_peso){

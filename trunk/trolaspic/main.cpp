@@ -21,24 +21,7 @@ using namespace std;
 
 int main(int argc, char** argv) {
     gtk_init(&argc, &argv);
-#ifdef DEBUG_MATTEO
-    const int dimensioni_coda = 30;
-    coda_priorita coda = inizializza_coda (dimensioni_coda);
 
-    inserisci (coda, 0.4,  3 );
-    inserisci (coda, 2.5,  28 );
-    inserisci (coda, 1.3,  1 );
-
-    stampaheap (coda);
-
-    elem_priorita elemento;
-    for (int i=0; i<3; i++){
-        elemento= estrai_minimo(coda);
-        cout<<"nome_nodo: "<<elemento.nodo<<" - peso: "<<elemento.peso<<endl;
-    }
-    
-    elimina_coda (coda);
-#endif
 
     //**************************************************************************
     passaggio_t *window= crea_finestra_principale();
