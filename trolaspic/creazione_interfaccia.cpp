@@ -248,4 +248,16 @@ passaggio_t2 *crea_finestra_richiesta_percorso (GtkWidget* window, int limite_no
 
     return passaggio;
 }
-    
+
+GtkWidget *crea_finestra_non_carica(GtkWidget* parent){
+
+    GtkWidget* dialogo = gtk_message_dialog_new (GTK_WINDOW(parent),
+                                         GTK_DIALOG_MODAL,
+                                         GTK_MESSAGE_WARNING,
+                                         GTK_BUTTONS_CLOSE,
+                                         "ATTENZIONE!",
+                                         NULL);
+    gtk_message_dialog_format_secondary_text(GTK_MESSAGE_DIALOG(dialogo), "Porco Dio devi caricare la mappa prima! u.u", NULL);
+
+    return dialogo;
+}

@@ -49,5 +49,12 @@ GtkWidget *crea_finestra_info (GtkWidget* window, const gchar* testo);
  */
 passaggio_t2 *crea_finestra_richiesta_percorso (GtkWidget* window, int limite_nodi);
 
+/** Crea la finestra che avvisa che avvisa che nessuna mappa è stata caricata
+ *
+ * @param finestra parent
+ * @return puntatore al dialogo creato
+ */
+GtkWidget *crea_finestra_non_carica(GtkWidget* parent);
+
 #endif	/* CREAZIONE_INTERFACCIA_H */
 
