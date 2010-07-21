@@ -79,6 +79,7 @@ struct nodo {
     int padre;
 };
 
+extern nodo* GRAPH;
 //void graph_loader(GtkWidget* widget,ifstream &file);
 int carica_mappa(const char *filename);
 
