@@ -8,7 +8,8 @@
 #ifndef GESTIONE_DRAWING_AREA_H
 #define	GESTIONE_DRAWING_AREA_H
 
-GtkWidget *crea_drawing_area (int larghezza, int altezza);
+//GtkWidget *crea_drawing_area (int larghezza, int altezza);
+void cairo_disegna (const gchar *filename);
 
 #endif	/* GESTIONE_DRAWING_AREA_H */
 

@@ -176,10 +176,18 @@ int carica_mappa(const char *filename)
     //distruggi_liste
     //delete[] GRAPH;
 
+    const int dim_x = leggi_prox_int(mappa);
+    mappa.ignore(MAX_SALTO,'x');
+    const int dim_y = leggi_prox_int(mappa);
+
     const int numero_nodi = leggi_prox_int(mappa);
     GRAPH = new nodo[numero_nodi+1];
     GRAPH[0].padre = numero_nodi; //imposta le dimensioni del grafo.
                               //leggibile con la funzione "void dim_grafo(void)"
+    GRAPH[0].x=dim_x;
+    GRAPH[0].y=dim_y;
+
+    DBG(cout<<"Nodo GRAPH[0] inizializzato con successo\n")
 
      for (int i=1; i<=numero_nodi; i++){
         //Lettura del numero dell'incrocio

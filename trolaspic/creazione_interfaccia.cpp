@@ -88,6 +88,8 @@ passaggio_t *crea_finestra_principale (){
     ritorno->carica_i = carica_item;
     ritorno->calcola_i = calcola_item;
     ritorno->image = Image;
+//    ritorno->radio_distanza = ;
+//    ritorno->radio_tempo    = ;
     return ritorno;
 }
 
@@ -212,6 +214,13 @@ passaggio_t2 *crea_finestra_richiesta_percorso (GtkWidget* window, int limite_no
 
     //--------------------------------------------------------------------------
 
+
+
+
+
+
+    //--------------------------------------------------------------------------
+
     gtk_window_set_resizable (GTK_WINDOW(dialogo), FALSE);
 
     gtk_widget_show(scatola_dialogo_v);
@@ -228,12 +237,12 @@ passaggio_t2 *crea_finestra_richiesta_percorso (GtkWidget* window, int limite_no
     gtk_widget_show(r_button_tempo);
 
     passaggio_t2 *passaggio = new passaggio_t2 ;
-    passaggio->finestra   = dialogo;
-    passaggio->partenza_t = partenza_SpinButton;
-    passaggio->arrivo_t   = arrivo_SpinButton;
-    passaggio->radio_distanza = r_button_distanza;
-    passaggio->radio_tempo    = r_button_tempo;
-    passaggio->t_calcolo      = per_distanza;
+    passaggio-> finestra       = dialogo;
+    passaggio-> partenza_t     = partenza_SpinButton;
+    passaggio-> arrivo_t       = arrivo_SpinButton;
+    passaggio-> radio_distanza = r_button_distanza;
+    passaggio-> radio_tempo    = r_button_tempo;
+    passaggio-> t_calcolo      = per_distanza;
 
     return passaggio;
 }

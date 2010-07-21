@@ -27,10 +27,6 @@
 #include "gestione_drawing_area.h"
 #include "g_callback.h"
 
-#ifdef DEBUG_MATTEO
-#include "priorita.h"
-#endif
-
 using namespace std;
 
 //bool mappa_caricata=false;
@@ -49,6 +45,8 @@ int main(int argc, char** argv) {
     g_signal_connect_swapped (window->esci_i,   "activate",     G_CALLBACK (response_dialogo), window->finestra);
     g_signal_connect_swapped (window->carica_i, "activate",     G_CALLBACK (response_carica),  window          );
     g_signal_connect         (window->finestra, "delete-event", G_CALLBACK (response_dialogo), window->finestra);
+//    g_signal_connect_swapped (window->radio_distanza, "clicked", G_CALLBACK(set_distanza), dialogo);
+//    g_signal_connect_swapped (window->radio_tempo,    "clicked", G_CALLBACK(set_tempo),    dialogo);
 
     window->calcola_id =
         g_signal_connect_swapped (window->calcola_i, "activate", G_CALLBACK (response_calcola), window);

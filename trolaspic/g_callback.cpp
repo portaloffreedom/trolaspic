@@ -3,20 +3,19 @@
 #include <fstream>
 #include "main.h"
 #include "creazione_interfaccia.h"
+#include "gestione_drawing_area.h"
 #include "pathfinder.h"
 #include "grafo.h"
 using namespace std;
 
 
-gboolean delete_event_window(GtkWidget* window, GdkEvent* evento,GtkWidget* dialogo)
-{
+gboolean delete_event_window(GtkWidget* window, GdkEvent* evento,GtkWidget* dialogo){
     DBG(cout<<"delete event occurred on Widget "<<window<<endl)
     gtk_widget_show(dialogo);
     return TRUE;
 }
 
-void response_dialogo (GtkWidget* finestra)
-{
+void response_dialogo (GtkWidget* finestra){
     GtkWidget * dialogo= crea_finestra_dialogo (finestra,"Sei sicuro di volere uscire?");
     
     switch (gtk_dialog_run (GTK_DIALOG (dialogo))) {
@@ -29,8 +28,7 @@ void response_dialogo (GtkWidget* finestra)
     }
 }
 
-void response_carica (passaggio_t *window)
-{
+void response_carica (passaggio_t *window){
     GtkWidget * dialogo= gtk_file_chooser_dialog_new    ("Carica una mappa", GTK_WINDOW(window->finestra), GTK_FILE_CHOOSER_ACTION_OPEN,
                                                           GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT,
                                                           GTK_STOCK_OK, GTK_RESPONSE_ACCEPT,
@@ -61,13 +59,16 @@ void response_carica (passaggio_t *window)
             
             //**Alternativa, caricamento direttamente da file
             //gtk_image_set_from_file ((GTK_IMAGE(window->image), filename);
-
             
             //******************************************************************
             //*** CARICAMENTO DEI NODI DELLA MAPPA (.MAP) **********************
             //******************************************************************
             window->massimo_numero_nodi = carica_mappa(filename);
             //******************************************************************
+
+            DBG(cout<<"Sto per chiamare le librerie CAIRO\n")
+            cairo_disegna(filename);
+
 
             //mappa_caricata= true;
             g_signal_handler_unblock( window->calcola_i, window->calcola_id );
@@ -80,9 +81,7 @@ void response_carica (passaggio_t *window)
     return;
 }
 
-
-gboolean delete_event(GtkWidget* oggetto)
-{
+gboolean delete_event(GtkWidget* oggetto){
     DBG(cout<<"delete event occurred on Widget "<<oggetto<<endl)
     return TRUE;
 }
@@ -109,7 +108,6 @@ void mostra_info (GtkWidget* finestra){
     return;
 }
 
-
 void set_distanza (passaggio_t2 *dialogo){
     dialogo->t_calcolo = per_distanza;
 }
@@ -121,7 +119,7 @@ void set_tempo (passaggio_t2 *dialogo){
 void response_calcola (passaggio_t *window){
     passaggio_t2 *dialogo = crea_finestra_richiesta_percorso (window->finestra, window->massimo_numero_nodi);
     g_signal_connect_swapped (dialogo->radio_distanza, "clicked", G_CALLBACK(set_distanza), dialogo);
-    g_signal_connect_swapped (dialogo->radio_tempo,    "clicked", G_CALLBACK(set_tempo), dialogo);
+    g_signal_connect_swapped (dialogo->radio_tempo,    "clicked", G_CALLBACK(set_tempo),    dialogo);
 
     switch (gtk_dialog_run (GTK_DIALOG (dialogo->finestra))) {
 
@@ -131,7 +129,7 @@ void response_calcola (passaggio_t *window){
             DBG(cout<<"partenza: "<<nome_partenza<<endl)
             DBG(cout<<"arrivo:   "<<nome_arrivo  <<endl)
 
-            cout<<"tipo di scelta: ";
+            DBG(cout<<"tipo di scelta: ";)
             switch (dialogo->t_calcolo){
                 case per_tempo:
                     DBG(cout<<"per tempo\n";)
