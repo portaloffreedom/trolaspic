@@ -4,8 +4,9 @@
 #include <queue>
 using namespace std;
 
-static const double INFINITO = numeric_limits<double>::max();
+
 extern nodo* GRAPH;
+static const double INFINITO = numeric_limits<double>::max();
 
 /** Resetta il grafo con i valori standard. 
  * Viene chiamata da ::dijkstra e da :: endPath dopo aver trovato il percorso da seguire
