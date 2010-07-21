@@ -74,16 +74,7 @@ passaggio_t *crea_finestra_principale (){
 
     gtk_widget_show(disegno);*/
     //**************************************************************************
-    //**** STATUS BAR **********************************************************
-    //**************************************************************************
 
-    GtkWidget *status_bar = gtk_statusbar_new();
-    gint context_id = gtk_statusbar_get_context_id( GTK_STATUSBAR(status_bar), "stato delle operazioni" );
-    gtk_statusbar_push( GTK_STATUSBAR(status_bar), context_id, "programma aperto con successo" );
-
-    gtk_box_pack_end (GTK_BOX(scatola1),status_bar, FALSE, FALSE, 0);
-    gtk_widget_show(status_bar);
-    //**************************************************************************
 
 
     gtk_widget_show(scatola1);
@@ -97,8 +88,6 @@ passaggio_t *crea_finestra_principale (){
     ritorno->carica_i = carica_item;
     ritorno->calcola_i = calcola_item;
     ritorno->image = Image;
-    ritorno->statusbar = status_bar;
-    ritorno->statusbar_id = context_id;
     return ritorno;
 }
 
@@ -252,12 +241,10 @@ passaggio_t2 *crea_finestra_richiesta_percorso (GtkWidget* window, int limite_no
 GtkWidget *crea_finestra_non_carica(GtkWidget* parent){
 
     GtkWidget* dialogo = gtk_message_dialog_new (GTK_WINDOW(parent),
-                                         GTK_DIALOG_MODAL,
-                                         GTK_MESSAGE_WARNING,
-                                         GTK_BUTTONS_CLOSE,
-                                         "ATTENZIONE!",
-                                         NULL);
-    gtk_message_dialog_format_secondary_text(GTK_MESSAGE_DIALOG(dialogo), "Porco Dio devi caricare la mappa prima! u.u", NULL);
+                                                 GTK_DIALOG_MODAL, GTK_MESSAGE_WARNING, GTK_BUTTONS_OK,
+                                                 "ATTENZIONE!", NULL);
+    gtk_message_dialog_format_secondary_text(GTK_MESSAGE_DIALOG(dialogo),
+            "Devi caricare una mappa prima di potere calcolare un percorso!", NULL);
 
     return dialogo;
 }

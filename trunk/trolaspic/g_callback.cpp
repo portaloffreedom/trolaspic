@@ -45,8 +45,19 @@ void response_carica (passaggio_t *window)
             //*** CARICAMENTO DELL'IMMAGINE DELLA MAPPA ************************
             //******************************************************************
 
-            GdkPixbuf *immagine_mappa= gdk_pixbuf_new_from_file (filename, NULL);
+            GError *errore = NULL;
+            GdkPixbuf *immagine_mappa= gdk_pixbuf_new_from_file (filename, &errore);
             gtk_image_set_from_pixbuf (GTK_IMAGE(window->image), immagine_mappa);
+
+            if (errore != NULL){
+                cerr<<"Errore nel caricamento dell'immagine!\n"
+                        "prova a caricare il file giusto\n";
+                delete[] filename;
+                gtk_widget_destroy (dialogo);
+                return;
+            }
+
+            g_error_free (errore);
             
             //**Alternativa, caricamento direttamente da file
             //gtk_image_set_from_file ((GTK_IMAGE(window->image), filename);
@@ -58,7 +69,6 @@ void response_carica (passaggio_t *window)
             window->massimo_numero_nodi = carica_mappa(filename);
             //******************************************************************
 
-            gtk_statusbar_push( GTK_STATUSBAR(window->statusbar), window->statusbar_id, "mappa aperta con successo" );
             //mappa_caricata= true;
             g_signal_handler_unblock( window->calcola_i, window->calcola_id );
             g_signal_handler_block( window->calcola_i, window->errore_id );
@@ -67,6 +77,7 @@ void response_carica (passaggio_t *window)
         default:
             gtk_widget_destroy (dialogo);
     }
+    return;
 }
 
 
