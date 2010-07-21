@@ -23,7 +23,7 @@ using namespace std;
     #define PERCORSO "./NetBeansProjects/trolaspic_code/trunk/trolaspic"
 #endif
 
-#define VERSION "0.2.2a - Fillix"
+#define VERSION "0.2.3a - Fillix"
 
 enum tipo_calcolo {
     per_tempo,
@@ -40,6 +40,8 @@ struct passaggio_t {
     GtkWidget* statusbar;
     gint statusbar_id;
     int massimo_numero_nodi;
+    gulong calcola_id;
+    gulong errore_id;
 };
 
 struct passaggio_t2 {
@@ -51,7 +53,7 @@ struct passaggio_t2 {
     tipo_calcolo t_calcolo;
 };
 
-extern bool mappa_caricata;
+//extern bool mappa_caricata;
 
 
 #endif	/* MAIN_H */

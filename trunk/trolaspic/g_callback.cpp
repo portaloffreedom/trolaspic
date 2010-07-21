@@ -59,7 +59,9 @@ void response_carica (passaggio_t *window)
             //******************************************************************
 
             gtk_statusbar_push( GTK_STATUSBAR(window->statusbar), window->statusbar_id, "mappa aperta con successo" );
-            mappa_caricata= true;
+            //mappa_caricata= true;
+            g_signal_handler_unblock( window->calcola_i, window->calcola_id );
+            g_signal_handler_block( window->calcola_i, window->errore_id );
             delete[] filename;
         }
         default:
@@ -106,10 +108,6 @@ void set_tempo (passaggio_t2 *dialogo){
 }
 
 void response_calcola (passaggio_t *window){
-    if (!mappa_caricata){
-        cerr<<"Impossibile calcolare un percorso, mappa non caricata.\n";
-        return;
-    }
     passaggio_t2 *dialogo = crea_finestra_richiesta_percorso (window->finestra, window->massimo_numero_nodi);
     g_signal_connect_swapped (dialogo->radio_distanza, "clicked", G_CALLBACK(set_distanza), dialogo);
     g_signal_connect_swapped (dialogo->radio_tempo,    "clicked", G_CALLBACK(set_tempo), dialogo);
@@ -139,6 +137,14 @@ void response_calcola (passaggio_t *window){
         }
         default:
             gtk_widget_destroy (dialogo->finestra);
+            delete[] dialogo;
     }
+    return;
+}
+
+void response_non_calcola (GtkWidget* finestra_principale){
+    GtkWidget *dialogo = crea_finestra_non_carica(finestra_principale);
+    gtk_dialog_run (GTK_DIALOG (dialogo));
+    gtk_widget_destroy (dialogo);
     return;
 }
