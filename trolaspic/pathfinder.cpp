@@ -127,7 +127,7 @@ int dijkstra(const int start,const int fine,double leggi_peso_arco(arco arco))
 }
 #endif
 
-#ifdef DEBUG_ROB
+
 int dijkstra(const int start,const int fine,double leggi_peso_arco(arco arco))
 {
     priority_queue<pair<double,int> > queue;
@@ -181,7 +181,7 @@ int dijkstra(const int start,const int fine,double leggi_peso_arco(arco arco))
   }
   return start;
 }
-#endif
+
 // Ricostruisci il tragitto inizio/fine partendo dalla fine
 // Il nuovo concetto sara' quello di creare una lista di nodi che formano il tragitto cosi'
 // da poter ricaricare il grafo e tenere quindi i nodi trovati.
