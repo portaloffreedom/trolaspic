@@ -20,7 +20,7 @@ char *get_text_from_int(int numero){
     char* stringa = new char[6];
 
     for (i=0; i<6 && numero!=0; i++){
-        push_pila_char(pila, static_cast<char>(numero%10));
+        push_pila_char(pila, static_cast<char>('0'+(numero%10)));
         numero/=10;
     }
     stringa[i]='\0';
