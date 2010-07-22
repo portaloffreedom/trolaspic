@@ -27,8 +27,6 @@ char *get_text_from_int(int numero){
     for (int j=0; j<i; j++){
         stringa[j]=pop_pila_char(pila);
     }
-
-    DBG(cout<<"stringa: "<<stringa<<endl)
     
 
     distruggi_pila_char(pila);
@@ -69,7 +67,7 @@ void cairo_disegna (const gchar *filename, GdkPixbuf *sfondo){
     cairo_scale (cr, GRAPH[0].x, GRAPH[0].y);
 
     //Imposto il colore del pennello, larghezza delle linee
-    cairo_set_source_rgb (cr, 1, 1, 0); //giallo
+    cairo_set_source_rgb (cr, 0, 1, 1); //giallo
     cairo_set_line_width (cr, 0.015);
 
     //Ciclo per tutti i nodi
@@ -111,7 +109,7 @@ void cairo_disegna (const gchar *filename, GdkPixbuf *sfondo){
 
     //Settaggio dimensione, colore e tipo dei font
     cairo_set_font_size (cr, 0.03);
-    cairo_set_source_rgb (cr, 1, 0.5, 0.0); //arancio
+    cairo_set_source_rgb (cr, 1, 0.5, 0.0); //light blue
     cairo_select_font_face (cr, "Georgia", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_NORMAL);
 
     //Parte da inserire per stampare il nome del nodo
@@ -127,9 +125,8 @@ void cairo_disegna (const gchar *filename, GdkPixbuf *sfondo){
 
 
     //STAMPA SU FILE E DISTRUGGI
-    cairo_surface_write_to_png (superficie, "prova.png");
+    //cairo_surface_write_to_png (superficie, "prova.png");
     cairo_destroy (cr);
-    //sfondo = pixbuf_cairo_destroy(cr, TRUE)
     cairo_surface_destroy(superficie);
     DBG(cout<<"Fine disegno con CAIRO\n");
 
