@@ -48,18 +48,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <code>#include &lt;fstream&gt;</code><br/>
 <code>#include &quot;<a class="el" href="main_8h_source.html">main.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="g__callback_8cpp.html">creazione_interfaccia.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="gestione__drawing__area_8h_source.html">gestione_drawing_area.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="grafo_8h_source.html">grafo.h</a>&quot;</code><br/>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="2"><h2>Funzioni</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">gboolean&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="g__callback_8cpp.html#a1ba87899980bce21ad15c8f06bb3ef36">delete_event_window</a> (GtkWidget *window, GdkEvent *evento, GtkWidget *dialogo)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Impedisci la distruzine dell'oggetto window.  <a href="#a1ba87899980bce21ad15c8f06bb3ef36"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="g__callback_8cpp.html#a381c43e6bf734ff6081e0ea730fd590a">response_dialogo</a> (GtkWidget *finestra)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Crea la finestra di conferma uscita.  <a href="#a381c43e6bf734ff6081e0ea730fd590a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="g__callback_8cpp.html#a34f2cecd360bb543d0ee438f8d311cea">response_carica</a> (<a class="el" href="structpassaggio__t.html">passaggio_t</a> *window)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Funzione che parte premendo il pulsante Carica mappa.  <a href="#a34f2cecd360bb543d0ee438f8d311cea"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">gboolean&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="g__callback_8cpp.html#a25da5fc2ed9fa4e3b603337104446d26">delete_event</a> (GtkWidget *oggetto)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Se collegato ad un segnale "delete_event" impedisce che l'oggetto venga distrutto.  <a href="#a25da5fc2ed9fa4e3b603337104446d26"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="g__callback_8cpp.html#ae74861d87a5de6e4cc15a79240b592f7">mostra_info</a> (GtkWidget *finestra)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Mostra la finestra "informazioni".  <a href="#ae74861d87a5de6e4cc15a79240b592f7"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="g__callback_8cpp.html#a451b669e4030f79c8d6e7f450c33a8f5">set_distanza</a> (<a class="el" href="structpassaggio__t2.html">passaggio_t2</a> *dialogo)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Callback collegato ai pulsanti "radiobutton" per decidere se effettuare la ricerca per distanza.  <a href="#a451b669e4030f79c8d6e7f450c33a8f5"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="g__callback_8cpp.html#ac225c7b4acb1e2f325c1d762579d12a7">set_tempo</a> (<a class="el" href="structpassaggio__t2.html">passaggio_t2</a> *dialogo)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Callback collegato ai pulsanti "radiobutton" per decidere se effettuare la ricerca per tempo.  <a href="#ac225c7b4acb1e2f325c1d762579d12a7"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="g__callback_8cpp.html#ab61304513439f02c464a3674b71b87c8">response_calcola</a> (<a class="el" href="structpassaggio__t.html">passaggio_t</a> *window)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Funzione chiamata dal menu "calcola percorso".  <a href="#ab61304513439f02c464a3674b71b87c8"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="g__callback_8cpp.html#a0f6a82aef80971e0ce9a7e61ba7230fa">response_non_calcola</a> (GtkWidget *finestra_principale)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">La funzione è legata al pulsante calcola quando non è stata caricata nessuna mappa.  <a href="#a0f6a82aef80971e0ce9a7e61ba7230fa"></a><br/></td></tr>
 </table>
 <hr/><h2>Documentazione delle funzioni</h2>
 <a class="anchor" id="a25da5fc2ed9fa4e3b603337104446d26"></a><!-- doxytag: member="g_callback.cpp::delete_event" ref="a25da5fc2ed9fa4e3b603337104446d26" args="(GtkWidget *oggetto)" -->
@@ -78,10 +88,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div>
 <div class="memdoc">
 
-<p><div class="fragment"><pre class="fragment"><a name="l00085"></a>00085 {
-<a name="l00086"></a>00086     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;<span class="stringliteral">&quot;delete event occurred on Widget &quot;</span>&lt;&lt;oggetto&lt;&lt;endl)
-<a name="l00087"></a>00087     return TRUE;
-<a name="l00088"></a>00088 }
+<p>Se collegato ad un segnale "delete_event" impedisce che l'oggetto venga distrutto. </p>
+<dl><dt><b>Parametri:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>oggetto</em>&nbsp;</td><td>: Puntatore all'oggetto che si tenta di distruggere </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Restituisce:</b></dt><dd>TRUE se l'oggetto non va distrutto, FALSE altrimenti. </dd></dl>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00107"></a>00107                                          {
+<a name="l00108"></a>00108     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;<span class="stringliteral">&quot;delete event occurred on Widget &quot;</span>&lt;&lt;oggetto&lt;&lt;endl)
+<a name="l00109"></a>00109     return TRUE;
+<a name="l00110"></a>00110 }
 </pre></div></p>
 
 </div>
@@ -117,11 +136,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div>
 <div class="memdoc">
 
-<p><div class="fragment"><pre class="fragment"><a name="l00012"></a>00012 {
-<a name="l00013"></a>00013     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;<span class="stringliteral">&quot;delete event occurred on Widget &quot;</span>&lt;&lt;window&lt;&lt;endl)
-<a name="l00014"></a>00014     gtk_widget_show(dialogo);
-<a name="l00015"></a>00015     return TRUE;
-<a name="l00016"></a>00016 }
+<p>Impedisci la distruzine dell'oggetto window. </p>
+<dl><dt><b>Parametri:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>window</em>&nbsp;</td><td>l'oggetto di cui impedire la distruzione </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>evento</em>&nbsp;</td><td>non utilizzato (serve solo per chiamarlo con le funzioni) </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>dialogo</em>&nbsp;</td><td>finestra di dialogo da mostrare </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Restituisce:</b></dt><dd>TRUE se non devo distruggere la finestra, FALSE altrimenti </dd></dl>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00019"></a>00019                                                                                     {
+<a name="l00020"></a>00020     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;<span class="stringliteral">&quot;delete event occurred on Widget &quot;</span>&lt;&lt;window&lt;&lt;endl)
+<a name="l00021"></a>00021     gtk_widget_show(dialogo);
+<a name="l00022"></a>00022     return TRUE;
+<a name="l00023"></a>00023 }
 </pre></div></p>
 
 </div>
@@ -142,27 +172,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div>
 <div class="memdoc">
 
-<p><div class="fragment"><pre class="fragment"><a name="l00090"></a>00090                                       {
-<a name="l00091"></a>00091     <span class="keyword">const</span> gchar testo[]=
-<a name="l00092"></a>00092                     <span class="stringliteral">&quot;Trovami la strada più corta\n&quot;</span>
-<a name="l00093"></a>00093                     <span class="stringliteral">&quot;\n&quot;</span>
-<a name="l00094"></a>00094                     <span class="stringliteral">&quot;Un programma creato dalla Badabing Inc.\n&quot;</span>
-<a name="l00095"></a>00095                     <span class="stringliteral">&quot;Roberto Benfatto\t(Sten Gun)\n&quot;</span>
-<a name="l00096"></a>00096                     <span class="stringliteral">&quot;Matteo De Carlo\t(Portaloffreedom)&quot;</span>;
-<a name="l00097"></a>00097 
-<a name="l00098"></a>00098 
-<a name="l00099"></a>00099     GtkWidget* info = <a class="code" href="creazione__interfaccia_8cpp.html#a37cbc1f54780d838465ebce6d2f5ba44" title="Crea la finestra di dialogo contenente le info del programma.">crea_finestra_info</a> (finestra,testo);
-<a name="l00100"></a>00100 <span class="comment">//    gtk_show_about_dialog (NULL,</span>
-<a name="l00101"></a>00101 <span class="comment">//                       &quot;program-name&quot;, &quot;ExampleCode&quot;,</span>
-<a name="l00102"></a>00102 <span class="comment">//                       &quot;logo&quot;,</span>
-<a name="l00103"></a>00103 <span class="comment">//                       &quot;title&quot;, &quot;About ExampleCode&quot;,</span>
-<a name="l00104"></a>00104 <span class="comment">//                       NULL,</span>
-<a name="l00105"></a>00105 <span class="comment">//                       NULL);</span>
-<a name="l00106"></a>00106 
-<a name="l00107"></a>00107     gtk_dialog_run (GTK_DIALOG (info));
-<a name="l00108"></a>00108     gtk_widget_destroy(info);
-<a name="l00109"></a>00109     <span class="keywordflow">return</span>;
-<a name="l00110"></a>00110 }
+<p>Mostra la finestra "informazioni". </p>
+<dl><dt><b>Parametri:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>finestra</em>&nbsp;</td><td>Il puntatore alla finestra principale. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00116"></a>00116                                       {
+<a name="l00117"></a>00117     <span class="keyword">const</span> gchar testo[]=
+<a name="l00118"></a>00118                     <span class="stringliteral">&quot;Trovami la strada più corta\n&quot;</span>
+<a name="l00119"></a>00119                     <span class="stringliteral">&quot;\n&quot;</span>
+<a name="l00120"></a>00120                     <span class="stringliteral">&quot;Un programma creato dalla Badabing Inc.\n&quot;</span>
+<a name="l00121"></a>00121                     <span class="stringliteral">&quot;Roberto Benfatto\t(Sten Gun)\n&quot;</span>
+<a name="l00122"></a>00122                     <span class="stringliteral">&quot;Matteo De Carlo\t(Portaloffreedom)&quot;</span>;
+<a name="l00123"></a>00123 
+<a name="l00124"></a>00124 
+<a name="l00125"></a>00125     GtkWidget* info = <a class="code" href="creazione__interfaccia_8cpp.html#a37cbc1f54780d838465ebce6d2f5ba44" title="Crea la finestra di dialogo contenente le info del programma.">crea_finestra_info</a> (finestra,testo);
+<a name="l00126"></a>00126 <span class="comment">//    gtk_show_about_dialog (NULL,</span>
+<a name="l00127"></a>00127 <span class="comment">//                       &quot;program-name&quot;, &quot;ExampleCode&quot;,</span>
+<a name="l00128"></a>00128 <span class="comment">//                       &quot;logo&quot;,</span>
+<a name="l00129"></a>00129 <span class="comment">//                       &quot;title&quot;, &quot;About ExampleCode&quot;,</span>
+<a name="l00130"></a>00130 <span class="comment">//                       NULL,</span>
+<a name="l00131"></a>00131 <span class="comment">//                       NULL);</span>
+<a name="l00132"></a>00132 
+<a name="l00133"></a>00133     gtk_dialog_run (GTK_DIALOG (info));
+<a name="l00134"></a>00134     gtk_widget_destroy(info);
+<a name="l00135"></a>00135     <span class="keywordflow">return</span>;
+<a name="l00136"></a>00136 }
 </pre></div></p>
 
 </div>
@@ -183,40 +221,49 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div>
 <div class="memdoc">
 
-<p><div class="fragment"><pre class="fragment"><a name="l00121"></a>00121                                            {
-<a name="l00122"></a>00122     <a class="code" href="structpassaggio__t2.html">passaggio_t2</a> *dialogo = <a class="code" href="creazione__interfaccia_8cpp.html#a81cfb4cea17c0b794ee27a38c8208eec" title="Crea la finestra di dialogo per far partire la ricerca   da completare.">crea_finestra_richiesta_percorso</a> (window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716">finestra</a>, window-&gt;<a class="code" href="structpassaggio__t.html#acaf6299dada3ac41ec74f34c6250d7f6">massimo_numero_nodi</a>);
-<a name="l00123"></a>00123     g_signal_connect_swapped (dialogo-&gt;<a class="code" href="structpassaggio__t2.html#aa0413153e37605629717448f97c6075a">radio_distanza</a>, <span class="stringliteral">&quot;clicked&quot;</span>, G_CALLBACK(<a class="code" href="g__callback_8cpp.html#a451b669e4030f79c8d6e7f450c33a8f5">set_distanza</a>), dialogo);
-<a name="l00124"></a>00124     g_signal_connect_swapped (dialogo-&gt;<a class="code" href="structpassaggio__t2.html#ab262b8237f260da45f3478f3b407c717">radio_tempo</a>,    <span class="stringliteral">&quot;clicked&quot;</span>, G_CALLBACK(<a class="code" href="g__callback_8cpp.html#ac225c7b4acb1e2f325c1d762579d12a7">set_tempo</a>), dialogo);
-<a name="l00125"></a>00125 
-<a name="l00126"></a>00126     <span class="keywordflow">switch</span> (gtk_dialog_run (GTK_DIALOG (dialogo-&gt;<a class="code" href="structpassaggio__t2.html#a6aa1208081e1c1c4bc6b2ac19537774e">finestra</a>))) {
-<a name="l00127"></a>00127 
-<a name="l00128"></a>00128         <span class="keywordflow">case</span> GTK_RESPONSE_ACCEPT: {
-<a name="l00129"></a>00129             gint nome_partenza = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON(dialogo-&gt;<a class="code" href="structpassaggio__t2.html#ad74401e2d4f8ce223f9a1e5ddcb4923a">partenza_t</a> ));
-<a name="l00130"></a>00130             gint nome_arrivo = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON(dialogo-&gt;<a class="code" href="structpassaggio__t2.html#a2d96950f3d71abbff31f7b91a57d899f">arrivo_t</a> ));
-<a name="l00131"></a>00131             <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;<span class="stringliteral">&quot;partenza: &quot;</span>&lt;&lt;nome_partenza&lt;&lt;endl)
-<a name="l00132"></a>00132             <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;&quot;arrivo:   &quot;&lt;&lt;nome_arrivo  &lt;&lt;endl)
-<a name="l00133"></a>00133 
-<a name="l00134"></a>00134             cout&lt;&lt;&quot;tipo di scelta: &quot;;
-<a name="l00135"></a>00135             switch (dialogo-&gt;t_calcolo){
-<a name="l00136"></a>00136                 <span class="keywordflow">case</span> <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bfa427ed8e19072736c76c868f1556b36d5">per_tempo</a>:
-<a name="l00137"></a>00137                     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;<span class="stringliteral">&quot;per tempo\n&quot;</span>;)
-<a name="l00138"></a>00138                     <a class="code" href="pathfinder_8cpp.html#a37098317b365c7c2461288875e17395b" title="Ricostruisci il tragitto inizio/fine.">getPath</a>(<a class="code" href="pathfinder_8cpp.html#a584c66074ce657f0285fe93b14668c16" title="Algoritmo Dijkstra modificato per trovare la strada minima fra   due punti di un...">dijkstra</a>(nome_partenza,nome_arrivo,<a class="code" href="pathfinder_8cpp.html#a1f12c76441a8ab3ebd0c75aaf87b2e18" title="Dato un arco, restituisce il tempo che occore per percorrerlo.">leggi_peso_tempo</a>));
-<a name="l00139"></a>00139                     <span class="keywordflow">break</span>;
-<a name="l00140"></a>00140                 <span class="keywordflow">case</span> <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bfacc850434d7f4bfd58679685788302a96">per_distanza</a>:
-<a name="l00141"></a>00141                     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;<span class="stringliteral">&quot;per distanza\n&quot;</span>;)
-<a name="l00142"></a>00142                     <a class="code" href="pathfinder_8cpp.html#a37098317b365c7c2461288875e17395b" title="Ricostruisci il tragitto inizio/fine.">getPath</a>(<a class="code" href="pathfinder_8cpp.html#a584c66074ce657f0285fe93b14668c16" title="Algoritmo Dijkstra modificato per trovare la strada minima fra   due punti di un...">dijkstra</a>(nome_partenza,nome_arrivo,<a class="code" href="pathfinder_8cpp.html#ad72df926e0c18df43f4712269f8e0573" title="Dato un arco, restituisce i suoi kilometri.">leggi_peso_km</a>));
-<a name="l00143"></a>00143                     <span class="keywordflow">break</span>;
-<a name="l00144"></a>00144                 <span class="keywordflow">default</span>:
-<a name="l00145"></a>00145                     cerr&lt;&lt;<span class="stringliteral">&quot;Selta non inizializzata! O.o\n&quot;</span>;
-<a name="l00146"></a>00146                     <span class="keywordflow">break</span>;
-<a name="l00147"></a>00147             }
-<a name="l00148"></a>00148         }
-<a name="l00149"></a>00149         <span class="keywordflow">default</span>:
-<a name="l00150"></a>00150             gtk_widget_destroy (dialogo-&gt;<a class="code" href="structpassaggio__t2.html#a6aa1208081e1c1c4bc6b2ac19537774e">finestra</a>);
-<a name="l00151"></a>00151             <span class="keyword">delete</span>[] dialogo;
-<a name="l00152"></a>00152     }
-<a name="l00153"></a>00153     <span class="keywordflow">return</span>;
-<a name="l00154"></a>00154 }
+<p>Funzione chiamata dal menu "calcola percorso". </p>
+<p>Mostra la finestra di dialogo per la scelta dei nodi di inizio e fine del percorso, chiama la funzione djikstra con i nodi scelti e, TODO : se il percorso non esiste allora lo segnala all'utente tramite una finestra di dialogo. </p>
+<dl><dt><b>Parametri:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>window</em>&nbsp;</td><td>Puntatore ad una struct contenente tutti i puntatori gtkwidget della finestra principale. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00163"></a>00163                                            {
+<a name="l00164"></a>00164     <a class="code" href="structpassaggio__t2.html">passaggio_t2</a> *dialogo = <a class="code" href="creazione__interfaccia_8cpp.html#a81cfb4cea17c0b794ee27a38c8208eec" title="Crea la finestra di dialogo per far partire la ricerca   da completare.">crea_finestra_richiesta_percorso</a> (window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716">finestra</a>, window-&gt;<a class="code" href="structpassaggio__t.html#acaf6299dada3ac41ec74f34c6250d7f6">massimo_numero_nodi</a>);
+<a name="l00165"></a>00165     g_signal_connect_swapped (dialogo-&gt;<a class="code" href="structpassaggio__t2.html#aa0413153e37605629717448f97c6075a">radio_distanza</a>, <span class="stringliteral">&quot;clicked&quot;</span>, G_CALLBACK(<a class="code" href="g__callback_8cpp.html#a451b669e4030f79c8d6e7f450c33a8f5" title="Callback collegato ai pulsanti &amp;quot;radiobutton&amp;quot; per decidere se effettuare...">set_distanza</a>), dialogo);
+<a name="l00166"></a>00166     g_signal_connect_swapped (dialogo-&gt;<a class="code" href="structpassaggio__t2.html#ab262b8237f260da45f3478f3b407c717">radio_tempo</a>,    <span class="stringliteral">&quot;clicked&quot;</span>, G_CALLBACK(<a class="code" href="g__callback_8cpp.html#ac225c7b4acb1e2f325c1d762579d12a7" title="Callback collegato ai pulsanti &amp;quot;radiobutton&amp;quot; per decidere se effettuare...">set_tempo</a>),    dialogo);
+<a name="l00167"></a>00167 
+<a name="l00168"></a>00168     <span class="keywordflow">switch</span> (gtk_dialog_run (GTK_DIALOG (dialogo-&gt;<a class="code" href="structpassaggio__t2.html#a6aa1208081e1c1c4bc6b2ac19537774e">finestra</a>))) {
+<a name="l00169"></a>00169 
+<a name="l00170"></a>00170         <span class="keywordflow">case</span> GTK_RESPONSE_ACCEPT: {
+<a name="l00171"></a>00171             gint nome_partenza = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON(dialogo-&gt;<a class="code" href="structpassaggio__t2.html#ad74401e2d4f8ce223f9a1e5ddcb4923a">partenza_t</a> ));
+<a name="l00172"></a>00172             gint nome_arrivo = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON(dialogo-&gt;<a class="code" href="structpassaggio__t2.html#a2d96950f3d71abbff31f7b91a57d899f">arrivo_t</a> ));
+<a name="l00173"></a>00173             <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;<span class="stringliteral">&quot;partenza: &quot;</span>&lt;&lt;nome_partenza&lt;&lt;endl)
+<a name="l00174"></a>00174             <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;&quot;arrivo:   &quot;&lt;&lt;nome_arrivo  &lt;&lt;endl)
+<a name="l00175"></a>00175 
+<a name="l00176"></a>00176             <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;&quot;tipo di scelta: &quot;;)
+<a name="l00177"></a>00177             switch (dialogo-&gt;t_calcolo){
+<a name="l00178"></a>00178                 <span class="keywordflow">case</span> <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bfa427ed8e19072736c76c868f1556b36d5">per_tempo</a>:
+<a name="l00179"></a>00179                     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;<span class="stringliteral">&quot;per tempo\n&quot;</span>;)
+<a name="l00180"></a>00180                     <a class="code" href="pathfinder_8cpp.html#a37098317b365c7c2461288875e17395b" title="Ricostruisci il tragitto inizio/fine.">getPath</a>(<a class="code" href="pathfinder_8cpp.html#a584c66074ce657f0285fe93b14668c16" title="Algoritmo Dijkstra modificato per trovare la strada minima fra   due punti di un...">dijkstra</a>(nome_partenza,nome_arrivo,<a class="code" href="pathfinder_8cpp.html#a1f12c76441a8ab3ebd0c75aaf87b2e18" title="Dato un arco, restituisce il tempo che occore per percorrerlo.">leggi_peso_tempo</a>));
+<a name="l00181"></a>00181                     <span class="keywordflow">break</span>;
+<a name="l00182"></a>00182                 <span class="keywordflow">case</span> <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bfacc850434d7f4bfd58679685788302a96">per_distanza</a>:
+<a name="l00183"></a>00183                     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;<span class="stringliteral">&quot;per distanza\n&quot;</span>;)
+<a name="l00184"></a>00184                     <a class="code" href="pathfinder_8cpp.html#a37098317b365c7c2461288875e17395b" title="Ricostruisci il tragitto inizio/fine.">getPath</a>(<a class="code" href="pathfinder_8cpp.html#a584c66074ce657f0285fe93b14668c16" title="Algoritmo Dijkstra modificato per trovare la strada minima fra   due punti di un...">dijkstra</a>(nome_partenza,nome_arrivo,<a class="code" href="pathfinder_8cpp.html#ad72df926e0c18df43f4712269f8e0573" title="Dato un arco, restituisce i suoi kilometri.">leggi_peso_km</a>));
+<a name="l00185"></a>00185                     <span class="keywordflow">break</span>;
+<a name="l00186"></a>00186                 <span class="keywordflow">default</span>:
+<a name="l00187"></a>00187                     cerr&lt;&lt;<span class="stringliteral">&quot;Selta non inizializzata! O.o\n&quot;</span>;
+<a name="l00188"></a>00188                     <span class="keywordflow">break</span>;
+<a name="l00189"></a>00189             }
+<a name="l00190"></a>00190         }
+<a name="l00191"></a>00191         <span class="keywordflow">default</span>:
+<a name="l00192"></a>00192             gtk_widget_destroy (dialogo-&gt;<a class="code" href="structpassaggio__t2.html#a6aa1208081e1c1c4bc6b2ac19537774e">finestra</a>);
+<a name="l00193"></a>00193             <span class="keyword">delete</span>[] dialogo;
+<a name="l00194"></a>00194     }
+<a name="l00195"></a>00195     <span class="keywordflow">return</span>;
+<a name="l00196"></a>00196 }
 </pre></div></p>
 
 </div>
@@ -237,55 +284,67 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div>
 <div class="memdoc">
 
-<p><div class="fragment"><pre class="fragment"><a name="l00033"></a>00033 {
-<a name="l00034"></a>00034     GtkWidget * dialogo= gtk_file_chooser_dialog_new    (<span class="stringliteral">&quot;Carica una mappa&quot;</span>, GTK_WINDOW(window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716">finestra</a>), GTK_FILE_CHOOSER_ACTION_OPEN,
-<a name="l00035"></a>00035                                                           GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT,
-<a name="l00036"></a>00036                                                           GTK_STOCK_OK, GTK_RESPONSE_ACCEPT,
-<a name="l00037"></a>00037                                                          NULL);
-<a name="l00038"></a>00038     <span class="keywordflow">switch</span> (gtk_dialog_run (GTK_DIALOG (dialogo))) {
-<a name="l00039"></a>00039 
-<a name="l00040"></a>00040         <span class="keywordflow">case</span> GTK_RESPONSE_ACCEPT:{
-<a name="l00041"></a>00041             <span class="keyword">const</span> <span class="keywordtype">char</span> *filename = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (dialogo));
-<a name="l00042"></a>00042             <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;<span class="stringliteral">&quot;Nome del file: &quot;</span>&lt;&lt;filename&lt;&lt;endl);
-<a name="l00043"></a>00043 
-<a name="l00044"></a>00044             <span class="comment">//******************************************************************</span>
-<a name="l00045"></a>00045             <span class="comment">//*** CARICAMENTO DELL&#39;IMMAGINE DELLA MAPPA ************************</span>
-<a name="l00046"></a>00046             <span class="comment">//******************************************************************</span>
-<a name="l00047"></a>00047 
-<a name="l00048"></a>00048             GError *errore = NULL;
-<a name="l00049"></a>00049             GdkPixbuf *immagine_mappa= gdk_pixbuf_new_from_file (filename, &amp;errore);
-<a name="l00050"></a>00050             gtk_image_set_from_pixbuf (GTK_IMAGE(window-&gt;<a class="code" href="structpassaggio__t.html#ad50630b1eb694021a5e7e79231ed0afb">image</a>), immagine_mappa);
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052             <span class="keywordflow">if</span> (errore != NULL){
-<a name="l00053"></a>00053                 cerr&lt;&lt;<span class="stringliteral">&quot;Errore nel caricamento dell&#39;immagine!\n&quot;</span>
-<a name="l00054"></a>00054                         <span class="stringliteral">&quot;prova a caricare il file giusto\n&quot;</span>;
-<a name="l00055"></a>00055                 <span class="keyword">delete</span>[] filename;
-<a name="l00056"></a>00056                 gtk_widget_destroy (dialogo);
-<a name="l00057"></a>00057                 <span class="keywordflow">return</span>;
-<a name="l00058"></a>00058             }
+<p>Funzione che parte premendo il pulsante Carica mappa. </p>
+<p>Prepara il grafo dal file .map allegato effettuando i controlli necessari. Se tutto è andato a buon fine allora viene chiamata la funzione per disegnare i tracciati dei percorsi con CAIRO. </p>
+<dl><dt><b>Parametri:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>window</em>&nbsp;</td><td>puntatore alla struct contenente tutti i puntatori della finestra principale. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00049"></a>00049                                           {
+<a name="l00050"></a>00050     GtkWidget * dialogo= gtk_file_chooser_dialog_new    (<span class="stringliteral">&quot;Carica una mappa&quot;</span>, GTK_WINDOW(window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716">finestra</a>), GTK_FILE_CHOOSER_ACTION_OPEN,
+<a name="l00051"></a>00051                                                           GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT,
+<a name="l00052"></a>00052                                                           GTK_STOCK_OK, GTK_RESPONSE_ACCEPT,
+<a name="l00053"></a>00053                                                          NULL);
+<a name="l00054"></a>00054     <span class="keywordflow">switch</span> (gtk_dialog_run (GTK_DIALOG (dialogo))) {
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056         <span class="keywordflow">case</span> GTK_RESPONSE_ACCEPT:{
+<a name="l00057"></a>00057             <span class="keyword">const</span> <span class="keywordtype">char</span> *filename = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (dialogo));
+<a name="l00058"></a>00058             <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;<span class="stringliteral">&quot;Nome del file: &quot;</span>&lt;&lt;filename&lt;&lt;endl);
 <a name="l00059"></a>00059 
-<a name="l00060"></a>00060             g_error_free (errore);
-<a name="l00061"></a>00061             
-<a name="l00062"></a>00062             <span class="comment">//**Alternativa, caricamento direttamente da file</span>
-<a name="l00063"></a>00063             <span class="comment">//gtk_image_set_from_file ((GTK_IMAGE(window-&gt;image), filename);</span>
-<a name="l00064"></a>00064 
-<a name="l00065"></a>00065             
-<a name="l00066"></a>00066             <span class="comment">//******************************************************************</span>
-<a name="l00067"></a>00067             <span class="comment">//*** CARICAMENTO DEI NODI DELLA MAPPA (.MAP) **********************</span>
-<a name="l00068"></a>00068             <span class="comment">//******************************************************************</span>
-<a name="l00069"></a>00069             window-&gt;<a class="code" href="structpassaggio__t.html#acaf6299dada3ac41ec74f34c6250d7f6">massimo_numero_nodi</a> = <a class="code" href="grafo_8cpp.html#a6e90297598b0cc70283302fcaeb73c68" title="Carica dal file .map e crea il grafo.">carica_mappa</a>(filename);
-<a name="l00070"></a>00070             <span class="comment">//******************************************************************</span>
-<a name="l00071"></a>00071 
-<a name="l00072"></a>00072             <span class="comment">//mappa_caricata= true;</span>
-<a name="l00073"></a>00073             g_signal_handler_unblock( window-&gt;<a class="code" href="structpassaggio__t.html#a1c2b2a5d65cba6d29c9c5341739c4230">calcola_i</a>, window-&gt;<a class="code" href="structpassaggio__t.html#a01624ae4eed6b66ca275ea8457aec982">calcola_id</a> );
-<a name="l00074"></a>00074             g_signal_handler_block( window-&gt;<a class="code" href="structpassaggio__t.html#a1c2b2a5d65cba6d29c9c5341739c4230">calcola_i</a>, window-&gt;<a class="code" href="structpassaggio__t.html#aa13f695bba4cfbe364a8f042c3300706">errore_id</a> );
-<a name="l00075"></a>00075             <span class="keyword">delete</span>[] filename;
-<a name="l00076"></a>00076         }
-<a name="l00077"></a>00077         <span class="keywordflow">default</span>:
-<a name="l00078"></a>00078             gtk_widget_destroy (dialogo);
-<a name="l00079"></a>00079     }
-<a name="l00080"></a>00080     <span class="keywordflow">return</span>;
-<a name="l00081"></a>00081 }
+<a name="l00060"></a>00060             <span class="comment">//******************************************************************</span>
+<a name="l00061"></a>00061             <span class="comment">//*** CARICAMENTO DELL&#39;IMMAGINE DELLA MAPPA ************************</span>
+<a name="l00062"></a>00062             <span class="comment">//******************************************************************</span>
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064             GError *errore = NULL;
+<a name="l00065"></a>00065             GdkPixbuf *immagine_mappa= gdk_pixbuf_new_from_file (filename, &amp;errore);
+<a name="l00066"></a>00066             gtk_image_set_from_pixbuf (GTK_IMAGE(window-&gt;<a class="code" href="structpassaggio__t.html#ad50630b1eb694021a5e7e79231ed0afb">image</a>), immagine_mappa);
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068             <span class="keywordflow">if</span> (errore != NULL){
+<a name="l00069"></a>00069                 cerr&lt;&lt;<span class="stringliteral">&quot;Errore nel caricamento dell&#39;immagine!\n&quot;</span>
+<a name="l00070"></a>00070                         <span class="stringliteral">&quot;prova a caricare il file giusto\n&quot;</span>;
+<a name="l00071"></a>00071                 <span class="keyword">delete</span>[] filename;
+<a name="l00072"></a>00072                 gtk_widget_destroy (dialogo);
+<a name="l00073"></a>00073                 <span class="keywordflow">return</span>;
+<a name="l00074"></a>00074             }
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076             g_error_free (errore);
+<a name="l00077"></a>00077             
+<a name="l00078"></a>00078             <span class="comment">//**Alternativa, caricamento direttamente da file</span>
+<a name="l00079"></a>00079             <span class="comment">//gtk_image_set_from_file ((GTK_IMAGE(window-&gt;image), filename);</span>
+<a name="l00080"></a>00080             
+<a name="l00081"></a>00081             <span class="comment">//******************************************************************</span>
+<a name="l00082"></a>00082             <span class="comment">//*** CARICAMENTO DEI NODI DELLA MAPPA (.MAP) **********************</span>
+<a name="l00083"></a>00083             <span class="comment">//******************************************************************</span>
+<a name="l00084"></a>00084             window-&gt;<a class="code" href="structpassaggio__t.html#acaf6299dada3ac41ec74f34c6250d7f6">massimo_numero_nodi</a> = <a class="code" href="grafo_8cpp.html#a6e90297598b0cc70283302fcaeb73c68" title="Carica dal file .map e crea il grafo.">carica_mappa</a>(filename);
+<a name="l00085"></a>00085             <span class="comment">//******************************************************************</span>
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087             <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;<span class="stringliteral">&quot;Sto per chiamare le librerie CAIRO\n&quot;</span>)
+<a name="l00088"></a>00088             <a class="code" href="gestione__drawing__area_8cpp.html#a89b0207e94e5a4e2d74d2541448dcbcc">cairo_disegna</a>(filename, immagine_mappa);
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091             <span class="comment">//mappa_caricata= true;</span>
+<a name="l00092"></a>00092             g_signal_handler_unblock( window-&gt;calcola_i, window-&gt;calcola_id );
+<a name="l00093"></a>00093             g_signal_handler_block( window-&gt;calcola_i, window-&gt;errore_id );
+<a name="l00094"></a>00094             delete[] filename;
+<a name="l00095"></a>00095         }
+<a name="l00096"></a>00096         default:
+<a name="l00097"></a>00097             gtk_widget_destroy (dialogo);
+<a name="l00098"></a>00098     }
+<a name="l00099"></a>00099     return;
+<a name="l00100"></a>00100 }
 </pre></div></p>
 
 </div>
@@ -306,18 +365,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div>
 <div class="memdoc">
 
-<p><div class="fragment"><pre class="fragment"><a name="l00019"></a>00019 {
-<a name="l00020"></a>00020     GtkWidget * dialogo= <a class="code" href="creazione__interfaccia_8cpp.html#a123c5cb16300bf9aa6e82cdc0d621f1e" title="Finestra di diaologo.">crea_finestra_dialogo</a> (finestra,<span class="stringliteral">&quot;Sei sicuro di volere uscire?&quot;</span>);
-<a name="l00021"></a>00021     
-<a name="l00022"></a>00022     <span class="keywordflow">switch</span> (gtk_dialog_run (GTK_DIALOG (dialogo))) {
-<a name="l00023"></a>00023 
-<a name="l00024"></a>00024         <span class="keywordflow">case</span> GTK_RESPONSE_ACCEPT:
-<a name="l00025"></a>00025             gtk_main_quit();
-<a name="l00026"></a>00026 
-<a name="l00027"></a>00027         <span class="keywordflow">default</span>:
-<a name="l00028"></a>00028             gtk_widget_destroy (dialogo);
-<a name="l00029"></a>00029     }
-<a name="l00030"></a>00030 }
+<p>Crea la finestra di conferma uscita. </p>
+<dl><dt><b>Parametri:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>finestra</em>&nbsp;</td><td>Il puntatore alla finestra chiamante </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00029"></a>00029                                            {
+<a name="l00030"></a>00030     GtkWidget * dialogo= <a class="code" href="creazione__interfaccia_8cpp.html#a123c5cb16300bf9aa6e82cdc0d621f1e" title="Finestra di diaologo.">crea_finestra_dialogo</a> (finestra,<span class="stringliteral">&quot;Sei sicuro di volere uscire?&quot;</span>);
+<a name="l00031"></a>00031     
+<a name="l00032"></a>00032     <span class="keywordflow">switch</span> (gtk_dialog_run (GTK_DIALOG (dialogo))) {
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034         <span class="keywordflow">case</span> GTK_RESPONSE_ACCEPT:
+<a name="l00035"></a>00035             gtk_main_quit();
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037         <span class="keywordflow">default</span>:
+<a name="l00038"></a>00038             gtk_widget_destroy (dialogo);
+<a name="l00039"></a>00039     }
+<a name="l00040"></a>00040 }
 </pre></div></p>
 
 </div>
@@ -338,12 +405,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div>
 <div class="memdoc">
 
-<p><div class="fragment"><pre class="fragment"><a name="l00156"></a>00156                                                           {
-<a name="l00157"></a>00157     GtkWidget *dialogo = <a class="code" href="creazione__interfaccia_8cpp.html#ab9f04d1638062a227868b9870732ac93" title="Crea la finestra che avvisa che avvisa che nessuna mappa è stata caricata.">crea_finestra_non_carica</a>(finestra_principale);
-<a name="l00158"></a>00158     gtk_dialog_run (GTK_DIALOG (dialogo));
-<a name="l00159"></a>00159     gtk_widget_destroy (dialogo);
-<a name="l00160"></a>00160     <span class="keywordflow">return</span>;
-<a name="l00161"></a>00161 }</pre></div></p>
+<p>La funzione è legata al pulsante calcola quando non è stata caricata nessuna mappa. </p>
+<dl><dt><b>Parametri:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>finestra_principale</em>&nbsp;</td><td>Puntatore alla finestra principale </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00202"></a>00202                                                           {
+<a name="l00203"></a>00203     GtkWidget *dialogo = <a class="code" href="creazione__interfaccia_8cpp.html#ab9f04d1638062a227868b9870732ac93" title="Crea la finestra che avvisa che avvisa che nessuna mappa è stata caricata.">crea_finestra_non_carica</a>(finestra_principale);
+<a name="l00204"></a>00204     gtk_dialog_run (GTK_DIALOG (dialogo));
+<a name="l00205"></a>00205     gtk_widget_destroy (dialogo);
+<a name="l00206"></a>00206     <span class="keywordflow">return</span>;
+<a name="l00207"></a>00207 }</pre></div></p>
 
 </div>
 </div>
@@ -363,9 +438,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div>
 <div class="memdoc">
 
-<p><div class="fragment"><pre class="fragment"><a name="l00113"></a>00113                                          {
-<a name="l00114"></a>00114     dialogo-&gt;<a class="code" href="structpassaggio__t2.html#a79a70aec19148e59d3a9c7d93358e02e">t_calcolo</a> = <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bfacc850434d7f4bfd58679685788302a96">per_distanza</a>;
-<a name="l00115"></a>00115 }
+<p>Callback collegato ai pulsanti "radiobutton" per decidere se effettuare la ricerca per distanza. </p>
+<dl><dt><b>Parametri:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>dialogo</em>&nbsp;</td><td>Puntatore alla struct contenente i puntatori alla finestra di dialogo associata. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00143"></a>00143                                          {
+<a name="l00144"></a>00144     dialogo-&gt;<a class="code" href="structpassaggio__t2.html#a79a70aec19148e59d3a9c7d93358e02e">t_calcolo</a> = <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bfacc850434d7f4bfd58679685788302a96">per_distanza</a>;
+<a name="l00145"></a>00145 }
 </pre></div></p>
 
 </div>
@@ -386,9 +469,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div>
 <div class="memdoc">
 
-<p><div class="fragment"><pre class="fragment"><a name="l00117"></a>00117                                       {
-<a name="l00118"></a>00118     dialogo-&gt;<a class="code" href="structpassaggio__t2.html#a79a70aec19148e59d3a9c7d93358e02e">t_calcolo</a> = <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bfa427ed8e19072736c76c868f1556b36d5">per_tempo</a>;
-<a name="l00119"></a>00119 }
+<p>Callback collegato ai pulsanti "radiobutton" per decidere se effettuare la ricerca per tempo. </p>
+<dl><dt><b>Parametri:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>dialogo</em>&nbsp;</td><td>Puntatore alla struct contenente i puntatori alla finestra di dialogo associata. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00152"></a>00152                                       {
+<a name="l00153"></a>00153     dialogo-&gt;<a class="code" href="structpassaggio__t2.html#a79a70aec19148e59d3a9c7d93358e02e">t_calcolo</a> = <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bfa427ed8e19072736c76c868f1556b36d5">per_tempo</a>;
+<a name="l00154"></a>00154 }
 </pre></div></p>
 
 </div>
@@ -408,7 +499,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generato il Wed Jul 21 18:34:23 2010 per Trolaspic da&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generato il Thu Jul 22 17:43:49 2010 per Trolaspic da&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

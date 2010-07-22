@@ -91,13 +91,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00079"></a><a class="code" href="structnodo.html#a0ee242378ff48b176c09cdc2e61295cb">00079</a>     <span class="keywordtype">int</span> <a class="code" href="structnodo.html#a0ee242378ff48b176c09cdc2e61295cb" title="Questo parametro serve a ricostruire il tragitto dopo aver usato dijkstra.">padre</a>;
 <a name="l00080"></a>00080 };
 <a name="l00081"></a>00081 
-<a name="l00082"></a>00082 <span class="comment">//void graph_loader(GtkWidget* widget,ifstream &amp;file);</span>
-<a name="l00083"></a>00083 <span class="keywordtype">int</span> <a class="code" href="grafo_8cpp.html#a6e90297598b0cc70283302fcaeb73c68" title="Carica dal file .map e crea il grafo.">carica_mappa</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *filename);
-<a name="l00084"></a>00084 
-<a name="l00085"></a>00085 <span class="keywordtype">int</span> <a class="code" href="grafo_8cpp.html#ab98d31ac652b48847b494a98da97c386">dim_grafo</a>(<span class="keywordtype">void</span>);
-<a name="l00086"></a>00086 
-<a name="l00087"></a>00087 <span class="preprocessor">#endif  </span><span class="comment">/* GRAFO_H */</span>
+<a name="l00082"></a>00082 <span class="keyword">extern</span> <a class="code" href="structnodo.html" title="Struct per la rappresentazione dei nodi di cui e&amp;#39; composto il grafo.">nodo</a>* <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a>;
+<a name="l00083"></a>00083 <span class="comment">//void graph_loader(GtkWidget* widget,ifstream &amp;file);</span>
+<a name="l00084"></a>00084 <span class="keywordtype">int</span> <a class="code" href="grafo_8cpp.html#a6e90297598b0cc70283302fcaeb73c68" title="Carica dal file .map e crea il grafo.">carica_mappa</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *filename);
+<a name="l00085"></a>00085 
+<a name="l00086"></a>00086 <span class="keywordtype">int</span> <a class="code" href="grafo_8cpp.html#ab98d31ac652b48847b494a98da97c386" title="Controlla quanto è grande il grafo.">dim_grafo</a>(<span class="keywordtype">void</span>);
+<a name="l00087"></a>00087 
 <a name="l00088"></a>00088 
+<a name="l00089"></a>00089 <span class="preprocessor">#endif  </span><span class="comment">/* GRAFO_H */</span>
+<a name="l00090"></a>00090 
 </pre></div></div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -113,7 +115,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generato il Wed Jul 21 18:34:23 2010 per Trolaspic da&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generato il Thu Jul 22 17:43:49 2010 per Trolaspic da&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

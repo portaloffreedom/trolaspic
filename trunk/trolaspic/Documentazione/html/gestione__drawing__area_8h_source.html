@@ -51,10 +51,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00008"></a>00008 <span class="preprocessor">#ifndef GESTIONE_DRAWING_AREA_H</span>
 <a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define GESTIONE_DRAWING_AREA_H</span>
 <a name="l00010"></a>00010 <span class="preprocessor"></span>
-<a name="l00011"></a>00011 GtkWidget *<a class="code" href="gestione__drawing__area_8cpp.html#aa316bee6f2d942eddd5765f580a7e37d">crea_drawing_area</a> (<span class="keywordtype">int</span> larghezza, <span class="keywordtype">int</span> altezza);
-<a name="l00012"></a>00012 
-<a name="l00013"></a>00013 <span class="preprocessor">#endif  </span><span class="comment">/* GESTIONE_DRAWING_AREA_H */</span>
-<a name="l00014"></a>00014 
+<a name="l00011"></a>00011 <span class="comment">//GtkWidget *crea_drawing_area (int larghezza, int altezza);</span>
+<a name="l00012"></a>00012 <span class="keywordtype">void</span> <a class="code" href="gestione__drawing__area_8cpp.html#a89b0207e94e5a4e2d74d2541448dcbcc">cairo_disegna</a> (<span class="keyword">const</span> gchar *filename, GdkPixbuf* sfondo);
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 <span class="preprocessor">#endif  </span><span class="comment">/* GESTIONE_DRAWING_AREA_H */</span>
+<a name="l00015"></a>00015 
 </pre></div></div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -70,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generato il Wed Jul 21 18:34:23 2010 per Trolaspic da&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generato il Thu Jul 22 17:43:49 2010 per Trolaspic da&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>
