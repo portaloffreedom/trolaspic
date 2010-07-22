@@ -79,34 +79,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div>
 <div class="memdoc">
 
-<p><div class="fragment"><pre class="fragment"><a name="l00039"></a>00039                                 {
-<a name="l00040"></a>00040     gtk_init(&amp;argc, &amp;argv);
-<a name="l00041"></a>00041 
+<p><div class="fragment"><pre class="fragment"><a name="l00035"></a>00035                                 {
+<a name="l00036"></a>00036     gtk_init(&amp;argc, &amp;argv);
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039     <span class="comment">//**************************************************************************</span>
+<a name="l00040"></a>00040     <a class="code" href="structpassaggio__t.html">passaggio_t</a> *window= <a class="code" href="creazione__interfaccia_8cpp.html#ac2d0492ff1c555bc0cdb452b2f051034" title="Crea la finestra principale con tutti gli oggetti.">crea_finestra_principale</a>();
+<a name="l00041"></a>00041     gtk_widget_show(window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716">finestra</a>);
 <a name="l00042"></a>00042 
-<a name="l00043"></a>00043     <span class="comment">//**************************************************************************</span>
-<a name="l00044"></a>00044     <a class="code" href="structpassaggio__t.html">passaggio_t</a> *window= <a class="code" href="creazione__interfaccia_8cpp.html#ac2d0492ff1c555bc0cdb452b2f051034" title="Crea la finestra principale con tutti gli oggetti.">crea_finestra_principale</a>();
-<a name="l00045"></a>00045     gtk_widget_show(window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716">finestra</a>);
-<a name="l00046"></a>00046 
-<a name="l00047"></a>00047 
-<a name="l00048"></a>00048     g_signal_connect_swapped (window-&gt;<a class="code" href="structpassaggio__t.html#aca3ce88e19981e9dcb95d81847accacd">info_i</a>,   <span class="stringliteral">&quot;activate&quot;</span>,     G_CALLBACK (<a class="code" href="g__callback_8cpp.html#ae74861d87a5de6e4cc15a79240b592f7">mostra_info</a>),      window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716">finestra</a>);
-<a name="l00049"></a>00049     g_signal_connect_swapped (window-&gt;<a class="code" href="structpassaggio__t.html#aa329b6ef38c6eeca1bdee5fff61756ff">esci_i</a>,   <span class="stringliteral">&quot;activate&quot;</span>,     G_CALLBACK (<a class="code" href="g__callback_8cpp.html#a381c43e6bf734ff6081e0ea730fd590a">response_dialogo</a>), window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716">finestra</a>);
-<a name="l00050"></a>00050     g_signal_connect_swapped (window-&gt;<a class="code" href="structpassaggio__t.html#a5a082534a42d7c5cffcbdbd70cc5e19d">carica_i</a>, <span class="stringliteral">&quot;activate&quot;</span>,     G_CALLBACK (<a class="code" href="g__callback_8cpp.html#a34f2cecd360bb543d0ee438f8d311cea">response_carica</a>),  window          );
-<a name="l00051"></a>00051     g_signal_connect         (window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716">finestra</a>, <span class="stringliteral">&quot;delete-event&quot;</span>, G_CALLBACK (<a class="code" href="g__callback_8cpp.html#a381c43e6bf734ff6081e0ea730fd590a">response_dialogo</a>), window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716">finestra</a>);
-<a name="l00052"></a>00052 
-<a name="l00053"></a>00053     window-&gt;<a class="code" href="structpassaggio__t.html#a01624ae4eed6b66ca275ea8457aec982">calcola_id</a> =
-<a name="l00054"></a>00054         g_signal_connect_swapped (window-&gt;<a class="code" href="structpassaggio__t.html#a1c2b2a5d65cba6d29c9c5341739c4230">calcola_i</a>, <span class="stringliteral">&quot;activate&quot;</span>, G_CALLBACK (<a class="code" href="g__callback_8cpp.html#ab61304513439f02c464a3674b71b87c8">response_calcola</a>), window);
-<a name="l00055"></a>00055     window-&gt;<a class="code" href="structpassaggio__t.html#aa13f695bba4cfbe364a8f042c3300706">errore_id</a>  =
-<a name="l00056"></a>00056         g_signal_connect_swapped (window-&gt;<a class="code" href="structpassaggio__t.html#a1c2b2a5d65cba6d29c9c5341739c4230">calcola_i</a>, <span class="stringliteral">&quot;activate&quot;</span>, G_CALLBACK (<a class="code" href="g__callback_8cpp.html#a0f6a82aef80971e0ce9a7e61ba7230fa">response_non_calcola</a>), window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716">finestra</a>);
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044     g_signal_connect_swapped (window-&gt;<a class="code" href="structpassaggio__t.html#aca3ce88e19981e9dcb95d81847accacd">info_i</a>,   <span class="stringliteral">&quot;activate&quot;</span>,     G_CALLBACK (<a class="code" href="g__callback_8cpp.html#ae74861d87a5de6e4cc15a79240b592f7" title="Mostra la finestra &amp;quot;informazioni&amp;quot;.">mostra_info</a>),      window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716">finestra</a>);
+<a name="l00045"></a>00045     g_signal_connect_swapped (window-&gt;<a class="code" href="structpassaggio__t.html#aa329b6ef38c6eeca1bdee5fff61756ff">esci_i</a>,   <span class="stringliteral">&quot;activate&quot;</span>,     G_CALLBACK (<a class="code" href="g__callback_8cpp.html#a381c43e6bf734ff6081e0ea730fd590a" title="Crea la finestra di conferma uscita.">response_dialogo</a>), window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716">finestra</a>);
+<a name="l00046"></a>00046     g_signal_connect_swapped (window-&gt;<a class="code" href="structpassaggio__t.html#a5a082534a42d7c5cffcbdbd70cc5e19d">carica_i</a>, <span class="stringliteral">&quot;activate&quot;</span>,     G_CALLBACK (<a class="code" href="g__callback_8cpp.html#a34f2cecd360bb543d0ee438f8d311cea" title="Funzione che parte premendo il pulsante Carica mappa.">response_carica</a>),  window          );
+<a name="l00047"></a>00047     g_signal_connect         (window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716">finestra</a>, <span class="stringliteral">&quot;delete-event&quot;</span>, G_CALLBACK (<a class="code" href="g__callback_8cpp.html#a381c43e6bf734ff6081e0ea730fd590a" title="Crea la finestra di conferma uscita.">response_dialogo</a>), window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716">finestra</a>);
+<a name="l00048"></a>00048 <span class="comment">//    g_signal_connect_swapped (window-&gt;radio_distanza, &quot;clicked&quot;, G_CALLBACK(set_distanza), dialogo);</span>
+<a name="l00049"></a>00049 <span class="comment">//    g_signal_connect_swapped (window-&gt;radio_tempo,    &quot;clicked&quot;, G_CALLBACK(set_tempo),    dialogo);</span>
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051     window-&gt;<a class="code" href="structpassaggio__t.html#a01624ae4eed6b66ca275ea8457aec982">calcola_id</a> =
+<a name="l00052"></a>00052         g_signal_connect_swapped (window-&gt;<a class="code" href="structpassaggio__t.html#a1c2b2a5d65cba6d29c9c5341739c4230">calcola_i</a>, <span class="stringliteral">&quot;activate&quot;</span>, G_CALLBACK (<a class="code" href="g__callback_8cpp.html#ab61304513439f02c464a3674b71b87c8" title="Funzione chiamata dal menu &amp;quot;calcola percorso&amp;quot;.">response_calcola</a>), window);
+<a name="l00053"></a>00053     window-&gt;<a class="code" href="structpassaggio__t.html#aa13f695bba4cfbe364a8f042c3300706">errore_id</a>  =
+<a name="l00054"></a>00054         g_signal_connect_swapped (window-&gt;<a class="code" href="structpassaggio__t.html#a1c2b2a5d65cba6d29c9c5341739c4230">calcola_i</a>, <span class="stringliteral">&quot;activate&quot;</span>, G_CALLBACK (<a class="code" href="g__callback_8cpp.html#a0f6a82aef80971e0ce9a7e61ba7230fa" title="La funzione è legata al pulsante calcola quando non è stata caricata nessuna mappa...">response_non_calcola</a>), window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716">finestra</a>);
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056     g_signal_handler_block( window-&gt;<a class="code" href="structpassaggio__t.html#a1c2b2a5d65cba6d29c9c5341739c4230">calcola_i</a>, window-&gt;<a class="code" href="structpassaggio__t.html#a01624ae4eed6b66ca275ea8457aec982">calcola_id</a>);
 <a name="l00057"></a>00057 
-<a name="l00058"></a>00058     g_signal_handler_block( window-&gt;<a class="code" href="structpassaggio__t.html#a1c2b2a5d65cba6d29c9c5341739c4230">calcola_i</a>, window-&gt;<a class="code" href="structpassaggio__t.html#a01624ae4eed6b66ca275ea8457aec982">calcola_id</a>);
+<a name="l00058"></a>00058     <span class="comment">//**************************************************************************</span>
 <a name="l00059"></a>00059 
-<a name="l00060"></a>00060     <span class="comment">//**************************************************************************</span>
-<a name="l00061"></a>00061 
-<a name="l00062"></a>00062 
-<a name="l00063"></a>00063     gtk_main();
-<a name="l00064"></a>00064     <span class="keyword">delete</span>[] window;
-<a name="l00065"></a>00065     <span class="keywordflow">return</span> 0;
-<a name="l00066"></a>00066 }
+<a name="l00060"></a>00060 
+<a name="l00061"></a>00061     gtk_main();
+<a name="l00062"></a>00062     <span class="keyword">delete</span>[] window;
+<a name="l00063"></a>00063     <span class="keywordflow">return</span> 0;
+<a name="l00064"></a>00064 }
 </pre></div></p>
 
 </div>
@@ -126,7 +128,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generato il Wed Jul 21 18:34:23 2010 per Trolaspic da&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generato il Thu Jul 22 17:43:50 2010 per Trolaspic da&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

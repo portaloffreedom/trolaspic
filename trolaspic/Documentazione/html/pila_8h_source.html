@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>Trolaspic:  File sorgente g_callback.h</title>
+<title>Trolaspic:  File sorgente pila.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javaScript" src="search/search.js"></script>
@@ -41,29 +41,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
       <li><a href="globals.html"><span>Elementi&nbsp;globali</span></a></li>
     </ul>
   </div>
-<h1>g_callback.h</h1><a href="g__callback_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* </span>
-<a name="l00002"></a>00002 <span class="comment"> * File:   g_callback.h</span>
+<h1>pila.h</h1><a href="pila_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* </span>
+<a name="l00002"></a>00002 <span class="comment"> * File:   pila.h</span>
 <a name="l00003"></a>00003 <span class="comment"> * Author: matteo</span>
 <a name="l00004"></a>00004 <span class="comment"> *</span>
-<a name="l00005"></a>00005 <span class="comment"> * Created on 8 luglio 2010, 19.00</span>
+<a name="l00005"></a>00005 <span class="comment"> * Created on 22 luglio 2010, 12.21</span>
 <a name="l00006"></a>00006 <span class="comment"> */</span>
 <a name="l00007"></a>00007 
-<a name="l00008"></a>00008 <span class="preprocessor">#ifndef G_CALLBACK_H</span>
-<a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define G_CALLBACK_H</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#ifndef PILA_H</span>
+<a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define PILA_H</span>
 <a name="l00010"></a>00010 <span class="preprocessor"></span>
-<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;gtk/gtk.h&gt;</span>
-<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="main_8h.html">main.h</a>&quot;</span>
-<a name="l00013"></a>00013 
-<a name="l00014"></a>00014 gboolean <a class="code" href="g__callback_8cpp.html#a1ba87899980bce21ad15c8f06bb3ef36" title="Impedisci la distruzine dell&amp;#39;oggetto window.">delete_event_window</a>(GtkWidget* window, GdkEvent* evento ,GtkWidget* dialogo);
-<a name="l00015"></a>00015 gboolean <a class="code" href="g__callback_8cpp.html#a25da5fc2ed9fa4e3b603337104446d26" title="Se collegato ad un segnale &amp;quot;delete_event&amp;quot; impedisce che l&amp;#39;oggetto venga...">delete_event</a>(GtkWidget* oggetto);
-<a name="l00016"></a>00016 <span class="keywordtype">void</span> <a class="code" href="g__callback_8cpp.html#a381c43e6bf734ff6081e0ea730fd590a" title="Crea la finestra di conferma uscita.">response_dialogo</a> (GtkWidget *finestra);
-<a name="l00017"></a>00017 <span class="keywordtype">void</span> <a class="code" href="g__callback_8cpp.html#a34f2cecd360bb543d0ee438f8d311cea" title="Funzione che parte premendo il pulsante Carica mappa.">response_carica</a> (<a class="code" href="structpassaggio__t.html">passaggio_t</a> *window);
-<a name="l00018"></a>00018 <span class="keywordtype">void</span> <a class="code" href="g__callback_8cpp.html#ae74861d87a5de6e4cc15a79240b592f7" title="Mostra la finestra &amp;quot;informazioni&amp;quot;.">mostra_info</a> (GtkWidget* finestra);
-<a name="l00019"></a>00019 <span class="keywordtype">void</span> <a class="code" href="g__callback_8cpp.html#ab61304513439f02c464a3674b71b87c8" title="Funzione chiamata dal menu &amp;quot;calcola percorso&amp;quot;.">response_calcola</a> (<a class="code" href="structpassaggio__t.html">passaggio_t</a> *window);
-<a name="l00020"></a>00020 <span class="keywordtype">void</span> <a class="code" href="g__callback_8cpp.html#a0f6a82aef80971e0ce9a7e61ba7230fa" title="La funzione è legata al pulsante calcola quando non è stata caricata nessuna mappa...">response_non_calcola</a> (GtkWidget* finestra_principale);
-<a name="l00021"></a>00021 
-<a name="l00022"></a>00022 <span class="preprocessor">#endif  </span><span class="comment">/* G_CALLBACK_H */</span>
-<a name="l00023"></a>00023 
+<a name="l00011"></a><a class="code" href="structpila__ch.html">00011</a> <span class="keyword">struct </span><a class="code" href="structpila__ch.html">pila_ch</a>{
+<a name="l00012"></a><a class="code" href="structpila__ch.html#a75e39e9f4e2073f1c04f3b5d95196e4a">00012</a>     <span class="keywordtype">char</span>* <a class="code" href="structpila__ch.html#a75e39e9f4e2073f1c04f3b5d95196e4a">pila</a>;
+<a name="l00013"></a><a class="code" href="structpila__ch.html#aeb4130b46108ba0aefbb3065bb1709b3">00013</a>     <span class="keywordtype">int</span> <a class="code" href="structpila__ch.html#aeb4130b46108ba0aefbb3065bb1709b3">ultimo_elem</a>;
+<a name="l00014"></a>00014 };
+<a name="l00015"></a><a class="code" href="pila_8h.html#a13703921da3fd876622a031bf3596e37">00015</a> <span class="keyword">typedef</span> <a class="code" href="structpila__ch.html">pila_ch</a>* <a class="code" href="structpila__ch.html">pila_char</a>;
+<a name="l00016"></a>00016 
+<a name="l00022"></a>00022 <a class="code" href="structpila__ch.html">pila_char</a> <a class="code" href="pila_8cpp.html#ae8b869ae7cad1923bc4f07ba448da1ef" title="Costruttore per la pila.">crea_pila_char</a>(<span class="keywordtype">int</span> max_elem);
+<a name="l00027"></a>00027 <span class="keywordtype">void</span> <a class="code" href="pila_8cpp.html#ab1c4a32b8b02f692baa823375f77ba9e" title="Decostruttore per la pila.">distruggi_pila_char</a>(<a class="code" href="structpila__ch.html">pila_char</a> pila);
+<a name="l00028"></a>00028 
+<a name="l00034"></a>00034 <span class="keywordtype">void</span> <a class="code" href="pila_8cpp.html#a132005d8d802fce6e7ad3e6ed1e98719" title="Pusha un carattere dentro alla pila (attenzione, non ci sono controlli se viene superata...">push_pila_char</a>(<a class="code" href="structpila__ch.html">pila_char</a> pila, <span class="keywordtype">char</span> carattere);
+<a name="l00040"></a>00040 <span class="keywordtype">char</span> <a class="code" href="pila_8cpp.html#a4e6aed20ef66e7f94395b5df51b47df8" title="Poppa un elemento dalla pila (Attenzione non fa controlli se vengono poppati più...">pop_pila_char</a>(<a class="code" href="structpila__ch.html">pila_char</a> pila);
+<a name="l00041"></a>00041 
+<a name="l00042"></a>00042 <span class="preprocessor">#endif  </span><span class="comment">/* PILA_H */</span>
+<a name="l00043"></a>00043 
 </pre></div></div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"

@@ -51,7 +51,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="2"><h2>Funzioni</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="grafo_8cpp.html#a52eb3e7cae0072b18dff99d6070067c2">distruggi_grafo</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Distrugge il grafo e ne setta il puntatore a zero.  <a href="#a52eb3e7cae0072b18dff99d6070067c2"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="grafo_8cpp.html#ab98d31ac652b48847b494a98da97c386">dim_grafo</a> (void)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Controlla quanto è grande il grafo.  <a href="#ab98d31ac652b48847b494a98da97c386"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="grafo_8cpp.html#a0532e9aadb0386590957f7adcf60ac31">leggi_prox_int</a> (ifstream &amp;source)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Serve per nascondere alla funzione i commenti nello stream.  <a href="#a0532e9aadb0386590957f7adcf60ac31"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="grafo_8cpp.html#ad6d270880b61857fa5cf7483eb177c24">leggi_prox_double</a> (ifstream &amp;source)</td></tr>
@@ -94,104 +96,110 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
   </dd>
 </dl>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00139"></a>00139 {
-<a name="l00140"></a>00140 
-<a name="l00141"></a>00141     <span class="keywordtype">int</span> i;
-<a name="l00142"></a>00142     <span class="keywordflow">for</span> (i=0; filename[i]!=<span class="charliteral">&#39;\0&#39;</span>;i++) {
-<a name="l00143"></a>00143         <span class="comment">//DBG(cout&lt;&lt;&#39;:&#39;&lt;&lt;i&lt;&lt;&#39;_&#39;&lt;&lt;filename[i]&lt;&lt;endl)</span>
-<a name="l00144"></a>00144     }
-<a name="l00145"></a>00145     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;endl)
-<a name="l00146"></a>00146     <span class="comment">/*for (; filename[i]!=&#39;.&#39;; i--){</span>
-<a name="l00147"></a>00147 <span class="comment">        DBG(cout&lt;&lt;&#39;:&#39;&lt;&lt;i&lt;&lt;&#39;_&#39;&lt;&lt;filename[i]&lt;&lt;endl)</span>
-<a name="l00148"></a>00148 <span class="comment">    }*/</span>
-<a name="l00149"></a>00149 
-<a name="l00150"></a>00150     char *filename_map= new <span class="keywordtype">char</span>[i];
-<a name="l00151"></a>00151     filename_map[i--]=&#39;\0&#39;;
-<a name="l00152"></a>00152     filename_map[i--]=&#39;p&#39;;
-<a name="l00153"></a>00153     filename_map[i--]=&#39;a&#39;;
-<a name="l00154"></a>00154     filename_map[i--]=&#39;m&#39;;
-<a name="l00155"></a>00155     <span class="comment">//filename_map[--i]=&#39;m&#39;;</span>
-<a name="l00156"></a>00156     for (; i&gt;=0;i--){
-<a name="l00157"></a>00157         filename_map[i]=filename[i];
-<a name="l00158"></a>00158     }
-<a name="l00159"></a>00159     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;filename&lt;&lt;endl);
-<a name="l00160"></a>00160     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;filename_map&lt;&lt;endl);
-<a name="l00161"></a>00161 
-<a name="l00162"></a>00162 
-<a name="l00163"></a>00163 
-<a name="l00164"></a>00164     ifstream mappa (filename_map);
-<a name="l00165"></a>00165     <span class="keywordflow">if</span> (!mappa) {
-<a name="l00166"></a>00166         cerr&lt;&lt;<span class="stringliteral">&quot;File &quot;</span>&lt;&lt;filename_map&lt;&lt;<span class="stringliteral">&quot; non aperto correttamente\n&quot;</span>;
-<a name="l00167"></a>00167         <span class="keywordflow">return</span> 0;
-<a name="l00168"></a>00168     }
-<a name="l00169"></a>00169     
-<a name="l00170"></a>00170     <span class="comment">//Distruggi l&#39;array dei nodi precendente</span>
-<a name="l00171"></a>00171     <span class="comment">//distruggi_liste</span>
-<a name="l00172"></a>00172     <span class="comment">//delete[] GRAPH;</span>
-<a name="l00173"></a>00173 
-<a name="l00174"></a>00174     <span class="keyword">const</span> <span class="keywordtype">int</span> numero_nodi = <a class="code" href="grafo_8cpp.html#a0532e9aadb0386590957f7adcf60ac31" title="Serve per nascondere alla funzione i commenti nello stream.">leggi_prox_int</a>(mappa);
-<a name="l00175"></a>00175     <a class="code" href="grafo_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a> = <span class="keyword">new</span> <a class="code" href="structnodo.html" title="Struct per la rappresentazione dei nodi di cui e&amp;#39; composto il grafo.">nodo</a>[numero_nodi+1];
-<a name="l00176"></a>00176     <a class="code" href="grafo_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a>[0].<a class="code" href="structnodo.html#a0ee242378ff48b176c09cdc2e61295cb" title="Questo parametro serve a ricostruire il tragitto dopo aver usato dijkstra.">padre</a> = numero_nodi; <span class="comment">//imposta le dimensioni del grafo.</span>
-<a name="l00177"></a>00177                               <span class="comment">//leggibile con la funzione &quot;void dim_grafo(void)&quot;</span>
-<a name="l00178"></a>00178 
-<a name="l00179"></a>00179      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=1; i&lt;=numero_nodi; i++){
-<a name="l00180"></a>00180         <span class="comment">//Lettura del numero dell&#39;incrocio</span>
-<a name="l00181"></a>00181         <span class="keywordtype">int</span> nome_incrocio= <a class="code" href="grafo_8cpp.html#a0532e9aadb0386590957f7adcf60ac31" title="Serve per nascondere alla funzione i commenti nello stream.">leggi_prox_int</a>(mappa);
-<a name="l00182"></a>00182         <span class="comment">//Lettura delle coordinate del nodo</span>
-<a name="l00183"></a>00183         mappa.ignore(<a class="code" href="grafo_8cpp.html#aca41d9199bb21b94216bf634dd3487c0">MAX_SALTO</a>,<span class="charliteral">&#39;(&#39;</span>);
-<a name="l00184"></a>00184         <a class="code" href="grafo_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a>[nome_incrocio].<a class="code" href="structnodo.html#a4e346a7300837310d594e854b0918b01" title="Coordinata orizzontale del nodo sulla mappa.">x</a>= <a class="code" href="grafo_8cpp.html#a0532e9aadb0386590957f7adcf60ac31" title="Serve per nascondere alla funzione i commenti nello stream.">leggi_prox_int</a>(mappa);
-<a name="l00185"></a>00185         <a class="code" href="grafo_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a>[nome_incrocio].<a class="code" href="structnodo.html#a454518f55fe41aa89177dbbf19a349e4" title="Coordinata Verticale del nodo sulla mappa.">y</a>= <a class="code" href="grafo_8cpp.html#a0532e9aadb0386590957f7adcf60ac31" title="Serve per nascondere alla funzione i commenti nello stream.">leggi_prox_int</a>(mappa);
-<a name="l00186"></a>00186         <a class="code" href="grafo_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a>[nome_incrocio].<a class="code" href="structnodo.html#a0ee242378ff48b176c09cdc2e61295cb" title="Questo parametro serve a ricostruire il tragitto dopo aver usato dijkstra.">padre</a> = -1;
-<a name="l00187"></a>00187         <a class="code" href="grafo_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a>[nome_incrocio].<a class="code" href="structnodo.html#a2694acb99e1095c70b3c80d57be82c6c" title="Colore da impostare secondo l&amp;#39;algoritmo dijkstra.">visitato</a> = <a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5a3226bf95e2fad7dccac1089fb62a60d5">bianco</a>;
-<a name="l00188"></a>00188         <a class="code" href="grafo_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a>[nome_incrocio].<a class="code" href="structnodo.html#ad9af03d4d3cfe325790568dc7a99e479" title="Quanto pesa passare da questo nodo.">peso</a> = INFINITO;
+<p><div class="fragment"><pre class="fragment"><a name="l00144"></a>00144 {
+<a name="l00145"></a>00145 
+<a name="l00146"></a>00146     <span class="keywordtype">int</span> i;
+<a name="l00147"></a>00147     <span class="keywordflow">for</span> (i=0; filename[i]!=<span class="charliteral">&#39;\0&#39;</span>;i++) {
+<a name="l00148"></a>00148         <span class="comment">//DBG(cout&lt;&lt;&#39;:&#39;&lt;&lt;i&lt;&lt;&#39;_&#39;&lt;&lt;filename[i]&lt;&lt;endl)</span>
+<a name="l00149"></a>00149     }
+<a name="l00150"></a>00150     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;endl)
+<a name="l00151"></a>00151     <span class="comment">/*for (; filename[i]!=&#39;.&#39;; i--){</span>
+<a name="l00152"></a>00152 <span class="comment">        DBG(cout&lt;&lt;&#39;:&#39;&lt;&lt;i&lt;&lt;&#39;_&#39;&lt;&lt;filename[i]&lt;&lt;endl)</span>
+<a name="l00153"></a>00153 <span class="comment">    }*/</span>
+<a name="l00154"></a>00154 
+<a name="l00155"></a>00155     char *filename_map= new <span class="keywordtype">char</span>[i];
+<a name="l00156"></a>00156     filename_map[i--]=&#39;\0&#39;;
+<a name="l00157"></a>00157     filename_map[i--]=&#39;p&#39;;
+<a name="l00158"></a>00158     filename_map[i--]=&#39;a&#39;;
+<a name="l00159"></a>00159     filename_map[i--]=&#39;m&#39;;
+<a name="l00160"></a>00160     <span class="comment">//filename_map[--i]=&#39;m&#39;;</span>
+<a name="l00161"></a>00161     for (; i&gt;=0;i--){
+<a name="l00162"></a>00162         filename_map[i]=filename[i];
+<a name="l00163"></a>00163     }
+<a name="l00164"></a>00164     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;filename&lt;&lt;endl);
+<a name="l00165"></a>00165     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;filename_map&lt;&lt;endl);
+<a name="l00166"></a>00166 
+<a name="l00167"></a>00167     ifstream mappa (filename_map);
+<a name="l00168"></a>00168     <span class="keywordflow">if</span> (!mappa) {
+<a name="l00169"></a>00169         cerr&lt;&lt;<span class="stringliteral">&quot;File &quot;</span>&lt;&lt;filename_map&lt;&lt;<span class="stringliteral">&quot; non aperto correttamente\n&quot;</span>;
+<a name="l00170"></a>00170         <span class="keywordflow">return</span> 0;
+<a name="l00171"></a>00171     }
+<a name="l00172"></a>00172     
+<a name="l00173"></a>00173     <span class="comment">//Distruggi l&#39;array dei nodi precendente</span>
+<a name="l00174"></a>00174     <span class="comment">//distruggi_liste</span>
+<a name="l00175"></a>00175     <span class="comment">//delete[] GRAPH;</span>
+<a name="l00176"></a>00176 
+<a name="l00177"></a>00177     <span class="keyword">const</span> <span class="keywordtype">int</span> dim_x = <a class="code" href="grafo_8cpp.html#a0532e9aadb0386590957f7adcf60ac31" title="Serve per nascondere alla funzione i commenti nello stream.">leggi_prox_int</a>(mappa);
+<a name="l00178"></a>00178     mappa.ignore(<a class="code" href="grafo_8cpp.html#aca41d9199bb21b94216bf634dd3487c0">MAX_SALTO</a>,<span class="charliteral">&#39;x&#39;</span>);
+<a name="l00179"></a>00179     <span class="keyword">const</span> <span class="keywordtype">int</span> dim_y = <a class="code" href="grafo_8cpp.html#a0532e9aadb0386590957f7adcf60ac31" title="Serve per nascondere alla funzione i commenti nello stream.">leggi_prox_int</a>(mappa);
+<a name="l00180"></a>00180 
+<a name="l00181"></a>00181     <span class="keyword">const</span> <span class="keywordtype">int</span> numero_nodi = <a class="code" href="grafo_8cpp.html#a0532e9aadb0386590957f7adcf60ac31" title="Serve per nascondere alla funzione i commenti nello stream.">leggi_prox_int</a>(mappa);
+<a name="l00182"></a>00182     <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a> = <span class="keyword">new</span> <a class="code" href="structnodo.html" title="Struct per la rappresentazione dei nodi di cui e&amp;#39; composto il grafo.">nodo</a>[numero_nodi+1];
+<a name="l00183"></a>00183     <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a>[0].<a class="code" href="structnodo.html#a0ee242378ff48b176c09cdc2e61295cb" title="Questo parametro serve a ricostruire il tragitto dopo aver usato dijkstra.">padre</a> = numero_nodi; <span class="comment">//imposta le dimensioni del grafo.</span>
+<a name="l00184"></a>00184                               <span class="comment">//leggibile con la funzione &quot;void dim_grafo(void)&quot;</span>
+<a name="l00185"></a>00185     <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a>[0].<a class="code" href="structnodo.html#a4e346a7300837310d594e854b0918b01" title="Coordinata orizzontale del nodo sulla mappa.">x</a>=dim_x;
+<a name="l00186"></a>00186     <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a>[0].<a class="code" href="structnodo.html#a454518f55fe41aa89177dbbf19a349e4" title="Coordinata Verticale del nodo sulla mappa.">y</a>=dim_y;
+<a name="l00187"></a>00187 
+<a name="l00188"></a>00188     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;<span class="stringliteral">&quot;Nodo GRAPH[0] inizializzato con successo\n&quot;</span>)
 <a name="l00189"></a>00189 
-<a name="l00190"></a>00190         <span class="comment">//Lettura del tipo di incrocio</span>
-<a name="l00191"></a>00191         mappa.ignore(<a class="code" href="grafo_8cpp.html#aca41d9199bb21b94216bf634dd3487c0">MAX_SALTO</a>,<span class="charliteral">&#39;)&#39;</span>);
-<a name="l00192"></a>00192         <span class="keywordtype">char</span> tipo_incrocio_char= <a class="code" href="grafo_8cpp.html#a7000cf69c2ba3f93984948e81f62cfe1" title="Serve per nascondere alla funzione i commenti nello stream.">leggi_prox_char</a>(mappa);
-<a name="l00193"></a>00193         <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3" title="enumerato per la tipoligia di incrocio">t_incrocio</a> tipo_incrocio;
-<a name="l00194"></a>00194         <span class="keywordflow">switch</span> (tipo_incrocio_char){
-<a name="l00195"></a>00195             <span class="keywordflow">case</span> <span class="charliteral">&#39;s&#39;</span>:
-<a name="l00196"></a>00196                 tipo_incrocio= <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3a719129611a5479c8f9a1d24d091ba679">incrocio_semafori</a>;
-<a name="l00197"></a>00197                 <span class="keywordflow">break</span>;
-<a name="l00198"></a>00198             <span class="keywordflow">case</span> <span class="charliteral">&#39;r&#39;</span>:
-<a name="l00199"></a>00199                 tipo_incrocio= <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3ac2443694aae00ca087b9bfefccc770c4">rotatoria</a>;
-<a name="l00200"></a>00200                 <span class="keywordflow">break</span>;
-<a name="l00201"></a>00201             <span class="keywordflow">default</span>:
-<a name="l00202"></a>00202                 cerr&lt;&lt;<span class="stringliteral">&quot;\nErrore nella lettura del tipo di incrocio numero &quot;</span>&lt;&lt;nome_incrocio&lt;&lt;
-<a name="l00203"></a>00203                         <span class="stringliteral">&quot;\nIncrocio settato come normale.\n&quot;</span>;
-<a name="l00204"></a>00204             <span class="keywordflow">case</span> <span class="charliteral">&#39;n&#39;</span>:
-<a name="l00205"></a>00205                 tipo_incrocio= <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3a4eff13ef35c9a96c9ab332340761a0f6">incrocio_normale</a>;
-<a name="l00206"></a>00206         }
-<a name="l00207"></a>00207         <a class="code" href="grafo_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a>[nome_incrocio].<a class="code" href="structnodo.html#ae242f8d8dd28c74789c66f76ccbc6179" title="Tipo di incrocio che rappreenta questo nodo.">tipo</a> = tipo_incrocio;
-<a name="l00208"></a>00208 
-<a name="l00209"></a>00209         <span class="comment">//--(lettura quanti archi collegati)--</span>
-<a name="l00210"></a>00210         mappa.ignore(<a class="code" href="grafo_8cpp.html#aca41d9199bb21b94216bf634dd3487c0">MAX_SALTO</a>,<span class="charliteral">&#39;:&#39;</span>);
-<a name="l00211"></a>00211         <span class="keyword">const</span> <span class="keywordtype">int</span> quanti_archi= <a class="code" href="grafo_8cpp.html#a0532e9aadb0386590957f7adcf60ac31" title="Serve per nascondere alla funzione i commenti nello stream.">leggi_prox_int</a> (mappa);
-<a name="l00212"></a>00212         <a class="code" href="grafo_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a>[nome_incrocio].<a class="code" href="structnodo.html#ad020a139f05c481569b2c453b56971b4" title="Quanto è grande la lista di adiacenza.">size_list</a>= quanti_archi;
-<a name="l00213"></a>00213 
-<a name="l00214"></a>00214         <span class="comment">//lettura di tutte le adiacenze</span>
-<a name="l00215"></a>00215         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;quanti_archi; i++){
-<a name="l00216"></a>00216             mappa.ignore(<a class="code" href="grafo_8cpp.html#aca41d9199bb21b94216bf634dd3487c0">MAX_SALTO</a>,<span class="charliteral">&#39;(&#39;</span>);
-<a name="l00217"></a>00217             <span class="keywordtype">int</span> direzione_strada= <a class="code" href="grafo_8cpp.html#a0532e9aadb0386590957f7adcf60ac31" title="Serve per nascondere alla funzione i commenti nello stream.">leggi_prox_int</a>(mappa);
-<a name="l00218"></a>00218             <span class="keywordflow">if</span> (direzione_strada == 0)
-<a name="l00219"></a>00219                 <span class="keywordflow">continue</span>;
-<a name="l00220"></a>00220             
-<a name="l00221"></a>00221             <a class="code" href="structadiacenza.html" title="Struct che rappresenta gli archi fra un nodo e l&amp;#39;altro.">arco</a> <a class="code" href="structadiacenza.html" title="Struct che rappresenta gli archi fra un nodo e l&amp;#39;altro.">arco</a>;
-<a name="l00222"></a>00222             arco.<a class="code" href="structadiacenza.html#a979000bd61559a22dcc424e9f04481ab" title="L&amp;#39;indice del nodo nel grafo Questo indice viene usato per prelevare il nodo dal...">nodo</a>= direzione_strada;
-<a name="l00223"></a>00223             arco.<a class="code" href="structadiacenza.html#a36b0702ffb002532fdb95b2c7174ae23" title="Il peso dell&amp;#39;arco fra il nodo chiamante e il nodo indicato.">kilometri</a>= <a class="code" href="grafo_8cpp.html#ad6d270880b61857fa5cf7483eb177c24" title="Serve per nascondere alla funzione i commenti nello stream.">leggi_prox_double</a>(mappa);
-<a name="l00224"></a>00224             arco.<a class="code" href="structadiacenza.html#a64865462a95428742eed016ee8bfcdd1">secondi</a>  = <a class="code" href="grafo_8cpp.html#ad6d270880b61857fa5cf7483eb177c24" title="Serve per nascondere alla funzione i commenti nello stream.">leggi_prox_double</a>(mappa);
-<a name="l00225"></a>00225 
-<a name="l00226"></a>00226             <a class="code" href="grafo_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a>[nome_incrocio].<a class="code" href="structnodo.html#acde832d9079cd541214312f347ef0712" title="Tutti i nodi che e&amp;#39; possibile raggiungere da questo.">adiacente</a>.push_back(arco);
-<a name="l00227"></a>00227             
-<a name="l00228"></a>00228         }
-<a name="l00229"></a>00229         mappa.ignore(<a class="code" href="grafo_8cpp.html#aca41d9199bb21b94216bf634dd3487c0">MAX_SALTO</a>,<span class="charliteral">&#39;$&#39;</span>);
-<a name="l00230"></a>00230 
-<a name="l00231"></a>00231      }
-<a name="l00232"></a>00232 
-<a name="l00233"></a>00233     <span class="keyword">delete</span>[] filename_map;
-<a name="l00234"></a>00234     mappa.close();
-<a name="l00235"></a>00235     <span class="keywordflow">return</span> numero_nodi;
-<a name="l00236"></a>00236 }</pre></div></p>
+<a name="l00190"></a>00190      for (<span class="keywordtype">int</span> i=1; i&lt;=numero_nodi; i++){
+<a name="l00191"></a>00191         <span class="comment">//Lettura del numero dell&#39;incrocio</span>
+<a name="l00192"></a>00192         <span class="keywordtype">int</span> nome_incrocio= <a class="code" href="grafo_8cpp.html#a0532e9aadb0386590957f7adcf60ac31" title="Serve per nascondere alla funzione i commenti nello stream.">leggi_prox_int</a>(mappa);
+<a name="l00193"></a>00193         <span class="comment">//Lettura delle coordinate del nodo</span>
+<a name="l00194"></a>00194         mappa.ignore(<a class="code" href="grafo_8cpp.html#aca41d9199bb21b94216bf634dd3487c0">MAX_SALTO</a>,<span class="charliteral">&#39;(&#39;</span>);
+<a name="l00195"></a>00195         <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a>[nome_incrocio].<a class="code" href="structnodo.html#a4e346a7300837310d594e854b0918b01" title="Coordinata orizzontale del nodo sulla mappa.">x</a>= <a class="code" href="grafo_8cpp.html#a0532e9aadb0386590957f7adcf60ac31" title="Serve per nascondere alla funzione i commenti nello stream.">leggi_prox_int</a>(mappa);
+<a name="l00196"></a>00196         <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a>[nome_incrocio].<a class="code" href="structnodo.html#a454518f55fe41aa89177dbbf19a349e4" title="Coordinata Verticale del nodo sulla mappa.">y</a>= <a class="code" href="grafo_8cpp.html#a0532e9aadb0386590957f7adcf60ac31" title="Serve per nascondere alla funzione i commenti nello stream.">leggi_prox_int</a>(mappa);
+<a name="l00197"></a>00197         <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a>[nome_incrocio].<a class="code" href="structnodo.html#a0ee242378ff48b176c09cdc2e61295cb" title="Questo parametro serve a ricostruire il tragitto dopo aver usato dijkstra.">padre</a> = -1;
+<a name="l00198"></a>00198         <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a>[nome_incrocio].<a class="code" href="structnodo.html#a2694acb99e1095c70b3c80d57be82c6c" title="Colore da impostare secondo l&amp;#39;algoritmo dijkstra.">visitato</a> = <a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5a3226bf95e2fad7dccac1089fb62a60d5">bianco</a>;
+<a name="l00199"></a>00199         <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a>[nome_incrocio].<a class="code" href="structnodo.html#ad9af03d4d3cfe325790568dc7a99e479" title="Quanto pesa passare da questo nodo.">peso</a> = INFINITO;
+<a name="l00200"></a>00200 
+<a name="l00201"></a>00201         <span class="comment">//Lettura del tipo di incrocio</span>
+<a name="l00202"></a>00202         mappa.ignore(<a class="code" href="grafo_8cpp.html#aca41d9199bb21b94216bf634dd3487c0">MAX_SALTO</a>,<span class="charliteral">&#39;)&#39;</span>);
+<a name="l00203"></a>00203         <span class="keywordtype">char</span> tipo_incrocio_char= <a class="code" href="grafo_8cpp.html#a7000cf69c2ba3f93984948e81f62cfe1" title="Serve per nascondere alla funzione i commenti nello stream.">leggi_prox_char</a>(mappa);
+<a name="l00204"></a>00204         <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3" title="enumerato per la tipoligia di incrocio">t_incrocio</a> tipo_incrocio;
+<a name="l00205"></a>00205         <span class="keywordflow">switch</span> (tipo_incrocio_char){
+<a name="l00206"></a>00206             <span class="keywordflow">case</span> <span class="charliteral">&#39;s&#39;</span>:
+<a name="l00207"></a>00207                 tipo_incrocio= <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3a719129611a5479c8f9a1d24d091ba679">incrocio_semafori</a>;
+<a name="l00208"></a>00208                 <span class="keywordflow">break</span>;
+<a name="l00209"></a>00209             <span class="keywordflow">case</span> <span class="charliteral">&#39;r&#39;</span>:
+<a name="l00210"></a>00210                 tipo_incrocio= <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3ac2443694aae00ca087b9bfefccc770c4">rotatoria</a>;
+<a name="l00211"></a>00211                 <span class="keywordflow">break</span>;
+<a name="l00212"></a>00212             <span class="keywordflow">default</span>:
+<a name="l00213"></a>00213                 cerr&lt;&lt;<span class="stringliteral">&quot;\nErrore nella lettura del tipo di incrocio numero &quot;</span>&lt;&lt;nome_incrocio&lt;&lt;
+<a name="l00214"></a>00214                         <span class="stringliteral">&quot;\nIncrocio settato come normale.\n&quot;</span>;
+<a name="l00215"></a>00215             <span class="keywordflow">case</span> <span class="charliteral">&#39;n&#39;</span>:
+<a name="l00216"></a>00216                 tipo_incrocio= <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3a4eff13ef35c9a96c9ab332340761a0f6">incrocio_normale</a>;
+<a name="l00217"></a>00217         }
+<a name="l00218"></a>00218         <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a>[nome_incrocio].<a class="code" href="structnodo.html#ae242f8d8dd28c74789c66f76ccbc6179" title="Tipo di incrocio che rappreenta questo nodo.">tipo</a> = tipo_incrocio;
+<a name="l00219"></a>00219 
+<a name="l00220"></a>00220         <span class="comment">//--(lettura quanti archi collegati)--</span>
+<a name="l00221"></a>00221         mappa.ignore(<a class="code" href="grafo_8cpp.html#aca41d9199bb21b94216bf634dd3487c0">MAX_SALTO</a>,<span class="charliteral">&#39;:&#39;</span>);
+<a name="l00222"></a>00222         <span class="keyword">const</span> <span class="keywordtype">int</span> quanti_archi= <a class="code" href="grafo_8cpp.html#a0532e9aadb0386590957f7adcf60ac31" title="Serve per nascondere alla funzione i commenti nello stream.">leggi_prox_int</a> (mappa);
+<a name="l00223"></a>00223         <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a>[nome_incrocio].<a class="code" href="structnodo.html#ad020a139f05c481569b2c453b56971b4" title="Quanto è grande la lista di adiacenza.">size_list</a>= quanti_archi;
+<a name="l00224"></a>00224 
+<a name="l00225"></a>00225         <span class="comment">//lettura di tutte le adiacenze</span>
+<a name="l00226"></a>00226         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;quanti_archi; i++){
+<a name="l00227"></a>00227             mappa.ignore(<a class="code" href="grafo_8cpp.html#aca41d9199bb21b94216bf634dd3487c0">MAX_SALTO</a>,<span class="charliteral">&#39;(&#39;</span>);
+<a name="l00228"></a>00228             <span class="keywordtype">int</span> direzione_strada= <a class="code" href="grafo_8cpp.html#a0532e9aadb0386590957f7adcf60ac31" title="Serve per nascondere alla funzione i commenti nello stream.">leggi_prox_int</a>(mappa);
+<a name="l00229"></a>00229             <span class="keywordflow">if</span> (direzione_strada == 0)
+<a name="l00230"></a>00230                 <span class="keywordflow">continue</span>;
+<a name="l00231"></a>00231             
+<a name="l00232"></a>00232             <a class="code" href="structadiacenza.html" title="Struct che rappresenta gli archi fra un nodo e l&amp;#39;altro.">arco</a> <a class="code" href="structadiacenza.html" title="Struct che rappresenta gli archi fra un nodo e l&amp;#39;altro.">arco</a>;
+<a name="l00233"></a>00233             arco.<a class="code" href="structadiacenza.html#a979000bd61559a22dcc424e9f04481ab" title="L&amp;#39;indice del nodo nel grafo Questo indice viene usato per prelevare il nodo dal...">nodo</a>= direzione_strada;
+<a name="l00234"></a>00234             arco.<a class="code" href="structadiacenza.html#a36b0702ffb002532fdb95b2c7174ae23" title="Il peso dell&amp;#39;arco fra il nodo chiamante e il nodo indicato.">kilometri</a>= <a class="code" href="grafo_8cpp.html#ad6d270880b61857fa5cf7483eb177c24" title="Serve per nascondere alla funzione i commenti nello stream.">leggi_prox_double</a>(mappa);
+<a name="l00235"></a>00235             arco.<a class="code" href="structadiacenza.html#a64865462a95428742eed016ee8bfcdd1">secondi</a>  = <a class="code" href="grafo_8cpp.html#ad6d270880b61857fa5cf7483eb177c24" title="Serve per nascondere alla funzione i commenti nello stream.">leggi_prox_double</a>(mappa);
+<a name="l00236"></a>00236 
+<a name="l00237"></a>00237             <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a>[nome_incrocio].<a class="code" href="structnodo.html#acde832d9079cd541214312f347ef0712" title="Tutti i nodi che e&amp;#39; possibile raggiungere da questo.">adiacente</a>.push_back(arco);
+<a name="l00238"></a>00238             
+<a name="l00239"></a>00239         }
+<a name="l00240"></a>00240         mappa.ignore(<a class="code" href="grafo_8cpp.html#aca41d9199bb21b94216bf634dd3487c0">MAX_SALTO</a>,<span class="charliteral">&#39;$&#39;</span>);
+<a name="l00241"></a>00241 
+<a name="l00242"></a>00242      }
+<a name="l00243"></a>00243 
+<a name="l00244"></a>00244     <span class="keyword">delete</span>[] filename_map;
+<a name="l00245"></a>00245     mappa.close();
+<a name="l00246"></a>00246     <span class="keywordflow">return</span> numero_nodi;
+<a name="l00247"></a>00247 }</pre></div></p>
 
 </div>
 </div>
@@ -211,9 +219,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div>
 <div class="memdoc">
 
-<p><div class="fragment"><pre class="fragment"><a name="l00024"></a>00024                    {
-<a name="l00025"></a>00025     <span class="keywordflow">return</span> <a class="code" href="grafo_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a>[0].<a class="code" href="structnodo.html#a4e346a7300837310d594e854b0918b01" title="Coordinata orizzontale del nodo sulla mappa.">x</a>;
-<a name="l00026"></a>00026 }
+<p>Controlla quanto è grande il grafo. </p>
+<dl class="return"><dt><b>Restituisce:</b></dt><dd>Restituisce la dimensione del grafo </dd></dl>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00029"></a>00029                    {
+<a name="l00030"></a>00030     <span class="keywordflow">return</span> <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a>[0].<a class="code" href="structnodo.html#a0ee242378ff48b176c09cdc2e61295cb" title="Questo parametro serve a ricostruire il tragitto dopo aver usato dijkstra.">padre</a>;
+<a name="l00031"></a>00031 }
 </pre></div></p>
 
 </div>
@@ -233,15 +244,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div>
 <div class="memdoc">
 
-<p><div class="fragment"><pre class="fragment"><a name="l00014"></a>00014                       {
-<a name="l00015"></a>00015     <span class="keywordflow">if</span>(<a class="code" href="grafo_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a> == 0) <span class="keywordflow">return</span>;
-<a name="l00016"></a>00016     <span class="keywordtype">int</span> dim = <a class="code" href="grafo_8cpp.html#ab98d31ac652b48847b494a98da97c386">dim_grafo</a>();
-<a name="l00017"></a>00017     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = dim;i&gt;=0;i--){
-<a name="l00018"></a>00018         <a class="code" href="grafo_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a>[i].<a class="code" href="structnodo.html#acde832d9079cd541214312f347ef0712" title="Tutti i nodi che e&amp;#39; possibile raggiungere da questo.">adiacente</a>.clear();
-<a name="l00019"></a>00019     }
-<a name="l00020"></a>00020     <span class="keyword">delete</span>[] <a class="code" href="grafo_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a>;
-<a name="l00021"></a>00021     <a class="code" href="grafo_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a> = 0;
-<a name="l00022"></a>00022 };
+<p>Distrugge il grafo e ne setta il puntatore a zero. </p>
+<p>Questa funzione distrugge inoltre le liste di tutti i nodi del grafo,compresa la lista dei nodi della soluzione. </p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00017"></a>00017                       {
+<a name="l00018"></a>00018     <span class="keywordflow">if</span>(<a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a> == 0) <span class="keywordflow">return</span>;
+<a name="l00019"></a>00019     <span class="keywordtype">int</span> dim = <a class="code" href="grafo_8cpp.html#ab98d31ac652b48847b494a98da97c386" title="Controlla quanto è grande il grafo.">dim_grafo</a>();
+<a name="l00020"></a>00020     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = dim;i&gt;=0;i--){
+<a name="l00021"></a>00021         <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a>[i].<a class="code" href="structnodo.html#acde832d9079cd541214312f347ef0712" title="Tutti i nodi che e&amp;#39; possibile raggiungere da questo.">adiacente</a>.clear();
+<a name="l00022"></a>00022     }
+<a name="l00023"></a>00023     <span class="keyword">delete</span>[] <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a>;
+<a name="l00024"></a>00024     <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a> = 0;
+<a name="l00025"></a>00025 };
 </pre></div></p>
 
 </div>
@@ -271,22 +285,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </dl>
 <dl class="return"><dt><b>Restituisce:</b></dt><dd>il carattere prelevato dallo stream </dd></dl>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00088"></a>00088                                       {
-<a name="l00089"></a>00089     <span class="keywordtype">char</span> carattere;
-<a name="l00090"></a>00090     <span class="keywordflow">while</span> (<span class="keyword">true</span>)
-<a name="l00091"></a>00091     {
-<a name="l00092"></a>00092         source&gt;&gt;carattere;
-<a name="l00093"></a>00093         <span class="keywordflow">if</span> (carattere==<span class="charliteral">&#39;#&#39;</span>){
-<a name="l00094"></a>00094             <span class="comment">/*</span>
-<a name="l00095"></a>00095 <span class="comment">            while (carattere!=&#39;\n&#39;){</span>
-<a name="l00096"></a>00096 <span class="comment">                source&gt;&gt;carattere;</span>
-<a name="l00097"></a>00097 <span class="comment">                cout&lt;&lt;&#39;:&#39;&lt;&lt;carattere</span>
-<a name="l00098"></a>00098 <span class="comment">            }*/</span>
-<a name="l00099"></a>00099             source.ignore(<a class="code" href="grafo_8cpp.html#aca41d9199bb21b94216bf634dd3487c0">MAX_SALTO</a>,<span class="charliteral">&#39;\n&#39;</span>);
-<a name="l00100"></a>00100         }
-<a name="l00101"></a>00101         <span class="keywordflow">else</span> <span class="keywordflow">return</span> carattere;
-<a name="l00102"></a>00102     }
-<a name="l00103"></a>00103 }
+<p><div class="fragment"><pre class="fragment"><a name="l00093"></a>00093                                       {
+<a name="l00094"></a>00094     <span class="keywordtype">char</span> carattere;
+<a name="l00095"></a>00095     <span class="keywordflow">while</span> (<span class="keyword">true</span>)
+<a name="l00096"></a>00096     {
+<a name="l00097"></a>00097         source&gt;&gt;carattere;
+<a name="l00098"></a>00098         <span class="keywordflow">if</span> (carattere==<span class="charliteral">&#39;#&#39;</span>){
+<a name="l00099"></a>00099             <span class="comment">/*</span>
+<a name="l00100"></a>00100 <span class="comment">            while (carattere!=&#39;\n&#39;){</span>
+<a name="l00101"></a>00101 <span class="comment">                source&gt;&gt;carattere;</span>
+<a name="l00102"></a>00102 <span class="comment">                cout&lt;&lt;&#39;:&#39;&lt;&lt;carattere</span>
+<a name="l00103"></a>00103 <span class="comment">            }*/</span>
+<a name="l00104"></a>00104             source.ignore(<a class="code" href="grafo_8cpp.html#aca41d9199bb21b94216bf634dd3487c0">MAX_SALTO</a>,<span class="charliteral">&#39;\n&#39;</span>);
+<a name="l00105"></a>00105         }
+<a name="l00106"></a>00106         <span class="keywordflow">else</span> <span class="keywordflow">return</span> carattere;
+<a name="l00107"></a>00107     }
+<a name="l00108"></a>00108 }
 </pre></div></p>
 
 </div>
@@ -316,28 +330,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </dl>
 <dl class="return"><dt><b>Restituisce:</b></dt><dd>il double prelevato dallo stream </dd></dl>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00060"></a>00060                                           {
-<a name="l00061"></a>00061     <span class="keywordtype">double</span> numero;
-<a name="l00062"></a>00062     <span class="keywordtype">char</span> carattere;
-<a name="l00063"></a>00063     <span class="keywordflow">while</span> (<span class="keyword">true</span>)
-<a name="l00064"></a>00064     {
-<a name="l00065"></a>00065         source&gt;&gt;carattere;
-<a name="l00066"></a>00066         <span class="keywordflow">if</span> (carattere==<span class="charliteral">&#39;#&#39;</span>){
-<a name="l00067"></a>00067             <span class="comment">/*</span>
-<a name="l00068"></a>00068 <span class="comment">            while (carattere!=&#39;\n&#39;){</span>
-<a name="l00069"></a>00069 <span class="comment">                source&gt;&gt;carattere;</span>
-<a name="l00070"></a>00070 <span class="comment">                cout&lt;&lt;&#39;:&#39;&lt;&lt;carattere</span>
-<a name="l00071"></a>00071 <span class="comment">            }*/</span>
-<a name="l00072"></a>00072             source.ignore(<a class="code" href="grafo_8cpp.html#aca41d9199bb21b94216bf634dd3487c0">MAX_SALTO</a>,<span class="charliteral">&#39;\n&#39;</span>);
-<a name="l00073"></a>00073         }
-<a name="l00074"></a>00074         <span class="keywordflow">else</span> {
-<a name="l00075"></a>00075         <span class="keywordtype">int</span> posizione = source.tellg();
-<a name="l00076"></a>00076         source.seekg(--posizione);
-<a name="l00077"></a>00077         source&gt;&gt;numero;
-<a name="l00078"></a>00078         <span class="keywordflow">return</span>  numero;
-<a name="l00079"></a>00079         }
-<a name="l00080"></a>00080     }
-<a name="l00081"></a>00081 }
+<p><div class="fragment"><pre class="fragment"><a name="l00065"></a>00065                                           {
+<a name="l00066"></a>00066     <span class="keywordtype">double</span> numero;
+<a name="l00067"></a>00067     <span class="keywordtype">char</span> carattere;
+<a name="l00068"></a>00068     <span class="keywordflow">while</span> (<span class="keyword">true</span>)
+<a name="l00069"></a>00069     {
+<a name="l00070"></a>00070         source&gt;&gt;carattere;
+<a name="l00071"></a>00071         <span class="keywordflow">if</span> (carattere==<span class="charliteral">&#39;#&#39;</span>){
+<a name="l00072"></a>00072             <span class="comment">/*</span>
+<a name="l00073"></a>00073 <span class="comment">            while (carattere!=&#39;\n&#39;){</span>
+<a name="l00074"></a>00074 <span class="comment">                source&gt;&gt;carattere;</span>
+<a name="l00075"></a>00075 <span class="comment">                cout&lt;&lt;&#39;:&#39;&lt;&lt;carattere</span>
+<a name="l00076"></a>00076 <span class="comment">            }*/</span>
+<a name="l00077"></a>00077             source.ignore(<a class="code" href="grafo_8cpp.html#aca41d9199bb21b94216bf634dd3487c0">MAX_SALTO</a>,<span class="charliteral">&#39;\n&#39;</span>);
+<a name="l00078"></a>00078         }
+<a name="l00079"></a>00079         <span class="keywordflow">else</span> {
+<a name="l00080"></a>00080         <span class="keywordtype">int</span> posizione = source.tellg();
+<a name="l00081"></a>00081         source.seekg(--posizione);
+<a name="l00082"></a>00082         source&gt;&gt;numero;
+<a name="l00083"></a>00083         <span class="keywordflow">return</span>  numero;
+<a name="l00084"></a>00084         }
+<a name="l00085"></a>00085     }
+<a name="l00086"></a>00086 }
 </pre></div></p>
 
 </div>
@@ -367,28 +381,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </dl>
 <dl class="return"><dt><b>Restituisce:</b></dt><dd>l'intero prelevato dallo stream </dd></dl>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00033"></a>00033                                     {
-<a name="l00034"></a>00034     <span class="keywordtype">int</span> numero;
-<a name="l00035"></a>00035     <span class="keywordtype">char</span> carattere;
-<a name="l00036"></a>00036     <span class="keywordflow">while</span> (<span class="keyword">true</span>)
-<a name="l00037"></a>00037     {
-<a name="l00038"></a>00038         source&gt;&gt;carattere;
-<a name="l00039"></a>00039         <span class="keywordflow">if</span> (carattere==<span class="charliteral">&#39;#&#39;</span>){
-<a name="l00040"></a>00040             <span class="comment">/*</span>
-<a name="l00041"></a>00041 <span class="comment">            while (carattere!=&#39;\n&#39;){</span>
-<a name="l00042"></a>00042 <span class="comment">                source&gt;&gt;carattere;</span>
-<a name="l00043"></a>00043 <span class="comment">                cout&lt;&lt;&#39;:&#39;&lt;&lt;carattere</span>
-<a name="l00044"></a>00044 <span class="comment">            }*/</span>
-<a name="l00045"></a>00045             source.ignore(<a class="code" href="grafo_8cpp.html#aca41d9199bb21b94216bf634dd3487c0">MAX_SALTO</a>,<span class="charliteral">&#39;\n&#39;</span>);
-<a name="l00046"></a>00046         }
-<a name="l00047"></a>00047         <span class="keywordflow">else</span> {
-<a name="l00048"></a>00048         <span class="keywordtype">int</span> posizione = source.tellg();
-<a name="l00049"></a>00049         source.seekg(--posizione);
-<a name="l00050"></a>00050         source&gt;&gt;numero;
-<a name="l00051"></a>00051         <span class="keywordflow">return</span>  numero;
-<a name="l00052"></a>00052         }
-<a name="l00053"></a>00053     }
-<a name="l00054"></a>00054 }
+<p><div class="fragment"><pre class="fragment"><a name="l00038"></a>00038                                     {
+<a name="l00039"></a>00039     <span class="keywordtype">int</span> numero;
+<a name="l00040"></a>00040     <span class="keywordtype">char</span> carattere;
+<a name="l00041"></a>00041     <span class="keywordflow">while</span> (<span class="keyword">true</span>)
+<a name="l00042"></a>00042     {
+<a name="l00043"></a>00043         source&gt;&gt;carattere;
+<a name="l00044"></a>00044         <span class="keywordflow">if</span> (carattere==<span class="charliteral">&#39;#&#39;</span>){
+<a name="l00045"></a>00045             <span class="comment">/*</span>
+<a name="l00046"></a>00046 <span class="comment">            while (carattere!=&#39;\n&#39;){</span>
+<a name="l00047"></a>00047 <span class="comment">                source&gt;&gt;carattere;</span>
+<a name="l00048"></a>00048 <span class="comment">                cout&lt;&lt;&#39;:&#39;&lt;&lt;carattere</span>
+<a name="l00049"></a>00049 <span class="comment">            }*/</span>
+<a name="l00050"></a>00050             source.ignore(<a class="code" href="grafo_8cpp.html#aca41d9199bb21b94216bf634dd3487c0">MAX_SALTO</a>,<span class="charliteral">&#39;\n&#39;</span>);
+<a name="l00051"></a>00051         }
+<a name="l00052"></a>00052         <span class="keywordflow">else</span> {
+<a name="l00053"></a>00053         <span class="keywordtype">int</span> posizione = source.tellg();
+<a name="l00054"></a>00054         source.seekg(--posizione);
+<a name="l00055"></a>00055         source&gt;&gt;numero;
+<a name="l00056"></a>00056         <span class="keywordflow">return</span>  numero;
+<a name="l00057"></a>00057         }
+<a name="l00058"></a>00058     }
+<a name="l00059"></a>00059 }
 </pre></div></p>
 
 </div>
@@ -418,28 +432,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </dl>
 <dl class="return"><dt><b>Restituisce:</b></dt><dd>il la stringa prelevata dallo stream </dd></dl>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00110"></a>00110                                           {
-<a name="l00111"></a>00111     <span class="keywordtype">char</span> *stringa = <span class="keyword">new</span> <span class="keywordtype">char</span>[<a class="code" href="grafo_8cpp.html#aca7f10638fc16f541ffa1a9360af0c21">MAX_LUNGH_STRINGA</a>];
-<a name="l00112"></a>00112     <span class="keywordtype">char</span> carattere;
-<a name="l00113"></a>00113     <span class="keywordflow">while</span> (<span class="keyword">true</span>)
-<a name="l00114"></a>00114     {
-<a name="l00115"></a>00115         source&gt;&gt;carattere;
-<a name="l00116"></a>00116         <span class="keywordflow">if</span> (carattere==<span class="charliteral">&#39;#&#39;</span>){
-<a name="l00117"></a>00117             <span class="comment">/*</span>
-<a name="l00118"></a>00118 <span class="comment">            while (carattere!=&#39;\n&#39;){</span>
-<a name="l00119"></a>00119 <span class="comment">                source&gt;&gt;carattere;</span>
-<a name="l00120"></a>00120 <span class="comment">                cout&lt;&lt;&#39;:&#39;&lt;&lt;carattere</span>
-<a name="l00121"></a>00121 <span class="comment">            }*/</span>
-<a name="l00122"></a>00122             source.ignore(<a class="code" href="grafo_8cpp.html#aca41d9199bb21b94216bf634dd3487c0">MAX_SALTO</a>,<span class="charliteral">&#39;\n&#39;</span>);
-<a name="l00123"></a>00123         }
-<a name="l00124"></a>00124         <span class="keywordflow">else</span> {
-<a name="l00125"></a>00125         <span class="keywordtype">int</span> posizione = source.tellg();
-<a name="l00126"></a>00126         source.seekg(--posizione);
-<a name="l00127"></a>00127         source&gt;&gt;stringa;
-<a name="l00128"></a>00128         <span class="keywordflow">return</span>  stringa;
-<a name="l00129"></a>00129         }
-<a name="l00130"></a>00130     }
-<a name="l00131"></a>00131 }
+<p><div class="fragment"><pre class="fragment"><a name="l00115"></a>00115                                           {
+<a name="l00116"></a>00116     <span class="keywordtype">char</span> *stringa = <span class="keyword">new</span> <span class="keywordtype">char</span>[<a class="code" href="grafo_8cpp.html#aca7f10638fc16f541ffa1a9360af0c21">MAX_LUNGH_STRINGA</a>];
+<a name="l00117"></a>00117     <span class="keywordtype">char</span> carattere;
+<a name="l00118"></a>00118     <span class="keywordflow">while</span> (<span class="keyword">true</span>)
+<a name="l00119"></a>00119     {
+<a name="l00120"></a>00120         source&gt;&gt;carattere;
+<a name="l00121"></a>00121         <span class="keywordflow">if</span> (carattere==<span class="charliteral">&#39;#&#39;</span>){
+<a name="l00122"></a>00122             <span class="comment">/*</span>
+<a name="l00123"></a>00123 <span class="comment">            while (carattere!=&#39;\n&#39;){</span>
+<a name="l00124"></a>00124 <span class="comment">                source&gt;&gt;carattere;</span>
+<a name="l00125"></a>00125 <span class="comment">                cout&lt;&lt;&#39;:&#39;&lt;&lt;carattere</span>
+<a name="l00126"></a>00126 <span class="comment">            }*/</span>
+<a name="l00127"></a>00127             source.ignore(<a class="code" href="grafo_8cpp.html#aca41d9199bb21b94216bf634dd3487c0">MAX_SALTO</a>,<span class="charliteral">&#39;\n&#39;</span>);
+<a name="l00128"></a>00128         }
+<a name="l00129"></a>00129         <span class="keywordflow">else</span> {
+<a name="l00130"></a>00130         <span class="keywordtype">int</span> posizione = source.tellg();
+<a name="l00131"></a>00131         source.seekg(--posizione);
+<a name="l00132"></a>00132         source&gt;&gt;stringa;
+<a name="l00133"></a>00133         <span class="keywordflow">return</span>  stringa;
+<a name="l00134"></a>00134         }
+<a name="l00135"></a>00135     }
+<a name="l00136"></a>00136 }
 </pre></div></p>
 
 </div>
@@ -499,7 +513,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generato il Wed Jul 21 18:34:23 2010 per Trolaspic da&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generato il Thu Jul 22 17:43:50 2010 per Trolaspic da&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

@@ -66,7 +66,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00023"></a>00023 <span class="preprocessor"></span><span class="preprocessor">    #define PERCORSO &quot;./NetBeansProjects/trolaspic_code/trunk/trolaspic&quot;</span>
 <a name="l00024"></a>00024 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
 <a name="l00025"></a>00025 <span class="preprocessor"></span>
-<a name="l00026"></a><a class="code" href="main_8h.html#a1c6d5de492ac61ad29aec7aa9a436bbf">00026</a> <span class="preprocessor">#define VERSION &quot;0.2.3.1a - Fillix&quot;</span>
+<a name="l00026"></a><a class="code" href="main_8h.html#a1c6d5de492ac61ad29aec7aa9a436bbf">00026</a> <span class="preprocessor">#define VERSION &quot;0.8.1a - Fillix&quot;</span>
 <a name="l00027"></a>00027 <span class="preprocessor"></span>
 <a name="l00028"></a><a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bf">00028</a> <span class="keyword">enum</span> <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bf">tipo_calcolo</a> {
 <a name="l00029"></a><a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bfa427ed8e19072736c76c868f1556b36d5">00029</a>     <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bfa427ed8e19072736c76c868f1556b36d5">per_tempo</a>,
@@ -80,23 +80,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00037"></a><a class="code" href="structpassaggio__t.html#a5a082534a42d7c5cffcbdbd70cc5e19d">00037</a>     GtkWidget* <a class="code" href="structpassaggio__t.html#a5a082534a42d7c5cffcbdbd70cc5e19d">carica_i</a>;
 <a name="l00038"></a><a class="code" href="structpassaggio__t.html#a1c2b2a5d65cba6d29c9c5341739c4230">00038</a>     GtkWidget* <a class="code" href="structpassaggio__t.html#a1c2b2a5d65cba6d29c9c5341739c4230">calcola_i</a>;
 <a name="l00039"></a><a class="code" href="structpassaggio__t.html#ad50630b1eb694021a5e7e79231ed0afb">00039</a>     GtkWidget* <a class="code" href="structpassaggio__t.html#ad50630b1eb694021a5e7e79231ed0afb">image</a>;
-<a name="l00040"></a><a class="code" href="structpassaggio__t.html#acaf6299dada3ac41ec74f34c6250d7f6">00040</a>     <span class="keywordtype">int</span> <a class="code" href="structpassaggio__t.html#acaf6299dada3ac41ec74f34c6250d7f6">massimo_numero_nodi</a>;
-<a name="l00041"></a><a class="code" href="structpassaggio__t.html#a01624ae4eed6b66ca275ea8457aec982">00041</a>     gulong <a class="code" href="structpassaggio__t.html#a01624ae4eed6b66ca275ea8457aec982">calcola_id</a>;
-<a name="l00042"></a><a class="code" href="structpassaggio__t.html#aa13f695bba4cfbe364a8f042c3300706">00042</a>     gulong <a class="code" href="structpassaggio__t.html#aa13f695bba4cfbe364a8f042c3300706">errore_id</a>;
-<a name="l00043"></a>00043 };
-<a name="l00044"></a>00044 
-<a name="l00045"></a><a class="code" href="structpassaggio__t2.html">00045</a> <span class="keyword">struct </span><a class="code" href="structpassaggio__t2.html">passaggio_t2</a> {
-<a name="l00046"></a><a class="code" href="structpassaggio__t2.html#a6aa1208081e1c1c4bc6b2ac19537774e">00046</a>     GtkWidget* <a class="code" href="structpassaggio__t2.html#a6aa1208081e1c1c4bc6b2ac19537774e">finestra</a>;
-<a name="l00047"></a><a class="code" href="structpassaggio__t2.html#ad74401e2d4f8ce223f9a1e5ddcb4923a">00047</a>     GtkWidget* <a class="code" href="structpassaggio__t2.html#ad74401e2d4f8ce223f9a1e5ddcb4923a">partenza_t</a>;
-<a name="l00048"></a><a class="code" href="structpassaggio__t2.html#a2d96950f3d71abbff31f7b91a57d899f">00048</a>     GtkWidget* <a class="code" href="structpassaggio__t2.html#a2d96950f3d71abbff31f7b91a57d899f">arrivo_t</a>;
+<a name="l00040"></a><a class="code" href="structpassaggio__t.html#a5431827fe1cf5a5b54d0d2a35d0d9011">00040</a>     GtkWidget* <a class="code" href="structpassaggio__t.html#a5431827fe1cf5a5b54d0d2a35d0d9011">radio_distanza</a>;
+<a name="l00041"></a><a class="code" href="structpassaggio__t.html#a6ecc61f17027bc237b4efbf1280b3c5c">00041</a>     GtkWidget* <a class="code" href="structpassaggio__t.html#a6ecc61f17027bc237b4efbf1280b3c5c">radio_tempo</a>;
+<a name="l00042"></a><a class="code" href="structpassaggio__t.html#acaf6299dada3ac41ec74f34c6250d7f6">00042</a>     <span class="keywordtype">int</span> <a class="code" href="structpassaggio__t.html#acaf6299dada3ac41ec74f34c6250d7f6">massimo_numero_nodi</a>;
+<a name="l00043"></a><a class="code" href="structpassaggio__t.html#a01624ae4eed6b66ca275ea8457aec982">00043</a>     gulong <a class="code" href="structpassaggio__t.html#a01624ae4eed6b66ca275ea8457aec982">calcola_id</a>;
+<a name="l00044"></a><a class="code" href="structpassaggio__t.html#aa13f695bba4cfbe364a8f042c3300706">00044</a>     gulong <a class="code" href="structpassaggio__t.html#aa13f695bba4cfbe364a8f042c3300706">errore_id</a>;
+<a name="l00045"></a>00045 };
+<a name="l00046"></a>00046 
+<a name="l00047"></a><a class="code" href="structpassaggio__t2.html">00047</a> <span class="keyword">struct </span><a class="code" href="structpassaggio__t2.html">passaggio_t2</a> {
+<a name="l00048"></a><a class="code" href="structpassaggio__t2.html#a6aa1208081e1c1c4bc6b2ac19537774e">00048</a>     GtkWidget* <a class="code" href="structpassaggio__t2.html#a6aa1208081e1c1c4bc6b2ac19537774e">finestra</a>;
 <a name="l00049"></a><a class="code" href="structpassaggio__t2.html#aa0413153e37605629717448f97c6075a">00049</a>     GtkWidget* <a class="code" href="structpassaggio__t2.html#aa0413153e37605629717448f97c6075a">radio_distanza</a>;
 <a name="l00050"></a><a class="code" href="structpassaggio__t2.html#ab262b8237f260da45f3478f3b407c717">00050</a>     GtkWidget* <a class="code" href="structpassaggio__t2.html#ab262b8237f260da45f3478f3b407c717">radio_tempo</a>;
-<a name="l00051"></a><a class="code" href="structpassaggio__t2.html#a79a70aec19148e59d3a9c7d93358e02e">00051</a>     <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bf">tipo_calcolo</a> <a class="code" href="structpassaggio__t2.html#a79a70aec19148e59d3a9c7d93358e02e">t_calcolo</a>;
-<a name="l00052"></a>00052 };
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054 
-<a name="l00055"></a>00055 <span class="preprocessor">#endif  </span><span class="comment">/* MAIN_H */</span>
+<a name="l00051"></a><a class="code" href="structpassaggio__t2.html#ad74401e2d4f8ce223f9a1e5ddcb4923a">00051</a>     GtkWidget* <a class="code" href="structpassaggio__t2.html#ad74401e2d4f8ce223f9a1e5ddcb4923a">partenza_t</a>;
+<a name="l00052"></a><a class="code" href="structpassaggio__t2.html#a2d96950f3d71abbff31f7b91a57d899f">00052</a>     GtkWidget* <a class="code" href="structpassaggio__t2.html#a2d96950f3d71abbff31f7b91a57d899f">arrivo_t</a>;
+<a name="l00053"></a><a class="code" href="structpassaggio__t2.html#a79a70aec19148e59d3a9c7d93358e02e">00053</a>     <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bf">tipo_calcolo</a> <a class="code" href="structpassaggio__t2.html#a79a70aec19148e59d3a9c7d93358e02e">t_calcolo</a>;
+<a name="l00054"></a>00054 };
+<a name="l00055"></a>00055 
 <a name="l00056"></a>00056 
+<a name="l00057"></a>00057 <span class="preprocessor">#endif  </span><span class="comment">/* MAIN_H */</span>
+<a name="l00058"></a>00058 
 </pre></div></div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -112,7 +114,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generato il Wed Jul 21 18:34:23 2010 per Trolaspic da&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generato il Thu Jul 22 17:43:49 2010 per Trolaspic da&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>
