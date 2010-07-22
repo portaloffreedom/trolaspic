@@ -41,8 +41,8 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Doxyfile</itemPath>
       <itemPath>Makefile</itemPath>
-      <itemPath>Mappe/modena.map</itemPath>
-      <itemPath>Mappe/modena.png</itemPath>
+      <itemPath>Mappe</itemPath>
+      <itemPath>prova.png</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
