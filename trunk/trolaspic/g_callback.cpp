@@ -63,6 +63,7 @@ void response_carica (passaggio_t *window){
 
             GError *errore = NULL;
             GdkPixbuf *immagine_mappa= gdk_pixbuf_new_from_file (filename, &errore);
+            gdk_pixbuf_unref (window->sfondo);
             window->sfondo = immagine_mappa;
             gtk_image_set_from_pixbuf (GTK_IMAGE(window->image), immagine_mappa);
 

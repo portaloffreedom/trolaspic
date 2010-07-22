@@ -23,7 +23,7 @@ using namespace std;
     #define PERCORSO "./NetBeansProjects/trolaspic_code/trunk/trolaspic"
 #endif
 
-#define VERSION "0.9.0a - Fillix"
+#define VERSION "1.0.0b"
 
 enum tipo_calcolo {
     per_tempo,
