@@ -8,13 +8,24 @@
 #include "grafo.h"
 using namespace std;
 
-
+/**
+ * Impedisci la distruzine dell'oggetto window
+ *
+ * @param window l'oggetto di cui impedire la distruzione
+ * @param evento non utilizzato (serve solo per chiamarlo con le funzioni)
+ * @param dialogo finestra di dialogo da mostrare
+ * @return TRUE se non devo distruggere la finestra, FALSE altrimenti
+ */
 gboolean delete_event_window(GtkWidget* window, GdkEvent* evento,GtkWidget* dialogo){
     DBG(cout<<"delete event occurred on Widget "<<window<<endl)
     gtk_widget_show(dialogo);
     return TRUE;
 }
 
+/**
+ * Crea la finestra di conferma uscita
+ * @param finestra Il puntatore alla finestra chiamante
+ */
 void response_dialogo (GtkWidget* finestra){
     GtkWidget * dialogo= crea_finestra_dialogo (finestra,"Sei sicuro di volere uscire?");
     
@@ -28,6 +39,13 @@ void response_dialogo (GtkWidget* finestra){
     }
 }
 
+/**
+ * Funzione che parte premendo il pulsante Carica mappa.
+ * Prepara il grafo dal file .map allegato effettuando i controlli necessari.
+ * Se tutto è andato a buon fine allora viene chiamata la funzione per disegnare
+ * i tracciati dei percorsi con CAIRO.
+ * @param window puntatore alla struct contenente tutti i puntatori della finestra principale.
+ */
 void response_carica (passaggio_t *window){
     GtkWidget * dialogo= gtk_file_chooser_dialog_new    ("Carica una mappa", GTK_WINDOW(window->finestra), GTK_FILE_CHOOSER_ACTION_OPEN,
                                                           GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT,
@@ -81,11 +99,20 @@ void response_carica (passaggio_t *window){
     return;
 }
 
+/**
+ * Se collegato ad un segnale "delete_event" impedisce che l'oggetto venga distrutto
+ * @param oggetto : Puntatore all'oggetto che si tenta di distruggere
+ * @return TRUE se l'oggetto non va distrutto, FALSE altrimenti.
+ */
 gboolean delete_event(GtkWidget* oggetto){
     DBG(cout<<"delete event occurred on Widget "<<oggetto<<endl)
     return TRUE;
 }
 
+/**
+ * Mostra la finestra "informazioni".
+ * @param finestra Il puntatore alla finestra principale.
+ */
 void mostra_info (GtkWidget* finestra){
     const gchar testo[]=
                     "Trovami la strada più corta\n"
@@ -108,14 +135,31 @@ void mostra_info (GtkWidget* finestra){
     return;
 }
 
+/**
+ * Callback collegato ai pulsanti "radiobutton" per decidere se effettuare
+ * la ricerca per distanza
+ * @param dialogo Puntatore alla struct contenente i puntatori alla finestra di dialogo associata.
+ */
 void set_distanza (passaggio_t2 *dialogo){
     dialogo->t_calcolo = per_distanza;
 }
 
+/**
+ * Callback collegato ai pulsanti "radiobutton" per decidere se effettuare
+ * la ricerca per tempo
+ * @param dialogo Puntatore alla struct contenente i puntatori alla finestra di dialogo associata.
+ */
 void set_tempo (passaggio_t2 *dialogo){
     dialogo->t_calcolo = per_tempo;
 }
 
+/**
+ * Funzione chiamata dal menu "calcola percorso".
+ * Mostra la finestra di dialogo per la scelta dei nodi di inizio e fine del percorso,
+ * chiama la funzione ::djikstra con i nodi scelti e, TODO : se il percorso non esiste allora
+ * lo segnala all'utente tramite una finestra di dialogo.
+ * @param window Puntatore ad una struct contenente tutti i puntatori gtkwidget della finestra principale.
+ */
 void response_calcola (passaggio_t *window){
     passaggio_t2 *dialogo = crea_finestra_richiesta_percorso (window->finestra, window->massimo_numero_nodi);
     g_signal_connect_swapped (dialogo->radio_distanza, "clicked", G_CALLBACK(set_distanza), dialogo);
@@ -151,6 +195,10 @@ void response_calcola (passaggio_t *window){
     return;
 }
 
+/**
+ * La funzione è legata al pulsante calcola quando non è stata caricata nessuna mappa.
+ * @param finestra_principale Puntatore alla finestra principale
+ */
 void response_non_calcola (GtkWidget* finestra_principale){
     GtkWidget *dialogo = crea_finestra_non_carica(finestra_principale);
     gtk_dialog_run (GTK_DIALOG (dialogo));
