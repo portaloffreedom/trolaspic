@@ -11,6 +11,7 @@
       <itemPath>grafo.h</itemPath>
       <itemPath>main.h</itemPath>
       <itemPath>pathfinder.h</itemPath>
+      <itemPath>pila.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -27,6 +28,7 @@
       <itemPath>grafo.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
       <itemPath>pathfinder.cpp</itemPath>
+      <itemPath>pila.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
