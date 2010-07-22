@@ -12,7 +12,7 @@ struct pila_ch{
     char* pila;
     int ultimo_elem;
 };
-typedef pila_ch pila_char;
+typedef pila_ch* pila_char;
 
 /** Costruttore per la pila
  *
