@@ -169,6 +169,8 @@ int carica_mappa(const char *filename)
         cerr<<"File "<<filename_map<<" non aperto correttamente\n";
         return 0;
     }
+
+    distruggi_grafo();
     
     //Distruggi l'array dei nodi precendente
     //distruggi_liste
