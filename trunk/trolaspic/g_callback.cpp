@@ -63,6 +63,7 @@ void response_carica (passaggio_t *window){
 
             GError *errore = NULL;
             GdkPixbuf *immagine_mappa= gdk_pixbuf_new_from_file (filename, &errore);
+            window->sfondo = immagine_mappa;
             gtk_image_set_from_pixbuf (GTK_IMAGE(window->image), immagine_mappa);
 
             if (errore != NULL){
@@ -85,7 +86,7 @@ void response_carica (passaggio_t *window){
             //******************************************************************
 
             DBG(cout<<"Sto per chiamare le librerie CAIRO\n")
-            cairo_disegna(filename, immagine_mappa);
+            cairo_disegna(immagine_mappa);
 
 
             //mappa_caricata= true;
@@ -165,6 +166,7 @@ void response_calcola (passaggio_t *window){
     g_signal_connect_swapped (dialogo->radio_distanza, "clicked", G_CALLBACK(set_distanza), dialogo);
     g_signal_connect_swapped (dialogo->radio_tempo,    "clicked", G_CALLBACK(set_tempo),    dialogo);
 
+    cairo_disegna(window->sfondo);
     switch (gtk_dialog_run (GTK_DIALOG (dialogo->finestra))) {
 
         case GTK_RESPONSE_ACCEPT: {
@@ -178,10 +180,14 @@ void response_calcola (passaggio_t *window){
                 case per_tempo:
                     DBG(cout<<"per tempo\n";)
                     getPath(dijkstra(nome_partenza,nome_arrivo,leggi_peso_tempo));
+                    cairo_disegna_percorso (window->sfondo);
+                    gtk_image_set_from_pixbuf (GTK_IMAGE(window->image), window->sfondo);
                     break;
                 case per_distanza:
                     DBG(cout<<"per distanza\n";)
                     getPath(dijkstra(nome_partenza,nome_arrivo,leggi_peso_km));
+                    cairo_disegna_percorso (window->sfondo);
+                    gtk_image_set_from_pixbuf (GTK_IMAGE(window->image), window->sfondo);
                     break;
                 default:
                     cerr<<"Selta non inizializzata! O.o\n";

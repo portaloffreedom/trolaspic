@@ -23,7 +23,7 @@ using namespace std;
     #define PERCORSO "./NetBeansProjects/trolaspic_code/trunk/trolaspic"
 #endif
 
-#define VERSION "0.8.1a - Fillix"
+#define VERSION "0.9.0a - Fillix"
 
 enum tipo_calcolo {
     per_tempo,
@@ -39,6 +39,7 @@ struct passaggio_t {
     GtkWidget* image;
     GtkWidget* radio_distanza;
     GtkWidget* radio_tempo;
+    GdkPixbuf* sfondo;
     int massimo_numero_nodi;
     gulong calcola_id;
     gulong errore_id;
