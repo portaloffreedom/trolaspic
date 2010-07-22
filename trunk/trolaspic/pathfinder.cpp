@@ -119,6 +119,7 @@ void getPath(int end) {
     while (GRAPH[temp.nodo].padre != -1) { //quando trovi il nodo senza padre hai trovato l'inizio
         cout << GRAPH[temp.nodo].padre << " "; // DEPRECATED (solo debug serve)
         GRAPH[0].adiacente.push_front(temp);
+        GRAPH[0].size_list++;
         temp.nodo = GRAPH[temp.nodo].padre; // end adesso e' il padre del vecchio end (cioe' del nodo precedente)
     }
     cout << endl; // DEPRECATED (solo per debug serve)
