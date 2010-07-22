@@ -35,7 +35,7 @@ char *get_text_from_int(int numero){
     return stringa;
 }
 
-void cairo_disegna (const gchar *filename){
+void cairo_disegna (const gchar *filename, GdkPixbuf *sfondo){
 
     //**************************************************************************
     // IMPOSTO IL NOME DEL FILE COME *.png
@@ -61,7 +61,8 @@ void cairo_disegna (const gchar *filename){
     //**************************************************************************
     //Crep la superficie di lavoro
     DBG(cout<<"Prova a disegnare con CAIRO\n");
-    cairo_surface_t *superficie = cairo_image_surface_create_from_png(filename_png);
+    //cairo_surface_t *superficie = cairo_image_surface_create_from_png(filename_png);
+    cairo_surface_t *superficie = cairo_image_surface_create_for_data(gdk_pixbuf_get_pixels(sfondo), CAIRO_FORMAT_RGB24, GRAPH[0].x, GRAPH[0].y, gdk_pixbuf_get_rowstride(sfondo));
     cairo_t *cr = cairo_create(superficie);
     double X = GRAPH[0].x;
     double Y = GRAPH[0].y;
@@ -109,15 +110,15 @@ void cairo_disegna (const gchar *filename){
     }
 
     //Settaggio dimensione, colore e tipo dei font
-    cairo_set_font_size (cr, 0.05);
+    cairo_set_font_size (cr, 0.03);
     cairo_set_source_rgb (cr, 1, 0.5, 0.0); //arancio
-    cairo_select_font_face (cr, "Georgia", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_BOLD);
+    cairo_select_font_face (cr, "Georgia", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_NORMAL);
 
     //Parte da inserire per stampare il nome del nodo
     for (int i=1; i<=dim_grafo(); i++){
 
-        double coo_x = GRAPH[i].x/X;
-        double coo_y = GRAPH[i].y/Y;
+        double coo_x = (GRAPH[i].x/X)-0.01;
+        double coo_y = (GRAPH[i].y/Y);
              
         cairo_move_to(cr, coo_x, coo_y);
         cairo_show_text(cr, get_text_from_int(i));
@@ -128,6 +129,7 @@ void cairo_disegna (const gchar *filename){
     //STAMPA SU FILE E DISTRUGGI
     cairo_surface_write_to_png (superficie, "prova.png");
     cairo_destroy (cr);
+    //sfondo = pixbuf_cairo_destroy(cr, TRUE)
     cairo_surface_destroy(superficie);
     DBG(cout<<"Fine disegno con CAIRO\n");
 

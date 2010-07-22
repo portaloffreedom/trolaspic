@@ -9,7 +9,7 @@
 #define	GESTIONE_DRAWING_AREA_H
 
 //GtkWidget *crea_drawing_area (int larghezza, int altezza);
-void cairo_disegna (const gchar *filename);
+void cairo_disegna (const gchar *filename, GdkPixbuf* sfondo);
 
 #endif	/* GESTIONE_DRAWING_AREA_H */
 

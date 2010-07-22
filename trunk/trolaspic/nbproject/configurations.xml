@@ -106,6 +106,7 @@
             <Elem>DEBUG</Elem>
             <Elem>DEBUG_MATTEO</Elem>
           </preprocessorList>
+          <warningLevel>3</warningLevel>
         </ccTool>
         <linkerTool>
           <linkerLibItems>
