@@ -122,6 +122,8 @@ void getPath(int end) {
         GRAPH[0].size_list++;
         temp.nodo = GRAPH[temp.nodo].padre; // end adesso e' il padre del vecchio end (cioe' del nodo precedente)
     }
+    GRAPH[0].adiacente.push_front(temp);
+    GRAPH[0].size_list++;
     cout << endl; // DEPRECATED (solo per debug serve)
 reset_graph();
 }
