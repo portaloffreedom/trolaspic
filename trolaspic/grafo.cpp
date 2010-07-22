@@ -164,8 +164,6 @@ int carica_mappa(const char *filename)
     DBG(cout<<filename<<endl);
     DBG(cout<<filename_map<<endl);
 
-
-
     ifstream mappa (filename_map);
     if (!mappa) {
         cerr<<"File "<<filename_map<<" non aperto correttamente\n";
