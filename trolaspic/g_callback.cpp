@@ -67,7 +67,7 @@ void response_carica (passaggio_t *window){
             //******************************************************************
 
             DBG(cout<<"Sto per chiamare le librerie CAIRO\n")
-            cairo_disegna(filename);
+            cairo_disegna(filename, immagine_mappa);
 
 
             //mappa_caricata= true;
