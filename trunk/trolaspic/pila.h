@@ -8,8 +8,11 @@
 #ifndef PILA_H
 #define	PILA_H
 
+/** Struct che è utilizzata come contenitore della pila */
 struct pila_ch{
+    /** Puntatore ad un array di caratteri (l'array è effettivamente la pila) */
     char* pila;
+    /** Variabile che memorizza quanto la pila sia realmente occupata */
     int ultimo_elem;
 };
 typedef pila_ch* pila_char;
