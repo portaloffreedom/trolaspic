@@ -33,30 +33,8 @@ char *get_text_from_int(int numero){
     return stringa;
 }
 
-void cairo_disegna (const gchar *filename, GdkPixbuf *sfondo){
+void cairo_disegna (GdkPixbuf *sfondo){
 
-    //**************************************************************************
-    // IMPOSTO IL NOME DEL FILE COME *.png
-    //**************************************************************************
-    int i;
-    for (i=0; filename[i]!='\0';i++) {
-        //DBG(cout<<':'<<i<<'_'<<filename[i]<<endl)
-    }
-    DBG(cout<<endl)
-
-    char *filename_png= new char[i];
-    filename_png[i--]='\0';
-    filename_png[i--]='g';
-    filename_png[i--]='n';
-    filename_png[i--]='p';
-    //filename_map[--i]='m';
-    for (; i>=0;i--){
-        filename_png[i]=filename[i];
-    }
-    DBG(cout<<filename<<endl);
-    DBG(cout<<filename_png<<endl);
-
-    //**************************************************************************
     //Crep la superficie di lavoro
     DBG(cout<<"Prova a disegnare con CAIRO\n");
     //cairo_surface_t *superficie = cairo_image_surface_create_from_png(filename_png);
@@ -131,4 +109,60 @@ void cairo_disegna (const gchar *filename, GdkPixbuf *sfondo){
     DBG(cout<<"Fine disegno con CAIRO\n");
 
     return;
+}
+
+void cairo_disegna_percorso (GdkPixbuf* sfondo){
+    cairo_surface_t *superficie = cairo_image_surface_create_for_data(gdk_pixbuf_get_pixels(sfondo), CAIRO_FORMAT_RGB24, GRAPH[0].x, GRAPH[0].y, gdk_pixbuf_get_rowstride(sfondo));
+    cairo_t *cr = cairo_create(superficie);
+    double X = GRAPH[0].x;
+    double Y = GRAPH[0].y;
+    cairo_scale (cr, GRAPH[0].x, GRAPH[0].y);
+
+    //Imposta larghezza linee
+    cairo_set_line_width (cr, 0.015);
+    //Settaggio dimensione e tipo dei font
+    cairo_set_font_size (cr, 0.03);
+    cairo_select_font_face (cr, "Georgia", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_NORMAL);
+    int prec=0;
+
+
+    for (int i=GRAPH[0].size_list; i>0 ;i--){
+
+        adiacenza nodo = GRAPH[0].adiacente.front();
+        GRAPH[0].adiacente.pop_front();
+
+        //GRAPH[0].size_list--;
+
+        //coordinate del nodo in analisi formulate in "precentuale"
+        double coo_x = GRAPH[nodo.nodo].x/X;
+        double coo_y = GRAPH[nodo.nodo].y/Y;
+
+        //Disegna un Cerchiolino attorno al punto
+        //(disegna un arco da 0 a 2pi_greco e lo riempie)
+        cairo_set_source_rgb (cr, 0, 0.5, 1); //light blue
+        cairo_arc (cr,coo_x,coo_y,0.015,0,M_PI*2);
+        cairo_fill (cr);
+
+
+        if (i!=1){
+            cairo_move_to(cr, coo_x, coo_y);
+
+            adiacenza successivo = GRAPH[0].adiacente.front();
+
+            double coo_x_succ = GRAPH[successivo.nodo].x/X;
+            double coo_y_succ = GRAPH[successivo.nodo].y/Y;
+
+            cairo_line_to(cr, coo_x_succ, coo_y_succ);
+            cairo_stroke(cr);
+        }
+
+        cairo_set_source_rgb (cr, 1, 0.5, 0.0); //light blue
+        cairo_move_to(cr, coo_x-0.01, coo_y);
+        cairo_show_text(cr, get_text_from_int(nodo.nodo));
+
+
+    }
+    
+    GRAPH[0].size_list=0;
+
 }
