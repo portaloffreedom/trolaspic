@@ -140,6 +140,7 @@
             <Elem>DEBUG</Elem>
             <Elem>DEBUG_ROB</Elem>
           </preprocessorList>
+          <warningLevel>3</warningLevel>
         </ccTool>
         <linkerTool>
           <linkerLibItems>
