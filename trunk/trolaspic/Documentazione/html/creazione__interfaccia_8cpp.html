@@ -113,14 +113,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 
 <p><div class="fragment"><pre class="fragment"><a name="l00217"></a>00217                                                                       {
 <a name="l00218"></a>00218 
-<a name="l00219"></a>00219     GtkWidget* dialogo = gtk_message_dialog_new (GTK_WINDOW(parent),
-<a name="l00220"></a>00220                                                  GTK_DIALOG_MODAL, GTK_MESSAGE_WARNING, GTK_BUTTONS_OK,
-<a name="l00221"></a>00221                                                  <span class="stringliteral">&quot;ATTENZIONE!&quot;</span>, NULL);
-<a name="l00222"></a>00222     gtk_message_dialog_format_secondary_text(GTK_MESSAGE_DIALOG(dialogo),
-<a name="l00223"></a>00223             testo, NULL);
-<a name="l00224"></a>00224 
-<a name="l00225"></a>00225     <span class="keywordflow">return</span> dialogo;
-<a name="l00226"></a>00226 }
+<a name="l00219"></a>00219     GtkWidget* dialogo = gtk_message_dialog_new (GTK_WINDOW(parent),GTK_DIALOG_MODAL, GTK_MESSAGE_WARNING,GTK_BUTTONS_OK,<span class="stringliteral">&quot;ATTENZIONE!&quot;</span>, NULL);
+<a name="l00220"></a>00220     gtk_message_dialog_format_secondary_text(GTK_MESSAGE_DIALOG(dialogo),testo, NULL);
+<a name="l00221"></a>00221 
+<a name="l00222"></a>00222     <span class="keywordflow">return</span> dialogo;
+<a name="l00223"></a>00223 }
 </pre></div></p>
 
 </div>
@@ -384,7 +381,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00019"></a>00019     gtk_box_pack_start (GTK_BOX(box), scatola_orizz, TRUE, TRUE, 5);
 <a name="l00020"></a>00020 
 <a name="l00021"></a>00021     GtkWidget *label_partenza= gtk_label_new(<span class="stringliteral">&quot;Partenza&quot;</span>);
-<a name="l00022"></a>00022     gtk_box_pack_start (GTK_BOX(scatola_orizz), label_partenza, FALSE, FALSE, 0);
+<a name="l00022"></a>00022     gtk_box_pack_start (GTK_BOX(scatola_orizz), label_partenza, FALSE, FALSE, 10);
 <a name="l00023"></a>00023 
 <a name="l00024"></a>00024     GtkObject *partenza_spin_adjustament = gtk_adjustment_new(
 <a name="l00025"></a>00025                                                 1, <span class="comment">//gdouble value,</span>
@@ -423,7 +420,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00058"></a>00058 
 <a name="l00059"></a>00059 
 <a name="l00060"></a>00060     GtkWidget * bottone_calcola = gtk_button_new_with_label (<span class="stringliteral">&quot;Calcola&quot;</span>);
-<a name="l00061"></a>00061     gtk_box_pack_start (GTK_BOX(scatola_orizz), bottone_calcola  , TRUE, TRUE, 0);
+<a name="l00061"></a>00061     gtk_box_pack_start (GTK_BOX(scatola_orizz), bottone_calcola  , TRUE, TRUE, 5);
 <a name="l00062"></a>00062 
 <a name="l00063"></a>00063 
 <a name="l00064"></a>00064     <span class="comment">//--------------------------------------------------------------------------</span>
@@ -470,7 +467,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generato il Fri Jul 23 05:15:47 2010 per Trolaspic da&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generato il Fri Jul 23 05:55:49 2010 per Trolaspic da&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

@@ -70,6 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <hr/><a name="_details"></a><h2>Descrizione dettagliata</h2>
 <p>Contiene tutte le funzioni che servono per trovare la strada più corta fra un punto di inizio e uno di fine. </p>
 <p>Implementa Dijkstra con la funzione <a class="el" href="pathfinder_8h.html#a584c66074ce657f0285fe93b14668c16" title="Algoritmo Dijkstra modificato per trovare la strada minima fra   due punti di un...">dijkstra</a> e ricostruisce il cammino usando endPath. </p>
+<dl class="author"><dt><b>Autore:</b></dt><dd>Roberto </dd></dl>
 <hr/><h2>Documentazione delle funzioni</h2>
 <a class="anchor" id="a584c66074ce657f0285fe93b14668c16"></a><!-- doxytag: member="pathfinder.cpp::dijkstra" ref="a584c66074ce657f0285fe93b14668c16" args="(const int start, const int fine, double leggi_peso_arco(arco arco))" -->
 <div class="memitem">
@@ -116,59 +117,59 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <dl class="return"><dt><b>Restituisce:</b></dt><dd>Ritorna il nodo finale se il grafo ha trovato la strada con successo <br/>
  altrimenti restituisce il nodo iniziale </dd></dl>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00060"></a>00060 {
-<a name="l00061"></a>00061     priority_queue&lt;pair&lt;double,int&gt; &gt; queue;
-<a name="l00062"></a>00062     pair &lt;double,int&gt; nodotmp;
-<a name="l00063"></a>00063 
-<a name="l00064"></a>00064   <span class="keywordtype">int</span> indexnode;
-<a name="l00065"></a>00065 
-<a name="l00066"></a>00066   <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[start].<a class="code" href="structnodo.html#ad9af03d4d3cfe325790568dc7a99e479" title="Quanto pesa passare da questo nodo.">peso</a> = 0;
-<a name="l00067"></a>00067   <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[start].<a class="code" href="structnodo.html#a2694acb99e1095c70b3c80d57be82c6c" title="Colore da impostare secondo l&amp;#39;algoritmo dijkstra.">visitato</a> = <a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5a16d16c4bd6892954a40f8d5105483c5a">grigio</a>;
-<a name="l00068"></a>00068   <span class="comment">/* Inserisco nella coda il nodo di inizio e il suo peso*/</span>
-<a name="l00069"></a>00069   queue.push(pair&lt;double,int&gt;(<a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[start].peso<span class="comment">/* il peso del nodo*/</span>, start <span class="comment">/* il nodo da cui partire*/</span>));
-<a name="l00070"></a>00070 
-<a name="l00071"></a>00071   <a class="code" href="structadiacenza.html" title="Struct che rappresenta gli archi fra un nodo e l&amp;#39;altro.">adiacenza</a> templist;
-<a name="l00072"></a>00072   <span class="comment">/* Finche&#39; la coda e&#39; piena processo tutti i nodi adiacenti a questo</span>
-<a name="l00073"></a>00073 <span class="comment">   * che hanno la priorita&#39; maggiore */</span>
-<a name="l00074"></a>00074   <span class="keywordflow">while</span>(!queue.empty())
-<a name="l00075"></a>00075   {
-<a name="l00076"></a>00076     nodotmp = queue.top(); <span class="comment">// Prelevo il nodo dalla coda (sono sicuro che non e&#39; vuota)</span>
-<a name="l00077"></a>00077     queue.pop();
-<a name="l00078"></a>00078     <span class="keywordflow">if</span>(nodotmp.second == 0) <span class="keywordflow">return</span> start;
-<a name="l00079"></a>00079     indexnode = nodotmp.second; <span class="comment">//l&#39;indice del nodo</span>
-<a name="l00080"></a>00080     <span class="keywordflow">if</span>(indexnode == fine){
-<a name="l00081"></a>00081 
-<a name="l00082"></a>00082         <span class="keywordflow">return</span> fine; <span class="comment">//altri controlli</span>
-<a name="l00083"></a>00083     }
-<a name="l00084"></a>00084     <span class="comment">//-------</span>
-<a name="l00085"></a>00085     <span class="keywordflow">if</span> (<a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[indexnode].visitato == <a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5a16d16c4bd6892954a40f8d5105483c5a">grigio</a>)
-<a name="l00086"></a>00086     {    <span class="comment">//se il nodo non e&#39; stato visitato mai</span>
-<a name="l00087"></a>00087       <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[indexnode].<a class="code" href="structnodo.html#a2694acb99e1095c70b3c80d57be82c6c" title="Colore da impostare secondo l&amp;#39;algoritmo dijkstra.">visitato</a> = <a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5a026ab1209905ffcd141965d2a55f14d3">nero</a>;  <span class="comment">//marcalo come visitato</span>
-<a name="l00088"></a>00088 
-<a name="l00089"></a>00089       <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 1; j&lt;=<a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[indexnode].<a class="code" href="structnodo.html#ad020a139f05c481569b2c453b56971b4" title="Quanto è grande la lista di adiacenza.">size_list</a>; j++)
-<a name="l00090"></a>00090       {    <span class="comment">//per ogni vicino che non e&#39; stato visitato inseriscilo nella coda</span>
-<a name="l00091"></a>00091           <span class="comment">// Salvo il nodo e il peso</span>
-<a name="l00092"></a>00092       templist = <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[indexnode].<a class="code" href="structnodo.html#acde832d9079cd541214312f347ef0712" title="Tutti i nodi che e&amp;#39; possibile raggiungere da questo.">adiacente</a>.front();
-<a name="l00093"></a>00093       <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[indexnode].<a class="code" href="structnodo.html#acde832d9079cd541214312f347ef0712" title="Tutti i nodi che e&amp;#39; possibile raggiungere da questo.">adiacente</a>.pop_front();
-<a name="l00094"></a>00094           <span class="keywordflow">if</span>        (!( <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[templist.<a class="code" href="structadiacenza.html#a979000bd61559a22dcc424e9f04481ab" title="L&amp;#39;indice del nodo nel grafo Questo indice viene usato per prelevare il nodo dal...">nodo</a>].<a class="code" href="structnodo.html#a2694acb99e1095c70b3c80d57be82c6c" title="Colore da impostare secondo l&amp;#39;algoritmo dijkstra.">visitato</a> == <a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5a026ab1209905ffcd141965d2a55f14d3">nero</a>)
-<a name="l00095"></a>00095                         &amp;&amp; (leggi_peso_arco(templist) &gt; 0.00000001)
-<a name="l00096"></a>00096                         &amp;&amp; (<a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[indexnode].peso + leggi_peso_arco(templist)) &lt; <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[templist.<a class="code" href="structadiacenza.html#a979000bd61559a22dcc424e9f04481ab" title="L&amp;#39;indice del nodo nel grafo Questo indice viene usato per prelevare il nodo dal...">nodo</a>].<a class="code" href="structnodo.html#ad9af03d4d3cfe325790568dc7a99e479" title="Quanto pesa passare da questo nodo.">peso</a>)
-<a name="l00097"></a>00097           {
-<a name="l00098"></a>00098 
-<a name="l00099"></a>00099             <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[templist.<a class="code" href="structadiacenza.html#a979000bd61559a22dcc424e9f04481ab" title="L&amp;#39;indice del nodo nel grafo Questo indice viene usato per prelevare il nodo dal...">nodo</a>].<a class="code" href="structnodo.html#ad9af03d4d3cfe325790568dc7a99e479" title="Quanto pesa passare da questo nodo.">peso</a> = <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[indexnode].<a class="code" href="structnodo.html#ad9af03d4d3cfe325790568dc7a99e479" title="Quanto pesa passare da questo nodo.">peso</a> + leggi_peso_arco(templist); <span class="comment">// Aggiorna il peso del nodo</span>
-<a name="l00100"></a>00100             <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[templist.<a class="code" href="structadiacenza.html#a979000bd61559a22dcc424e9f04481ab" title="L&amp;#39;indice del nodo nel grafo Questo indice viene usato per prelevare il nodo dal...">nodo</a>].<a class="code" href="structnodo.html#a0ee242378ff48b176c09cdc2e61295cb" title="Questo parametro serve a ricostruire il tragitto dopo aver usato dijkstra.">padre</a> = indexnode;    <span class="comment">// aggiorna il padre del nodo</span>
-<a name="l00101"></a>00101             <span class="comment">//il peso lo metto in negativo perche&#39; questa e&#39; una coda di max priorita&#39;</span>
-<a name="l00102"></a>00102                 <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[templist.<a class="code" href="structadiacenza.html#a979000bd61559a22dcc424e9f04481ab" title="L&amp;#39;indice del nodo nel grafo Questo indice viene usato per prelevare il nodo dal...">nodo</a>].<a class="code" href="structnodo.html#a2694acb99e1095c70b3c80d57be82c6c" title="Colore da impostare secondo l&amp;#39;algoritmo dijkstra.">visitato</a> = <a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5a16d16c4bd6892954a40f8d5105483c5a">grigio</a>;
-<a name="l00103"></a>00103                 queue.push(pair&lt;double,int&gt;(-<a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[templist.<a class="code" href="structadiacenza.html#a979000bd61559a22dcc424e9f04481ab" title="L&amp;#39;indice del nodo nel grafo Questo indice viene usato per prelevare il nodo dal...">nodo</a>].<a class="code" href="structnodo.html#ad9af03d4d3cfe325790568dc7a99e479" title="Quanto pesa passare da questo nodo.">peso</a>, templist.<a class="code" href="structadiacenza.html#a979000bd61559a22dcc424e9f04481ab" title="L&amp;#39;indice del nodo nel grafo Questo indice viene usato per prelevare il nodo dal...">nodo</a>)); <span class="comment">//aggiungilo alla coda</span>
-<a name="l00104"></a>00104 
-<a name="l00105"></a>00105           }
-<a name="l00106"></a>00106           <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[indexnode].<a class="code" href="structnodo.html#acde832d9079cd541214312f347ef0712" title="Tutti i nodi che e&amp;#39; possibile raggiungere da questo.">adiacente</a>.push_back(templist);
-<a name="l00107"></a>00107       }
-<a name="l00108"></a>00108     }
-<a name="l00109"></a>00109   }
-<a name="l00110"></a>00110   <a class="code" href="pathfinder_8cpp.html#a01e2ef12b7e204af07150452a4816522" title="Resetta il grafo con i valori standard.">reset_graph</a>();
-<a name="l00111"></a>00111   <span class="keywordflow">return</span> start;
-<a name="l00112"></a>00112 }
+<p><div class="fragment"><pre class="fragment"><a name="l00061"></a>00061 {
+<a name="l00062"></a>00062     priority_queue&lt;pair&lt;double,int&gt; &gt; queue;
+<a name="l00063"></a>00063     pair &lt;double,int&gt; nodotmp;
+<a name="l00064"></a>00064 
+<a name="l00065"></a>00065   <span class="keywordtype">int</span> indexnode;
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067   <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[start].<a class="code" href="structnodo.html#ad9af03d4d3cfe325790568dc7a99e479" title="Quanto pesa passare da questo nodo.">peso</a> = 0;
+<a name="l00068"></a>00068   <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[start].<a class="code" href="structnodo.html#a2694acb99e1095c70b3c80d57be82c6c" title="Colore da impostare secondo l&amp;#39;algoritmo dijkstra.">visitato</a> = <a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5a16d16c4bd6892954a40f8d5105483c5a">grigio</a>;
+<a name="l00069"></a>00069   <span class="comment">/* Inserisco nella coda il nodo di inizio e il suo peso*/</span>
+<a name="l00070"></a>00070   queue.push(pair&lt;double,int&gt;(<a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[start].peso<span class="comment">/* il peso del nodo*/</span>, start <span class="comment">/* il nodo da cui partire*/</span>));
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072   <a class="code" href="structadiacenza.html" title="Struct che rappresenta gli archi fra un nodo e l&amp;#39;altro.">adiacenza</a> templist;
+<a name="l00073"></a>00073   <span class="comment">/* Finche&#39; la coda e&#39; piena processo tutti i nodi adiacenti a questo</span>
+<a name="l00074"></a>00074 <span class="comment">   * che hanno la priorita&#39; maggiore */</span>
+<a name="l00075"></a>00075   <span class="keywordflow">while</span>(!queue.empty())
+<a name="l00076"></a>00076   {
+<a name="l00077"></a>00077     nodotmp = queue.top(); <span class="comment">// Prelevo il nodo dalla coda (sono sicuro che non e&#39; vuota)</span>
+<a name="l00078"></a>00078     queue.pop();
+<a name="l00079"></a>00079     <span class="keywordflow">if</span>(nodotmp.second == 0) <span class="keywordflow">return</span> start;
+<a name="l00080"></a>00080     indexnode = nodotmp.second; <span class="comment">//l&#39;indice del nodo</span>
+<a name="l00081"></a>00081     <span class="keywordflow">if</span>(indexnode == fine){
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083         <span class="keywordflow">return</span> fine; <span class="comment">//altri controlli</span>
+<a name="l00084"></a>00084     }
+<a name="l00085"></a>00085     <span class="comment">//-------</span>
+<a name="l00086"></a>00086     <span class="keywordflow">if</span> (<a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[indexnode].visitato == <a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5a16d16c4bd6892954a40f8d5105483c5a">grigio</a>)
+<a name="l00087"></a>00087     {    <span class="comment">//se il nodo non e&#39; stato visitato mai</span>
+<a name="l00088"></a>00088       <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[indexnode].<a class="code" href="structnodo.html#a2694acb99e1095c70b3c80d57be82c6c" title="Colore da impostare secondo l&amp;#39;algoritmo dijkstra.">visitato</a> = <a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5a026ab1209905ffcd141965d2a55f14d3">nero</a>;  <span class="comment">//marcalo come visitato</span>
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090       <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 1; j&lt;=<a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[indexnode].<a class="code" href="structnodo.html#ad020a139f05c481569b2c453b56971b4" title="Quanto è grande la lista di adiacenza.">size_list</a>; j++)
+<a name="l00091"></a>00091       {    <span class="comment">//per ogni vicino che non e&#39; stato visitato inseriscilo nella coda</span>
+<a name="l00092"></a>00092           <span class="comment">// Salvo il nodo e il peso</span>
+<a name="l00093"></a>00093       templist = <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[indexnode].<a class="code" href="structnodo.html#acde832d9079cd541214312f347ef0712" title="Tutti i nodi che e&amp;#39; possibile raggiungere da questo.">adiacente</a>.front();
+<a name="l00094"></a>00094       <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[indexnode].<a class="code" href="structnodo.html#acde832d9079cd541214312f347ef0712" title="Tutti i nodi che e&amp;#39; possibile raggiungere da questo.">adiacente</a>.pop_front();
+<a name="l00095"></a>00095           <span class="keywordflow">if</span>        (!( <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[templist.<a class="code" href="structadiacenza.html#a979000bd61559a22dcc424e9f04481ab" title="L&amp;#39;indice del nodo nel grafo Questo indice viene usato per prelevare il nodo dal...">nodo</a>].<a class="code" href="structnodo.html#a2694acb99e1095c70b3c80d57be82c6c" title="Colore da impostare secondo l&amp;#39;algoritmo dijkstra.">visitato</a> == <a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5a026ab1209905ffcd141965d2a55f14d3">nero</a>)
+<a name="l00096"></a>00096                         &amp;&amp; (leggi_peso_arco(templist) &gt; 0.00000001)
+<a name="l00097"></a>00097                         &amp;&amp; (<a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[indexnode].peso + leggi_peso_arco(templist)) &lt; <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[templist.<a class="code" href="structadiacenza.html#a979000bd61559a22dcc424e9f04481ab" title="L&amp;#39;indice del nodo nel grafo Questo indice viene usato per prelevare il nodo dal...">nodo</a>].<a class="code" href="structnodo.html#ad9af03d4d3cfe325790568dc7a99e479" title="Quanto pesa passare da questo nodo.">peso</a>)
+<a name="l00098"></a>00098           {
+<a name="l00099"></a>00099 
+<a name="l00100"></a>00100             <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[templist.<a class="code" href="structadiacenza.html#a979000bd61559a22dcc424e9f04481ab" title="L&amp;#39;indice del nodo nel grafo Questo indice viene usato per prelevare il nodo dal...">nodo</a>].<a class="code" href="structnodo.html#ad9af03d4d3cfe325790568dc7a99e479" title="Quanto pesa passare da questo nodo.">peso</a> = <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[indexnode].<a class="code" href="structnodo.html#ad9af03d4d3cfe325790568dc7a99e479" title="Quanto pesa passare da questo nodo.">peso</a> + leggi_peso_arco(templist); <span class="comment">// Aggiorna il peso del nodo</span>
+<a name="l00101"></a>00101             <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[templist.<a class="code" href="structadiacenza.html#a979000bd61559a22dcc424e9f04481ab" title="L&amp;#39;indice del nodo nel grafo Questo indice viene usato per prelevare il nodo dal...">nodo</a>].<a class="code" href="structnodo.html#a0ee242378ff48b176c09cdc2e61295cb" title="Questo parametro serve a ricostruire il tragitto dopo aver usato dijkstra.">padre</a> = indexnode;    <span class="comment">// aggiorna il padre del nodo</span>
+<a name="l00102"></a>00102             <span class="comment">//il peso lo metto in negativo perche&#39; questa e&#39; una coda di max priorita&#39;</span>
+<a name="l00103"></a>00103                 <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[templist.<a class="code" href="structadiacenza.html#a979000bd61559a22dcc424e9f04481ab" title="L&amp;#39;indice del nodo nel grafo Questo indice viene usato per prelevare il nodo dal...">nodo</a>].<a class="code" href="structnodo.html#a2694acb99e1095c70b3c80d57be82c6c" title="Colore da impostare secondo l&amp;#39;algoritmo dijkstra.">visitato</a> = <a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5a16d16c4bd6892954a40f8d5105483c5a">grigio</a>;
+<a name="l00104"></a>00104                 queue.push(pair&lt;double,int&gt;(-<a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[templist.<a class="code" href="structadiacenza.html#a979000bd61559a22dcc424e9f04481ab" title="L&amp;#39;indice del nodo nel grafo Questo indice viene usato per prelevare il nodo dal...">nodo</a>].<a class="code" href="structnodo.html#ad9af03d4d3cfe325790568dc7a99e479" title="Quanto pesa passare da questo nodo.">peso</a>, templist.<a class="code" href="structadiacenza.html#a979000bd61559a22dcc424e9f04481ab" title="L&amp;#39;indice del nodo nel grafo Questo indice viene usato per prelevare il nodo dal...">nodo</a>)); <span class="comment">//aggiungilo alla coda</span>
+<a name="l00105"></a>00105 
+<a name="l00106"></a>00106           }
+<a name="l00107"></a>00107           <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[indexnode].<a class="code" href="structnodo.html#acde832d9079cd541214312f347ef0712" title="Tutti i nodi che e&amp;#39; possibile raggiungere da questo.">adiacente</a>.push_back(templist);
+<a name="l00108"></a>00108       }
+<a name="l00109"></a>00109     }
+<a name="l00110"></a>00110   }
+<a name="l00111"></a>00111   <a class="code" href="pathfinder_8cpp.html#a01e2ef12b7e204af07150452a4816522" title="Resetta il grafo con i valori standard.">reset_graph</a>();
+<a name="l00112"></a>00112   <span class="keywordflow">return</span> start;
+<a name="l00113"></a>00113 }
 </pre></div></p>
 
 </div>
@@ -198,23 +199,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
   </dd>
 </dl>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00119"></a>00119                       {
-<a name="l00120"></a>00120     <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[0].<a class="code" href="structnodo.html#ad020a139f05c481569b2c453b56971b4" title="Quanto è grande la lista di adiacenza.">size_list</a> = 0;
-<a name="l00121"></a>00121     <span class="keywordflow">if</span>(!<a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[0].adiacente.empty()) <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[0].adiacente.clear();
-<a name="l00122"></a>00122     cout &lt;&lt; end &lt;&lt; <span class="stringliteral">&quot; &quot;</span>; <span class="comment">// DEPRECATED</span>
-<a name="l00123"></a>00123     <a class="code" href="structadiacenza.html" title="Struct che rappresenta gli archi fra un nodo e l&amp;#39;altro.">adiacenza</a> temp;
-<a name="l00124"></a>00124     temp.<a class="code" href="structadiacenza.html#a979000bd61559a22dcc424e9f04481ab" title="L&amp;#39;indice del nodo nel grafo Questo indice viene usato per prelevare il nodo dal...">nodo</a> = end;
-<a name="l00125"></a>00125     <span class="keywordflow">while</span> (<a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[temp.<a class="code" href="structadiacenza.html#a979000bd61559a22dcc424e9f04481ab" title="L&amp;#39;indice del nodo nel grafo Questo indice viene usato per prelevare il nodo dal...">nodo</a>].<a class="code" href="structnodo.html#a0ee242378ff48b176c09cdc2e61295cb" title="Questo parametro serve a ricostruire il tragitto dopo aver usato dijkstra.">padre</a> != -1) { <span class="comment">//quando trovi il nodo senza padre hai trovato l&#39;inizio</span>
-<a name="l00126"></a>00126         cout &lt;&lt; <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[temp.<a class="code" href="structadiacenza.html#a979000bd61559a22dcc424e9f04481ab" title="L&amp;#39;indice del nodo nel grafo Questo indice viene usato per prelevare il nodo dal...">nodo</a>].<a class="code" href="structnodo.html#a0ee242378ff48b176c09cdc2e61295cb" title="Questo parametro serve a ricostruire il tragitto dopo aver usato dijkstra.">padre</a> &lt;&lt; <span class="stringliteral">&quot; &quot;</span>; <span class="comment">// DEPRECATED (solo debug serve)</span>
-<a name="l00127"></a>00127         <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[0].<a class="code" href="structnodo.html#acde832d9079cd541214312f347ef0712" title="Tutti i nodi che e&amp;#39; possibile raggiungere da questo.">adiacente</a>.push_front(temp);
-<a name="l00128"></a>00128         <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[0].<a class="code" href="structnodo.html#ad020a139f05c481569b2c453b56971b4" title="Quanto è grande la lista di adiacenza.">size_list</a>++;
-<a name="l00129"></a>00129         temp.<a class="code" href="structadiacenza.html#a979000bd61559a22dcc424e9f04481ab" title="L&amp;#39;indice del nodo nel grafo Questo indice viene usato per prelevare il nodo dal...">nodo</a> = <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[temp.<a class="code" href="structadiacenza.html#a979000bd61559a22dcc424e9f04481ab" title="L&amp;#39;indice del nodo nel grafo Questo indice viene usato per prelevare il nodo dal...">nodo</a>].<a class="code" href="structnodo.html#a0ee242378ff48b176c09cdc2e61295cb" title="Questo parametro serve a ricostruire il tragitto dopo aver usato dijkstra.">padre</a>; <span class="comment">// end adesso e&#39; il padre del vecchio end (cioe&#39; del nodo precedente)</span>
-<a name="l00130"></a>00130     }
-<a name="l00131"></a>00131     <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[0].<a class="code" href="structnodo.html#acde832d9079cd541214312f347ef0712" title="Tutti i nodi che e&amp;#39; possibile raggiungere da questo.">adiacente</a>.push_front(temp);
-<a name="l00132"></a>00132     <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[0].<a class="code" href="structnodo.html#ad020a139f05c481569b2c453b56971b4" title="Quanto è grande la lista di adiacenza.">size_list</a>++;
-<a name="l00133"></a>00133     cout &lt;&lt; endl; <span class="comment">// DEPRECATED (solo per debug serve)</span>
-<a name="l00134"></a>00134 <a class="code" href="pathfinder_8cpp.html#a01e2ef12b7e204af07150452a4816522" title="Resetta il grafo con i valori standard.">reset_graph</a>();
-<a name="l00135"></a>00135 }
+<p><div class="fragment"><pre class="fragment"><a name="l00120"></a>00120                       {
+<a name="l00121"></a>00121     <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[0].<a class="code" href="structnodo.html#ad020a139f05c481569b2c453b56971b4" title="Quanto è grande la lista di adiacenza.">size_list</a> = 0;
+<a name="l00122"></a>00122     <span class="keywordflow">if</span>(!<a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[0].adiacente.empty()) <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[0].adiacente.clear();
+<a name="l00123"></a>00123     cout &lt;&lt; end &lt;&lt; <span class="stringliteral">&quot; &quot;</span>; <span class="comment">// DEPRECATED</span>
+<a name="l00124"></a>00124     <a class="code" href="structadiacenza.html" title="Struct che rappresenta gli archi fra un nodo e l&amp;#39;altro.">adiacenza</a> temp;
+<a name="l00125"></a>00125     temp.<a class="code" href="structadiacenza.html#a979000bd61559a22dcc424e9f04481ab" title="L&amp;#39;indice del nodo nel grafo Questo indice viene usato per prelevare il nodo dal...">nodo</a> = end;
+<a name="l00126"></a>00126     <span class="keywordflow">while</span> (<a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[temp.<a class="code" href="structadiacenza.html#a979000bd61559a22dcc424e9f04481ab" title="L&amp;#39;indice del nodo nel grafo Questo indice viene usato per prelevare il nodo dal...">nodo</a>].<a class="code" href="structnodo.html#a0ee242378ff48b176c09cdc2e61295cb" title="Questo parametro serve a ricostruire il tragitto dopo aver usato dijkstra.">padre</a> != -1) { <span class="comment">//quando trovi il nodo senza padre hai trovato l&#39;inizio</span>
+<a name="l00127"></a>00127         cout &lt;&lt; <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[temp.<a class="code" href="structadiacenza.html#a979000bd61559a22dcc424e9f04481ab" title="L&amp;#39;indice del nodo nel grafo Questo indice viene usato per prelevare il nodo dal...">nodo</a>].<a class="code" href="structnodo.html#a0ee242378ff48b176c09cdc2e61295cb" title="Questo parametro serve a ricostruire il tragitto dopo aver usato dijkstra.">padre</a> &lt;&lt; <span class="stringliteral">&quot; &quot;</span>; <span class="comment">// DEPRECATED (solo debug serve)</span>
+<a name="l00128"></a>00128         <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[0].<a class="code" href="structnodo.html#acde832d9079cd541214312f347ef0712" title="Tutti i nodi che e&amp;#39; possibile raggiungere da questo.">adiacente</a>.push_front(temp);
+<a name="l00129"></a>00129         <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[0].<a class="code" href="structnodo.html#ad020a139f05c481569b2c453b56971b4" title="Quanto è grande la lista di adiacenza.">size_list</a>++;
+<a name="l00130"></a>00130         temp.<a class="code" href="structadiacenza.html#a979000bd61559a22dcc424e9f04481ab" title="L&amp;#39;indice del nodo nel grafo Questo indice viene usato per prelevare il nodo dal...">nodo</a> = <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[temp.<a class="code" href="structadiacenza.html#a979000bd61559a22dcc424e9f04481ab" title="L&amp;#39;indice del nodo nel grafo Questo indice viene usato per prelevare il nodo dal...">nodo</a>].<a class="code" href="structnodo.html#a0ee242378ff48b176c09cdc2e61295cb" title="Questo parametro serve a ricostruire il tragitto dopo aver usato dijkstra.">padre</a>; <span class="comment">// end adesso e&#39; il padre del vecchio end (cioe&#39; del nodo precedente)</span>
+<a name="l00131"></a>00131     }
+<a name="l00132"></a>00132     <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[0].<a class="code" href="structnodo.html#acde832d9079cd541214312f347ef0712" title="Tutti i nodi che e&amp;#39; possibile raggiungere da questo.">adiacente</a>.push_front(temp);
+<a name="l00133"></a>00133     <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[0].<a class="code" href="structnodo.html#ad020a139f05c481569b2c453b56971b4" title="Quanto è grande la lista di adiacenza.">size_list</a>++;
+<a name="l00134"></a>00134     cout &lt;&lt; endl; <span class="comment">// DEPRECATED (solo per debug serve)</span>
+<a name="l00135"></a>00135 <a class="code" href="pathfinder_8cpp.html#a01e2ef12b7e204af07150452a4816522" title="Resetta il grafo con i valori standard.">reset_graph</a>();
+<a name="l00136"></a>00136 }
 </pre></div></p>
 
 </div>
@@ -244,9 +245,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
   </dd>
 </dl>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00034"></a>00034                                {
-<a name="l00035"></a>00035     <span class="keywordflow">return</span> arco.<a class="code" href="structadiacenza.html#a36b0702ffb002532fdb95b2c7174ae23" title="Il peso dell&amp;#39;arco fra il nodo chiamante e il nodo indicato in kilometri.">kilometri</a>;
-<a name="l00036"></a>00036 };
+<p><div class="fragment"><pre class="fragment"><a name="l00035"></a>00035                                {
+<a name="l00036"></a>00036     <span class="keywordflow">return</span> arco.<a class="code" href="structadiacenza.html#a36b0702ffb002532fdb95b2c7174ae23" title="Il peso dell&amp;#39;arco fra il nodo chiamante e il nodo indicato in kilometri.">kilometri</a>;
+<a name="l00037"></a>00037 };
 </pre></div></p>
 
 </div>
@@ -276,9 +277,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
   </dd>
 </dl>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00043"></a>00043                                   {
-<a name="l00044"></a>00044     <span class="keywordflow">return</span> arco.<a class="code" href="structadiacenza.html#a64865462a95428742eed016ee8bfcdd1" title="Il peso dell&amp;#39;arco fra il nodo chiamante e il nodo indicato in secondi.">secondi</a>;
-<a name="l00045"></a>00045 };
+<p><div class="fragment"><pre class="fragment"><a name="l00044"></a>00044                                   {
+<a name="l00045"></a>00045     <span class="keywordflow">return</span> arco.<a class="code" href="structadiacenza.html#a64865462a95428742eed016ee8bfcdd1" title="Il peso dell&amp;#39;arco fra il nodo chiamante e il nodo indicato in secondi.">secondi</a>;
+<a name="l00046"></a>00046 };
 </pre></div></p>
 
 </div>
@@ -302,13 +303,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <p>Resetta il grafo con i valori standard. </p>
 <p>Viene chiamata da <a class="el" href="pathfinder_8h.html#a584c66074ce657f0285fe93b14668c16" title="Algoritmo Dijkstra modificato per trovare la strada minima fra   due punti di un...">dijkstra</a> e da endPath dopo aver trovato il percorso da seguire </p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00020"></a>00020                       {
-<a name="l00021"></a>00021     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=1;i&lt;=<a class="code" href="grafo_8cpp.html#ab98d31ac652b48847b494a98da97c386" title="Controlla quanto è grande il grafo.">dim_grafo</a>();i++){
-<a name="l00022"></a>00022         <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[i].<a class="code" href="structnodo.html#a0ee242378ff48b176c09cdc2e61295cb" title="Questo parametro serve a ricostruire il tragitto dopo aver usato dijkstra.">padre</a> = -1;
-<a name="l00023"></a>00023         <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[i].<a class="code" href="structnodo.html#a2694acb99e1095c70b3c80d57be82c6c" title="Colore da impostare secondo l&amp;#39;algoritmo dijkstra.">visitato</a> = <a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5a3226bf95e2fad7dccac1089fb62a60d5">bianco</a>;
-<a name="l00024"></a>00024         <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[i].<a class="code" href="structnodo.html#ad9af03d4d3cfe325790568dc7a99e479" title="Quanto pesa passare da questo nodo.">peso</a> = INFINITO;
-<a name="l00025"></a>00025     }
-<a name="l00026"></a>00026 };
+<p><div class="fragment"><pre class="fragment"><a name="l00021"></a>00021                       {
+<a name="l00022"></a>00022     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=1;i&lt;=<a class="code" href="grafo_8cpp.html#ab98d31ac652b48847b494a98da97c386" title="Controlla quanto è grande il grafo.">dim_grafo</a>();i++){
+<a name="l00023"></a>00023         <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[i].<a class="code" href="structnodo.html#a0ee242378ff48b176c09cdc2e61295cb" title="Questo parametro serve a ricostruire il tragitto dopo aver usato dijkstra.">padre</a> = -1;
+<a name="l00024"></a>00024         <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[i].<a class="code" href="structnodo.html#a2694acb99e1095c70b3c80d57be82c6c" title="Colore da impostare secondo l&amp;#39;algoritmo dijkstra.">visitato</a> = <a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5a3226bf95e2fad7dccac1089fb62a60d5">bianco</a>;
+<a name="l00025"></a>00025         <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[i].<a class="code" href="structnodo.html#ad9af03d4d3cfe325790568dc7a99e479" title="Quanto pesa passare da questo nodo.">peso</a> = INFINITO;
+<a name="l00026"></a>00026     }
+<a name="l00027"></a>00027 };
 </pre></div></p>
 
 </div>
@@ -344,7 +345,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generato il Fri Jul 23 05:15:48 2010 per Trolaspic da&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generato il Fri Jul 23 05:55:49 2010 per Trolaspic da&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>
