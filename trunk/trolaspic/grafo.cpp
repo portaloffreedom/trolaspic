@@ -1,14 +1,34 @@
+/**
+ * @file grafo.cpp Racchiude tutte le funzioni necessarie all'inizializzazione e alla gestione del
+ * grafo.
+ */
+
+
 #include "main.h"
 #include "grafo.h"
 #include <iostream>
 #include <fstream>
 #include <limits>
 using namespace std;
-
+/**
+ * La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l'indirizzo dell'array
+ * dove viene memorizzato il grafo.
+ */
 nodo* GRAPH = 0;
 
+/**
+ * Questa costante sancisce il massimo numero di caratteri che una stringa può contenere.
+ */
 const int MAX_LUNGH_STRINGA= 30;
+
+/**
+ * Questa costante stabilisce quanti caratteri possono esserci al massimo fra i delimitatori del file map.
+ */
 const int MAX_SALTO= 500;
+
+/**
+ * Costante per il massimo valore ammissibile da usare come "infinito" nel grafo.
+ */
 static const double INFINITO = numeric_limits<double>::max();
 
 /** Distrugge il grafo e ne setta il puntatore a zero.

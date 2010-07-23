@@ -1,3 +1,7 @@
+/**
+ * @file g_callback.cpp Contiene tutte le funzioni da associare agli eventi.
+ */
+
 #include <gtk/gtk.h>
 #include <iostream>
 #include <fstream>

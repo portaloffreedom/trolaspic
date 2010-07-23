@@ -1,3 +1,8 @@
+/**
+ * @file gestione_drawing_area.cpp Modulo per usare le funzioni delle librerie CAIRO.
+ *
+ */
+
 #include <gtk/gtk.h>
 #include <cairo/cairo.h>
 #include <iostream>

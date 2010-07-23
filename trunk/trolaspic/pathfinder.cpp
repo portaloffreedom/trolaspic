@@ -1,3 +1,9 @@
+/**
+ * @file pathfinder.cpp Contiene tutte le funzioni che servono per trovare la strada più corta
+ * fra un punto di inizio e uno di fine. Implementa Dijkstra con la funzione ::dijkstra e
+ * ricostruisce il cammino usando ::endPath.
+ */
+
 #include <iostream>
 #include "pathfinder.h"
 #include <limits>
@@ -9,7 +15,7 @@ extern nodo* GRAPH;
 static const double INFINITO = numeric_limits<double>::max();
 
 /** Resetta il grafo con i valori standard. 
- * Viene chiamata da ::dijkstra e da :: endPath dopo aver trovato il percorso da seguire
+ * Viene chiamata da ::dijkstra e da ::endPath dopo aver trovato il percorso da seguire
  */
 void reset_graph(void){
     for(int i=1;i<=dim_grafo();i++){
