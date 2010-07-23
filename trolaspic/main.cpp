@@ -41,19 +41,13 @@ int main(int argc, char** argv) {
     gtk_widget_show(window->finestra);
 
 
-    g_signal_connect_swapped (window->info_i,   "activate",     G_CALLBACK (mostra_info),      window->finestra);
-    g_signal_connect_swapped (window->esci_i,   "activate",     G_CALLBACK (response_dialogo), window->finestra);
-    g_signal_connect_swapped (window->carica_i, "activate",     G_CALLBACK (response_carica),  window          );
-    g_signal_connect         (window->finestra, "delete-event", G_CALLBACK (response_dialogo), window->finestra);
-//    g_signal_connect_swapped (window->radio_distanza, "clicked", G_CALLBACK(set_distanza), dialogo);
-//    g_signal_connect_swapped (window->radio_tempo,    "clicked", G_CALLBACK(set_tempo),    dialogo);
-
-    window->calcola_id =
-        g_signal_connect_swapped (window->calcola_i, "activate", G_CALLBACK (response_calcola), window);
-    window->errore_id  =
-        g_signal_connect_swapped (window->calcola_i, "activate", G_CALLBACK (response_non_calcola), window->finestra);
-
-    g_signal_handler_block( window->calcola_i, window->calcola_id);
+    g_signal_connect_swapped (window->info_i,   "activate",      G_CALLBACK (mostra_info),      window->finestra );
+    g_signal_connect_swapped (window->esci_i,   "activate",      G_CALLBACK (response_dialogo), window->finestra );
+    g_signal_connect_swapped (window->carica_i, "activate",      G_CALLBACK (response_carica),  window           );
+    g_signal_connect         (window->finestra, "delete-event",  G_CALLBACK (response_dialogo), window->finestra );
+    g_signal_connect_swapped (window->radio_distanza, "clicked", G_CALLBACK (set_distanza),     window           );
+    g_signal_connect_swapped (window->radio_tempo,    "clicked", G_CALLBACK (set_tempo),        window           );
+    g_signal_connect_swapped (window->pulsante_calcola, "clicked",G_CALLBACK(response_calcola), window           );
 
     //**************************************************************************
 

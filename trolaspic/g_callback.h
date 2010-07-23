@@ -17,7 +17,8 @@ void response_dialogo (GtkWidget *finestra);
 void response_carica (passaggio_t *window);
 void mostra_info (GtkWidget* finestra);
 void response_calcola (passaggio_t *window);
-void response_non_calcola (GtkWidget* finestra_principale);
+void set_tempo (passaggio_t *dialogo);
+void set_distanza (passaggio_t *dialogo);
 
 #endif	/* G_CALLBACK_H */
 
