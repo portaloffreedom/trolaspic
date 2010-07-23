@@ -12,6 +12,6 @@ include dipendenze.make
 .PHONY: clean cleanall
 
 clean:
-	rm *.o dipendeze.make
+	rm *.o dipendenze.make
 cleanall:
 	rm Trolaspic *.o dipendenze.make

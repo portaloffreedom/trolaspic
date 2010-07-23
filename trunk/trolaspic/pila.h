@@ -1,8 +1,8 @@
-/* 
- * File:   pila.h
- * Author: matteo
+/**
+ * @file Interfaccia del modulo della pila (stack) di char
  *
- * Created on 22 luglio 2010, 12.21
+ * @author: matteo
+ *
  */
 
 #ifndef PILA_H

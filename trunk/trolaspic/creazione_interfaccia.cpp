@@ -19,7 +19,7 @@ void crea_scatola_richiesta_percorso (GtkWidget* box, passaggio_t *window, int l
     gtk_box_pack_start (GTK_BOX(box), scatola_orizz, TRUE, TRUE, 5);
 
     GtkWidget *label_partenza= gtk_label_new("Partenza");
-    gtk_box_pack_start (GTK_BOX(scatola_orizz), label_partenza, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX(scatola_orizz), label_partenza, FALSE, FALSE, 10);
 
     GtkObject *partenza_spin_adjustament = gtk_adjustment_new(
                                                 1, //gdouble value,
@@ -58,7 +58,7 @@ void crea_scatola_richiesta_percorso (GtkWidget* box, passaggio_t *window, int l
 
 
     GtkWidget * bottone_calcola = gtk_button_new_with_label ("Calcola");
-    gtk_box_pack_start (GTK_BOX(scatola_orizz), bottone_calcola  , TRUE, TRUE, 0);
+    gtk_box_pack_start (GTK_BOX(scatola_orizz), bottone_calcola  , TRUE, TRUE, 5);
 
 
     //--------------------------------------------------------------------------

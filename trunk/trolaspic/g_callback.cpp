@@ -55,6 +55,10 @@ void finestra_di_avviso (GtkWidget* finestra_principale, const gchar *testo){
     return;
 }
 
+/** Mostra la barra inferiore dove immettere il percorso da calcolare
+ *
+ * @param window struttura dei puntatori di tutte le cose utili
+ */
 void mostra_calcola_percorso (passaggio_t *window){
     gtk_widget_show(window->domanda_calcola);
     gtk_widget_show(window->scatola_calcola);
@@ -84,6 +88,8 @@ void response_carica (passaggio_t *window){
             //******************************************************************
             window->massimo_numero_nodi = carica_mappa(filename);
             if (window->massimo_numero_nodi == 0){
+                finestra_di_avviso(dialogo,"Errore nel caricamento della mappa!\n"
+                        "prova a caricare il file giusto\n" );
                 delete[] filename;
                 gtk_widget_destroy (dialogo);
                 return;
