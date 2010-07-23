@@ -12,22 +12,28 @@
 using namespace std;
 
 #ifdef DEBUG
+    /** Definisce la macro che attiva il suo argomento interno solo in debug mode.*/
     #define DBG(A) A;
 #else
+    /** Definisce la macro che attiva il suo argomento interno solo in debug mode.*/
     #define DBG(A)
 #endif
 
 #ifndef DEBUG_MATTEO
+    /** tag per la ricerca dei file immagine. SOLO per test debug*/
     #define PERCORSO "."
 #else
+    /** tag per la ricerca d ei file immagine. SOLO per test debug*/
     #define PERCORSO "./NetBeansProjects/trolaspic_code/trunk/trolaspic"
 #endif
-
+/** Contiene la versione del programma */
 #define VERSION "1.2.3 RC"
 
 /** Stabilisce se il calcolo del percorso deve essere fatto considerando il tempo di percorrenza o la lunghezza della strada. */
 enum tipo_calcolo {
+    /** Calcola il percorso prendendo in considerazione il tempo*/
     per_tempo,
+    /** Calcola il percorso prendendo in considerazione la distanza percorsa*/
     per_distanza
 };
 

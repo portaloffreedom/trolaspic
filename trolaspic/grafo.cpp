@@ -142,10 +142,10 @@ void imposta_segmentazione (ifstream &source, arco &arco, tipo_segmentazione seg
 
 }
 
-/** Carica dal file .map e crea il grafo.
- * \n Elimina da solo la vecchia mappa se esistente.
- *
- * @param nome del file (trasforma da solo in .map)
+/** Dato un file immagine cerca il corrispettivo in .map e se lo trova carica la
+ * mappa, altrimenti da errore. *
+ * @param nome Il Nome del file da caricare.
+ * @return
  */
 int carica_mappa(const char *filename){
 

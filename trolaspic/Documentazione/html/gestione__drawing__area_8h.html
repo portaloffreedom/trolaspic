@@ -87,7 +87,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <p><div class="fragment"><pre class="fragment"><a name="l00047"></a>00047                                       {
 <a name="l00048"></a>00048 
 <a name="l00049"></a>00049     <span class="comment">//Crep la superficie di lavoro</span>
-<a name="l00050"></a>00050     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;<span class="stringliteral">&quot;Prova a disegnare con CAIRO\n&quot;</span>);
+<a name="l00050"></a>00050     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1" title="Definisce la macro che attiva il suo argomento interno solo in debug mode.">DBG</a>(cout&lt;&lt;<span class="stringliteral">&quot;Prova a disegnare con CAIRO\n&quot;</span>);
 <a name="l00051"></a>00051     <span class="comment">//cairo_surface_t *superficie = cairo_image_surface_create_from_png(filename_png);</span>
 <a name="l00052"></a>00052     cairo_surface_t *superficie = cairo_image_surface_create_for_data(gdk_pixbuf_get_pixels(sfondo), CAIRO_FORMAT_RGB24, <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[0].x, <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[0].y, gdk_pixbuf_get_rowstride(sfondo));
 <a name="l00053"></a>00053     cairo_t *cr = cairo_create(superficie);
@@ -135,13 +135,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00095"></a>00095 
 <a name="l00096"></a>00096             <span class="comment">//fai la linea fino all&#39;adiacenza</span>
 <a name="l00097"></a>00097             <span class="keywordflow">switch</span> (adiacente.<a class="code" href="structadiacenza.html#ab9cf4d00d0bd8523e7b69ad637b6bfe9" title="dice se usare la segmentazione a rette o a curve bezier">segmentazione</a>){
-<a name="l00098"></a>00098                 <span class="keywordflow">case</span> <a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850ddac7880ebd96493f1334fb5d06355db728">bezier</a>:
+<a name="l00098"></a>00098                 <span class="keywordflow">case</span> <a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850ddac7880ebd96493f1334fb5d06355db728" title="L&amp;#39;unione fra i due punti è una strada curva.">bezier</a>:
 <a name="l00099"></a>00099                     cairo_curve_to(cr, x1, y1, x2, y2, coo_adiacenza_x, coo_adiacenza_y);
 <a name="l00100"></a>00100                     <span class="keywordflow">break</span>;
-<a name="l00101"></a>00101                 <span class="keywordflow">case</span> <a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850dda3e6b7d5eb96b907440f749b8342f1306">rette</a>:
+<a name="l00101"></a>00101                 <span class="keywordflow">case</span> <a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850dda3e6b7d5eb96b907440f749b8342f1306" title="L&amp;#39;unione fra i due punti è una linea retta spezzata.">rette</a>:
 <a name="l00102"></a>00102                     cairo_line_to(cr, x1, y1);
 <a name="l00103"></a>00103                     cairo_line_to(cr, x2, y2);
-<a name="l00104"></a>00104                 <span class="keywordflow">case</span> <a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850ddafd58db30e9dd613837d829a714e7afd0">nessuna</a>:
+<a name="l00104"></a>00104                 <span class="keywordflow">case</span> <a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850ddafd58db30e9dd613837d829a714e7afd0" title="L&amp;#39;unione fra i due punti è una riga retta.">nessuna</a>:
 <a name="l00105"></a>00105                     cairo_line_to(cr, coo_adiacenza_x, coo_adiacenza_y);
 <a name="l00106"></a>00106                     <span class="keywordflow">break</span>;
 <a name="l00107"></a>00107                 <span class="keywordflow">default</span>:
@@ -178,7 +178,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00138"></a>00138     <span class="comment">//cairo_surface_write_to_png (superficie, &quot;prova.png&quot;);</span>
 <a name="l00139"></a>00139     cairo_destroy (cr);
 <a name="l00140"></a>00140     cairo_surface_destroy(superficie);
-<a name="l00141"></a>00141     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;<span class="stringliteral">&quot;Fine disegno con CAIRO\n&quot;</span>);
+<a name="l00141"></a>00141     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1" title="Definisce la macro che attiva il suo argomento interno solo in debug mode.">DBG</a>(cout&lt;&lt;<span class="stringliteral">&quot;Fine disegno con CAIRO\n&quot;</span>);
 <a name="l00142"></a>00142 
 <a name="l00143"></a>00143     <span class="keywordflow">return</span>;
 <a name="l00144"></a>00144 }
@@ -265,13 +265,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00198"></a>00198 
 <a name="l00199"></a>00199 
 <a name="l00200"></a>00200             <span class="keywordflow">switch</span> (arco_successivo.<a class="code" href="structadiacenza.html#ab9cf4d00d0bd8523e7b69ad637b6bfe9" title="dice se usare la segmentazione a rette o a curve bezier">segmentazione</a>){
-<a name="l00201"></a>00201                 <span class="keywordflow">case</span> <a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850ddac7880ebd96493f1334fb5d06355db728">bezier</a>:
+<a name="l00201"></a>00201                 <span class="keywordflow">case</span> <a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850ddac7880ebd96493f1334fb5d06355db728" title="L&amp;#39;unione fra i due punti è una strada curva.">bezier</a>:
 <a name="l00202"></a>00202                     cairo_curve_to(cr, x1, y1, x2, y2, coo_x_succ, coo_y_succ);
 <a name="l00203"></a>00203                     <span class="keywordflow">break</span>;
-<a name="l00204"></a>00204                 <span class="keywordflow">case</span> <a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850dda3e6b7d5eb96b907440f749b8342f1306">rette</a>:
+<a name="l00204"></a>00204                 <span class="keywordflow">case</span> <a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850dda3e6b7d5eb96b907440f749b8342f1306" title="L&amp;#39;unione fra i due punti è una linea retta spezzata.">rette</a>:
 <a name="l00205"></a>00205                     cairo_line_to(cr, x1, y1);
 <a name="l00206"></a>00206                     cairo_line_to(cr, x2, y2);
-<a name="l00207"></a>00207                 <span class="keywordflow">case</span> <a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850ddafd58db30e9dd613837d829a714e7afd0">nessuna</a>:
+<a name="l00207"></a>00207                 <span class="keywordflow">case</span> <a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850ddafd58db30e9dd613837d829a714e7afd0" title="L&amp;#39;unione fra i due punti è una riga retta.">nessuna</a>:
 <a name="l00208"></a>00208                     cairo_line_to(cr, coo_x_succ, coo_y_succ);
 <a name="l00209"></a>00209                     <span class="keywordflow">break</span>;
 <a name="l00210"></a>00210                 <span class="keywordflow">default</span>:
@@ -312,7 +312,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generato il Fri Jul 23 06:16:51 2010 per Trolaspic da&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generato il Fri Jul 23 14:24:55 2010 per Trolaspic da&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

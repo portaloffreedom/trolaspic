@@ -12,32 +12,60 @@
  * \n Il suo punto di forza risiede nella semplicità del programma stesso, non difficile e facilmente comprensibile.
  * \n Può essere usato per svariati tipi di soluzioni, come la ricerca di percorsi in mappe stradali.
  * \n Il metodo utilizzato per la ricerca del percorso più breve è quello dell'algoritmo Dijkstra. L'algoritmo Dijkstra opera solo su grafi con archi che hanno pesi positivi.
+ * \n
  * \n \section funz Funzionamento di base
  * \n
  * \n \subsection map Gestione della mappa
- * \n funzione ::carica_mappa : spiegazione funzione
- * \n funzione ::leggi_prox_char : Spiegazione funzione
- * \n funzione ::leggi_prox_double : Spiegazione funzione
- * \n funzione ::leggi_prox_int : spiegazione funzione
- * \n funzione ::imposta_segmentazione : spiegazione funzione
+ * \n Il programma gestisce le mappe come una coppia di file .png e .map chiamati con lo stesso nome. Il formato del file map è univoco e dalla formattazione obbligata.
+ * \n ecco un esempio del formato file:
+ *
+ * \n  NUMNODO ( Coord_x Coord_y ) n: numeronodiadiacenti
+ * \n  ---( numnodoadiac distanza_km tempo_sec )                                           # L'arco è una retta fra i 2 nodi
+ * \n  ---( numnodoadiac distanza_km tempo_sec ) { B coord_x1 coord_y1 coord_x2 coord_y2 } # L'arco è una curva di bezier
+ * \n  ---( numnodoadiac distanza_km tempo_sec ) { R coord_x1 coord_y1 coord_x2 coord_y2 } # L'arco è una retta spezzata
+ * \n  # questo è un commento
+ * \n  ---$ #questa è la fine del nodo e delle sue adiacenze
+ * \n
+ * \n Le seguenti funzioni servono per il caricamento della mappa:
+ *
+ * \n ::carica_mappa
+ * \n
  * \n \subsubsection graph Gestione del grafo creato dalla mappa
- * \n funzione ::distruggi_grafo
- * \n funzione ::dim_grafo
- * \n funzione ::reset_graph
-
+ * \n Il caricamento del file (vedi \ref map) crea un grafo che può essere gestito
+ * \n con delle semplici funzioni:
+ * \n ::distruggi_grafo
+ * \n ::dim_grafo
+ * \n ::reset_graph
+ * \n Il grafo viene gestito principalmente da Dijkstra e dal caricamento file.
+ * \n Vedi anche:
+ * \n - ::dijkstra
+ * \n - \ref pathfinder
+ * \n - pathfinder.cpp : File dove sono contenute tutte le funzioni relative al calcolo del percorso.
+ * \n
  * \n \subsection draw Gestione dell'interfaccia
- * \n funzione ::cairo_disegna
- * \n funzione ::cairo_disegna_percorso
- * \n funzione ::crea_finestra_dialogo
- * \n funzione ::crea_finestra_info
- * \n funzione ::crea_finestra_principale
- * \n funzione ::mostra_info
- * \n funzione ::get_text_from_int trasforma un intero in testo per poterlo usare con CAIRO
-
+ * \n Per disegnare l'interfaccia il programma usa CAIRO e GTK+ 2.0.
+ * \n Le funzioni seguenti servono per gestire molti punti disegno del programma:
+ * \n ::cairo_disegna \a gestisce l'area dove verrà disegnato il percorso
+ * \n ::cairo_disegna_percorso \a disegna il percorso sulla mappa
+ * \n ::crea_finestra_dialogo \a crea una finestra di dialogo
+ * \n ::crea_finestra_info \a crea la finestra informazioni programma
+ * \n ::crea_finestra_principale \a crea la finestra principale del programma
+ * \n ::mostra_info \a visualizza la finestra delle informazioni
+ * \n ::get_text_from_int \a trasforma un intero in testo per poterlo usare con CAIRO
+ * \n
+ * \n Vedi anche:
+ * \n - creazione_interfaccia.cpp
+ * \n - g_callback.cpp
+ * \n - gestione_drawing_area.cpp
+ * \n
  * \n \subsection pathfinder Ricerca del percorso
- * \n funzione ::dijkstra
- * \n funzione ::getPath
-
+ * \n La ricerca del percorso viene fatta usando il pratico algoritmo Dijkstra per il calcolo dei cammini minimi da sorgente unica in un grafo.
+ * \n Le funzioni pubbliche da usare sono le seguenti:
+ * \n ::dijkstra \a Calcola il percorso minimo secondo l'algoritmo dijkstra
+ * \n ::getPath \a Ricostruisce il percorso e resetta il grafo per poterlo usare un'altra volta.
+ * \n Vedi anche:
+ * \n - pathfinder.cpp
+ * \n --------------------------------------------------------------------------
  * \n Vedi anche:
  * \n - \ref using
 
@@ -45,7 +73,7 @@
 
  * @page using Using trolaspic
  * \n  L'utilizzo di Trolaspic è molto semplice. Carica mappe scritte in un formato speciale.map con l'immagine relativa.
- * \n Clicca sul nodo dove vuoi partire e sul nodo dove vuoi arrivare, premendo calcola il risultato verrà visualizzato a schermo.
+ * \n Selezione il nodo da dove vuoi partire e il nodo dove vuoi arrivare, premendo calcola il risultato verrà visualizzato a schermo.
  * \n Vedi anche:
  * \n - \ref Intro
  * \n - \ref map

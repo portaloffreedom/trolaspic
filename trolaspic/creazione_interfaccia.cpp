@@ -6,7 +6,6 @@
 #include <fstream>
 #include <gtk/gtk.h>
 #include "main.h"
-//#include "g_callback.h"
 #include "gestione_drawing_area.h"
 using namespace std;
 void crea_scatola_richiesta_percorso (GtkWidget* box, passaggio_t *window, int limite_nodi){
