@@ -169,11 +169,10 @@ void cairo_disegna_percorso (GdkPixbuf* sfondo){
         double coo_x = GRAPH[nodo.nodo].x/X;
         double coo_y = GRAPH[nodo.nodo].y/Y;
 
-        //Disegna un Cerchiolino attorno al punto
-        //(disegna un arco da 0 a 2pi_greco e lo riempie)
-        cairo_set_source_rgb (cr, 0, 0.5, 1); //light blue
-        cairo_arc (cr,coo_x,coo_y, DIM_RADIUS, 0, M_PI*2);
-        cairo_fill (cr);
+
+        //imposta il colore come arancione
+        cairo_set_source_rgb (cr, 0, 0.5, 1); //arancione
+
 
 
         if (i!=1){
@@ -216,6 +215,18 @@ void cairo_disegna_percorso (GdkPixbuf* sfondo){
             }
             cairo_stroke(cr);
         }
+
+        //Carica il colore giusto a seconda se si è nel primo, nell'ultimo nodo
+        // o in mezzo
+        if (i==GRAPH[0].size_list)
+                cairo_set_source_rgb (cr, 0, 1, 0);//verde
+        if (i==1)
+                cairo_set_source_rgb (cr, 0, 0, 1);//rosso
+
+        //Disegna un Cerchiolino attorno al punto
+        //(disegna un arco da 0 a 2pi_greco e lo riempie)
+        cairo_arc (cr,coo_x,coo_y, DIM_RADIUS, 0, M_PI*2);
+        cairo_fill (cr);
 
         cairo_set_source_rgb (cr, 1, 0.5, 0.0); //light blue
         cairo_move_to(cr, coo_x-0.01, coo_y);
