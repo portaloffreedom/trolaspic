@@ -54,6 +54,7 @@ struct adiacenza{
     int y2;
     
 };
+/** Rinomino adiacenza come "arco" */
 typedef adiacenza arco;
 
 /** Struct per la rappresentazione dei nodi di cui e' composto il grafo.

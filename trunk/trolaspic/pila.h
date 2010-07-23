@@ -15,6 +15,7 @@ struct pila_ch{
     /** Variabile che memorizza quanto la pila sia realmente occupata */
     int ultimo_elem;
 };
+/** Definisco pila_char come puntatore alla struct ::pila_ch */
 typedef pila_ch* pila_char;
 
 /** Costruttore per la pila

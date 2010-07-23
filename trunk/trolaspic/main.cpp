@@ -19,7 +19,6 @@
  * \n funzione ::leggi_prox_char : Spiegazione funzione
  * \n funzione ::leggi_prox_double : Spiegazione funzione
  * \n funzione ::leggi_prox_int : spiegazione funzione
- * \n funzione ::leggi_prox_stringa : spiegazione_funzione
  * \n funzione ::imposta_segmentazione : spiegazione funzione
  * \n \subsubsection graph Gestione del grafo creato dalla mappa
  * \n funzione ::distruggi_grafo
@@ -93,7 +92,7 @@ int main(int argc, char** argv) {
 /**
  * @file main.cpp
  *
- * File che contiene il ciclo principale
+ * File che contiene il ciclo principale del programma.
  *
  *
  */
