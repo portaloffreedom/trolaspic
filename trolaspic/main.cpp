@@ -20,6 +20,7 @@
  * \n funzione ::leggi_prox_double : Spiegazione funzione
  * \n funzione ::leggi_prox_int : spiegazione funzione
  * \n funzione ::leggi_prox_stringa : spiegazione_funzione
+ * \n funzione ::imposta_segmentazione : spiegazione funzione
  * \n \subsubsection graph Gestione del grafo creato dalla mappa
  * \n funzione ::distruggi_grafo
  * \n funzione ::dim_grafo
@@ -30,9 +31,7 @@
  * \n funzione ::cairo_disegna_percorso
  * \n funzione ::crea_finestra_dialogo
  * \n funzione ::crea_finestra_info
- * \n funzione ::crea_finestra_non_carica
  * \n funzione ::crea_finestra_principale
- * \n funzione ::crea_finestra_richiesta_percorso
  * \n funzione ::mostra_info
  * \n funzione ::get_text_from_int trasforma un intero in testo per poterlo usare con CAIRO
 

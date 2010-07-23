@@ -216,11 +216,8 @@ GtkWidget *crea_finestra_info (GtkWidget* window, const gchar* testo){
 
 GtkWidget *crea_finestra_avviso(GtkWidget* parent, const gchar* testo){
 
-    GtkWidget* dialogo = gtk_message_dialog_new (GTK_WINDOW(parent),
-                                                 GTK_DIALOG_MODAL, GTK_MESSAGE_WARNING, GTK_BUTTONS_OK,
-                                                 "ATTENZIONE!", NULL);
-    gtk_message_dialog_format_secondary_text(GTK_MESSAGE_DIALOG(dialogo),
-            testo, NULL);
+    GtkWidget* dialogo = gtk_message_dialog_new (GTK_WINDOW(parent),GTK_DIALOG_MODAL, GTK_MESSAGE_WARNING,GTK_BUTTONS_OK,"ATTENZIONE!", NULL);
+    gtk_message_dialog_format_secondary_text(GTK_MESSAGE_DIALOG(dialogo),testo, NULL);
 
     return dialogo;
 }
