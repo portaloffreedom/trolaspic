@@ -7,6 +7,10 @@
 #include "pila.h"
 
 extern nodo* GRAPH;
+/**Costante che definisce lo spessore delle linee disegnate da cairo*/
+static const double DIM_LINEE = 0.013;
+/**Costante che definisce la dimensione dei font disegnati da cairo*/
+static const double DIM_FONT  = 0.03;
 
 /** Funzione che trasforma un intero (di massimo 5 cifre) in una stringa di caratteri
  * attenzione! la stringa è allocata in maniera dinamica, quindi bisogna deallocarla dopo avere utilizzato questa funzione
@@ -46,7 +50,7 @@ void cairo_disegna (GdkPixbuf *sfondo){
 
     //Imposto il colore del pennello, larghezza delle linee
     cairo_set_source_rgb (cr, 0, 1, 1); //giallo
-    cairo_set_line_width (cr, 0.015);
+    cairo_set_line_width (cr, DIM_LINEE);
 
     //Ciclo per tutti i nodi
     for (int i=1; i<=dim_grafo(); i++){
@@ -74,19 +78,40 @@ void cairo_disegna (GdkPixbuf *sfondo){
             
             double coo_adiacenza_x = GRAPH[adiacente.nodo].x/X;
             double coo_adiacenza_y = GRAPH[adiacente.nodo].y/Y;
+            double x1 = adiacente.x1/X;
+            double y1 = adiacente.y1/Y;
+            double x2 = adiacente.x2/X;
+            double y2 = adiacente.y2/Y;
 
-            GRAPH[i].adiacente.push_back(adiacente);
+           
             //- FINE ESTRAZIONE ------------------------------------------------
 
             //fai la linea fino all'adiacenza
-            cairo_line_to(cr, coo_adiacenza_x, coo_adiacenza_y);
+            switch (adiacente.segmentazione){
+                case bezier:
+                    cairo_curve_to(cr, x1, y1, x2, y2, coo_adiacenza_x, coo_adiacenza_y);
+                    break;
+                case rette:
+                    cairo_line_to(cr, x1, y1);
+                    cairo_line_to(cr, x2, y2);
+                case nessuna:
+                    cairo_line_to(cr, coo_adiacenza_x, coo_adiacenza_y);
+                    break;
+                default:
+                    cerr<<"lettura tipo di segmentazione del nodo "<<i
+                            <<"verso il nodo "<<adiacente.nodo<<" non corretta, settata su normale\n";
+                    cairo_line_to(cr, coo_adiacenza_x, coo_adiacenza_y);
+                    break;
+
+            }
             //spara il disegno
             cairo_stroke(cr);
+            GRAPH[i].adiacente.push_back(adiacente);
         }
     }
 
     //Settaggio dimensione, colore e tipo dei font
-    cairo_set_font_size (cr, 0.03);
+    cairo_set_font_size (cr, DIM_FONT);
     cairo_set_source_rgb (cr, 1, 0.5, 0.0); //light blue
     cairo_select_font_face (cr, "Georgia", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_NORMAL);
 
@@ -119,9 +144,9 @@ void cairo_disegna_percorso (GdkPixbuf* sfondo){
     cairo_scale (cr, GRAPH[0].x, GRAPH[0].y);
 
     //Imposta larghezza linee
-    cairo_set_line_width (cr, 0.015);
+    cairo_set_line_width (cr, DIM_LINEE);
     //Settaggio dimensione e tipo dei font
-    cairo_set_font_size (cr, 0.03);
+    cairo_set_font_size (cr, DIM_FONT);
     cairo_select_font_face (cr, "Georgia", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_NORMAL);
     int prec=0;
 
@@ -145,14 +170,43 @@ void cairo_disegna_percorso (GdkPixbuf* sfondo){
 
 
         if (i!=1){
+            adiacenza successivo = GRAPH[0].adiacente.front();
+            adiacenza arco_successivo = GRAPH[nodo.nodo].adiacente.front();
+
+            while (arco_successivo.nodo != successivo.nodo){
+                GRAPH[nodo.nodo].adiacente.pop_front();
+                GRAPH[nodo.nodo].adiacente.push_back(arco_successivo);
+                arco_successivo = GRAPH[nodo.nodo].adiacente.front();
+            }
+
+            double coo_x_succ = GRAPH[arco_successivo.nodo].x/X;
+            double coo_y_succ = GRAPH[arco_successivo.nodo].y/Y;
+
+            double x1 = arco_successivo.x1/X;
+            double y1 = arco_successivo.y1/Y;
+            double x2 = arco_successivo.x2/X;
+            double y2 = arco_successivo.y2/Y;
+
             cairo_move_to(cr, coo_x, coo_y);
 
-            adiacenza successivo = GRAPH[0].adiacente.front();
 
-            double coo_x_succ = GRAPH[successivo.nodo].x/X;
-            double coo_y_succ = GRAPH[successivo.nodo].y/Y;
+            switch (arco_successivo.segmentazione){
+                case bezier:
+                    cairo_curve_to(cr, x1, y1, x2, y2, coo_x_succ, coo_y_succ);
+                    break;
+                case rette:
+                    cairo_line_to(cr, x1, y1);
+                    cairo_line_to(cr, x2, y2);
+                case nessuna:
+                    cairo_line_to(cr, coo_x_succ, coo_y_succ);
+                    break;
+                default:
+                    cerr<<"lettura tipo di segmentazione del nodo "<<i
+                            <<"verso il nodo "<<arco_successivo.nodo<<" non corretta, settata su normale\n";
+                    cairo_line_to(cr, coo_x_succ, coo_y_succ);
+                    break;
 
-            cairo_line_to(cr, coo_x_succ, coo_y_succ);
+            }
             cairo_stroke(cr);
         }
 
