@@ -13,6 +13,8 @@ using namespace std;
 /**
  * La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l'indirizzo dell'array
  * dove viene memorizzato il grafo.
+ * È stato scelto di usare una variabile globale perché esiste un solo grafo caricabile alla volta nel programma, che deve essere disponibile
+ * per funzioni come il dijkstra.
  */
 nodo* GRAPH = 0;
 
@@ -143,9 +145,10 @@ void imposta_segmentazione (ifstream &source, arco &arco, tipo_segmentazione seg
 }
 
 /** Dato un file immagine cerca il corrispettivo in .map e se lo trova carica la
- * mappa, altrimenti da errore. *
+ * mappa, altrimenti da errore. 
  * @param nome Il Nome del file da caricare.
- * @return
+ * @return 0 se non riesce a caricare la mappa, altrimenti restituisce il numero di nodi presenti nella mappa.
+ * 
  */
 int carica_mappa(const char *filename){
 

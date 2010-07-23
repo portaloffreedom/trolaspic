@@ -14,21 +14,27 @@
  * \n Il metodo utilizzato per la ricerca del percorso più breve è quello dell'algoritmo Dijkstra. L'algoritmo Dijkstra opera solo su grafi con archi che hanno pesi positivi.
  * \n
  * \n \section funz Funzionamento di base
- * \n
+ * \n Il programma carica una mappa in formato png e il suo corrispettivo in map, crea i percorsi e il collegamento dei nodi
+ * e permette di selezionare i nodi di inizio e di arrivo per calcolarne il percorso più corto o quello che impiega meno tempo.
+ * \n I sensi unici vengondo calcolati ma non segnati sulla mappa, ma sono visibili dal file png.
  * \n \subsection map Gestione della mappa
  * \n Il programma gestisce le mappe come una coppia di file .png e .map chiamati con lo stesso nome. Il formato del file map è univoco e dalla formattazione obbligata.
  * \n ecco un esempio del formato file:
- *
+ * \n
+ * \n \p risoluzione_x x \p risoluzione_y # la risoluzione dell'immagine png allegata al file.
+ * \n Nodi_totali  # i nodi totali contenuti nella mappa
  * \n  NUMNODO ( Coord_x Coord_y ) n: numeronodiadiacenti
  * \n  ---( numnodoadiac distanza_km tempo_sec )                                           # L'arco è una retta fra i 2 nodi
  * \n  ---( numnodoadiac distanza_km tempo_sec ) { B coord_x1 coord_y1 coord_x2 coord_y2 } # L'arco è una curva di bezier
  * \n  ---( numnodoadiac distanza_km tempo_sec ) { R coord_x1 coord_y1 coord_x2 coord_y2 } # L'arco è una retta spezzata
  * \n  # questo è un commento
- * \n  ---$ #questa è la fine del nodo e delle sue adiacenze
+ * \n  ---$ # questa è la fine del nodo e delle sue adiacenze
  * \n
  * \n Le seguenti funzioni servono per il caricamento della mappa:
  *
  * \n ::carica_mappa
+ * \n Vedi anche:
+ * \n - grafo.cpp
  * \n
  * \n \subsubsection graph Gestione del grafo creato dalla mappa
  * \n Il caricamento del file (vedi \ref map) crea un grafo che può essere gestito
