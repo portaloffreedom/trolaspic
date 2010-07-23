@@ -20,6 +20,7 @@ enum t_incrocio {
     strada              //
 };
 
+/** enumerato per la tipologia di segmentazione utilizzata per disegnare l'arco*/
 enum tipo_segmentazione {
     nessuna,
     rette,
@@ -98,7 +99,7 @@ struct nodo {
 };
 
 extern nodo* GRAPH;
-//void graph_loader(GtkWidget* widget,ifstream &file);
+
 int carica_mappa(const char *filename);
 
 int dim_grafo(void);

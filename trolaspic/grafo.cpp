@@ -33,7 +33,6 @@ static const double INFINITO = numeric_limits<double>::max();
 
 /** Distrugge il grafo e ne setta il puntatore a zero.
  * Questa funzione distrugge inoltre le liste di tutti i nodi del grafo,compresa la lista dei nodi della soluzione. */
-
 void distruggi_grafo(){
     if(GRAPH == 0) return;
     int dim = dim_grafo();
@@ -77,6 +76,7 @@ int leggi_prox_int(ifstream &source){
         }
     }
 }
+
 /** Serve per nascondere alla funzione i commenti nello stream
  *
  * @param stream sorgente da cui prelevare il carattere
@@ -127,34 +127,12 @@ char leggi_prox_char(ifstream &source){
     }
 }
 
-/** Serve per nascondere alla funzione i commenti nello stream
+/** Imposta i valori negli archi per la segmentazione degli archi leggendoli da file
  *
- * @param stream sorgente da cui prelevare il carattere
- * @return il la stringa prelevata dallo stream
+ * @param source sorgente da cui leggere
+ * @param arco su cui scrivere
+ * @param segmentazione tipo di segmentazione da caricare dal file
  */
-char *leggi_prox_stringa(ifstream &source){
-    char *stringa = new char[MAX_LUNGH_STRINGA];
-    char carattere;
-    while (true)
-    {
-        source>>carattere;
-        if (carattere=='#'){
-            /*
-            while (carattere!='\n'){
-                source>>carattere;
-                cout<<':'<<carattere
-            }*/
-            source.ignore(MAX_SALTO,'\n');
-        }
-        else {
-        int posizione = source.tellg();
-        source.seekg(--posizione);
-        source>>stringa;
-        return  stringa;
-        }
-    }
-}
-
 void imposta_segmentazione (ifstream &source, arco &arco, tipo_segmentazione segmentazione){
     arco.segmentazione= segmentazione;
     arco.x1=leggi_prox_int(source);
@@ -169,8 +147,7 @@ void imposta_segmentazione (ifstream &source, arco &arco, tipo_segmentazione seg
  *
  * @param nome del file (trasforma da solo in .map)
  */
-int carica_mappa(const char *filename)
-{
+int carica_mappa(const char *filename){
 
     //TRASFORMA IL FILENAME PER CARICARE IL .MAP********************************
     int i;
