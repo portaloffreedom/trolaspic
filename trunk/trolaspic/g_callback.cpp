@@ -82,7 +82,22 @@ void response_carica (passaggio_t *window){
             const char *filename = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (dialogo));
             DBG(cout<<"Nome del file: "<<filename<<endl);
 
+            //******************************************************************
+            //*** CONTROLLO CHE IL FILE DA CARICARE SIA IN PNG *****************
+            //******************************************************************
+            int i;
+            bool errore_png =false;
+            for (i=0; filename[i]!='\0';i++);
+            if (filename[--i]!= 'g') errore_png= true;
+            if (filename[--i]!= 'n') errore_png= true;
+            if (filename[--i]!= 'p') errore_png= true;
 
+            if (errore_png){
+                finestra_di_avviso(dialogo,"Solo i file *.png sono validi" );
+                delete[] filename;
+                gtk_widget_destroy (dialogo);
+                return;
+            }
             //******************************************************************
             //*** CARICAMENTO DEI NODI DELLA MAPPA (.MAP) **********************
             //******************************************************************
@@ -94,10 +109,6 @@ void response_carica (passaggio_t *window){
                 gtk_widget_destroy (dialogo);
                 return;
             }
-            gtk_spin_button_set_range(GTK_SPIN_BUTTON(window->spin_partenza), 1, dim_grafo());
-            gtk_spin_button_set_range(GTK_SPIN_BUTTON(window->spin_arrivo)  , 1, dim_grafo());
-            mostra_calcola_percorso(window);
-            //******************************************************************
 
             //******************************************************************
             //*** CARICAMENTO DELL'IMMAGINE DELLA MAPPA ************************
@@ -115,24 +126,22 @@ void response_carica (passaggio_t *window){
                 return;
             }
             if (errore!=0) gdk_pixbuf_unref (window->sfondo);
-            window->sfondo = immagine_mappa;
+
+            gtk_spin_button_set_range(GTK_SPIN_BUTTON(window->spin_partenza), 1, dim_grafo());
+            gtk_spin_button_set_range(GTK_SPIN_BUTTON(window->spin_arrivo)  , 1, dim_grafo());
+            mostra_calcola_percorso(window);
            
 
 
-
+            window->sfondo = immagine_mappa;
             if (errore!=0) g_error_free (errore);
             
-            //**Alternativa, caricamento direttamente da file
-            //gtk_image_set_from_file ((GTK_IMAGE(window->image), filename);
-           
-
             DBG(cout<<"Sto per chiamare le librerie CAIRO\n")
             cairo_disegna(immagine_mappa);
             
             gtk_image_set_from_pixbuf (GTK_IMAGE(window->image), immagine_mappa);
 
 
-            //mappa_caricata= true;
             delete[] filename;
         }
         default:

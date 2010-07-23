@@ -23,7 +23,7 @@ using namespace std;
     #define PERCORSO "./NetBeansProjects/trolaspic_code/trunk/trolaspic"
 #endif
 
-#define VERSION "1.2.2 RC"
+#define VERSION "1.2.3 RC"
 
 /** Stabilisce se il calcolo del percorso deve essere fatto considerando il tempo di percorrenza o la lunghezza della strada. */
 enum tipo_calcolo {
