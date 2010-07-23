@@ -48,6 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="2"><h2>Strutture dati</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpila__ch.html">pila_ch</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Struct che è utilizzata come contenitore della pila.  <a href="structpila__ch.html#_details">Continua...</a><br/></td></tr>
 <tr><td colspan="2"><h2>Ridefinizioni di tipo (typedef)</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="structpila__ch.html">pila_ch</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="pila_8h.html#a13703921da3fd876622a031bf3596e37">pila_char</a></td></tr>
 <tr><td colspan="2"><h2>Funzioni</h2></td></tr>
@@ -100,12 +101,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </dl>
 <dl class="return"><dt><b>Restituisce:</b></dt><dd>l'"oggetto" pila </dd></dl>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00003"></a>00003                                       {
-<a name="l00004"></a>00004 
-<a name="l00005"></a>00005     <a class="code" href="structpila__ch.html">pila_char</a> pila = <span class="keyword">new</span> <a class="code" href="structpila__ch.html">pila_ch</a>;
-<a name="l00006"></a>00006     pila-&gt;<a class="code" href="structpila__ch.html#aeb4130b46108ba0aefbb3065bb1709b3">ultimo_elem</a>=0;
-<a name="l00007"></a>00007     pila-&gt;<a class="code" href="structpila__ch.html#a75e39e9f4e2073f1c04f3b5d95196e4a">pila</a>= <span class="keyword">new</span> <span class="keywordtype">char</span>[max_elem];
-<a name="l00008"></a>00008 }
+<p><div class="fragment"><pre class="fragment"><a name="l00007"></a>00007                                       {
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009     <a class="code" href="structpila__ch.html" title="Struct che è utilizzata come contenitore della pila.">pila_char</a> pila = <span class="keyword">new</span> <a class="code" href="structpila__ch.html" title="Struct che è utilizzata come contenitore della pila.">pila_ch</a>;
+<a name="l00010"></a>00010     pila-&gt;<a class="code" href="structpila__ch.html#aeb4130b46108ba0aefbb3065bb1709b3" title="Variabile che memorizza quanto la pila sia realmente occupata.">ultimo_elem</a>=0;
+<a name="l00011"></a>00011     pila-&gt;<a class="code" href="structpila__ch.html#a75e39e9f4e2073f1c04f3b5d95196e4a" title="Puntatore ad un array di caratteri (l&amp;#39;array è effettivamente la pila).">pila</a>= <span class="keyword">new</span> <span class="keywordtype">char</span>[max_elem];
+<a name="l00012"></a>00012     <span class="keywordflow">return</span> pila;
+<a name="l00013"></a>00013 }
 </pre></div></p>
 
 </div>
@@ -134,11 +136,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
   </dd>
 </dl>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00022"></a>00022                                         {
-<a name="l00023"></a>00023     <span class="keyword">delete</span>[] pila-&gt;<a class="code" href="structpila__ch.html#a75e39e9f4e2073f1c04f3b5d95196e4a">pila</a>;
-<a name="l00024"></a>00024     <span class="keyword">delete</span>[] pila;
-<a name="l00025"></a>00025     <span class="keywordflow">return</span>;
-<a name="l00026"></a>00026 }</pre></div></p>
+<p><div class="fragment"><pre class="fragment"><a name="l00027"></a>00027                                         {
+<a name="l00028"></a>00028     <span class="keyword">delete</span>[] pila-&gt;<a class="code" href="structpila__ch.html#a75e39e9f4e2073f1c04f3b5d95196e4a" title="Puntatore ad un array di caratteri (l&amp;#39;array è effettivamente la pila).">pila</a>;
+<a name="l00029"></a>00029     <span class="keyword">delete</span>[] pila;
+<a name="l00030"></a>00030     <span class="keywordflow">return</span>;
+<a name="l00031"></a>00031 }</pre></div></p>
 
 </div>
 </div>
@@ -167,11 +169,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </dl>
 <dl class="return"><dt><b>Restituisce:</b></dt><dd>carattere estratto dalla pila </dd></dl>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00016"></a>00016                                   {
-<a name="l00017"></a>00017     <span class="keywordtype">char</span> carattere = pila-&gt;<a class="code" href="structpila__ch.html#a75e39e9f4e2073f1c04f3b5d95196e4a">pila</a>[pila-&gt;<a class="code" href="structpila__ch.html#aeb4130b46108ba0aefbb3065bb1709b3">ultimo_elem</a>];
-<a name="l00018"></a>00018     pila-&gt;<a class="code" href="structpila__ch.html#aeb4130b46108ba0aefbb3065bb1709b3">ultimo_elem</a>--;
-<a name="l00019"></a>00019     <span class="keywordflow">return</span> carattere;
-<a name="l00020"></a>00020 }
+<p><div class="fragment"><pre class="fragment"><a name="l00021"></a>00021                                   {
+<a name="l00022"></a>00022     <span class="keywordtype">char</span> carattere = pila-&gt;<a class="code" href="structpila__ch.html#a75e39e9f4e2073f1c04f3b5d95196e4a" title="Puntatore ad un array di caratteri (l&amp;#39;array è effettivamente la pila).">pila</a>[pila-&gt;<a class="code" href="structpila__ch.html#aeb4130b46108ba0aefbb3065bb1709b3" title="Variabile che memorizza quanto la pila sia realmente occupata.">ultimo_elem</a>];
+<a name="l00023"></a>00023     pila-&gt;<a class="code" href="structpila__ch.html#aeb4130b46108ba0aefbb3065bb1709b3" title="Variabile che memorizza quanto la pila sia realmente occupata.">ultimo_elem</a>--;
+<a name="l00024"></a>00024     <span class="keywordflow">return</span> carattere;
+<a name="l00025"></a>00025 }
 </pre></div></p>
 
 </div>
@@ -210,11 +212,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
   </dd>
 </dl>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00010"></a>00010                                                    {
-<a name="l00011"></a>00011     pila-&gt;<a class="code" href="structpila__ch.html#aeb4130b46108ba0aefbb3065bb1709b3">ultimo_elem</a>++;
-<a name="l00012"></a>00012     pila-&gt;<a class="code" href="structpila__ch.html#a75e39e9f4e2073f1c04f3b5d95196e4a">pila</a>[pila-&gt;<a class="code" href="structpila__ch.html#aeb4130b46108ba0aefbb3065bb1709b3">ultimo_elem</a>]=carattere;
-<a name="l00013"></a>00013     <span class="keywordflow">return</span>;
-<a name="l00014"></a>00014 }
+<p><div class="fragment"><pre class="fragment"><a name="l00015"></a>00015                                                    {
+<a name="l00016"></a>00016     pila-&gt;<a class="code" href="structpila__ch.html#aeb4130b46108ba0aefbb3065bb1709b3" title="Variabile che memorizza quanto la pila sia realmente occupata.">ultimo_elem</a>++;
+<a name="l00017"></a>00017     pila-&gt;<a class="code" href="structpila__ch.html#a75e39e9f4e2073f1c04f3b5d95196e4a" title="Puntatore ad un array di caratteri (l&amp;#39;array è effettivamente la pila).">pila</a>[pila-&gt;<a class="code" href="structpila__ch.html#aeb4130b46108ba0aefbb3065bb1709b3" title="Variabile che memorizza quanto la pila sia realmente occupata.">ultimo_elem</a>]=carattere;
+<a name="l00018"></a>00018     <span class="keywordflow">return</span>;
+<a name="l00019"></a>00019 }
 </pre></div></p>
 
 </div>
@@ -234,7 +236,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generato il Thu Jul 22 17:43:50 2010 per Trolaspic da&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generato il Fri Jul 23 05:15:48 2010 per Trolaspic da&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

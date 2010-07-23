@@ -1,8 +1,7 @@
-/* 
- * File:   grafo.h
- * Author: stengun
- *
- * Created on 9 luglio 2010, 14.13
+/**
+ * @file grafo.h Interfaccia per le funzioni pubbliche necessarie a manipolare il grafo.
+ * Referenzia le funzioni di grafo.cpp
+ * 
  */
 
 #ifndef GRAFO_H

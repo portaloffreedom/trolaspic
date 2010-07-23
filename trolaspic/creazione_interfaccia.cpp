@@ -1,3 +1,7 @@
+/**
+ * @file creazione_interfaccia.cpp Questo file racchiude tutte le funzioni necessarie per disegnare le finestre.
+ * Utilizza gtk per disegnare le finestre.
+ */
 #include <iostream>
 #include <fstream>
 #include <gtk/gtk.h>

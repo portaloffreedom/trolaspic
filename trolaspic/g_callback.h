@@ -1,8 +1,5 @@
-/* 
- * File:   g_callback.h
- * Author: matteo
- *
- * Created on 8 luglio 2010, 19.00
+/**
+ * @file g_callback.h Contiene le funzioni pubbliche per il file g_callback.cpp
  */
 
 #ifndef G_CALLBACK_H

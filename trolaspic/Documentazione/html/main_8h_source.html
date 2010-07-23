@@ -41,13 +41,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
       <li><a href="globals.html"><span>Elementi&nbsp;globali</span></a></li>
     </ul>
   </div>
-<h1>main.h</h1><a href="main_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* </span>
-<a name="l00002"></a>00002 <span class="comment"> * File:   main.h</span>
-<a name="l00003"></a>00003 <span class="comment"> * Author: matteo</span>
-<a name="l00004"></a>00004 <span class="comment"> *</span>
-<a name="l00005"></a>00005 <span class="comment"> * Created on 8 luglio 2010, 18.50</span>
-<a name="l00006"></a>00006 <span class="comment"> */</span>
-<a name="l00007"></a>00007 
+<h1>main.h</h1><a href="main_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
 <a name="l00008"></a>00008 <span class="preprocessor">#ifndef MAIN_H</span>
 <a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define MAIN_H</span>
 <a name="l00010"></a>00010 <span class="preprocessor"></span><span class="preprocessor">#include &lt;gtk/gtk.h&gt;</span>
@@ -66,39 +60,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00023"></a>00023 <span class="preprocessor"></span><span class="preprocessor">    #define PERCORSO &quot;./NetBeansProjects/trolaspic_code/trunk/trolaspic&quot;</span>
 <a name="l00024"></a>00024 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
 <a name="l00025"></a>00025 <span class="preprocessor"></span>
-<a name="l00026"></a><a class="code" href="main_8h.html#a1c6d5de492ac61ad29aec7aa9a436bbf">00026</a> <span class="preprocessor">#define VERSION &quot;0.8.1a - Fillix&quot;</span>
+<a name="l00026"></a><a class="code" href="main_8h.html#a1c6d5de492ac61ad29aec7aa9a436bbf">00026</a> <span class="preprocessor">#define VERSION &quot;1.2.0 RC&quot;</span>
 <a name="l00027"></a>00027 <span class="preprocessor"></span>
-<a name="l00028"></a><a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bf">00028</a> <span class="keyword">enum</span> <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bf">tipo_calcolo</a> {
-<a name="l00029"></a><a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bfa427ed8e19072736c76c868f1556b36d5">00029</a>     <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bfa427ed8e19072736c76c868f1556b36d5">per_tempo</a>,
-<a name="l00030"></a><a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bfacc850434d7f4bfd58679685788302a96">00030</a>     <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bfacc850434d7f4bfd58679685788302a96">per_distanza</a>
-<a name="l00031"></a>00031 };
-<a name="l00032"></a>00032 
-<a name="l00033"></a><a class="code" href="structpassaggio__t.html">00033</a> <span class="keyword">struct </span><a class="code" href="structpassaggio__t.html">passaggio_t</a> {
-<a name="l00034"></a><a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716">00034</a>     GtkWidget* <a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716">finestra</a>;
-<a name="l00035"></a><a class="code" href="structpassaggio__t.html#aca3ce88e19981e9dcb95d81847accacd">00035</a>     GtkWidget* <a class="code" href="structpassaggio__t.html#aca3ce88e19981e9dcb95d81847accacd">info_i</a>;
-<a name="l00036"></a><a class="code" href="structpassaggio__t.html#aa329b6ef38c6eeca1bdee5fff61756ff">00036</a>     GtkWidget* <a class="code" href="structpassaggio__t.html#aa329b6ef38c6eeca1bdee5fff61756ff">esci_i</a>;
-<a name="l00037"></a><a class="code" href="structpassaggio__t.html#a5a082534a42d7c5cffcbdbd70cc5e19d">00037</a>     GtkWidget* <a class="code" href="structpassaggio__t.html#a5a082534a42d7c5cffcbdbd70cc5e19d">carica_i</a>;
-<a name="l00038"></a><a class="code" href="structpassaggio__t.html#a1c2b2a5d65cba6d29c9c5341739c4230">00038</a>     GtkWidget* <a class="code" href="structpassaggio__t.html#a1c2b2a5d65cba6d29c9c5341739c4230">calcola_i</a>;
-<a name="l00039"></a><a class="code" href="structpassaggio__t.html#ad50630b1eb694021a5e7e79231ed0afb">00039</a>     GtkWidget* <a class="code" href="structpassaggio__t.html#ad50630b1eb694021a5e7e79231ed0afb">image</a>;
-<a name="l00040"></a><a class="code" href="structpassaggio__t.html#a5431827fe1cf5a5b54d0d2a35d0d9011">00040</a>     GtkWidget* <a class="code" href="structpassaggio__t.html#a5431827fe1cf5a5b54d0d2a35d0d9011">radio_distanza</a>;
-<a name="l00041"></a><a class="code" href="structpassaggio__t.html#a6ecc61f17027bc237b4efbf1280b3c5c">00041</a>     GtkWidget* <a class="code" href="structpassaggio__t.html#a6ecc61f17027bc237b4efbf1280b3c5c">radio_tempo</a>;
-<a name="l00042"></a><a class="code" href="structpassaggio__t.html#acaf6299dada3ac41ec74f34c6250d7f6">00042</a>     <span class="keywordtype">int</span> <a class="code" href="structpassaggio__t.html#acaf6299dada3ac41ec74f34c6250d7f6">massimo_numero_nodi</a>;
-<a name="l00043"></a><a class="code" href="structpassaggio__t.html#a01624ae4eed6b66ca275ea8457aec982">00043</a>     gulong <a class="code" href="structpassaggio__t.html#a01624ae4eed6b66ca275ea8457aec982">calcola_id</a>;
-<a name="l00044"></a><a class="code" href="structpassaggio__t.html#aa13f695bba4cfbe364a8f042c3300706">00044</a>     gulong <a class="code" href="structpassaggio__t.html#aa13f695bba4cfbe364a8f042c3300706">errore_id</a>;
-<a name="l00045"></a>00045 };
-<a name="l00046"></a>00046 
-<a name="l00047"></a><a class="code" href="structpassaggio__t2.html">00047</a> <span class="keyword">struct </span><a class="code" href="structpassaggio__t2.html">passaggio_t2</a> {
-<a name="l00048"></a><a class="code" href="structpassaggio__t2.html#a6aa1208081e1c1c4bc6b2ac19537774e">00048</a>     GtkWidget* <a class="code" href="structpassaggio__t2.html#a6aa1208081e1c1c4bc6b2ac19537774e">finestra</a>;
-<a name="l00049"></a><a class="code" href="structpassaggio__t2.html#aa0413153e37605629717448f97c6075a">00049</a>     GtkWidget* <a class="code" href="structpassaggio__t2.html#aa0413153e37605629717448f97c6075a">radio_distanza</a>;
-<a name="l00050"></a><a class="code" href="structpassaggio__t2.html#ab262b8237f260da45f3478f3b407c717">00050</a>     GtkWidget* <a class="code" href="structpassaggio__t2.html#ab262b8237f260da45f3478f3b407c717">radio_tempo</a>;
-<a name="l00051"></a><a class="code" href="structpassaggio__t2.html#ad74401e2d4f8ce223f9a1e5ddcb4923a">00051</a>     GtkWidget* <a class="code" href="structpassaggio__t2.html#ad74401e2d4f8ce223f9a1e5ddcb4923a">partenza_t</a>;
-<a name="l00052"></a><a class="code" href="structpassaggio__t2.html#a2d96950f3d71abbff31f7b91a57d899f">00052</a>     GtkWidget* <a class="code" href="structpassaggio__t2.html#a2d96950f3d71abbff31f7b91a57d899f">arrivo_t</a>;
-<a name="l00053"></a><a class="code" href="structpassaggio__t2.html#a79a70aec19148e59d3a9c7d93358e02e">00053</a>     <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bf">tipo_calcolo</a> <a class="code" href="structpassaggio__t2.html#a79a70aec19148e59d3a9c7d93358e02e">t_calcolo</a>;
-<a name="l00054"></a>00054 };
-<a name="l00055"></a>00055 
-<a name="l00056"></a>00056 
-<a name="l00057"></a>00057 <span class="preprocessor">#endif  </span><span class="comment">/* MAIN_H */</span>
-<a name="l00058"></a>00058 
+<a name="l00029"></a><a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bf">00029</a> <span class="keyword">enum</span> <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bf" title="Stabilisce se il calcolo del percorso deve essere fatto considerando il tempo di...">tipo_calcolo</a> {
+<a name="l00030"></a><a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bfa427ed8e19072736c76c868f1556b36d5">00030</a>     <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bfa427ed8e19072736c76c868f1556b36d5">per_tempo</a>,
+<a name="l00031"></a><a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bfacc850434d7f4bfd58679685788302a96">00031</a>     <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bfacc850434d7f4bfd58679685788302a96">per_distanza</a>
+<a name="l00032"></a>00032 };
+<a name="l00033"></a>00033 
+<a name="l00036"></a><a class="code" href="structpassaggio__t.html">00036</a> <span class="keyword">struct </span><a class="code" href="structpassaggio__t.html" title="Struct per contenere tutti i puntatori dei widget e degli oggetti creati nella finestra...">passaggio_t</a> {
+<a name="l00038"></a><a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716">00038</a>     GtkWidget* <a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716" title="Puntatore alla finestra principale.">finestra</a>;
+<a name="l00040"></a><a class="code" href="structpassaggio__t.html#aca3ce88e19981e9dcb95d81847accacd">00040</a>     GtkWidget* <a class="code" href="structpassaggio__t.html#aca3ce88e19981e9dcb95d81847accacd" title="Puntatore al menu item info nel menu programma.">info_i</a>;
+<a name="l00042"></a><a class="code" href="structpassaggio__t.html#aa329b6ef38c6eeca1bdee5fff61756ff">00042</a>     GtkWidget* <a class="code" href="structpassaggio__t.html#aa329b6ef38c6eeca1bdee5fff61756ff" title="Puntatore al menu item esci nel menu programma.">esci_i</a>;
+<a name="l00044"></a><a class="code" href="structpassaggio__t.html#a5a082534a42d7c5cffcbdbd70cc5e19d">00044</a>     GtkWidget* <a class="code" href="structpassaggio__t.html#a5a082534a42d7c5cffcbdbd70cc5e19d" title="Puntatore al menu item carica nel menu mappa.">carica_i</a>;
+<a name="l00046"></a><a class="code" href="structpassaggio__t.html#ad50630b1eb694021a5e7e79231ed0afb">00046</a>     GtkWidget* <a class="code" href="structpassaggio__t.html#ad50630b1eb694021a5e7e79231ed0afb" title="Puntatore al widget che contiene l&amp;#39;immagine.">image</a>;
+<a name="l00048"></a><a class="code" href="structpassaggio__t.html#aa06cc63adb7d8557095422f5855975f5">00048</a>     GdkPixbuf* <a class="code" href="structpassaggio__t.html#aa06cc63adb7d8557095422f5855975f5" title="Puntatore al PixBuffer che deve essere caricato dentro il Widget Immagine.">sfondo</a>;
+<a name="l00052"></a><a class="code" href="structpassaggio__t.html#acaf6299dada3ac41ec74f34c6250d7f6">00052</a>     <span class="keywordtype">int</span> <a class="code" href="structpassaggio__t.html#acaf6299dada3ac41ec74f34c6250d7f6" title="Intero che memorizza quanti nodi ci sono caricati nel grafo.">massimo_numero_nodi</a>;
+<a name="l00054"></a><a class="code" href="structpassaggio__t.html#ab228406e4bc2a192c6c58967b114dc0b">00054</a>     GtkWidget* <a class="code" href="structpassaggio__t.html#ab228406e4bc2a192c6c58967b114dc0b" title="Puntatore al label che intitola l&amp;#39;interfaccia di calcolo del percorso.">domanda_calcola</a>;
+<a name="l00056"></a><a class="code" href="structpassaggio__t.html#a4ef3ea6adc0302ad97c2ad37ad3523f0">00056</a>     GtkWidget* <a class="code" href="structpassaggio__t.html#a4ef3ea6adc0302ad97c2ad37ad3523f0" title="Puntatore alla scatola che contiene gli oggetti per il calcolo del percorso.">scatola_calcola</a>;
+<a name="l00058"></a><a class="code" href="structpassaggio__t.html#ac4167be93d90c04d2c334b8e2db5d146">00058</a>     GtkWidget* <a class="code" href="structpassaggio__t.html#ac4167be93d90c04d2c334b8e2db5d146" title="Puntatore allo spin della partenza.">spin_partenza</a>;
+<a name="l00060"></a><a class="code" href="structpassaggio__t.html#ae6d455a0bd3a8ece17643942b090e3c9">00060</a>     GtkWidget* <a class="code" href="structpassaggio__t.html#ae6d455a0bd3a8ece17643942b090e3c9" title="Puntatore allo spin dell&amp;#39;arrivo.">spin_arrivo</a>;
+<a name="l00062"></a><a class="code" href="structpassaggio__t.html#a5431827fe1cf5a5b54d0d2a35d0d9011">00062</a>     GtkWidget* <a class="code" href="structpassaggio__t.html#a5431827fe1cf5a5b54d0d2a35d0d9011" title="Puntatore al radio-pulsante che sceglie di calcolare il percorso per distanza.">radio_distanza</a>;
+<a name="l00064"></a><a class="code" href="structpassaggio__t.html#a6ecc61f17027bc237b4efbf1280b3c5c">00064</a>     GtkWidget* <a class="code" href="structpassaggio__t.html#a6ecc61f17027bc237b4efbf1280b3c5c" title="Puntatore al radio-pulsante che sceglie di calcolare il percorso per tempo.">radio_tempo</a>;
+<a name="l00066"></a><a class="code" href="structpassaggio__t.html#aced6fddabaa3071a4791a7df6ada130a">00066</a>     GtkWidget* <a class="code" href="structpassaggio__t.html#aced6fddabaa3071a4791a7df6ada130a" title="Puntatore al pulsante che fa partire il calcolo del percorso.">pulsante_calcola</a>;
+<a name="l00069"></a><a class="code" href="structpassaggio__t.html#ad29162c8ccabc070ad85471558ecc28c">00069</a>     <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bf" title="Stabilisce se il calcolo del percorso deve essere fatto considerando il tempo di...">tipo_calcolo</a> <a class="code" href="structpassaggio__t.html#ad29162c8ccabc070ad85471558ecc28c" title="Variabile utilizzata per memorizzarci quale percorso verrà utilizzato nel calcolare...">t_calcolo</a>;
+<a name="l00070"></a>00070 };
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073 <span class="preprocessor">#endif  </span><span class="comment">/* MAIN_H */</span>
+<a name="l00074"></a>00074 
 </pre></div></div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -114,7 +103,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generato il Thu Jul 22 17:43:49 2010 per Trolaspic da&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generato il Fri Jul 23 05:15:47 2010 per Trolaspic da&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

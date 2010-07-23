@@ -1,8 +1,7 @@
-/* 
- * File:   gestione_drawing_area.h
- * Author: matteo
+/**
+ * @file gestione_drawing_area.h Header contenente l'interfaccia pubblica delle funzioni CAIRO.
+ * Referenzia tutte le funzioni pubbliche gestione_drawing_area.cpp
  *
- * Created on 12 luglio 2010, 15.32
  */
 
 #ifndef GESTIONE_DRAWING_AREA_H

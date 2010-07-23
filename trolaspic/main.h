@@ -1,8 +1,8 @@
-/* 
- * File:   main.h
- * Author: matteo
+/**
+ * @file main.h Contiene i dati fondamentali necessari a tutti i modoli del programma.
+ * Ogni modulo del programma deve avere incluso questo file.
+ * Contiene la versione del file, gli enumerati e gli struct fondamentali.
  *
- * Created on 8 luglio 2010, 18.50
  */
 
 #ifndef MAIN_H
@@ -25,6 +25,7 @@ using namespace std;
 
 #define VERSION "1.2.0 RC"
 
+/** Stabilisce se il calcolo del percorso deve essere fatto considerando il tempo di percorrenza o la lunghezza della strada. */
 enum tipo_calcolo {
     per_tempo,
     per_distanza

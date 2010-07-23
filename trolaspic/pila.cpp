@@ -1,3 +1,7 @@
+/**
+ * @file pila.cpp Viene utilizzato dalla funzione ::get_text_from_int e simula una pila.
+ */
+
 #include "pila.h"
 
 pila_char crea_pila_char(int max_elem){

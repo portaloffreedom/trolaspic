@@ -44,48 +44,46 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div>
 <div class="contents">
 <h1>Riferimenti per la struct passaggio_t</h1><!-- doxytag: class="passaggio_t" -->
+<p>Struct per contenere tutti i puntatori dei widget e degli oggetti creati nella finestra principale e necessari alle altre funzioni.  
+<a href="#_details">Continua...</a></p>
+
 <p><code>#include &lt;<a class="el" href="main_8h_source.html">main.h</a>&gt;</code></p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="2"><h2>Campi</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">GtkWidget *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716">finestra</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Puntatore alla finestra principale.  <a href="#aa86fd4dd84c7047361c0fbd2dc2fe716"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">GtkWidget *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpassaggio__t.html#aca3ce88e19981e9dcb95d81847accacd">info_i</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Puntatore al menu item info nel menu programma.  <a href="#aca3ce88e19981e9dcb95d81847accacd"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">GtkWidget *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpassaggio__t.html#aa329b6ef38c6eeca1bdee5fff61756ff">esci_i</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Puntatore al menu item esci nel menu programma.  <a href="#aa329b6ef38c6eeca1bdee5fff61756ff"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">GtkWidget *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpassaggio__t.html#a5a082534a42d7c5cffcbdbd70cc5e19d">carica_i</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">GtkWidget *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpassaggio__t.html#a1c2b2a5d65cba6d29c9c5341739c4230">calcola_i</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Puntatore al menu item carica nel menu mappa.  <a href="#a5a082534a42d7c5cffcbdbd70cc5e19d"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">GtkWidget *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpassaggio__t.html#ad50630b1eb694021a5e7e79231ed0afb">image</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">GtkWidget *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpassaggio__t.html#a5431827fe1cf5a5b54d0d2a35d0d9011">radio_distanza</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">GtkWidget *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpassaggio__t.html#a6ecc61f17027bc237b4efbf1280b3c5c">radio_tempo</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Puntatore al widget che contiene l'immagine.  <a href="#ad50630b1eb694021a5e7e79231ed0afb"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">GdkPixbuf *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpassaggio__t.html#aa06cc63adb7d8557095422f5855975f5">sfondo</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Puntatore al PixBuffer che deve essere caricato dentro il Widget Immagine.  <a href="#aa06cc63adb7d8557095422f5855975f5"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpassaggio__t.html#acaf6299dada3ac41ec74f34c6250d7f6">massimo_numero_nodi</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">gulong&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpassaggio__t.html#a01624ae4eed6b66ca275ea8457aec982">calcola_id</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">gulong&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpassaggio__t.html#aa13f695bba4cfbe364a8f042c3300706">errore_id</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Intero che memorizza quanti nodi ci sono caricati nel grafo.  <a href="#acaf6299dada3ac41ec74f34c6250d7f6"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">GtkWidget *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpassaggio__t.html#ab228406e4bc2a192c6c58967b114dc0b">domanda_calcola</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Puntatore al label che intitola l'interfaccia di calcolo del percorso.  <a href="#ab228406e4bc2a192c6c58967b114dc0b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">GtkWidget *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpassaggio__t.html#a4ef3ea6adc0302ad97c2ad37ad3523f0">scatola_calcola</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Puntatore alla scatola che contiene gli oggetti per il calcolo del percorso.  <a href="#a4ef3ea6adc0302ad97c2ad37ad3523f0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">GtkWidget *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpassaggio__t.html#ac4167be93d90c04d2c334b8e2db5d146">spin_partenza</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Puntatore allo spin della partenza.  <a href="#ac4167be93d90c04d2c334b8e2db5d146"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">GtkWidget *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpassaggio__t.html#ae6d455a0bd3a8ece17643942b090e3c9">spin_arrivo</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Puntatore allo spin dell'arrivo.  <a href="#ae6d455a0bd3a8ece17643942b090e3c9"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">GtkWidget *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpassaggio__t.html#a5431827fe1cf5a5b54d0d2a35d0d9011">radio_distanza</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Puntatore al radio-pulsante che sceglie di calcolare il percorso per distanza.  <a href="#a5431827fe1cf5a5b54d0d2a35d0d9011"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">GtkWidget *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpassaggio__t.html#a6ecc61f17027bc237b4efbf1280b3c5c">radio_tempo</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Puntatore al radio-pulsante che sceglie di calcolare il percorso per tempo.  <a href="#a6ecc61f17027bc237b4efbf1280b3c5c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">GtkWidget *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpassaggio__t.html#aced6fddabaa3071a4791a7df6ada130a">pulsante_calcola</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Puntatore al pulsante che fa partire il calcolo del percorso.  <a href="#aced6fddabaa3071a4791a7df6ada130a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bf">tipo_calcolo</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpassaggio__t.html#ad29162c8ccabc070ad85471558ecc28c">t_calcolo</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Variabile utilizzata per memorizzarci quale percorso verrà utilizzato nel calcolare la strada più breve.  <a href="#ad29162c8ccabc070ad85471558ecc28c"></a><br/></td></tr>
 </table>
+<hr/><a name="_details"></a><h2>Descrizione dettagliata</h2>
+<p>Struct per contenere tutti i puntatori dei widget e degli oggetti creati nella finestra principale e necessari alle altre funzioni. </p>
 <hr/><h2>Documentazione dei campi</h2>
-<a class="anchor" id="a1c2b2a5d65cba6d29c9c5341739c4230"></a><!-- doxytag: member="passaggio_t::calcola_i" ref="a1c2b2a5d65cba6d29c9c5341739c4230" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GtkWidget* <a class="el" href="structpassaggio__t.html#a1c2b2a5d65cba6d29c9c5341739c4230">passaggio_t::calcola_i</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a01624ae4eed6b66ca275ea8457aec982"></a><!-- doxytag: member="passaggio_t::calcola_id" ref="a01624ae4eed6b66ca275ea8457aec982" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">gulong <a class="el" href="structpassaggio__t.html#a01624ae4eed6b66ca275ea8457aec982">passaggio_t::calcola_id</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a5a082534a42d7c5cffcbdbd70cc5e19d"></a><!-- doxytag: member="passaggio_t::carica_i" ref="a5a082534a42d7c5cffcbdbd70cc5e19d" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -97,18 +95,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div>
 <div class="memdoc">
 
+<p>Puntatore al menu item carica nel menu mappa. </p>
+
 </div>
 </div>
-<a class="anchor" id="aa13f695bba4cfbe364a8f042c3300706"></a><!-- doxytag: member="passaggio_t::errore_id" ref="aa13f695bba4cfbe364a8f042c3300706" args="" -->
+<a class="anchor" id="ab228406e4bc2a192c6c58967b114dc0b"></a><!-- doxytag: member="passaggio_t::domanda_calcola" ref="ab228406e4bc2a192c6c58967b114dc0b" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">gulong <a class="el" href="structpassaggio__t.html#aa13f695bba4cfbe364a8f042c3300706">passaggio_t::errore_id</a></td>
+          <td class="memname">GtkWidget* <a class="el" href="structpassaggio__t.html#ab228406e4bc2a192c6c58967b114dc0b">passaggio_t::domanda_calcola</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Puntatore al label che intitola l'interfaccia di calcolo del percorso. </p>
 
 </div>
 </div>
@@ -123,6 +125,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div>
 <div class="memdoc">
 
+<p>Puntatore al menu item esci nel menu programma. </p>
+
 </div>
 </div>
 <a class="anchor" id="aa86fd4dd84c7047361c0fbd2dc2fe716"></a><!-- doxytag: member="passaggio_t::finestra" ref="aa86fd4dd84c7047361c0fbd2dc2fe716" args="" -->
@@ -135,6 +139,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
       </table>
 </div>
 <div class="memdoc">
+
+<p>Puntatore alla finestra principale. </p>
 
 </div>
 </div>
@@ -149,6 +155,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div>
 <div class="memdoc">
 
+<p>Puntatore al widget che contiene l'immagine. </p>
+
 </div>
 </div>
 <a class="anchor" id="aca3ce88e19981e9dcb95d81847accacd"></a><!-- doxytag: member="passaggio_t::info_i" ref="aca3ce88e19981e9dcb95d81847accacd" args="" -->
@@ -161,6 +169,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
       </table>
 </div>
 <div class="memdoc">
+
+<p>Puntatore al menu item info nel menu programma. </p>
 
 </div>
 </div>
@@ -175,6 +185,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div>
 <div class="memdoc">
 
+<p>Intero che memorizza quanti nodi ci sono caricati nel grafo. </p>
+<p>Serve alla finestra di dialogo delle richiesta di calcolo del percorso per limitare la scelta dei nodi </p>
+
+</div>
+</div>
+<a class="anchor" id="aced6fddabaa3071a4791a7df6ada130a"></a><!-- doxytag: member="passaggio_t::pulsante_calcola" ref="aced6fddabaa3071a4791a7df6ada130a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GtkWidget* <a class="el" href="structpassaggio__t.html#aced6fddabaa3071a4791a7df6ada130a">passaggio_t::pulsante_calcola</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Puntatore al pulsante che fa partire il calcolo del percorso. </p>
+
 </div>
 </div>
 <a class="anchor" id="a5431827fe1cf5a5b54d0d2a35d0d9011"></a><!-- doxytag: member="passaggio_t::radio_distanza" ref="a5431827fe1cf5a5b54d0d2a35d0d9011" args="" -->
@@ -188,6 +216,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div>
 <div class="memdoc">
 
+<p>Puntatore al radio-pulsante che sceglie di calcolare il percorso per distanza. </p>
+
 </div>
 </div>
 <a class="anchor" id="a6ecc61f17027bc237b4efbf1280b3c5c"></a><!-- doxytag: member="passaggio_t::radio_tempo" ref="a6ecc61f17027bc237b4efbf1280b3c5c" args="" -->
@@ -200,6 +230,83 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
       </table>
 </div>
 <div class="memdoc">
+
+<p>Puntatore al radio-pulsante che sceglie di calcolare il percorso per tempo. </p>
+
+</div>
+</div>
+<a class="anchor" id="a4ef3ea6adc0302ad97c2ad37ad3523f0"></a><!-- doxytag: member="passaggio_t::scatola_calcola" ref="a4ef3ea6adc0302ad97c2ad37ad3523f0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GtkWidget* <a class="el" href="structpassaggio__t.html#a4ef3ea6adc0302ad97c2ad37ad3523f0">passaggio_t::scatola_calcola</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Puntatore alla scatola che contiene gli oggetti per il calcolo del percorso. </p>
+
+</div>
+</div>
+<a class="anchor" id="aa06cc63adb7d8557095422f5855975f5"></a><!-- doxytag: member="passaggio_t::sfondo" ref="aa06cc63adb7d8557095422f5855975f5" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GdkPixbuf* <a class="el" href="structpassaggio__t.html#aa06cc63adb7d8557095422f5855975f5">passaggio_t::sfondo</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Puntatore al PixBuffer che deve essere caricato dentro il Widget Immagine. </p>
+
+</div>
+</div>
+<a class="anchor" id="ae6d455a0bd3a8ece17643942b090e3c9"></a><!-- doxytag: member="passaggio_t::spin_arrivo" ref="ae6d455a0bd3a8ece17643942b090e3c9" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GtkWidget* <a class="el" href="structpassaggio__t.html#ae6d455a0bd3a8ece17643942b090e3c9">passaggio_t::spin_arrivo</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Puntatore allo spin dell'arrivo. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac4167be93d90c04d2c334b8e2db5d146"></a><!-- doxytag: member="passaggio_t::spin_partenza" ref="ac4167be93d90c04d2c334b8e2db5d146" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GtkWidget* <a class="el" href="structpassaggio__t.html#ac4167be93d90c04d2c334b8e2db5d146">passaggio_t::spin_partenza</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Puntatore allo spin della partenza. </p>
+
+</div>
+</div>
+<a class="anchor" id="ad29162c8ccabc070ad85471558ecc28c"></a><!-- doxytag: member="passaggio_t::t_calcolo" ref="ad29162c8ccabc070ad85471558ecc28c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bf">tipo_calcolo</a> <a class="el" href="structpassaggio__t.html#ad29162c8ccabc070ad85471558ecc28c">passaggio_t::t_calcolo</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Variabile utilizzata per memorizzarci quale percorso verrà utilizzato nel calcolare la strada più breve. </p>
 
 </div>
 </div>
@@ -221,7 +328,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generato il Thu Jul 22 17:43:50 2010 per Trolaspic da&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generato il Fri Jul 23 05:15:48 2010 per Trolaspic da&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

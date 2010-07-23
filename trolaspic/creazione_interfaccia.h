@@ -1,8 +1,6 @@
-/* 
- * File:   creazione_interfaccia.h
- * Author: matteo
+/**
+ * @file creazione_interfaccia.h Contiene l'interfaccia pubblica delle funzioni presenti nel file creazione_interfaccia.cpp
  *
- * Created on 8 luglio 2010, 18.48
  */
 
 #ifndef CREAZIONE_INTERFACCIA_H

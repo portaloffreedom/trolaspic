@@ -41,21 +41,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
       <li><a href="globals.html"><span>Elementi&nbsp;globali</span></a></li>
     </ul>
   </div>
-<h1>gestione_drawing_area.h</h1><a href="gestione__drawing__area_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* </span>
-<a name="l00002"></a>00002 <span class="comment"> * File:   gestione_drawing_area.h</span>
-<a name="l00003"></a>00003 <span class="comment"> * Author: matteo</span>
-<a name="l00004"></a>00004 <span class="comment"> *</span>
-<a name="l00005"></a>00005 <span class="comment"> * Created on 12 luglio 2010, 15.32</span>
-<a name="l00006"></a>00006 <span class="comment"> */</span>
-<a name="l00007"></a>00007 
-<a name="l00008"></a>00008 <span class="preprocessor">#ifndef GESTIONE_DRAWING_AREA_H</span>
-<a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define GESTIONE_DRAWING_AREA_H</span>
-<a name="l00010"></a>00010 <span class="preprocessor"></span>
-<a name="l00011"></a>00011 <span class="comment">//GtkWidget *crea_drawing_area (int larghezza, int altezza);</span>
-<a name="l00012"></a>00012 <span class="keywordtype">void</span> <a class="code" href="gestione__drawing__area_8cpp.html#a89b0207e94e5a4e2d74d2541448dcbcc">cairo_disegna</a> (<span class="keyword">const</span> gchar *filename, GdkPixbuf* sfondo);
-<a name="l00013"></a>00013 
-<a name="l00014"></a>00014 <span class="preprocessor">#endif  </span><span class="comment">/* GESTIONE_DRAWING_AREA_H */</span>
-<a name="l00015"></a>00015 
+<h1>gestione_drawing_area.h</h1><a href="gestione__drawing__area_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00007"></a>00007 <span class="preprocessor">#ifndef GESTIONE_DRAWING_AREA_H</span>
+<a name="l00008"></a>00008 <span class="preprocessor"></span><span class="preprocessor">#define GESTIONE_DRAWING_AREA_H</span>
+<a name="l00009"></a>00009 <span class="preprocessor"></span>
+<a name="l00016"></a>00016 <span class="keywordtype">void</span> <a class="code" href="gestione__drawing__area_8cpp.html#ad79dc6931738fe4e8897d4ee4ecd1f8e" title="Funzione che carica dal grafo i nodi li disegna (assieme a tutti gli archi) sopra...">cairo_disegna</a> (GdkPixbuf* sfondo);
+<a name="l00022"></a>00022 <span class="keywordtype">void</span> <a class="code" href="gestione__drawing__area_8cpp.html#a93e6b6bc9441d17f693354cccb564071" title="Funzione che prende il buffer dell&amp;#39;immagine della mappa e colora il percorso...">cairo_disegna_percorso</a> (GdkPixbuf* sfondo);
+<a name="l00023"></a>00023 
+<a name="l00024"></a>00024 <span class="preprocessor">#endif  </span><span class="comment">/* GESTIONE_DRAWING_AREA_H */</span>
+<a name="l00025"></a>00025 
 </pre></div></div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -71,7 +65,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generato il Thu Jul 22 17:43:49 2010 per Trolaspic da&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generato il Fri Jul 23 05:15:47 2010 per Trolaspic da&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

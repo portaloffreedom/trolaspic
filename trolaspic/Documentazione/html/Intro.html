@@ -47,6 +47,49 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
  Il suo punto di forza risiede nella semplicità del programma stesso, non difficile e facilmente comprensibile. <br/>
  Può essere usato per svariati tipi di soluzioni, come la ricerca di percorsi in mappe stradali. <br/>
  Il metodo utilizzato per la ricerca del percorso più breve è quello dell'algoritmo Dijkstra. L'algoritmo Dijkstra opera solo su grafi con archi che hanno pesi positivi. <br/>
+ </p>
+<h2><a class="anchor" id="funz">
+Funzionamento di base</a></h2>
+<p><br/>
+ <br/>
+ </p>
+<h3><a class="anchor" id="map">
+Gestione della mappa</a></h3>
+<p><br/>
+ funzione <a class="el" href="grafo_8h.html#a6e90297598b0cc70283302fcaeb73c68" title="Carica dal file .map e crea il grafo.">carica_mappa</a> : spiegazione funzione <br/>
+ funzione <a class="el" href="grafo_8cpp.html#a7000cf69c2ba3f93984948e81f62cfe1" title="Serve per nascondere alla funzione i commenti nello stream.">leggi_prox_char</a> : Spiegazione funzione <br/>
+ funzione <a class="el" href="grafo_8cpp.html#ad6d270880b61857fa5cf7483eb177c24" title="Serve per nascondere alla funzione i commenti nello stream.">leggi_prox_double</a> : Spiegazione funzione <br/>
+ funzione <a class="el" href="grafo_8cpp.html#a0532e9aadb0386590957f7adcf60ac31" title="Serve per nascondere alla funzione i commenti nello stream.">leggi_prox_int</a> : spiegazione funzione <br/>
+ funzione <a class="el" href="grafo_8cpp.html#a9571125705d780eb582942273f3dbb7d" title="Serve per nascondere alla funzione i commenti nello stream.">leggi_prox_stringa</a> : spiegazione_funzione <br/>
+ </p>
+<h4><a class="anchor" id="graph">
+Gestione del grafo creato dalla mappa</a></h4>
+<p><br/>
+ funzione <a class="el" href="grafo_8cpp.html#a52eb3e7cae0072b18dff99d6070067c2" title="Distrugge il grafo e ne setta il puntatore a zero.">distruggi_grafo</a> <br/>
+ funzione <a class="el" href="grafo_8h.html#ab98d31ac652b48847b494a98da97c386" title="Controlla quanto è grande il grafo.">dim_grafo</a> <br/>
+ funzione <a class="el" href="pathfinder_8cpp.html#a01e2ef12b7e204af07150452a4816522" title="Resetta il grafo con i valori standard.">reset_graph</a></p>
+<p><br/>
+ </p>
+<h3><a class="anchor" id="draw">
+Gestione dell'interfaccia</a></h3>
+<p><br/>
+ funzione <a class="el" href="gestione__drawing__area_8h.html#ad79dc6931738fe4e8897d4ee4ecd1f8e" title="Funzione che carica dal grafo i nodi li disegna (assieme a tutti gli archi) sopra...">cairo_disegna</a> <br/>
+ funzione <a class="el" href="gestione__drawing__area_8h.html#a93e6b6bc9441d17f693354cccb564071" title="Funzione che prende il buffer dell&#39;immagine della mappa e colora il percorso...">cairo_disegna_percorso</a> <br/>
+ funzione <a class="el" href="creazione__interfaccia_8h.html#a123c5cb16300bf9aa6e82cdc0d621f1e" title="Finestra di diaologo.">crea_finestra_dialogo</a> <br/>
+ funzione <a class="el" href="creazione__interfaccia_8h.html#a37cbc1f54780d838465ebce6d2f5ba44" title="Crea la finestra di dialogo contenente le info del programma.">crea_finestra_info</a> <br/>
+ funzione crea_finestra_non_carica <br/>
+ funzione <a class="el" href="creazione__interfaccia_8h.html#ac2d0492ff1c555bc0cdb452b2f051034" title="Crea la finestra principale con tutti gli oggetti.">crea_finestra_principale</a> <br/>
+ funzione crea_finestra_richiesta_percorso <br/>
+ funzione <a class="el" href="g__callback_8h.html#ae74861d87a5de6e4cc15a79240b592f7" title="Mostra la finestra &quot;informazioni&quot;.">mostra_info</a> <br/>
+ funzione <a class="el" href="gestione__drawing__area_8cpp.html#a4c31e4144215539126f5e4f54b62d455" title="Funzione che trasforma un intero (di massimo 5 cifre) in una stringa di caratteri...">get_text_from_int</a> trasforma un intero in testo per poterlo usare con CAIRO</p>
+<p><br/>
+ </p>
+<h3><a class="anchor" id="pathfinder">
+Ricerca del percorso</a></h3>
+<p><br/>
+ funzione <a class="el" href="pathfinder_8h.html#a584c66074ce657f0285fe93b14668c16" title="Algoritmo Dijkstra modificato per trovare la strada minima fra   due punti di un...">dijkstra</a> <br/>
+ funzione <a class="el" href="pathfinder_8h.html#a37098317b365c7c2461288875e17395b" title="Ricostruisci il tragitto inizio/fine.">getPath</a></p>
+<p><br/>
  Vedi anche: <br/>
  - <a class="el" href="using.html">Using trolaspic</a> </p>
 </div>
@@ -64,7 +107,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generato il Thu Jul 22 17:43:50 2010 per Trolaspic da&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generato il Fri Jul 23 05:15:48 2010 per Trolaspic da&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>
