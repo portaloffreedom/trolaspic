@@ -77,37 +77,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00054"></a><a class="code" href="structadiacenza.html#aad4b57b9001a4b14fa3c46f6dbb1cb26">00054</a>     <span class="keywordtype">int</span> <a class="code" href="structadiacenza.html#aad4b57b9001a4b14fa3c46f6dbb1cb26" title="ascissa punto 2">y2</a>;
 <a name="l00055"></a>00055     
 <a name="l00056"></a>00056 };
-<a name="l00057"></a><a class="code" href="grafo_8h.html#a2acdbc8e59194b1fb0c52b9fb6e48b44">00057</a> <span class="keyword">typedef</span> <a class="code" href="structadiacenza.html" title="Struct che rappresenta gli archi fra un nodo e l&amp;#39;altro.">adiacenza</a> <a class="code" href="structadiacenza.html" title="Struct che rappresenta gli archi fra un nodo e l&amp;#39;altro.">arco</a>;
-<a name="l00058"></a>00058 
-<a name="l00061"></a><a class="code" href="structnodo.html">00061</a> <span class="keyword">struct </span><a class="code" href="structnodo.html" title="Struct per la rappresentazione dei nodi di cui e&amp;#39; composto il grafo.">nodo</a> {
-<a name="l00063"></a><a class="code" href="structnodo.html#a4e346a7300837310d594e854b0918b01">00063</a>     <span class="keywordtype">int</span> <a class="code" href="structnodo.html#a4e346a7300837310d594e854b0918b01" title="Coordinata orizzontale del nodo sulla mappa.">x</a>;
-<a name="l00065"></a><a class="code" href="structnodo.html#a454518f55fe41aa89177dbbf19a349e4">00065</a>     <span class="keywordtype">int</span> <a class="code" href="structnodo.html#a454518f55fe41aa89177dbbf19a349e4" title="Coordinata Verticale del nodo sulla mappa.">y</a>;
-<a name="l00066"></a>00066 
-<a name="l00073"></a><a class="code" href="structnodo.html#ae242f8d8dd28c74789c66f76ccbc6179">00073</a>     <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3" title="enumerato per la tipoligia di incrocio">t_incrocio</a> <a class="code" href="structnodo.html#ae242f8d8dd28c74789c66f76ccbc6179" title="Tipo di incrocio che rappreenta questo nodo.">tipo</a>;
-<a name="l00074"></a>00074 
-<a name="l00076"></a><a class="code" href="structnodo.html#acde832d9079cd541214312f347ef0712">00076</a>     list&lt;adiacenza&gt; <a class="code" href="structnodo.html#acde832d9079cd541214312f347ef0712" title="Tutti i nodi che e&amp;#39; possibile raggiungere da questo.">adiacente</a>;
-<a name="l00077"></a>00077 
-<a name="l00079"></a><a class="code" href="structnodo.html#ad020a139f05c481569b2c453b56971b4">00079</a>     <span class="keywordtype">int</span> <a class="code" href="structnodo.html#ad020a139f05c481569b2c453b56971b4" title="Quanto è grande la lista di adiacenza.">size_list</a>;
-<a name="l00080"></a>00080 
+<a name="l00058"></a><a class="code" href="grafo_8h.html#a2acdbc8e59194b1fb0c52b9fb6e48b44">00058</a> <span class="keyword">typedef</span> <a class="code" href="structadiacenza.html" title="Struct che rappresenta gli archi fra un nodo e l&amp;#39;altro.">adiacenza</a> <a class="code" href="structadiacenza.html" title="Struct che rappresenta gli archi fra un nodo e l&amp;#39;altro.">arco</a>;
+<a name="l00059"></a>00059 
+<a name="l00062"></a><a class="code" href="structnodo.html">00062</a> <span class="keyword">struct </span><a class="code" href="structnodo.html" title="Struct per la rappresentazione dei nodi di cui e&amp;#39; composto il grafo.">nodo</a> {
+<a name="l00064"></a><a class="code" href="structnodo.html#a4e346a7300837310d594e854b0918b01">00064</a>     <span class="keywordtype">int</span> <a class="code" href="structnodo.html#a4e346a7300837310d594e854b0918b01" title="Coordinata orizzontale del nodo sulla mappa.">x</a>;
+<a name="l00066"></a><a class="code" href="structnodo.html#a454518f55fe41aa89177dbbf19a349e4">00066</a>     <span class="keywordtype">int</span> <a class="code" href="structnodo.html#a454518f55fe41aa89177dbbf19a349e4" title="Coordinata Verticale del nodo sulla mappa.">y</a>;
+<a name="l00067"></a>00067 
+<a name="l00074"></a><a class="code" href="structnodo.html#ae242f8d8dd28c74789c66f76ccbc6179">00074</a>     <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3" title="enumerato per la tipoligia di incrocio">t_incrocio</a> <a class="code" href="structnodo.html#ae242f8d8dd28c74789c66f76ccbc6179" title="Tipo di incrocio che rappreenta questo nodo.">tipo</a>;
+<a name="l00075"></a>00075 
+<a name="l00077"></a><a class="code" href="structnodo.html#acde832d9079cd541214312f347ef0712">00077</a>     list&lt;adiacenza&gt; <a class="code" href="structnodo.html#acde832d9079cd541214312f347ef0712" title="Tutti i nodi che e&amp;#39; possibile raggiungere da questo.">adiacente</a>;
+<a name="l00078"></a>00078 
+<a name="l00080"></a><a class="code" href="structnodo.html#ad020a139f05c481569b2c453b56971b4">00080</a>     <span class="keywordtype">int</span> <a class="code" href="structnodo.html#ad020a139f05c481569b2c453b56971b4" title="Quanto è grande la lista di adiacenza.">size_list</a>;
 <a name="l00081"></a>00081 
 <a name="l00082"></a>00082 
-<a name="l00083"></a>00083     <span class="comment">//ROBA CHE SERVE SOLO PER LA RICERCA ---------------------------------------</span>
-<a name="l00089"></a><a class="code" href="structnodo.html#a2694acb99e1095c70b3c80d57be82c6c">00089</a> <span class="comment"></span>    <a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5" title="enumerato per i colori della visita">colour_t</a> <a class="code" href="structnodo.html#a2694acb99e1095c70b3c80d57be82c6c" title="Colore da impostare secondo l&amp;#39;algoritmo dijkstra.">visitato</a>;
-<a name="l00090"></a>00090 
-<a name="l00095"></a><a class="code" href="structnodo.html#ad9af03d4d3cfe325790568dc7a99e479">00095</a>     <span class="keywordtype">double</span> <a class="code" href="structnodo.html#ad9af03d4d3cfe325790568dc7a99e479" title="Quanto pesa passare da questo nodo.">peso</a>;
-<a name="l00096"></a>00096 
-<a name="l00098"></a><a class="code" href="structnodo.html#a0ee242378ff48b176c09cdc2e61295cb">00098</a>     <span class="keywordtype">int</span> <a class="code" href="structnodo.html#a0ee242378ff48b176c09cdc2e61295cb" title="Questo parametro serve a ricostruire il tragitto dopo aver usato dijkstra.">padre</a>;
-<a name="l00099"></a>00099 };
-<a name="l00100"></a>00100 
-<a name="l00101"></a>00101 <span class="keyword">extern</span> <a class="code" href="structnodo.html" title="Struct per la rappresentazione dei nodi di cui e&amp;#39; composto il grafo.">nodo</a>* <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>;
-<a name="l00102"></a>00102 
-<a name="l00103"></a>00103 <span class="keywordtype">int</span> <a class="code" href="grafo_8cpp.html#a6e90297598b0cc70283302fcaeb73c68" title="Carica dal file .map e crea il grafo.">carica_mappa</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *filename);
-<a name="l00104"></a>00104 
-<a name="l00105"></a>00105 <span class="keywordtype">int</span> <a class="code" href="grafo_8cpp.html#ab98d31ac652b48847b494a98da97c386" title="Controlla quanto è grande il grafo.">dim_grafo</a>(<span class="keywordtype">void</span>);
-<a name="l00106"></a>00106 
+<a name="l00083"></a>00083 
+<a name="l00084"></a>00084     <span class="comment">//ROBA CHE SERVE SOLO PER LA RICERCA ---------------------------------------</span>
+<a name="l00090"></a><a class="code" href="structnodo.html#a2694acb99e1095c70b3c80d57be82c6c">00090</a> <span class="comment"></span>    <a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5" title="enumerato per i colori della visita">colour_t</a> <a class="code" href="structnodo.html#a2694acb99e1095c70b3c80d57be82c6c" title="Colore da impostare secondo l&amp;#39;algoritmo dijkstra.">visitato</a>;
+<a name="l00091"></a>00091 
+<a name="l00096"></a><a class="code" href="structnodo.html#ad9af03d4d3cfe325790568dc7a99e479">00096</a>     <span class="keywordtype">double</span> <a class="code" href="structnodo.html#ad9af03d4d3cfe325790568dc7a99e479" title="Quanto pesa passare da questo nodo.">peso</a>;
+<a name="l00097"></a>00097 
+<a name="l00099"></a><a class="code" href="structnodo.html#a0ee242378ff48b176c09cdc2e61295cb">00099</a>     <span class="keywordtype">int</span> <a class="code" href="structnodo.html#a0ee242378ff48b176c09cdc2e61295cb" title="Questo parametro serve a ricostruire il tragitto dopo aver usato dijkstra.">padre</a>;
+<a name="l00100"></a>00100 };
+<a name="l00101"></a>00101 
+<a name="l00102"></a>00102 <span class="keyword">extern</span> <a class="code" href="structnodo.html" title="Struct per la rappresentazione dei nodi di cui e&amp;#39; composto il grafo.">nodo</a>* <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>;
+<a name="l00103"></a>00103 
+<a name="l00104"></a>00104 <span class="keywordtype">int</span> <a class="code" href="grafo_8cpp.html#a6e90297598b0cc70283302fcaeb73c68" title="Carica dal file .map e crea il grafo.">carica_mappa</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *filename);
+<a name="l00105"></a>00105 
+<a name="l00106"></a>00106 <span class="keywordtype">int</span> <a class="code" href="grafo_8cpp.html#ab98d31ac652b48847b494a98da97c386" title="Controlla quanto è grande il grafo.">dim_grafo</a>(<span class="keywordtype">void</span>);
 <a name="l00107"></a>00107 
-<a name="l00108"></a>00108 <span class="preprocessor">#endif  </span><span class="comment">/* GRAFO_H */</span>
-<a name="l00109"></a>00109 
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109 <span class="preprocessor">#endif  </span><span class="comment">/* GRAFO_H */</span>
+<a name="l00110"></a>00110 
 </pre></div></div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -123,7 +123,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generato il Fri Jul 23 05:55:49 2010 per Trolaspic da&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generato il Fri Jul 23 06:16:51 2010 per Trolaspic da&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>
