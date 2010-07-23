@@ -15,7 +15,9 @@ extern nodo* GRAPH;
 /**Costante che definisce lo spessore delle linee disegnate da cairo*/
 static const double DIM_LINEE = 0.013;
 /**Costante che definisce la dimensione dei font disegnati da cairo*/
-static const double DIM_FONT  = 0.03;
+static const double DIM_FONT  = 0.02;
+/**Costante che definisce la dimensione dei cerchi disegnati da cairo*/
+static const double DIM_RADIUS  = 0.016;
 
 /** Funzione che trasforma un intero (di massimo 5 cifre) in una stringa di caratteri
  * attenzione! la stringa è allocata in maniera dinamica, quindi bisogna deallocarla dopo avere utilizzato questa funzione
@@ -66,7 +68,7 @@ void cairo_disegna (GdkPixbuf *sfondo){
 
         //Disegna un Cerchiolino attorno al punto
         //(disegna un arco da 0 a 2pi_greco e lo riempie)
-        cairo_arc (cr,coo_x,coo_y,0.015,0,M_PI*2);
+        cairo_arc (cr,coo_x,coo_y, DIM_RADIUS,0,M_PI*2);
         cairo_fill (cr);
 
 
@@ -170,7 +172,7 @@ void cairo_disegna_percorso (GdkPixbuf* sfondo){
         //Disegna un Cerchiolino attorno al punto
         //(disegna un arco da 0 a 2pi_greco e lo riempie)
         cairo_set_source_rgb (cr, 0, 0.5, 1); //light blue
-        cairo_arc (cr,coo_x,coo_y,0.015,0,M_PI*2);
+        cairo_arc (cr,coo_x,coo_y, DIM_RADIUS, 0, M_PI*2);
         cairo_fill (cr);
 
 
