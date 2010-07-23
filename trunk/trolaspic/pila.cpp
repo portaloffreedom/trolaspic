@@ -5,6 +5,7 @@ pila_char crea_pila_char(int max_elem){
     pila_char pila = new pila_ch;
     pila->ultimo_elem=0;
     pila->pila= new char[max_elem];
+    return pila;
 }
 
 void push_pila_char(pila_char pila, char carattere){

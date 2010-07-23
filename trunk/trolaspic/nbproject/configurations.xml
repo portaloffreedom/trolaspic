@@ -161,7 +161,7 @@
           <developmentMode>5</developmentMode>
         </cTool>
         <ccTool>
-          <developmentMode>6</developmentMode>
+          <developmentMode>4</developmentMode>
           <incDir>
             <pElem>/usr/include/gtk-2.0</pElem>
             <pElem>/usr/lib/gtk-2.0/include</pElem>
@@ -176,6 +176,7 @@
             <pElem>/usr/include/directfb</pElem>
             <pElem>/usr/include/libpng12</pElem>
           </incDir>
+          <warningLevel>3</warningLevel>
         </ccTool>
         <fortranCompilerTool>
           <developmentMode>5</developmentMode>
