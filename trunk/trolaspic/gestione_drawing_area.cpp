@@ -155,7 +155,6 @@ void cairo_disegna_percorso (GdkPixbuf* sfondo){
     //Settaggio dimensione e tipo dei font
     cairo_set_font_size (cr, DIM_FONT);
     cairo_select_font_face (cr, "Georgia", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_NORMAL);
-    int prec=0;
 
 
     for (int i=GRAPH[0].size_list; i>0 ;i--){
