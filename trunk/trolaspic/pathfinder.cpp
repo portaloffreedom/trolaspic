@@ -2,6 +2,7 @@
  * @file pathfinder.cpp Contiene tutte le funzioni che servono per trovare la strada più corta
  * fra un punto di inizio e uno di fine. Implementa Dijkstra con la funzione ::dijkstra e
  * ricostruisce il cammino usando ::endPath.
+ * @author Roberto
  */
 
 #include <iostream>

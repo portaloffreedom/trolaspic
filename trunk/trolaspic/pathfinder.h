@@ -1,8 +1,8 @@
-/* 
- * File:   pathfinder.h
- * Author: stengun
- *
- * Created on 20 luglio 2010, 18.50
+/**
+ * @file pathfinder.h
+ * Header contenente l'interfaccia alle funzioni contenute in pathfinder.cpp.
+ * Questo header viene incluso per abilitare l'utilizzo di dijkstra.
+ * @author Roberto
  */
 
 #ifndef PATHFINDER_H
