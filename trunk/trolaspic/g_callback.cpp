@@ -13,20 +13,6 @@
 using namespace std;
 
 /**
- * Impedisci la distruzine dell'oggetto window
- *
- * @param window l'oggetto di cui impedire la distruzione
- * @param evento non utilizzato (serve solo per chiamarlo con le funzioni)
- * @param dialogo finestra di dialogo da mostrare
- * @return TRUE se non devo distruggere la finestra, FALSE altrimenti
- */
-gboolean delete_event_window(GtkWidget* window, GdkEvent* evento,GtkWidget* dialogo){
-    DBG(cout<<"delete event occurred on Widget "<<window<<endl)
-    gtk_widget_show(dialogo);
-    return TRUE;
-}
-
-/**
  * Crea la finestra di conferma uscita
  * @param finestra Il puntatore alla finestra chiamante
  */
@@ -150,15 +136,6 @@ void response_carica (passaggio_t *window){
     return;
 }
 
-/**
- * Se collegato ad un segnale "delete_event" impedisce che l'oggetto venga distrutto
- * @param oggetto : Puntatore all'oggetto che si tenta di distruggere
- * @return TRUE se l'oggetto non va distrutto, FALSE altrimenti.
- */
-gboolean delete_event(GtkWidget* oggetto){
-    DBG(cout<<"delete event occurred on Widget "<<oggetto<<endl)
-    return TRUE;
-}
 
 /**
  * Mostra la finestra "informazioni".
@@ -259,14 +236,5 @@ void response_calcola (passaggio_t *window){
             cerr<<"Scelta non inizializzata! O.o\n";
             break;
     }
-    return;
-}
-
-/**
- * La funzione è legata al pulsante calcola quando non è stata caricata nessuna mappa.
- * @param finestra_principale Puntatore alla finestra principale
- */
-void response_non_calcola (GtkWidget* finestra_principale){
-    finestra_di_avviso (finestra_principale, "Devi caricare una mappa prima di potere calcolare un percorso!");
     return;
 }

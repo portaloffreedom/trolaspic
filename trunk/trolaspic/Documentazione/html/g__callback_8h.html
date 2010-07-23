@@ -52,10 +52,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <p><a href="g__callback_8h_source.html">Vai al codice sorgente di questo file.</a></p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="2"><h2>Funzioni</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">gboolean&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="g__callback_8h.html#a1ba87899980bce21ad15c8f06bb3ef36">delete_event_window</a> (GtkWidget *window, GdkEvent *evento, GtkWidget *dialogo)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Impedisci la distruzine dell'oggetto window.  <a href="#a1ba87899980bce21ad15c8f06bb3ef36"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">gboolean&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="g__callback_8h.html#a25da5fc2ed9fa4e3b603337104446d26">delete_event</a> (GtkWidget *oggetto)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Se collegato ad un segnale "delete_event" impedisce che l'oggetto venga distrutto.  <a href="#a25da5fc2ed9fa4e3b603337104446d26"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="g__callback_8h.html#a381c43e6bf734ff6081e0ea730fd590a">response_dialogo</a> (GtkWidget *finestra)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Crea la finestra di conferma uscita.  <a href="#a381c43e6bf734ff6081e0ea730fd590a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="g__callback_8h.html#a34f2cecd360bb543d0ee438f8d311cea">response_carica</a> (<a class="el" href="structpassaggio__t.html">passaggio_t</a> *window)</td></tr>
@@ -72,90 +68,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <hr/><a name="_details"></a><h2>Descrizione dettagliata</h2>
 <p>Contiene le funzioni pubbliche per il file <a class="el" href="g__callback_8cpp.html" title="Contiene tutte le funzioni da associare agli eventi.">g_callback.cpp</a>. </p>
 <hr/><h2>Documentazione delle funzioni</h2>
-<a class="anchor" id="a25da5fc2ed9fa4e3b603337104446d26"></a><!-- doxytag: member="g_callback.h::delete_event" ref="a25da5fc2ed9fa4e3b603337104446d26" args="(GtkWidget *oggetto)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">gboolean delete_event </td>
-          <td>(</td>
-          <td class="paramtype">GtkWidget *&nbsp;</td>
-          <td class="paramname"> <em>oggetto</em></td>
-          <td>&nbsp;)&nbsp;</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Se collegato ad un segnale "delete_event" impedisce che l'oggetto venga distrutto. </p>
-<dl><dt><b>Parametri:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>oggetto</em>&nbsp;</td><td>: Puntatore all'oggetto che si tenta di distruggere </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>Restituisce:</b></dt><dd>TRUE se l'oggetto non va distrutto, FALSE altrimenti. </dd></dl>
-
-<p><div class="fragment"><pre class="fragment"><a name="l00149"></a>00149                                          {
-<a name="l00150"></a>00150     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;<span class="stringliteral">&quot;delete event occurred on Widget &quot;</span>&lt;&lt;oggetto&lt;&lt;endl)
-<a name="l00151"></a>00151     return TRUE;
-<a name="l00152"></a>00152 }
-</pre></div></p>
-
-</div>
-</div>
-<a class="anchor" id="a1ba87899980bce21ad15c8f06bb3ef36"></a><!-- doxytag: member="g_callback.h::delete_event_window" ref="a1ba87899980bce21ad15c8f06bb3ef36" args="(GtkWidget *window, GdkEvent *evento, GtkWidget *dialogo)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">gboolean delete_event_window </td>
-          <td>(</td>
-          <td class="paramtype">GtkWidget *&nbsp;</td>
-          <td class="paramname"> <em>window</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">GdkEvent *&nbsp;</td>
-          <td class="paramname"> <em>evento</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">GtkWidget *&nbsp;</td>
-          <td class="paramname"> <em>dialogo</em></td><td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Impedisci la distruzine dell'oggetto window. </p>
-<dl><dt><b>Parametri:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>window</em>&nbsp;</td><td>l'oggetto di cui impedire la distruzione </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>evento</em>&nbsp;</td><td>non utilizzato (serve solo per chiamarlo con le funzioni) </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>dialogo</em>&nbsp;</td><td>finestra di dialogo da mostrare </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>Restituisce:</b></dt><dd>TRUE se non devo distruggere la finestra, FALSE altrimenti </dd></dl>
-
-<p><div class="fragment"><pre class="fragment"><a name="l00023"></a>00023                                                                                     {
-<a name="l00024"></a>00024     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;<span class="stringliteral">&quot;delete event occurred on Widget &quot;</span>&lt;&lt;window&lt;&lt;endl)
-<a name="l00025"></a>00025     gtk_widget_show(dialogo);
-<a name="l00026"></a>00026     return TRUE;
-<a name="l00027"></a>00027 }
-</pre></div></p>
-
-</div>
-</div>
 <a class="anchor" id="ae74861d87a5de6e4cc15a79240b592f7"></a><!-- doxytag: member="g_callback.h::mostra_info" ref="ae74861d87a5de6e4cc15a79240b592f7" args="(GtkWidget *finestra)" -->
 <div class="memitem">
 <div class="memproto">
@@ -180,27 +92,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
   </dd>
 </dl>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00158"></a>00158                                       {
-<a name="l00159"></a>00159     <span class="keyword">const</span> gchar testo[]=
-<a name="l00160"></a>00160                     <span class="stringliteral">&quot;Trovami la strada più corta\n&quot;</span>
-<a name="l00161"></a>00161                     <span class="stringliteral">&quot;\n&quot;</span>
-<a name="l00162"></a>00162                     <span class="stringliteral">&quot;Un programma creato dalla Badabing Inc.\n&quot;</span>
-<a name="l00163"></a>00163                     <span class="stringliteral">&quot;Roberto Benfatto\t(Sten Gun)\n&quot;</span>
-<a name="l00164"></a>00164                     <span class="stringliteral">&quot;Matteo De Carlo\t(Portaloffreedom)&quot;</span>;
-<a name="l00165"></a>00165 
-<a name="l00166"></a>00166 
-<a name="l00167"></a>00167     GtkWidget* info = <a class="code" href="creazione__interfaccia_8cpp.html#a37cbc1f54780d838465ebce6d2f5ba44" title="Crea la finestra di dialogo contenente le info del programma.">crea_finestra_info</a> (finestra,testo);
-<a name="l00168"></a>00168 <span class="comment">//    gtk_show_about_dialog (NULL,</span>
-<a name="l00169"></a>00169 <span class="comment">//                       &quot;program-name&quot;, &quot;ExampleCode&quot;,</span>
-<a name="l00170"></a>00170 <span class="comment">//                       &quot;logo&quot;,</span>
-<a name="l00171"></a>00171 <span class="comment">//                       &quot;title&quot;, &quot;About ExampleCode&quot;,</span>
-<a name="l00172"></a>00172 <span class="comment">//                       NULL,</span>
-<a name="l00173"></a>00173 <span class="comment">//                       NULL);</span>
-<a name="l00174"></a>00174 
-<a name="l00175"></a>00175     gtk_dialog_run (GTK_DIALOG (info));
-<a name="l00176"></a>00176     gtk_widget_destroy(info);
-<a name="l00177"></a>00177     <span class="keywordflow">return</span>;
-<a name="l00178"></a>00178 }
+<p><div class="fragment"><pre class="fragment"><a name="l00135"></a>00135                                       {
+<a name="l00136"></a>00136     <span class="keyword">const</span> gchar testo[]=
+<a name="l00137"></a>00137                     <span class="stringliteral">&quot;Trovami la strada più corta\n&quot;</span>
+<a name="l00138"></a>00138                     <span class="stringliteral">&quot;\n&quot;</span>
+<a name="l00139"></a>00139                     <span class="stringliteral">&quot;Un programma creato dalla Badabing Inc.\n&quot;</span>
+<a name="l00140"></a>00140                     <span class="stringliteral">&quot;Roberto Benfatto\t(Sten Gun)\n&quot;</span>
+<a name="l00141"></a>00141                     <span class="stringliteral">&quot;Matteo De Carlo\t(Portaloffreedom)&quot;</span>;
+<a name="l00142"></a>00142 
+<a name="l00143"></a>00143 
+<a name="l00144"></a>00144     GtkWidget* info = <a class="code" href="creazione__interfaccia_8cpp.html#a37cbc1f54780d838465ebce6d2f5ba44" title="Crea la finestra di dialogo contenente le info del programma.">crea_finestra_info</a> (finestra,testo);
+<a name="l00145"></a>00145 <span class="comment">//    gtk_show_about_dialog (NULL,</span>
+<a name="l00146"></a>00146 <span class="comment">//                       &quot;program-name&quot;, &quot;ExampleCode&quot;,</span>
+<a name="l00147"></a>00147 <span class="comment">//                       &quot;logo&quot;,</span>
+<a name="l00148"></a>00148 <span class="comment">//                       &quot;title&quot;, &quot;About ExampleCode&quot;,</span>
+<a name="l00149"></a>00149 <span class="comment">//                       NULL,</span>
+<a name="l00150"></a>00150 <span class="comment">//                       NULL);</span>
+<a name="l00151"></a>00151 
+<a name="l00152"></a>00152     gtk_dialog_run (GTK_DIALOG (info));
+<a name="l00153"></a>00153     gtk_widget_destroy(info);
+<a name="l00154"></a>00154     <span class="keywordflow">return</span>;
+<a name="l00155"></a>00155 }
 </pre></div></p>
 
 </div>
@@ -230,32 +142,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
   </dd>
 </dl>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00230"></a>00230                                            {
-<a name="l00231"></a>00231 
-<a name="l00232"></a>00232    
-<a name="l00233"></a>00233 
-<a name="l00234"></a>00234     <a class="code" href="gestione__drawing__area_8cpp.html#ad79dc6931738fe4e8897d4ee4ecd1f8e" title="Funzione che carica dal grafo i nodi li disegna (assieme a tutti gli archi) sopra...">cairo_disegna</a>(window-&gt;<a class="code" href="structpassaggio__t.html#aa06cc63adb7d8557095422f5855975f5" title="Puntatore al PixBuffer che deve essere caricato dentro il Widget Immagine.">sfondo</a>);
-<a name="l00235"></a>00235 
-<a name="l00236"></a>00236     gint nome_partenza = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON(window-&gt;<a class="code" href="structpassaggio__t.html#ac4167be93d90c04d2c334b8e2db5d146" title="Puntatore allo spin della partenza.">spin_partenza</a> ));
-<a name="l00237"></a>00237     gint nome_arrivo =   gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON(window-&gt;<a class="code" href="structpassaggio__t.html#ae6d455a0bd3a8ece17643942b090e3c9" title="Puntatore allo spin dell&amp;#39;arrivo.">spin_arrivo</a>   ));
-<a name="l00238"></a>00238     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;<span class="stringliteral">&quot;partenza: &quot;</span>&lt;&lt;nome_partenza&lt;&lt;endl)
-<a name="l00239"></a>00239     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;&quot;arrivo:   &quot;&lt;&lt;nome_arrivo  &lt;&lt;endl)
-<a name="l00240"></a>00240 
-<a name="l00241"></a>00241     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;&quot;tipo di scelta: &quot;;)
-<a name="l00242"></a>00242     switch (window-&gt;t_calcolo){
-<a name="l00243"></a>00243         <span class="keywordflow">case</span> <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bfa427ed8e19072736c76c868f1556b36d5">per_tempo</a>:
-<a name="l00244"></a>00244             <a class="code" href="g__callback_8cpp.html#aaafa02c972d107dfd4a740f96786d20d" title="Funzione che calcola il percorso dato un inizio e una fine e ne disegna il tracciato...">calcola_percorso</a> (window, window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716" title="Puntatore alla finestra principale.">finestra</a>, nome_partenza,nome_arrivo, <a class="code" href="pathfinder_8cpp.html#a1f12c76441a8ab3ebd0c75aaf87b2e18" title="Dato un arco, restituisce il tempo che occore per percorrerlo.">leggi_peso_tempo</a>);
-<a name="l00245"></a>00245             <span class="keywordflow">break</span>;
-<a name="l00246"></a>00246         <span class="keywordflow">case</span> <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bfacc850434d7f4bfd58679685788302a96">per_distanza</a>:
-<a name="l00247"></a>00247             <a class="code" href="g__callback_8cpp.html#aaafa02c972d107dfd4a740f96786d20d" title="Funzione che calcola il percorso dato un inizio e una fine e ne disegna il tracciato...">calcola_percorso</a> (window, window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716" title="Puntatore alla finestra principale.">finestra</a>, nome_partenza,nome_arrivo, <a class="code" href="pathfinder_8cpp.html#ad72df926e0c18df43f4712269f8e0573" title="Dato un arco, restituisce i suoi kilometri.">leggi_peso_km</a>);
-<a name="l00248"></a>00248             <span class="keywordflow">break</span>;
-<a name="l00249"></a>00249         <span class="keywordflow">default</span>:
-<a name="l00250"></a>00250             cerr&lt;&lt;<span class="stringliteral">&quot;Scelta non inizializzata! O.o\n&quot;</span>;
-<a name="l00251"></a>00251             <span class="keywordflow">break</span>;
-<a name="l00252"></a>00252     }
-<a name="l00253"></a>00253     <span class="keywordflow">return</span>;
-<a name="l00254"></a>00254 }
-</pre></div></p>
+<p><div class="fragment"><pre class="fragment"><a name="l00207"></a>00207                                            {
+<a name="l00208"></a>00208 
+<a name="l00209"></a>00209    
+<a name="l00210"></a>00210 
+<a name="l00211"></a>00211     <a class="code" href="gestione__drawing__area_8cpp.html#ad79dc6931738fe4e8897d4ee4ecd1f8e" title="Funzione che carica dal grafo i nodi li disegna (assieme a tutti gli archi) sopra...">cairo_disegna</a>(window-&gt;<a class="code" href="structpassaggio__t.html#aa06cc63adb7d8557095422f5855975f5" title="Puntatore al PixBuffer che deve essere caricato dentro il Widget Immagine.">sfondo</a>);
+<a name="l00212"></a>00212 
+<a name="l00213"></a>00213     gint nome_partenza = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON(window-&gt;<a class="code" href="structpassaggio__t.html#ac4167be93d90c04d2c334b8e2db5d146" title="Puntatore allo spin della partenza.">spin_partenza</a> ));
+<a name="l00214"></a>00214     gint nome_arrivo =   gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON(window-&gt;<a class="code" href="structpassaggio__t.html#ae6d455a0bd3a8ece17643942b090e3c9" title="Puntatore allo spin dell&amp;#39;arrivo.">spin_arrivo</a>   ));
+<a name="l00215"></a>00215     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1" title="Definisce la macro che attiva il suo argomento interno solo in debug mode.">DBG</a>(cout&lt;&lt;<span class="stringliteral">&quot;partenza: &quot;</span>&lt;&lt;nome_partenza&lt;&lt;endl)
+<a name="l00216"></a>00216     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1" title="Definisce la macro che attiva il suo argomento interno solo in debug mode.">DBG</a>(cout&lt;&lt;&quot;arrivo:   &quot;&lt;&lt;nome_arrivo  &lt;&lt;endl)
+<a name="l00217"></a>00217 
+<a name="l00218"></a>00218     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1" title="Definisce la macro che attiva il suo argomento interno solo in debug mode.">DBG</a>(cout&lt;&lt;&quot;tipo di scelta: &quot;;)
+<a name="l00219"></a>00219     switch (window-&gt;t_calcolo){
+<a name="l00220"></a>00220         <span class="keywordflow">case</span> <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bfa427ed8e19072736c76c868f1556b36d5" title="Calcola il percorso prendendo in considerazione il tempo.">per_tempo</a>:
+<a name="l00221"></a>00221             <a class="code" href="g__callback_8cpp.html#aaafa02c972d107dfd4a740f96786d20d" title="Funzione che calcola il percorso dato un inizio e una fine e ne disegna il tracciato...">calcola_percorso</a> (window, window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716" title="Puntatore alla finestra principale.">finestra</a>, nome_partenza,nome_arrivo, <a class="code" href="pathfinder_8cpp.html#a1f12c76441a8ab3ebd0c75aaf87b2e18" title="Dato un arco, restituisce il tempo che occore per percorrerlo.">leggi_peso_tempo</a>);
+<a name="l00222"></a>00222             <span class="keywordflow">break</span>;
+<a name="l00223"></a>00223         <span class="keywordflow">case</span> <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bfacc850434d7f4bfd58679685788302a96" title="Calcola il percorso prendendo in considerazione la distanza percorsa.">per_distanza</a>:
+<a name="l00224"></a>00224             <a class="code" href="g__callback_8cpp.html#aaafa02c972d107dfd4a740f96786d20d" title="Funzione che calcola il percorso dato un inizio e una fine e ne disegna il tracciato...">calcola_percorso</a> (window, window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716" title="Puntatore alla finestra principale.">finestra</a>, nome_partenza,nome_arrivo, <a class="code" href="pathfinder_8cpp.html#ad72df926e0c18df43f4712269f8e0573" title="Dato un arco, restituisce i suoi kilometri.">leggi_peso_km</a>);
+<a name="l00225"></a>00225             <span class="keywordflow">break</span>;
+<a name="l00226"></a>00226         <span class="keywordflow">default</span>:
+<a name="l00227"></a>00227             cerr&lt;&lt;<span class="stringliteral">&quot;Scelta non inizializzata! O.o\n&quot;</span>;
+<a name="l00228"></a>00228             <span class="keywordflow">break</span>;
+<a name="l00229"></a>00229     }
+<a name="l00230"></a>00230     <span class="keywordflow">return</span>;
+<a name="l00231"></a>00231 }</pre></div></p>
 
 </div>
 </div>
@@ -284,75 +195,75 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
   </dd>
 </dl>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00074"></a>00074                                           {
-<a name="l00075"></a>00075     GtkWidget * dialogo= gtk_file_chooser_dialog_new    (<span class="stringliteral">&quot;Carica una mappa&quot;</span>, GTK_WINDOW(window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716" title="Puntatore alla finestra principale.">finestra</a>), GTK_FILE_CHOOSER_ACTION_OPEN,
-<a name="l00076"></a>00076                                                           GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT,
-<a name="l00077"></a>00077                                                           GTK_STOCK_OK, GTK_RESPONSE_ACCEPT,
-<a name="l00078"></a>00078                                                          NULL);
-<a name="l00079"></a>00079     <span class="keywordflow">switch</span> (gtk_dialog_run (GTK_DIALOG (dialogo))) {
-<a name="l00080"></a>00080 
-<a name="l00081"></a>00081         <span class="keywordflow">case</span> GTK_RESPONSE_ACCEPT:{
-<a name="l00082"></a>00082             <span class="keyword">const</span> <span class="keywordtype">char</span> *filename = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (dialogo));
-<a name="l00083"></a>00083             <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;<span class="stringliteral">&quot;Nome del file: &quot;</span>&lt;&lt;filename&lt;&lt;endl);
-<a name="l00084"></a>00084 
-<a name="l00085"></a>00085 
+<p><div class="fragment"><pre class="fragment"><a name="l00060"></a>00060                                           {
+<a name="l00061"></a>00061     GtkWidget * dialogo= gtk_file_chooser_dialog_new    (<span class="stringliteral">&quot;Carica una mappa&quot;</span>, GTK_WINDOW(window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716" title="Puntatore alla finestra principale.">finestra</a>), GTK_FILE_CHOOSER_ACTION_OPEN,
+<a name="l00062"></a>00062                                                           GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT,
+<a name="l00063"></a>00063                                                           GTK_STOCK_OK, GTK_RESPONSE_ACCEPT,
+<a name="l00064"></a>00064                                                          NULL);
+<a name="l00065"></a>00065     <span class="keywordflow">switch</span> (gtk_dialog_run (GTK_DIALOG (dialogo))) {
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067         <span class="keywordflow">case</span> GTK_RESPONSE_ACCEPT:{
+<a name="l00068"></a>00068             <span class="keyword">const</span> <span class="keywordtype">char</span> *filename = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (dialogo));
+<a name="l00069"></a>00069             <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1" title="Definisce la macro che attiva il suo argomento interno solo in debug mode.">DBG</a>(cout&lt;&lt;<span class="stringliteral">&quot;Nome del file: &quot;</span>&lt;&lt;filename&lt;&lt;endl);
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072             <span class="comment">//******************************************************************</span>
+<a name="l00073"></a>00073             <span class="comment">//*** CARICAMENTO DEI NODI DELLA MAPPA (.MAP) **********************</span>
+<a name="l00074"></a>00074             <span class="comment">//******************************************************************</span>
+<a name="l00075"></a>00075             window-&gt;<a class="code" href="structpassaggio__t.html#acaf6299dada3ac41ec74f34c6250d7f6" title="Intero che memorizza quanti nodi ci sono caricati nel grafo.">massimo_numero_nodi</a> = <a class="code" href="grafo_8cpp.html#a6e90297598b0cc70283302fcaeb73c68" title="Dato un file immagine cerca il corrispettivo in .map e se lo trova carica la mappa...">carica_mappa</a>(filename);
+<a name="l00076"></a>00076             <span class="keywordflow">if</span> (window-&gt;<a class="code" href="structpassaggio__t.html#acaf6299dada3ac41ec74f34c6250d7f6" title="Intero che memorizza quanti nodi ci sono caricati nel grafo.">massimo_numero_nodi</a> == 0){
+<a name="l00077"></a>00077                 <a class="code" href="g__callback_8cpp.html#a1dcc6b8d248057776043c89f3a5f51da" title="Mostra una finestra di avviso con il testo scelto.">finestra_di_avviso</a>(dialogo,<span class="stringliteral">&quot;Errore nel caricamento della mappa!\n&quot;</span>
+<a name="l00078"></a>00078                         <span class="stringliteral">&quot;prova a caricare il file giusto\n&quot;</span> );
+<a name="l00079"></a>00079                 <span class="keyword">delete</span>[] filename;
+<a name="l00080"></a>00080                 gtk_widget_destroy (dialogo);
+<a name="l00081"></a>00081                 <span class="keywordflow">return</span>;
+<a name="l00082"></a>00082             }
+<a name="l00083"></a>00083             gtk_spin_button_set_range(GTK_SPIN_BUTTON(window-&gt;<a class="code" href="structpassaggio__t.html#ac4167be93d90c04d2c334b8e2db5d146" title="Puntatore allo spin della partenza.">spin_partenza</a>), 1, <a class="code" href="grafo_8cpp.html#ab98d31ac652b48847b494a98da97c386" title="Controlla quanto è grande il grafo.">dim_grafo</a>());
+<a name="l00084"></a>00084             gtk_spin_button_set_range(GTK_SPIN_BUTTON(window-&gt;<a class="code" href="structpassaggio__t.html#ae6d455a0bd3a8ece17643942b090e3c9" title="Puntatore allo spin dell&amp;#39;arrivo.">spin_arrivo</a>)  , 1, <a class="code" href="grafo_8cpp.html#ab98d31ac652b48847b494a98da97c386" title="Controlla quanto è grande il grafo.">dim_grafo</a>());
+<a name="l00085"></a>00085             <a class="code" href="g__callback_8cpp.html#a151018a065a06d7ab14eb33495c68018" title="Mostra la barra inferiore dove immettere il percorso da calcolare.">mostra_calcola_percorso</a>(window);
 <a name="l00086"></a>00086             <span class="comment">//******************************************************************</span>
-<a name="l00087"></a>00087             <span class="comment">//*** CARICAMENTO DEI NODI DELLA MAPPA (.MAP) **********************</span>
+<a name="l00087"></a>00087 
 <a name="l00088"></a>00088             <span class="comment">//******************************************************************</span>
-<a name="l00089"></a>00089             window-&gt;<a class="code" href="structpassaggio__t.html#acaf6299dada3ac41ec74f34c6250d7f6" title="Intero che memorizza quanti nodi ci sono caricati nel grafo.">massimo_numero_nodi</a> = <a class="code" href="grafo_8cpp.html#a6e90297598b0cc70283302fcaeb73c68" title="Carica dal file .map e crea il grafo.">carica_mappa</a>(filename);
-<a name="l00090"></a>00090             <span class="keywordflow">if</span> (window-&gt;<a class="code" href="structpassaggio__t.html#acaf6299dada3ac41ec74f34c6250d7f6" title="Intero che memorizza quanti nodi ci sono caricati nel grafo.">massimo_numero_nodi</a> == 0){
-<a name="l00091"></a>00091                 <a class="code" href="g__callback_8cpp.html#a1dcc6b8d248057776043c89f3a5f51da" title="Mostra una finestra di avviso con il testo scelto.">finestra_di_avviso</a>(dialogo,<span class="stringliteral">&quot;Errore nel caricamento della mappa!\n&quot;</span>
-<a name="l00092"></a>00092                         <span class="stringliteral">&quot;prova a caricare il file giusto\n&quot;</span> );
-<a name="l00093"></a>00093                 <span class="keyword">delete</span>[] filename;
-<a name="l00094"></a>00094                 gtk_widget_destroy (dialogo);
-<a name="l00095"></a>00095                 <span class="keywordflow">return</span>;
-<a name="l00096"></a>00096             }
-<a name="l00097"></a>00097             gtk_spin_button_set_range(GTK_SPIN_BUTTON(window-&gt;<a class="code" href="structpassaggio__t.html#ac4167be93d90c04d2c334b8e2db5d146" title="Puntatore allo spin della partenza.">spin_partenza</a>), 1, <a class="code" href="grafo_8cpp.html#ab98d31ac652b48847b494a98da97c386" title="Controlla quanto è grande il grafo.">dim_grafo</a>());
-<a name="l00098"></a>00098             gtk_spin_button_set_range(GTK_SPIN_BUTTON(window-&gt;<a class="code" href="structpassaggio__t.html#ae6d455a0bd3a8ece17643942b090e3c9" title="Puntatore allo spin dell&amp;#39;arrivo.">spin_arrivo</a>)  , 1, <a class="code" href="grafo_8cpp.html#ab98d31ac652b48847b494a98da97c386" title="Controlla quanto è grande il grafo.">dim_grafo</a>());
-<a name="l00099"></a>00099             <a class="code" href="g__callback_8cpp.html#a151018a065a06d7ab14eb33495c68018" title="Mostra la barra inferiore dove immettere il percorso da calcolare.">mostra_calcola_percorso</a>(window);
-<a name="l00100"></a>00100             <span class="comment">//******************************************************************</span>
-<a name="l00101"></a>00101 
-<a name="l00102"></a>00102             <span class="comment">//******************************************************************</span>
-<a name="l00103"></a>00103             <span class="comment">//*** CARICAMENTO DELL&#39;IMMAGINE DELLA MAPPA ************************</span>
-<a name="l00104"></a>00104             <span class="comment">//******************************************************************</span>
-<a name="l00105"></a>00105 
-<a name="l00106"></a>00106             GError *errore = NULL;
-<a name="l00107"></a>00107             GdkPixbuf *immagine_mappa= gdk_pixbuf_new_from_file (filename, &amp;errore);
-<a name="l00108"></a>00108             <span class="keywordflow">if</span> (errore != NULL){
-<a name="l00109"></a>00109                 <span class="keyword">const</span> <span class="keywordtype">char</span> ERRORE[]=<span class="stringliteral">&quot;Errore nel caricamento dell&#39;immagine!\n&quot;</span>
-<a name="l00110"></a>00110                         <span class="stringliteral">&quot;prova a caricare il file giusto\n&quot;</span>;
-<a name="l00111"></a>00111                 cerr&lt;&lt;ERRORE&lt;&lt;endl;
-<a name="l00112"></a>00112                 <a class="code" href="g__callback_8cpp.html#a1dcc6b8d248057776043c89f3a5f51da" title="Mostra una finestra di avviso con il testo scelto.">finestra_di_avviso</a>(dialogo,ERRORE );
-<a name="l00113"></a>00113                 <span class="keyword">delete</span>[] filename;
-<a name="l00114"></a>00114                 gtk_widget_destroy (dialogo);
-<a name="l00115"></a>00115                 <span class="keywordflow">return</span>;
-<a name="l00116"></a>00116             }
-<a name="l00117"></a>00117             <span class="keywordflow">if</span> (errore!=0) gdk_pixbuf_unref (window-&gt;<a class="code" href="structpassaggio__t.html#aa06cc63adb7d8557095422f5855975f5" title="Puntatore al PixBuffer che deve essere caricato dentro il Widget Immagine.">sfondo</a>);
-<a name="l00118"></a>00118             window-&gt;<a class="code" href="structpassaggio__t.html#aa06cc63adb7d8557095422f5855975f5" title="Puntatore al PixBuffer che deve essere caricato dentro il Widget Immagine.">sfondo</a> = immagine_mappa;
-<a name="l00119"></a>00119            
+<a name="l00089"></a>00089             <span class="comment">//*** CARICAMENTO DELL&#39;IMMAGINE DELLA MAPPA ************************</span>
+<a name="l00090"></a>00090             <span class="comment">//******************************************************************</span>
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092             GError *errore = NULL;
+<a name="l00093"></a>00093             GdkPixbuf *immagine_mappa= gdk_pixbuf_new_from_file (filename, &amp;errore);
+<a name="l00094"></a>00094             <span class="keywordflow">if</span> (errore != NULL){
+<a name="l00095"></a>00095                 <span class="keyword">const</span> <span class="keywordtype">char</span> ERRORE[]=<span class="stringliteral">&quot;Errore nel caricamento dell&#39;immagine!\n&quot;</span>
+<a name="l00096"></a>00096                         <span class="stringliteral">&quot;prova a caricare il file giusto\n&quot;</span>;
+<a name="l00097"></a>00097                 cerr&lt;&lt;ERRORE&lt;&lt;endl;
+<a name="l00098"></a>00098                 <a class="code" href="g__callback_8cpp.html#a1dcc6b8d248057776043c89f3a5f51da" title="Mostra una finestra di avviso con il testo scelto.">finestra_di_avviso</a>(dialogo,ERRORE );
+<a name="l00099"></a>00099                 <span class="keyword">delete</span>[] filename;
+<a name="l00100"></a>00100                 gtk_widget_destroy (dialogo);
+<a name="l00101"></a>00101                 <span class="keywordflow">return</span>;
+<a name="l00102"></a>00102             }
+<a name="l00103"></a>00103             <span class="keywordflow">if</span> (errore!=0) gdk_pixbuf_unref (window-&gt;<a class="code" href="structpassaggio__t.html#aa06cc63adb7d8557095422f5855975f5" title="Puntatore al PixBuffer che deve essere caricato dentro il Widget Immagine.">sfondo</a>);
+<a name="l00104"></a>00104             window-&gt;<a class="code" href="structpassaggio__t.html#aa06cc63adb7d8557095422f5855975f5" title="Puntatore al PixBuffer che deve essere caricato dentro il Widget Immagine.">sfondo</a> = immagine_mappa;
+<a name="l00105"></a>00105            
+<a name="l00106"></a>00106 
+<a name="l00107"></a>00107 
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109             <span class="keywordflow">if</span> (errore!=0) g_error_free (errore);
+<a name="l00110"></a>00110             
+<a name="l00111"></a>00111             <span class="comment">//**Alternativa, caricamento direttamente da file</span>
+<a name="l00112"></a>00112             <span class="comment">//gtk_image_set_from_file ((GTK_IMAGE(window-&gt;image), filename);</span>
+<a name="l00113"></a>00113            
+<a name="l00114"></a>00114 
+<a name="l00115"></a>00115             <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1" title="Definisce la macro che attiva il suo argomento interno solo in debug mode.">DBG</a>(cout&lt;&lt;<span class="stringliteral">&quot;Sto per chiamare le librerie CAIRO\n&quot;</span>)
+<a name="l00116"></a>00116             <a class="code" href="gestione__drawing__area_8cpp.html#ad79dc6931738fe4e8897d4ee4ecd1f8e" title="Funzione che carica dal grafo i nodi li disegna (assieme a tutti gli archi) sopra...">cairo_disegna</a>(immagine_mappa);
+<a name="l00117"></a>00117             
+<a name="l00118"></a>00118             gtk_image_set_from_pixbuf (GTK_IMAGE(window-&gt;image), immagine_mappa);
+<a name="l00119"></a>00119 
 <a name="l00120"></a>00120 
-<a name="l00121"></a>00121 
-<a name="l00122"></a>00122 
-<a name="l00123"></a>00123             <span class="keywordflow">if</span> (errore!=0) g_error_free (errore);
-<a name="l00124"></a>00124             
-<a name="l00125"></a>00125             <span class="comment">//**Alternativa, caricamento direttamente da file</span>
-<a name="l00126"></a>00126             <span class="comment">//gtk_image_set_from_file ((GTK_IMAGE(window-&gt;image), filename);</span>
-<a name="l00127"></a>00127            
-<a name="l00128"></a>00128 
-<a name="l00129"></a>00129             <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;<span class="stringliteral">&quot;Sto per chiamare le librerie CAIRO\n&quot;</span>)
-<a name="l00130"></a>00130             <a class="code" href="gestione__drawing__area_8cpp.html#ad79dc6931738fe4e8897d4ee4ecd1f8e" title="Funzione che carica dal grafo i nodi li disegna (assieme a tutti gli archi) sopra...">cairo_disegna</a>(immagine_mappa);
-<a name="l00131"></a>00131             
-<a name="l00132"></a>00132             gtk_image_set_from_pixbuf (GTK_IMAGE(window-&gt;image), immagine_mappa);
-<a name="l00133"></a>00133 
-<a name="l00134"></a>00134 
-<a name="l00135"></a>00135             <span class="comment">//mappa_caricata= true;</span>
-<a name="l00136"></a>00136             delete[] filename;
-<a name="l00137"></a>00137         }
-<a name="l00138"></a>00138         default:
-<a name="l00139"></a>00139             gtk_widget_destroy (dialogo);
-<a name="l00140"></a>00140     }
-<a name="l00141"></a>00141     return;
-<a name="l00142"></a>00142 }
+<a name="l00121"></a>00121             <span class="comment">//mappa_caricata= true;</span>
+<a name="l00122"></a>00122             delete[] filename;
+<a name="l00123"></a>00123         }
+<a name="l00124"></a>00124         default:
+<a name="l00125"></a>00125             gtk_widget_destroy (dialogo);
+<a name="l00126"></a>00126     }
+<a name="l00127"></a>00127     return;
+<a name="l00128"></a>00128 }
 </pre></div></p>
 
 </div>
@@ -381,18 +292,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
   </dd>
 </dl>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00033"></a>00033                                            {
-<a name="l00034"></a>00034     GtkWidget * dialogo= <a class="code" href="creazione__interfaccia_8cpp.html#a123c5cb16300bf9aa6e82cdc0d621f1e" title="Finestra di diaologo.">crea_finestra_dialogo</a> (finestra,<span class="stringliteral">&quot;Sei sicuro di volere uscire?&quot;</span>);
-<a name="l00035"></a>00035     
-<a name="l00036"></a>00036     <span class="keywordflow">switch</span> (gtk_dialog_run (GTK_DIALOG (dialogo))) {
-<a name="l00037"></a>00037 
-<a name="l00038"></a>00038         <span class="keywordflow">case</span> GTK_RESPONSE_ACCEPT:
-<a name="l00039"></a>00039             gtk_main_quit();
-<a name="l00040"></a>00040 
-<a name="l00041"></a>00041         <span class="keywordflow">default</span>:
-<a name="l00042"></a>00042             gtk_widget_destroy (dialogo);
-<a name="l00043"></a>00043     }
-<a name="l00044"></a>00044 }
+<p><div class="fragment"><pre class="fragment"><a name="l00019"></a>00019                                            {
+<a name="l00020"></a>00020     GtkWidget * dialogo= <a class="code" href="creazione__interfaccia_8cpp.html#a123c5cb16300bf9aa6e82cdc0d621f1e" title="Finestra di diaologo.">crea_finestra_dialogo</a> (finestra,<span class="stringliteral">&quot;Sei sicuro di volere uscire?&quot;</span>);
+<a name="l00021"></a>00021     
+<a name="l00022"></a>00022     <span class="keywordflow">switch</span> (gtk_dialog_run (GTK_DIALOG (dialogo))) {
+<a name="l00023"></a>00023 
+<a name="l00024"></a>00024         <span class="keywordflow">case</span> GTK_RESPONSE_ACCEPT:
+<a name="l00025"></a>00025             gtk_main_quit();
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027         <span class="keywordflow">default</span>:
+<a name="l00028"></a>00028             gtk_widget_destroy (dialogo);
+<a name="l00029"></a>00029     }
+<a name="l00030"></a>00030 }
 </pre></div></p>
 
 </div>
@@ -421,9 +332,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
   </dd>
 </dl>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00185"></a>00185                                         {
-<a name="l00186"></a>00186     dialogo-&gt;<a class="code" href="structpassaggio__t.html#ad29162c8ccabc070ad85471558ecc28c" title="Variabile utilizzata per memorizzarci quale percorso verrà utilizzato nel calcolare...">t_calcolo</a> = <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bfacc850434d7f4bfd58679685788302a96">per_distanza</a>;
-<a name="l00187"></a>00187 }
+<p><div class="fragment"><pre class="fragment"><a name="l00162"></a>00162                                         {
+<a name="l00163"></a>00163     dialogo-&gt;<a class="code" href="structpassaggio__t.html#ad29162c8ccabc070ad85471558ecc28c" title="Variabile utilizzata per memorizzarci quale percorso verrà utilizzato nel calcolare...">t_calcolo</a> = <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bfacc850434d7f4bfd58679685788302a96" title="Calcola il percorso prendendo in considerazione la distanza percorsa.">per_distanza</a>;
+<a name="l00164"></a>00164 }
 </pre></div></p>
 
 </div>
@@ -452,9 +363,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
   </dd>
 </dl>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00194"></a>00194                                      {
-<a name="l00195"></a>00195     dialogo-&gt;<a class="code" href="structpassaggio__t.html#ad29162c8ccabc070ad85471558ecc28c" title="Variabile utilizzata per memorizzarci quale percorso verrà utilizzato nel calcolare...">t_calcolo</a> = <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bfa427ed8e19072736c76c868f1556b36d5">per_tempo</a>;
-<a name="l00196"></a>00196 }
+<p><div class="fragment"><pre class="fragment"><a name="l00171"></a>00171                                      {
+<a name="l00172"></a>00172     dialogo-&gt;<a class="code" href="structpassaggio__t.html#ad29162c8ccabc070ad85471558ecc28c" title="Variabile utilizzata per memorizzarci quale percorso verrà utilizzato nel calcolare...">t_calcolo</a> = <a class="code" href="main_8h.html#a0c4eca581dcc28604a5d52370af271bfa427ed8e19072736c76c868f1556b36d5" title="Calcola il percorso prendendo in considerazione il tempo.">per_tempo</a>;
+<a name="l00173"></a>00173 }
 </pre></div></p>
 
 </div>
@@ -474,7 +385,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generato il Fri Jul 23 06:16:51 2010 per Trolaspic da&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generato il Fri Jul 23 14:24:55 2010 per Trolaspic da&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

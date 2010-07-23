@@ -48,66 +48,71 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00010"></a>00010 <span class="preprocessor">#include &quot;<a class="code" href="main_8h.html" title="Contiene i dati fondamentali necessari a tutti i modoli del programma.">main.h</a>&quot;</span>
 <a name="l00011"></a>00011 
 <a name="l00012"></a>00012 <span class="keyword">using namespace </span>std;
-<a name="l00014"></a><a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5a026ab1209905ffcd141965d2a55f14d3">00014</a> <span class="keyword">enum</span> <a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5" title="enumerato per i colori della visita">colour_t</a> {<a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5a3226bf95e2fad7dccac1089fb62a60d5">bianco</a>,<a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5a16d16c4bd6892954a40f8d5105483c5a">grigio</a>,<a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5a026ab1209905ffcd141965d2a55f14d3">nero</a>};
-<a name="l00016"></a><a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3">00016</a> <span class="keyword">enum</span> <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3" title="enumerato per la tipoligia di incrocio">t_incrocio</a> {
-<a name="l00017"></a><a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3ac2443694aae00ca087b9bfefccc770c4">00017</a>     <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3ac2443694aae00ca087b9bfefccc770c4">rotatoria</a>,          <span class="comment">//r</span>
-<a name="l00018"></a><a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3a4eff13ef35c9a96c9ab332340761a0f6">00018</a>     <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3a4eff13ef35c9a96c9ab332340761a0f6">incrocio_normale</a>,   <span class="comment">//n</span>
-<a name="l00019"></a><a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3a719129611a5479c8f9a1d24d091ba679">00019</a>     <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3a719129611a5479c8f9a1d24d091ba679">incrocio_semafori</a>,  <span class="comment">//s</span>
-<a name="l00020"></a><a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3a561b73c5039faff30c65abb315df7635">00020</a>     <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3a561b73c5039faff30c65abb315df7635">strada</a>              <span class="comment">//</span>
+<a name="l00014"></a><a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5">00014</a> <span class="keyword">enum</span> <a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5" title="enumerato per i colori del grafo Dijkstra">colour_t</a> { 
+<a name="l00016"></a><a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5a3226bf95e2fad7dccac1089fb62a60d5">00016</a>                 <a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5a3226bf95e2fad7dccac1089fb62a60d5" title="nodo mai visitato">bianco</a>,
+<a name="l00018"></a><a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5a16d16c4bd6892954a40f8d5105483c5a">00018</a>                 <a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5a16d16c4bd6892954a40f8d5105483c5a" title="nodo visitato con archi non rilassati">grigio</a>,
+<a name="l00020"></a><a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5a026ab1209905ffcd141965d2a55f14d3">00020</a>                 <a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5a026ab1209905ffcd141965d2a55f14d3" title="nodo visitato con tutti gli archi rilassati">nero</a>
 <a name="l00021"></a>00021 };
 <a name="l00022"></a>00022 
-<a name="l00024"></a><a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850dd">00024</a> <span class="keyword">enum</span> <a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850dd" title="enumerato per la tipologia di segmentazione utilizzata per disegnare l&amp;#39;arco">tipo_segmentazione</a> {
-<a name="l00025"></a><a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850ddafd58db30e9dd613837d829a714e7afd0">00025</a>     <a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850ddafd58db30e9dd613837d829a714e7afd0">nessuna</a>,
-<a name="l00026"></a><a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850dda3e6b7d5eb96b907440f749b8342f1306">00026</a>     <a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850dda3e6b7d5eb96b907440f749b8342f1306">rette</a>,
-<a name="l00027"></a><a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850ddac7880ebd96493f1334fb5d06355db728">00027</a>     <a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850ddac7880ebd96493f1334fb5d06355db728">bezier</a>
-<a name="l00028"></a>00028 };
-<a name="l00029"></a>00029 
-<a name="l00032"></a><a class="code" href="structadiacenza.html">00032</a> <span class="keyword">struct </span><a class="code" href="structadiacenza.html" title="Struct che rappresenta gli archi fra un nodo e l&amp;#39;altro.">adiacenza</a>{
-<a name="l00036"></a><a class="code" href="structadiacenza.html#a979000bd61559a22dcc424e9f04481ab">00036</a>     <span class="keywordtype">int</span> <a class="code" href="structnodo.html" title="Struct per la rappresentazione dei nodi di cui e&amp;#39; composto il grafo.">nodo</a>;
-<a name="l00037"></a>00037 
-<a name="l00039"></a><a class="code" href="structadiacenza.html#a36b0702ffb002532fdb95b2c7174ae23">00039</a>     <span class="keywordtype">double</span> <a class="code" href="structadiacenza.html#a36b0702ffb002532fdb95b2c7174ae23" title="Il peso dell&amp;#39;arco fra il nodo chiamante e il nodo indicato in kilometri.">kilometri</a>;
-<a name="l00041"></a><a class="code" href="structadiacenza.html#a64865462a95428742eed016ee8bfcdd1">00041</a>     <span class="keywordtype">double</span> <a class="code" href="structadiacenza.html#a64865462a95428742eed016ee8bfcdd1" title="Il peso dell&amp;#39;arco fra il nodo chiamante e il nodo indicato in secondi.">secondi</a>;
-<a name="l00042"></a>00042 
-<a name="l00044"></a><a class="code" href="structadiacenza.html#ab9cf4d00d0bd8523e7b69ad637b6bfe9">00044</a>     <a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850dd" title="enumerato per la tipologia di segmentazione utilizzata per disegnare l&amp;#39;arco">tipo_segmentazione</a> <a class="code" href="structadiacenza.html#ab9cf4d00d0bd8523e7b69ad637b6bfe9" title="dice se usare la segmentazione a rette o a curve bezier">segmentazione</a>;
-<a name="l00045"></a>00045 
-<a name="l00047"></a><a class="code" href="structadiacenza.html#a171e4c043556ee8a27a6396436d559d6">00047</a>     <span class="keywordtype">int</span> <a class="code" href="structadiacenza.html#a171e4c043556ee8a27a6396436d559d6" title="oridnata punto 1">x1</a>;
-<a name="l00049"></a><a class="code" href="structadiacenza.html#a8614aad7a553f56cd9c2a8461dc97d40">00049</a>     <span class="keywordtype">int</span> <a class="code" href="structadiacenza.html#a8614aad7a553f56cd9c2a8461dc97d40" title="ascissa punto 1">y1</a>;
-<a name="l00050"></a>00050 
-<a name="l00052"></a><a class="code" href="structadiacenza.html#a02cda320439546abf4c527328c1153bc">00052</a>     <span class="keywordtype">int</span> <a class="code" href="structadiacenza.html#a02cda320439546abf4c527328c1153bc" title="oridnata punto 2">x2</a>;
-<a name="l00054"></a><a class="code" href="structadiacenza.html#aad4b57b9001a4b14fa3c46f6dbb1cb26">00054</a>     <span class="keywordtype">int</span> <a class="code" href="structadiacenza.html#aad4b57b9001a4b14fa3c46f6dbb1cb26" title="ascissa punto 2">y2</a>;
-<a name="l00055"></a>00055     
-<a name="l00056"></a>00056 };
-<a name="l00058"></a><a class="code" href="grafo_8h.html#a2acdbc8e59194b1fb0c52b9fb6e48b44">00058</a> <span class="keyword">typedef</span> <a class="code" href="structadiacenza.html" title="Struct che rappresenta gli archi fra un nodo e l&amp;#39;altro.">adiacenza</a> <a class="code" href="structadiacenza.html" title="Struct che rappresenta gli archi fra un nodo e l&amp;#39;altro.">arco</a>;
-<a name="l00059"></a>00059 
-<a name="l00062"></a><a class="code" href="structnodo.html">00062</a> <span class="keyword">struct </span><a class="code" href="structnodo.html" title="Struct per la rappresentazione dei nodi di cui e&amp;#39; composto il grafo.">nodo</a> {
-<a name="l00064"></a><a class="code" href="structnodo.html#a4e346a7300837310d594e854b0918b01">00064</a>     <span class="keywordtype">int</span> <a class="code" href="structnodo.html#a4e346a7300837310d594e854b0918b01" title="Coordinata orizzontale del nodo sulla mappa.">x</a>;
-<a name="l00066"></a><a class="code" href="structnodo.html#a454518f55fe41aa89177dbbf19a349e4">00066</a>     <span class="keywordtype">int</span> <a class="code" href="structnodo.html#a454518f55fe41aa89177dbbf19a349e4" title="Coordinata Verticale del nodo sulla mappa.">y</a>;
-<a name="l00067"></a>00067 
-<a name="l00074"></a><a class="code" href="structnodo.html#ae242f8d8dd28c74789c66f76ccbc6179">00074</a>     <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3" title="enumerato per la tipoligia di incrocio">t_incrocio</a> <a class="code" href="structnodo.html#ae242f8d8dd28c74789c66f76ccbc6179" title="Tipo di incrocio che rappreenta questo nodo.">tipo</a>;
-<a name="l00075"></a>00075 
-<a name="l00077"></a><a class="code" href="structnodo.html#acde832d9079cd541214312f347ef0712">00077</a>     list&lt;adiacenza&gt; <a class="code" href="structnodo.html#acde832d9079cd541214312f347ef0712" title="Tutti i nodi che e&amp;#39; possibile raggiungere da questo.">adiacente</a>;
-<a name="l00078"></a>00078 
-<a name="l00080"></a><a class="code" href="structnodo.html#ad020a139f05c481569b2c453b56971b4">00080</a>     <span class="keywordtype">int</span> <a class="code" href="structnodo.html#ad020a139f05c481569b2c453b56971b4" title="Quanto è grande la lista di adiacenza.">size_list</a>;
-<a name="l00081"></a>00081 
+<a name="l00024"></a><a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3">00024</a> <span class="keyword">enum</span> <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3" title="enumerato per la tipoligia di incrocio.">t_incrocio</a> {
+<a name="l00026"></a><a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3ac2443694aae00ca087b9bfefccc770c4">00026</a>     <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3ac2443694aae00ca087b9bfefccc770c4" title="Incrocio a rotatoria.">rotatoria</a>,          <span class="comment">//r</span>
+<a name="l00028"></a><a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3a4eff13ef35c9a96c9ab332340761a0f6">00028</a> <span class="comment"></span>    <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3a4eff13ef35c9a96c9ab332340761a0f6" title="Incrocio normale fra 2 strade.">incrocio_normale</a>,   <span class="comment">//n</span>
+<a name="l00030"></a><a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3a719129611a5479c8f9a1d24d091ba679">00030</a> <span class="comment"></span>    <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3a719129611a5479c8f9a1d24d091ba679" title="Incrocio con semaforo.">incrocio_semafori</a>,  <span class="comment">//s</span>
+<a name="l00032"></a><a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3a561b73c5039faff30c65abb315df7635">00032</a> <span class="comment"></span>    <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3a561b73c5039faff30c65abb315df7635" title="Strada normale senza incroci.">strada</a>              <span class="comment">//</span>
+<a name="l00033"></a>00033 };
+<a name="l00034"></a>00034 
+<a name="l00036"></a><a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850dd">00036</a> <span class="keyword">enum</span> <a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850dd" title="enumerato per la tipologia di segmentazione utilizzata per disegnare l&amp;#39;arco">tipo_segmentazione</a> {
+<a name="l00038"></a><a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850ddafd58db30e9dd613837d829a714e7afd0">00038</a>     <a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850ddafd58db30e9dd613837d829a714e7afd0" title="L&amp;#39;unione fra i due punti è una riga retta.">nessuna</a>,
+<a name="l00040"></a><a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850dda3e6b7d5eb96b907440f749b8342f1306">00040</a>     <a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850dda3e6b7d5eb96b907440f749b8342f1306" title="L&amp;#39;unione fra i due punti è una linea retta spezzata.">rette</a>,
+<a name="l00042"></a><a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850ddac7880ebd96493f1334fb5d06355db728">00042</a>     <a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850ddac7880ebd96493f1334fb5d06355db728" title="L&amp;#39;unione fra i due punti è una strada curva.">bezier</a>
+<a name="l00043"></a>00043 };
+<a name="l00044"></a>00044 
+<a name="l00047"></a><a class="code" href="structadiacenza.html">00047</a> <span class="keyword">struct </span><a class="code" href="structadiacenza.html" title="Struct che rappresenta gli archi fra un nodo e l&amp;#39;altro.">adiacenza</a>{
+<a name="l00051"></a><a class="code" href="structadiacenza.html#a979000bd61559a22dcc424e9f04481ab">00051</a>     <span class="keywordtype">int</span> <a class="code" href="structnodo.html" title="Struct per la rappresentazione dei nodi di cui e&amp;#39; composto il grafo.">nodo</a>;
+<a name="l00052"></a>00052 
+<a name="l00054"></a><a class="code" href="structadiacenza.html#a36b0702ffb002532fdb95b2c7174ae23">00054</a>     <span class="keywordtype">double</span> <a class="code" href="structadiacenza.html#a36b0702ffb002532fdb95b2c7174ae23" title="Il peso dell&amp;#39;arco fra il nodo chiamante e il nodo indicato in kilometri.">kilometri</a>;
+<a name="l00056"></a><a class="code" href="structadiacenza.html#a64865462a95428742eed016ee8bfcdd1">00056</a>     <span class="keywordtype">double</span> <a class="code" href="structadiacenza.html#a64865462a95428742eed016ee8bfcdd1" title="Il peso dell&amp;#39;arco fra il nodo chiamante e il nodo indicato in secondi.">secondi</a>;
+<a name="l00057"></a>00057 
+<a name="l00059"></a><a class="code" href="structadiacenza.html#ab9cf4d00d0bd8523e7b69ad637b6bfe9">00059</a>     <a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850dd" title="enumerato per la tipologia di segmentazione utilizzata per disegnare l&amp;#39;arco">tipo_segmentazione</a> <a class="code" href="structadiacenza.html#ab9cf4d00d0bd8523e7b69ad637b6bfe9" title="dice se usare la segmentazione a rette o a curve bezier">segmentazione</a>;
+<a name="l00060"></a>00060 
+<a name="l00062"></a><a class="code" href="structadiacenza.html#a171e4c043556ee8a27a6396436d559d6">00062</a>     <span class="keywordtype">int</span> <a class="code" href="structadiacenza.html#a171e4c043556ee8a27a6396436d559d6" title="oridnata punto 1">x1</a>;
+<a name="l00064"></a><a class="code" href="structadiacenza.html#a8614aad7a553f56cd9c2a8461dc97d40">00064</a>     <span class="keywordtype">int</span> <a class="code" href="structadiacenza.html#a8614aad7a553f56cd9c2a8461dc97d40" title="ascissa punto 1">y1</a>;
+<a name="l00065"></a>00065 
+<a name="l00067"></a><a class="code" href="structadiacenza.html#a02cda320439546abf4c527328c1153bc">00067</a>     <span class="keywordtype">int</span> <a class="code" href="structadiacenza.html#a02cda320439546abf4c527328c1153bc" title="oridnata punto 2">x2</a>;
+<a name="l00069"></a><a class="code" href="structadiacenza.html#aad4b57b9001a4b14fa3c46f6dbb1cb26">00069</a>     <span class="keywordtype">int</span> <a class="code" href="structadiacenza.html#aad4b57b9001a4b14fa3c46f6dbb1cb26" title="ascissa punto 2">y2</a>;
+<a name="l00070"></a>00070     
+<a name="l00071"></a>00071 };
+<a name="l00073"></a><a class="code" href="grafo_8h.html#a2acdbc8e59194b1fb0c52b9fb6e48b44">00073</a> <span class="keyword">typedef</span> <a class="code" href="structadiacenza.html" title="Struct che rappresenta gli archi fra un nodo e l&amp;#39;altro.">adiacenza</a> <a class="code" href="structadiacenza.html" title="Struct che rappresenta gli archi fra un nodo e l&amp;#39;altro.">arco</a>;
+<a name="l00074"></a>00074 
+<a name="l00077"></a><a class="code" href="structnodo.html">00077</a> <span class="keyword">struct </span><a class="code" href="structnodo.html" title="Struct per la rappresentazione dei nodi di cui e&amp;#39; composto il grafo.">nodo</a> {
+<a name="l00079"></a><a class="code" href="structnodo.html#a4e346a7300837310d594e854b0918b01">00079</a>     <span class="keywordtype">int</span> <a class="code" href="structnodo.html#a4e346a7300837310d594e854b0918b01" title="Coordinata orizzontale del nodo sulla mappa.">x</a>;
+<a name="l00081"></a><a class="code" href="structnodo.html#a454518f55fe41aa89177dbbf19a349e4">00081</a>     <span class="keywordtype">int</span> <a class="code" href="structnodo.html#a454518f55fe41aa89177dbbf19a349e4" title="Coordinata Verticale del nodo sulla mappa.">y</a>;
 <a name="l00082"></a>00082 
-<a name="l00083"></a>00083 
-<a name="l00084"></a>00084     <span class="comment">//ROBA CHE SERVE SOLO PER LA RICERCA ---------------------------------------</span>
-<a name="l00090"></a><a class="code" href="structnodo.html#a2694acb99e1095c70b3c80d57be82c6c">00090</a> <span class="comment"></span>    <a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5" title="enumerato per i colori della visita">colour_t</a> <a class="code" href="structnodo.html#a2694acb99e1095c70b3c80d57be82c6c" title="Colore da impostare secondo l&amp;#39;algoritmo dijkstra.">visitato</a>;
-<a name="l00091"></a>00091 
-<a name="l00096"></a><a class="code" href="structnodo.html#ad9af03d4d3cfe325790568dc7a99e479">00096</a>     <span class="keywordtype">double</span> <a class="code" href="structnodo.html#ad9af03d4d3cfe325790568dc7a99e479" title="Quanto pesa passare da questo nodo.">peso</a>;
+<a name="l00089"></a><a class="code" href="structnodo.html#ae242f8d8dd28c74789c66f76ccbc6179">00089</a>     <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3" title="enumerato per la tipoligia di incrocio.">t_incrocio</a> <a class="code" href="structnodo.html#ae242f8d8dd28c74789c66f76ccbc6179" title="Tipo di incrocio che rappreenta questo nodo.">tipo</a>;
+<a name="l00090"></a>00090 
+<a name="l00092"></a><a class="code" href="structnodo.html#acde832d9079cd541214312f347ef0712">00092</a>     list&lt;adiacenza&gt; <a class="code" href="structnodo.html#acde832d9079cd541214312f347ef0712" title="Tutti i nodi che e&amp;#39; possibile raggiungere da questo.">adiacente</a>;
+<a name="l00093"></a>00093 
+<a name="l00095"></a><a class="code" href="structnodo.html#ad020a139f05c481569b2c453b56971b4">00095</a>     <span class="keywordtype">int</span> <a class="code" href="structnodo.html#ad020a139f05c481569b2c453b56971b4" title="Quanto è grande la lista di adiacenza.">size_list</a>;
+<a name="l00096"></a>00096 
 <a name="l00097"></a>00097 
-<a name="l00099"></a><a class="code" href="structnodo.html#a0ee242378ff48b176c09cdc2e61295cb">00099</a>     <span class="keywordtype">int</span> <a class="code" href="structnodo.html#a0ee242378ff48b176c09cdc2e61295cb" title="Questo parametro serve a ricostruire il tragitto dopo aver usato dijkstra.">padre</a>;
-<a name="l00100"></a>00100 };
-<a name="l00101"></a>00101 
-<a name="l00102"></a>00102 <span class="keyword">extern</span> <a class="code" href="structnodo.html" title="Struct per la rappresentazione dei nodi di cui e&amp;#39; composto il grafo.">nodo</a>* <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>;
-<a name="l00103"></a>00103 
-<a name="l00104"></a>00104 <span class="keywordtype">int</span> <a class="code" href="grafo_8cpp.html#a6e90297598b0cc70283302fcaeb73c68" title="Carica dal file .map e crea il grafo.">carica_mappa</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *filename);
-<a name="l00105"></a>00105 
-<a name="l00106"></a>00106 <span class="keywordtype">int</span> <a class="code" href="grafo_8cpp.html#ab98d31ac652b48847b494a98da97c386" title="Controlla quanto è grande il grafo.">dim_grafo</a>(<span class="keywordtype">void</span>);
-<a name="l00107"></a>00107 
-<a name="l00108"></a>00108 
-<a name="l00109"></a>00109 <span class="preprocessor">#endif  </span><span class="comment">/* GRAFO_H */</span>
-<a name="l00110"></a>00110 
+<a name="l00098"></a>00098 
+<a name="l00099"></a>00099     <span class="comment">//ROBA CHE SERVE SOLO PER LA RICERCA ---------------------------------------</span>
+<a name="l00105"></a><a class="code" href="structnodo.html#a2694acb99e1095c70b3c80d57be82c6c">00105</a> <span class="comment"></span>    <a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5" title="enumerato per i colori del grafo Dijkstra">colour_t</a> <a class="code" href="structnodo.html#a2694acb99e1095c70b3c80d57be82c6c" title="Colore da impostare secondo l&amp;#39;algoritmo dijkstra.">visitato</a>;
+<a name="l00106"></a>00106 
+<a name="l00111"></a><a class="code" href="structnodo.html#ad9af03d4d3cfe325790568dc7a99e479">00111</a>     <span class="keywordtype">double</span> <a class="code" href="structnodo.html#ad9af03d4d3cfe325790568dc7a99e479" title="Quanto pesa passare da questo nodo.">peso</a>;
+<a name="l00112"></a>00112 
+<a name="l00114"></a><a class="code" href="structnodo.html#a0ee242378ff48b176c09cdc2e61295cb">00114</a>     <span class="keywordtype">int</span> <a class="code" href="structnodo.html#a0ee242378ff48b176c09cdc2e61295cb" title="Questo parametro serve a ricostruire il tragitto dopo aver usato dijkstra.">padre</a>;
+<a name="l00115"></a>00115 };
+<a name="l00116"></a>00116 
+<a name="l00117"></a>00117 <span class="keyword">extern</span> <a class="code" href="structnodo.html" title="Struct per la rappresentazione dei nodi di cui e&amp;#39; composto il grafo.">nodo</a>* <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>;
+<a name="l00118"></a>00118 
+<a name="l00119"></a>00119 <span class="keywordtype">int</span> <a class="code" href="grafo_8cpp.html#a6e90297598b0cc70283302fcaeb73c68" title="Dato un file immagine cerca il corrispettivo in .map e se lo trova carica la mappa...">carica_mappa</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *filename);
+<a name="l00120"></a>00120 
+<a name="l00121"></a>00121 <span class="keywordtype">int</span> <a class="code" href="grafo_8cpp.html#ab98d31ac652b48847b494a98da97c386" title="Controlla quanto è grande il grafo.">dim_grafo</a>(<span class="keywordtype">void</span>);
+<a name="l00122"></a>00122 
+<a name="l00123"></a>00123 
+<a name="l00124"></a>00124 <span class="preprocessor">#endif  </span><span class="comment">/* GRAFO_H */</span>
+<a name="l00125"></a>00125 
 </pre></div></div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -123,7 +128,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generato il Fri Jul 23 06:16:51 2010 per Trolaspic da&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generato il Fri Jul 23 14:24:55 2010 per Trolaspic da&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

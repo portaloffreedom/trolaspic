@@ -10,20 +10,35 @@
 #include "main.h"
 
 using namespace std;
-/** enumerato per i colori della visita */
-enum colour_t {bianco,grigio,nero};
-/** enumerato per la tipoligia di incrocio */
+/** enumerato per i colori del grafo Dijkstra */
+enum colour_t { 
+                /** nodo mai visitato*/
+                bianco,
+                /** nodo visitato con archi non rilassati*/
+                grigio,
+                /** nodo visitato con tutti gli archi rilassati*/
+                nero
+};
+
+/** enumerato per la tipoligia di incrocio. Non è usato*/
 enum t_incrocio {
+    /**  Incrocio a rotatoria */
     rotatoria,          //r
+    /** Incrocio normale fra 2 strade. Comprende anche gli incroci a meno vie*/
     incrocio_normale,   //n
+    /** Incrocio con semaforo. Comprende anche incroci con semaforo a meno vie*/
     incrocio_semafori,  //s
+    /** Strada normale senza incroci. Non è usato.*/
     strada              //
 };
 
 /** enumerato per la tipologia di segmentazione utilizzata per disegnare l'arco*/
 enum tipo_segmentazione {
+    /** L'unione fra i due punti è una riga retta */
     nessuna,
+    /** L'unione fra i due punti è una linea retta spezzata.*/
     rette,
+    /** L'unione fra i due punti è una strada curva*/
     bezier
 };
 

@@ -66,7 +66,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="grafo_8cpp.html#aa0fa3dc4f3b6c48fff0d986768eec61b">imposta_segmentazione</a> (ifstream &amp;source, <a class="el" href="structadiacenza.html">arco</a> &amp;<a class="el" href="structadiacenza.html">arco</a>, <a class="el" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850dd">tipo_segmentazione</a> segmentazione)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Imposta i valori negli archi per la segmentazione degli archi leggendoli da file.  <a href="#aa0fa3dc4f3b6c48fff0d986768eec61b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="grafo_8cpp.html#a6e90297598b0cc70283302fcaeb73c68">carica_mappa</a> (const char *filename)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Carica dal file .map e crea il grafo.  <a href="#a6e90297598b0cc70283302fcaeb73c68"></a><br/></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Dato un file immagine cerca il corrispettivo in .map e se lo trova carica la mappa, altrimenti da errore.  <a href="#a6e90297598b0cc70283302fcaeb73c68"></a><br/></td></tr>
 <tr><td colspan="2"><h2>Variabili</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structnodo.html">nodo</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="grafo_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861">GRAPH</a> = 0</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l'indirizzo dell'array dove viene memorizzato il grafo.  <a href="#a2a5c5e0d7ce44f02dc750eca16c6e861"></a><br/></td></tr>
@@ -94,15 +94,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div>
 <div class="memdoc">
 
-<p>Carica dal file .map e crea il grafo. </p>
-<p><br/>
- Elimina da solo la vecchia mappa se esistente.</p>
+<p>Dato un file immagine cerca il corrispettivo in .map e se lo trova carica la mappa, altrimenti da errore. </p>
+<p>* </p>
 <dl><dt><b>Parametri:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>nome</em>&nbsp;</td><td>del file (trasforma da solo in .map) </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>nome</em>&nbsp;</td><td>Il Nome del file da caricare. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="return"><dt><b>Restituisce:</b></dt><dd></dd></dl>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00150"></a>00150                                       {
 <a name="l00151"></a>00151 
@@ -118,8 +118,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00161"></a>00161     <span class="keywordflow">for</span> (; i&gt;=0;i--){
 <a name="l00162"></a>00162         filename_map[i]=filename[i];
 <a name="l00163"></a>00163     }
-<a name="l00164"></a>00164     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;filename&lt;&lt;endl);
-<a name="l00165"></a>00165     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;filename_map&lt;&lt;endl);
+<a name="l00164"></a>00164     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1" title="Definisce la macro che attiva il suo argomento interno solo in debug mode.">DBG</a>(cout&lt;&lt;filename&lt;&lt;endl);
+<a name="l00165"></a>00165     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1" title="Definisce la macro che attiva il suo argomento interno solo in debug mode.">DBG</a>(cout&lt;&lt;filename_map&lt;&lt;endl);
 <a name="l00166"></a>00166 
 <a name="l00167"></a>00167     ifstream mappa (filename_map);
 <a name="l00168"></a>00168     <span class="keywordflow">if</span> (!mappa) {
@@ -145,7 +145,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00188"></a>00188     <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[0].<a class="code" href="structnodo.html#a4e346a7300837310d594e854b0918b01" title="Coordinata orizzontale del nodo sulla mappa.">x</a>=dim_x;
 <a name="l00189"></a>00189     <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[0].<a class="code" href="structnodo.html#a454518f55fe41aa89177dbbf19a349e4" title="Coordinata Verticale del nodo sulla mappa.">y</a>=dim_y;
 <a name="l00190"></a>00190 
-<a name="l00191"></a>00191     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1">DBG</a>(cout&lt;&lt;<span class="stringliteral">&quot;Nodo GRAPH[0] inizializzato con successo\n&quot;</span>)
+<a name="l00191"></a>00191     <a class="code" href="main_8h.html#a1fbcb40b54dfefdd5859d4532ae5a9e1" title="Definisce la macro che attiva il suo argomento interno solo in debug mode.">DBG</a>(cout&lt;&lt;<span class="stringliteral">&quot;Nodo GRAPH[0] inizializzato con successo\n&quot;</span>)
 <a name="l00192"></a>00192 
 <a name="l00193"></a>00193      for (<span class="keywordtype">int</span> i=1; i&lt;=numero_nodi; i++){
 <a name="l00194"></a>00194         <span class="comment">//Lettura del numero dell&#39;incrocio</span>
@@ -155,25 +155,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00198"></a>00198         <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[nome_incrocio].<a class="code" href="structnodo.html#a4e346a7300837310d594e854b0918b01" title="Coordinata orizzontale del nodo sulla mappa.">x</a>= <a class="code" href="grafo_8cpp.html#a0532e9aadb0386590957f7adcf60ac31" title="Serve per nascondere alla funzione i commenti nello stream.">leggi_prox_int</a>(mappa);
 <a name="l00199"></a>00199         <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[nome_incrocio].<a class="code" href="structnodo.html#a454518f55fe41aa89177dbbf19a349e4" title="Coordinata Verticale del nodo sulla mappa.">y</a>= <a class="code" href="grafo_8cpp.html#a0532e9aadb0386590957f7adcf60ac31" title="Serve per nascondere alla funzione i commenti nello stream.">leggi_prox_int</a>(mappa);
 <a name="l00200"></a>00200         <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[nome_incrocio].<a class="code" href="structnodo.html#a0ee242378ff48b176c09cdc2e61295cb" title="Questo parametro serve a ricostruire il tragitto dopo aver usato dijkstra.">padre</a> = -1;
-<a name="l00201"></a>00201         <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[nome_incrocio].<a class="code" href="structnodo.html#a2694acb99e1095c70b3c80d57be82c6c" title="Colore da impostare secondo l&amp;#39;algoritmo dijkstra.">visitato</a> = <a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5a3226bf95e2fad7dccac1089fb62a60d5">bianco</a>;
+<a name="l00201"></a>00201         <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[nome_incrocio].<a class="code" href="structnodo.html#a2694acb99e1095c70b3c80d57be82c6c" title="Colore da impostare secondo l&amp;#39;algoritmo dijkstra.">visitato</a> = <a class="code" href="grafo_8h.html#a0c8a1926ea9777d387b811ba1ec89ac5a3226bf95e2fad7dccac1089fb62a60d5" title="nodo mai visitato">bianco</a>;
 <a name="l00202"></a>00202         <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[nome_incrocio].<a class="code" href="structnodo.html#ad9af03d4d3cfe325790568dc7a99e479" title="Quanto pesa passare da questo nodo.">peso</a> = INFINITO;
 <a name="l00203"></a>00203 
 <a name="l00204"></a>00204         <span class="comment">//Lettura del tipo di incrocio</span>
 <a name="l00205"></a>00205         mappa.ignore(<a class="code" href="grafo_8cpp.html#aca41d9199bb21b94216bf634dd3487c0" title="Questa costante stabilisce quanti caratteri possono esserci al massimo fra i delimitatori...">MAX_SALTO</a>,<span class="charliteral">&#39;)&#39;</span>);
 <a name="l00206"></a>00206         <span class="keywordtype">char</span> tipo_incrocio_char= <a class="code" href="grafo_8cpp.html#a7000cf69c2ba3f93984948e81f62cfe1" title="Serve per nascondere alla funzione i commenti nello stream.">leggi_prox_char</a>(mappa);
-<a name="l00207"></a>00207         <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3" title="enumerato per la tipoligia di incrocio">t_incrocio</a> tipo_incrocio;
+<a name="l00207"></a>00207         <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3" title="enumerato per la tipoligia di incrocio.">t_incrocio</a> tipo_incrocio;
 <a name="l00208"></a>00208         <span class="keywordflow">switch</span> (tipo_incrocio_char){
 <a name="l00209"></a>00209             <span class="keywordflow">case</span> <span class="charliteral">&#39;s&#39;</span>:
-<a name="l00210"></a>00210                 tipo_incrocio= <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3a719129611a5479c8f9a1d24d091ba679">incrocio_semafori</a>;
+<a name="l00210"></a>00210                 tipo_incrocio= <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3a719129611a5479c8f9a1d24d091ba679" title="Incrocio con semaforo.">incrocio_semafori</a>;
 <a name="l00211"></a>00211                 <span class="keywordflow">break</span>;
 <a name="l00212"></a>00212             <span class="keywordflow">case</span> <span class="charliteral">&#39;r&#39;</span>:
-<a name="l00213"></a>00213                 tipo_incrocio= <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3ac2443694aae00ca087b9bfefccc770c4">rotatoria</a>;
+<a name="l00213"></a>00213                 tipo_incrocio= <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3ac2443694aae00ca087b9bfefccc770c4" title="Incrocio a rotatoria.">rotatoria</a>;
 <a name="l00214"></a>00214                 <span class="keywordflow">break</span>;
 <a name="l00215"></a>00215             <span class="keywordflow">default</span>:
 <a name="l00216"></a>00216                 cerr&lt;&lt;<span class="stringliteral">&quot;\nErrore nella lettura del tipo di incrocio numero &quot;</span>&lt;&lt;nome_incrocio&lt;&lt;
 <a name="l00217"></a>00217                         <span class="stringliteral">&quot;\nIncrocio settato come normale.\n&quot;</span>;
 <a name="l00218"></a>00218             <span class="keywordflow">case</span> <span class="charliteral">&#39;n&#39;</span>:
-<a name="l00219"></a>00219                 tipo_incrocio= <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3a4eff13ef35c9a96c9ab332340761a0f6">incrocio_normale</a>;
+<a name="l00219"></a>00219                 tipo_incrocio= <a class="code" href="grafo_8h.html#a7057ea16b948acbb9c46336afd6be9b3a4eff13ef35c9a96c9ab332340761a0f6" title="Incrocio normale fra 2 strade.">incrocio_normale</a>;
 <a name="l00220"></a>00220         }
 <a name="l00221"></a>00221         <a class="code" href="gestione__drawing__area_8cpp.html#a2a5c5e0d7ce44f02dc750eca16c6e861" title="La variabile GRAPH è globale, ed è il puntatore che viene usato per contenere l&amp;#39;indirizzo...">GRAPH</a>[nome_incrocio].<a class="code" href="structnodo.html#ae242f8d8dd28c74789c66f76ccbc6179" title="Tipo di incrocio che rappreenta questo nodo.">tipo</a> = tipo_incrocio;
 <a name="l00222"></a>00222 
@@ -201,18 +201,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00244"></a>00244             <span class="keywordflow">if</span> (carattere_arco_speciale==<span class="charliteral">&#39;{&#39;</span>){
 <a name="l00245"></a>00245                 <span class="keywordflow">switch</span>(<a class="code" href="grafo_8cpp.html#a7000cf69c2ba3f93984948e81f62cfe1" title="Serve per nascondere alla funzione i commenti nello stream.">leggi_prox_char</a>(mappa)){
 <a name="l00246"></a>00246                     <span class="keywordflow">case</span> <span class="charliteral">&#39;R&#39;</span>:
-<a name="l00247"></a>00247                         <a class="code" href="grafo_8cpp.html#aa0fa3dc4f3b6c48fff0d986768eec61b" title="Imposta i valori negli archi per la segmentazione degli archi leggendoli da file...">imposta_segmentazione</a>(mappa, arco, <a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850dda3e6b7d5eb96b907440f749b8342f1306">rette</a>);
+<a name="l00247"></a>00247                         <a class="code" href="grafo_8cpp.html#aa0fa3dc4f3b6c48fff0d986768eec61b" title="Imposta i valori negli archi per la segmentazione degli archi leggendoli da file...">imposta_segmentazione</a>(mappa, arco, <a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850dda3e6b7d5eb96b907440f749b8342f1306" title="L&amp;#39;unione fra i due punti è una linea retta spezzata.">rette</a>);
 <a name="l00248"></a>00248                         <span class="keywordflow">break</span>;
 <a name="l00249"></a>00249                     <span class="keywordflow">case</span> <span class="charliteral">&#39;B&#39;</span>:
-<a name="l00250"></a>00250                         <a class="code" href="grafo_8cpp.html#aa0fa3dc4f3b6c48fff0d986768eec61b" title="Imposta i valori negli archi per la segmentazione degli archi leggendoli da file...">imposta_segmentazione</a>(mappa, arco, <a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850ddac7880ebd96493f1334fb5d06355db728">bezier</a>);
+<a name="l00250"></a>00250                         <a class="code" href="grafo_8cpp.html#aa0fa3dc4f3b6c48fff0d986768eec61b" title="Imposta i valori negli archi per la segmentazione degli archi leggendoli da file...">imposta_segmentazione</a>(mappa, arco, <a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850ddac7880ebd96493f1334fb5d06355db728" title="L&amp;#39;unione fra i due punti è una strada curva.">bezier</a>);
 <a name="l00251"></a>00251                         <span class="keywordflow">break</span>;
 <a name="l00252"></a>00252                     <span class="keywordflow">default</span>:
 <a name="l00253"></a>00253                         cerr&lt;&lt;<span class="stringliteral">&quot;Errore lettura segmentazione\n&quot;</span>;
-<a name="l00254"></a>00254                         arco.<a class="code" href="structadiacenza.html#ab9cf4d00d0bd8523e7b69ad637b6bfe9" title="dice se usare la segmentazione a rette o a curve bezier">segmentazione</a>= <a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850ddafd58db30e9dd613837d829a714e7afd0">nessuna</a>;
+<a name="l00254"></a>00254                         arco.<a class="code" href="structadiacenza.html#ab9cf4d00d0bd8523e7b69ad637b6bfe9" title="dice se usare la segmentazione a rette o a curve bezier">segmentazione</a>= <a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850ddafd58db30e9dd613837d829a714e7afd0" title="L&amp;#39;unione fra i due punti è una riga retta.">nessuna</a>;
 <a name="l00255"></a>00255                 }
 <a name="l00256"></a>00256             }
 <a name="l00257"></a>00257             <span class="keywordflow">else</span> {
-<a name="l00258"></a>00258                 arco.<a class="code" href="structadiacenza.html#ab9cf4d00d0bd8523e7b69ad637b6bfe9" title="dice se usare la segmentazione a rette o a curve bezier">segmentazione</a>= <a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850ddafd58db30e9dd613837d829a714e7afd0">nessuna</a>;
+<a name="l00258"></a>00258                 arco.<a class="code" href="structadiacenza.html#ab9cf4d00d0bd8523e7b69ad637b6bfe9" title="dice se usare la segmentazione a rette o a curve bezier">segmentazione</a>= <a class="code" href="grafo_8h.html#aa9450f2d5e2de355381e878c2a6850ddafd58db30e9dd613837d829a714e7afd0" title="L&amp;#39;unione fra i due punti è una riga retta.">nessuna</a>;
 <a name="l00259"></a>00259             }
 <a name="l00260"></a>00260 
 <a name="l00261"></a>00261             <span class="comment">//------------------------------</span>
@@ -549,7 +549,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generato il Fri Jul 23 06:16:51 2010 per Trolaspic da&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generato il Fri Jul 23 14:24:55 2010 per Trolaspic da&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>
