@@ -84,30 +84,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div>
 <div class="memdoc">
 
-<p><div class="fragment"><pre class="fragment"><a name="l00069"></a>00069                                 {
-<a name="l00070"></a>00070     gtk_init(&amp;argc, &amp;argv);
+<p><div class="fragment"><pre class="fragment"><a name="l00068"></a>00068                                 {
+<a name="l00069"></a>00069     gtk_init(&amp;argc, &amp;argv);
+<a name="l00070"></a>00070 
 <a name="l00071"></a>00071 
-<a name="l00072"></a>00072 
-<a name="l00073"></a>00073     <span class="comment">//**************************************************************************</span>
-<a name="l00074"></a>00074     <a class="code" href="structpassaggio__t.html" title="Struct per contenere tutti i puntatori dei widget e degli oggetti creati nella finestra...">passaggio_t</a> *window= <a class="code" href="creazione__interfaccia_8cpp.html#ac2d0492ff1c555bc0cdb452b2f051034" title="Crea la finestra principale con tutti gli oggetti.">crea_finestra_principale</a>();
-<a name="l00075"></a>00075     gtk_widget_show(window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716" title="Puntatore alla finestra principale.">finestra</a>);
+<a name="l00072"></a>00072     <span class="comment">//**************************************************************************</span>
+<a name="l00073"></a>00073     <a class="code" href="structpassaggio__t.html" title="Struct per contenere tutti i puntatori dei widget e degli oggetti creati nella finestra...">passaggio_t</a> *window= <a class="code" href="creazione__interfaccia_8cpp.html#ac2d0492ff1c555bc0cdb452b2f051034" title="Crea la finestra principale con tutti gli oggetti.">crea_finestra_principale</a>();
+<a name="l00074"></a>00074     gtk_widget_show(window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716" title="Puntatore alla finestra principale.">finestra</a>);
+<a name="l00075"></a>00075 
 <a name="l00076"></a>00076 
-<a name="l00077"></a>00077 
-<a name="l00078"></a>00078     g_signal_connect_swapped (window-&gt;<a class="code" href="structpassaggio__t.html#aca3ce88e19981e9dcb95d81847accacd" title="Puntatore al menu item info nel menu programma.">info_i</a>,   <span class="stringliteral">&quot;activate&quot;</span>,      G_CALLBACK (<a class="code" href="g__callback_8cpp.html#ae74861d87a5de6e4cc15a79240b592f7" title="Mostra la finestra &amp;quot;informazioni&amp;quot;.">mostra_info</a>),      window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716" title="Puntatore alla finestra principale.">finestra</a> );
-<a name="l00079"></a>00079     g_signal_connect_swapped (window-&gt;<a class="code" href="structpassaggio__t.html#aa329b6ef38c6eeca1bdee5fff61756ff" title="Puntatore al menu item esci nel menu programma.">esci_i</a>,   <span class="stringliteral">&quot;activate&quot;</span>,      G_CALLBACK (<a class="code" href="g__callback_8cpp.html#a381c43e6bf734ff6081e0ea730fd590a" title="Crea la finestra di conferma uscita.">response_dialogo</a>), window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716" title="Puntatore alla finestra principale.">finestra</a> );
-<a name="l00080"></a>00080     g_signal_connect_swapped (window-&gt;<a class="code" href="structpassaggio__t.html#a5a082534a42d7c5cffcbdbd70cc5e19d" title="Puntatore al menu item carica nel menu mappa.">carica_i</a>, <span class="stringliteral">&quot;activate&quot;</span>,      G_CALLBACK (<a class="code" href="g__callback_8cpp.html#a34f2cecd360bb543d0ee438f8d311cea" title="Funzione che parte premendo il pulsante Carica mappa.">response_carica</a>),  window           );
-<a name="l00081"></a>00081     g_signal_connect         (window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716" title="Puntatore alla finestra principale.">finestra</a>, <span class="stringliteral">&quot;delete-event&quot;</span>,  G_CALLBACK (<a class="code" href="g__callback_8cpp.html#a381c43e6bf734ff6081e0ea730fd590a" title="Crea la finestra di conferma uscita.">response_dialogo</a>), window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716" title="Puntatore alla finestra principale.">finestra</a> );
-<a name="l00082"></a>00082     g_signal_connect_swapped (window-&gt;<a class="code" href="structpassaggio__t.html#a5431827fe1cf5a5b54d0d2a35d0d9011" title="Puntatore al radio-pulsante che sceglie di calcolare il percorso per distanza.">radio_distanza</a>, <span class="stringliteral">&quot;clicked&quot;</span>, G_CALLBACK (<a class="code" href="g__callback_8cpp.html#a6c5b9f34e9c355493475431ee5c29197" title="Callback collegato ai pulsanti &amp;quot;radiobutton&amp;quot; per decidere se effettuare...">set_distanza</a>),     window           );
-<a name="l00083"></a>00083     g_signal_connect_swapped (window-&gt;<a class="code" href="structpassaggio__t.html#a6ecc61f17027bc237b4efbf1280b3c5c" title="Puntatore al radio-pulsante che sceglie di calcolare il percorso per tempo.">radio_tempo</a>,    <span class="stringliteral">&quot;clicked&quot;</span>, G_CALLBACK (<a class="code" href="g__callback_8cpp.html#a3a2a6c43c1b7d366d2efe935194fc888" title="Callback collegato ai pulsanti &amp;quot;radiobutton&amp;quot; per decidere se effettuare...">set_tempo</a>),        window           );
-<a name="l00084"></a>00084     g_signal_connect_swapped (window-&gt;<a class="code" href="structpassaggio__t.html#aced6fddabaa3071a4791a7df6ada130a" title="Puntatore al pulsante che fa partire il calcolo del percorso.">pulsante_calcola</a>, <span class="stringliteral">&quot;clicked&quot;</span>,G_CALLBACK(<a class="code" href="g__callback_8cpp.html#ab61304513439f02c464a3674b71b87c8" title="Funzione chiamata dal menu &amp;quot;calcola percorso&amp;quot;.">response_calcola</a>), window           );
-<a name="l00085"></a>00085 
-<a name="l00086"></a>00086     <span class="comment">//**************************************************************************</span>
+<a name="l00077"></a>00077     g_signal_connect_swapped (window-&gt;<a class="code" href="structpassaggio__t.html#aca3ce88e19981e9dcb95d81847accacd" title="Puntatore al menu item info nel menu programma.">info_i</a>,   <span class="stringliteral">&quot;activate&quot;</span>,      G_CALLBACK (<a class="code" href="g__callback_8cpp.html#ae74861d87a5de6e4cc15a79240b592f7" title="Mostra la finestra &amp;quot;informazioni&amp;quot;.">mostra_info</a>),      window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716" title="Puntatore alla finestra principale.">finestra</a> );
+<a name="l00078"></a>00078     g_signal_connect_swapped (window-&gt;<a class="code" href="structpassaggio__t.html#aa329b6ef38c6eeca1bdee5fff61756ff" title="Puntatore al menu item esci nel menu programma.">esci_i</a>,   <span class="stringliteral">&quot;activate&quot;</span>,      G_CALLBACK (<a class="code" href="g__callback_8cpp.html#a381c43e6bf734ff6081e0ea730fd590a" title="Crea la finestra di conferma uscita.">response_dialogo</a>), window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716" title="Puntatore alla finestra principale.">finestra</a> );
+<a name="l00079"></a>00079     g_signal_connect_swapped (window-&gt;<a class="code" href="structpassaggio__t.html#a5a082534a42d7c5cffcbdbd70cc5e19d" title="Puntatore al menu item carica nel menu mappa.">carica_i</a>, <span class="stringliteral">&quot;activate&quot;</span>,      G_CALLBACK (<a class="code" href="g__callback_8cpp.html#a34f2cecd360bb543d0ee438f8d311cea" title="Funzione che parte premendo il pulsante Carica mappa.">response_carica</a>),  window           );
+<a name="l00080"></a>00080     g_signal_connect         (window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716" title="Puntatore alla finestra principale.">finestra</a>, <span class="stringliteral">&quot;delete-event&quot;</span>,  G_CALLBACK (<a class="code" href="g__callback_8cpp.html#a381c43e6bf734ff6081e0ea730fd590a" title="Crea la finestra di conferma uscita.">response_dialogo</a>), window-&gt;<a class="code" href="structpassaggio__t.html#aa86fd4dd84c7047361c0fbd2dc2fe716" title="Puntatore alla finestra principale.">finestra</a> );
+<a name="l00081"></a>00081     g_signal_connect_swapped (window-&gt;<a class="code" href="structpassaggio__t.html#a5431827fe1cf5a5b54d0d2a35d0d9011" title="Puntatore al radio-pulsante che sceglie di calcolare il percorso per distanza.">radio_distanza</a>, <span class="stringliteral">&quot;clicked&quot;</span>, G_CALLBACK (<a class="code" href="g__callback_8cpp.html#a6c5b9f34e9c355493475431ee5c29197" title="Callback collegato ai pulsanti &amp;quot;radiobutton&amp;quot; per decidere se effettuare...">set_distanza</a>),     window           );
+<a name="l00082"></a>00082     g_signal_connect_swapped (window-&gt;<a class="code" href="structpassaggio__t.html#a6ecc61f17027bc237b4efbf1280b3c5c" title="Puntatore al radio-pulsante che sceglie di calcolare il percorso per tempo.">radio_tempo</a>,    <span class="stringliteral">&quot;clicked&quot;</span>, G_CALLBACK (<a class="code" href="g__callback_8cpp.html#a3a2a6c43c1b7d366d2efe935194fc888" title="Callback collegato ai pulsanti &amp;quot;radiobutton&amp;quot; per decidere se effettuare...">set_tempo</a>),        window           );
+<a name="l00083"></a>00083     g_signal_connect_swapped (window-&gt;<a class="code" href="structpassaggio__t.html#aced6fddabaa3071a4791a7df6ada130a" title="Puntatore al pulsante che fa partire il calcolo del percorso.">pulsante_calcola</a>, <span class="stringliteral">&quot;clicked&quot;</span>,G_CALLBACK(<a class="code" href="g__callback_8cpp.html#ab61304513439f02c464a3674b71b87c8" title="Funzione chiamata dal menu &amp;quot;calcola percorso&amp;quot;.">response_calcola</a>), window           );
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085     <span class="comment">//**************************************************************************</span>
+<a name="l00086"></a>00086 
 <a name="l00087"></a>00087 
-<a name="l00088"></a>00088 
-<a name="l00089"></a>00089     gtk_main();
-<a name="l00090"></a>00090     <span class="keyword">delete</span>[] window;
-<a name="l00091"></a>00091     <span class="keywordflow">return</span> 0;
-<a name="l00092"></a>00092 }
+<a name="l00088"></a>00088     gtk_main();
+<a name="l00089"></a>00089     <span class="keyword">delete</span>[] window;
+<a name="l00090"></a>00090     <span class="keywordflow">return</span> 0;
+<a name="l00091"></a>00091 }
 </pre></div></p>
 
 </div>
@@ -127,7 +127,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generato il Fri Jul 23 05:15:48 2010 per Trolaspic da&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generato il Fri Jul 23 05:55:49 2010 per Trolaspic da&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

@@ -1,5 +1,5 @@
 /**
- * @file Interfaccia del modulo della pila (stack) di char
+ * @file pila.h Interfaccia del modulo della pila (stack) di char
  *
  * @author: matteo
  *
