@@ -21,18 +21,37 @@ enum t_incrocio {
     strada              //
 };
 
+enum tipo_segmentazione {
+    nessuna,
+    rette,
+    bezier
+};
+
 /** Struct che rappresenta gli archi fra un nodo e l'altro.
  * L'arco indica il nodo, il tempo che impieghi a percorrerlo e la distanza che percorri. */
 struct adiacenza{
     /** L'indice del nodo nel grafo
      * Questo indice viene usato per prelevare il nodo dal grafo
-     * e non dalla lista.
-     */
+     * e non dalla lista.*/
     int nodo;
 
-    /** Il peso dell'arco fra il nodo chiamante e il nodo indicato.*/
+    /** Il peso dell'arco fra il nodo chiamante e il nodo indicato in kilometri.*/
     double kilometri;
+    /** Il peso dell'arco fra il nodo chiamante e il nodo indicato in secondi.*/
     double secondi;
+
+    /** dice se usare la segmentazione a rette o a curve bezier*/
+    tipo_segmentazione segmentazione;
+
+    /** oridnata punto 1*/
+    int x1;
+    /** ascissa punto 1*/
+    int y1;
+
+    /** oridnata punto 2*/
+    int x2;
+    /** ascissa punto 2*/
+    int y2;
     
 };
 typedef adiacenza arco;

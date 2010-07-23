@@ -135,6 +135,15 @@ char *leggi_prox_stringa(ifstream &source){
     }
 }
 
+void imposta_segmentazione (ifstream &source, arco &arco, tipo_segmentazione segmentazione){
+    arco.segmentazione= segmentazione;
+    arco.x1=leggi_prox_int(source);
+    arco.y1=leggi_prox_int(source);
+    arco.x2=leggi_prox_int(source);
+    arco.y2=leggi_prox_int(source);
+
+}
+
 /** Carica dal file .map e crea il grafo.
  * \n Elimina da solo la vecchia mappa se esistente.
  *
@@ -143,21 +152,15 @@ char *leggi_prox_stringa(ifstream &source){
 int carica_mappa(const char *filename)
 {
 
+    //TRASFORMA IL FILENAME PER CARICARE IL .MAP********************************
     int i;
-    for (i=0; filename[i]!='\0';i++) {
-        //DBG(cout<<':'<<i<<'_'<<filename[i]<<endl)
-    }
-    DBG(cout<<endl)
-    /*for (; filename[i]!='.'; i--){
-        DBG(cout<<':'<<i<<'_'<<filename[i]<<endl)
-    }*/
+    for (i=0; filename[i]!='\0';i++);
 
     char *filename_map= new char[i];
     filename_map[i--]='\0';
     filename_map[i--]='p';
     filename_map[i--]='a';
     filename_map[i--]='m';
-    //filename_map[--i]='m';
     for (; i>=0;i--){
         filename_map[i]=filename[i];
     }
@@ -169,6 +172,7 @@ int carica_mappa(const char *filename)
         cerr<<"File "<<filename_map<<" non aperto correttamente\n";
         return 0;
     }
+    //**************************************************************************
 
     distruggi_grafo();
     
@@ -225,7 +229,7 @@ int carica_mappa(const char *filename)
         GRAPH[nome_incrocio].size_list= quanti_archi;
 
         //lettura di tutte le adiacenze
-        for (int i=0; i<quanti_archi; i++){
+        for (int j=0; j<quanti_archi; j++){
             mappa.ignore(MAX_SALTO,'(');
             int direzione_strada= leggi_prox_int(mappa);
             if (direzione_strada == 0)
@@ -235,6 +239,29 @@ int carica_mappa(const char *filename)
             arco.nodo= direzione_strada;
             arco.kilometri= leggi_prox_double(mappa);
             arco.secondi  = leggi_prox_double(mappa);
+
+            //CARICAMENTO STRADE PARTICOLARI
+            mappa.ignore(MAX_SALTO,')');
+
+            char carattere_arco_speciale = leggi_prox_char(mappa);
+            if (carattere_arco_speciale=='{'){
+                switch(leggi_prox_char(mappa)){
+                    case 'R':
+                        imposta_segmentazione(mappa, arco, rette);
+                        break;
+                    case 'B':
+                        imposta_segmentazione(mappa, arco, bezier);
+                        break;
+                    default:
+                        cerr<<"Errore lettura segmentazione\n";
+                        arco.segmentazione= nessuna;
+                }
+            }
+            else {
+                arco.segmentazione= nessuna;
+            }
+
+            //------------------------------
 
             GRAPH[nome_incrocio].adiacente.push_back(arco);
             
