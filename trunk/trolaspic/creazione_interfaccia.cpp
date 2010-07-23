@@ -88,7 +88,7 @@ passaggio_t *crea_finestra_principale (){
     GtkWidget *window=  gtk_window_new (GTK_WINDOW_TOPLEVEL);
     gtk_window_set_title (GTK_WINDOW (window), "TROLASPIC");
     gtk_window_set_position (GTK_WINDOW(window), GTK_WIN_POS_CENTER);
-    gtk_window_set_icon_from_file (GTK_WINDOW(window), PERCORSO"/ContainerRed-icon_piccola.png", NULL);
+    gtk_window_set_icon_from_file (GTK_WINDOW(window), PERCORSO"/trolaspic-icon_piccola.png", NULL);
 
     GtkWidget *scatola1= gtk_vbox_new(FALSE,0);
     gtk_container_add (GTK_CONTAINER (window), scatola1);
@@ -199,7 +199,7 @@ GtkWidget *crea_finestra_dialogo (GtkWidget* window, const gchar* testo){
 GtkWidget *crea_finestra_info (GtkWidget* window, const gchar* testo){
     GtkWidget *info = gtk_about_dialog_new ();
 
-    GdkPixbuf *logo_programma= gdk_pixbuf_new_from_file (PERCORSO"/ContainerRed-icon.png", NULL);
+    GdkPixbuf *logo_programma= gdk_pixbuf_new_from_file (PERCORSO"/trolaspic-icon.png", NULL);
 
     gtk_about_dialog_set_name         (GTK_ABOUT_DIALOG(info), "info");
     gtk_about_dialog_set_program_name (GTK_ABOUT_DIALOG(info), "Trolaspic");

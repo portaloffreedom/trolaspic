@@ -1,0 +1,17 @@
+OBJ = creazione_interfaccia.o g_callback.o gestione_drawing_area.o grafo.o main.o pathfinder.o pila.o
+CXXFLAGS= -Wall `pkg-config --cflags --libs gtk+-2.0`
+
+Trolaspic: dipendenze.make $(OBJ)
+	g++ -o Trolaspic $(OBJ) $(CXXFLAGS)
+
+dipendenze.make:
+	g++ -MM *.cpp > dipendenze.make
+
+include dipendenze.make
+
+.PHONY: clean cleanall
+
+clean:
+	rm *.o dipendeze.make
+cleanall:
+	rm Trolaspic *.o dipendenze.make

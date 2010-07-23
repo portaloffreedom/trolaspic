@@ -84,6 +84,9 @@ void response_carica (passaggio_t *window){
                 gtk_widget_destroy (dialogo);
                 return;
             }
+            gtk_spin_button_set_range(GTK_SPIN_BUTTON(window->spin_partenza), 1, dim_grafo());
+            gtk_spin_button_set_range(GTK_SPIN_BUTTON(window->spin_arrivo)  , 1, dim_grafo());
+            mostra_calcola_percorso(window);
             //******************************************************************
 
             //******************************************************************
@@ -125,9 +128,6 @@ void response_carica (passaggio_t *window){
         default:
             gtk_widget_destroy (dialogo);
     }
-    gtk_spin_button_set_range(GTK_SPIN_BUTTON(window->spin_partenza), 1, dim_grafo());
-    gtk_spin_button_set_range(GTK_SPIN_BUTTON(window->spin_arrivo)  , 1, dim_grafo());
-    mostra_calcola_percorso(window);
     return;
 }
 
