@@ -39,6 +39,23 @@ void response_dialogo (GtkWidget* finestra){
     }
 }
 
+/** Mostra una finestra di avviso con il testo scelto
+ *
+ * @param finestra_principale puntatore alla finestra principale
+ * @param testo testo che deve mostrare la finestra di avviso
+ */
+void finestra_di_avviso (GtkWidget* finestra_principale, const gchar *testo){
+    GtkWidget *dialogo = crea_finestra_avviso(finestra_principale,testo);
+    gtk_dialog_run (GTK_DIALOG (dialogo));
+    gtk_widget_destroy (dialogo);
+    return;
+}
+
+void mostra_calcola_percorso (passaggio_t *window){
+    gtk_widget_show(window->domanda_calcola);
+    gtk_widget_show(window->scatola_calcola);
+}
+
 /**
  * Funzione che parte premendo il pulsante Carica mappa.
  * Prepara il grafo dal file .map allegato effettuando i controlli necessari.
@@ -57,47 +74,60 @@ void response_carica (passaggio_t *window){
             const char *filename = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (dialogo));
             DBG(cout<<"Nome del file: "<<filename<<endl);
 
+
+            //******************************************************************
+            //*** CARICAMENTO DEI NODI DELLA MAPPA (.MAP) **********************
+            //******************************************************************
+            window->massimo_numero_nodi = carica_mappa(filename);
+            if (window->massimo_numero_nodi == 0){
+                delete[] filename;
+                gtk_widget_destroy (dialogo);
+                return;
+            }
+            //******************************************************************
+
             //******************************************************************
             //*** CARICAMENTO DELL'IMMAGINE DELLA MAPPA ************************
             //******************************************************************
 
             GError *errore = NULL;
             GdkPixbuf *immagine_mappa= gdk_pixbuf_new_from_file (filename, &errore);
-            gdk_pixbuf_unref (window->sfondo);
-            window->sfondo = immagine_mappa;
-            gtk_image_set_from_pixbuf (GTK_IMAGE(window->image), immagine_mappa);
-
             if (errore != NULL){
-                cerr<<"Errore nel caricamento dell'immagine!\n"
+                const char ERRORE[]="Errore nel caricamento dell'immagine!\n"
                         "prova a caricare il file giusto\n";
+                cerr<<ERRORE<<endl;
+                finestra_di_avviso(dialogo,ERRORE );
                 delete[] filename;
                 gtk_widget_destroy (dialogo);
                 return;
             }
+            if (errore!=0) gdk_pixbuf_unref (window->sfondo);
+            window->sfondo = immagine_mappa;
+           
 
-            g_error_free (errore);
+
+
+            if (errore!=0) g_error_free (errore);
             
             //**Alternativa, caricamento direttamente da file
             //gtk_image_set_from_file ((GTK_IMAGE(window->image), filename);
-            
-            //******************************************************************
-            //*** CARICAMENTO DEI NODI DELLA MAPPA (.MAP) **********************
-            //******************************************************************
-            window->massimo_numero_nodi = carica_mappa(filename);
-            //******************************************************************
+           
 
             DBG(cout<<"Sto per chiamare le librerie CAIRO\n")
             cairo_disegna(immagine_mappa);
+            
+            gtk_image_set_from_pixbuf (GTK_IMAGE(window->image), immagine_mappa);
 
 
             //mappa_caricata= true;
-            g_signal_handler_unblock( window->calcola_i, window->calcola_id );
-            g_signal_handler_block( window->calcola_i, window->errore_id );
             delete[] filename;
         }
         default:
             gtk_widget_destroy (dialogo);
     }
+    gtk_spin_button_set_range(GTK_SPIN_BUTTON(window->spin_partenza), 1, dim_grafo());
+    gtk_spin_button_set_range(GTK_SPIN_BUTTON(window->spin_arrivo)  , 1, dim_grafo());
+    mostra_calcola_percorso(window);
     return;
 }
 
@@ -142,7 +172,7 @@ void mostra_info (GtkWidget* finestra){
  * la ricerca per distanza
  * @param dialogo Puntatore alla struct contenente i puntatori alla finestra di dialogo associata.
  */
-void set_distanza (passaggio_t2 *dialogo){
+void set_distanza (passaggio_t *dialogo){
     dialogo->t_calcolo = per_distanza;
 }
 
@@ -151,20 +181,8 @@ void set_distanza (passaggio_t2 *dialogo){
  * la ricerca per tempo
  * @param dialogo Puntatore alla struct contenente i puntatori alla finestra di dialogo associata.
  */
-void set_tempo (passaggio_t2 *dialogo){
+void set_tempo (passaggio_t *dialogo){
     dialogo->t_calcolo = per_tempo;
-}
-
-/** Mostra una finestra di avviso con il testo scelto
- *
- * @param finestra_principale puntatore alla finestra principale
- * @param testo testo che deve mostrare la finestra di avviso
- */
-void finestra_di_avviso (GtkWidget* finestra_principale, const gchar *testo){
-    GtkWidget *dialogo = crea_finestra_avviso(finestra_principale,"Non è possibile trovare un percorso tra questi punti");
-    gtk_dialog_run (GTK_DIALOG (dialogo));
-    gtk_widget_destroy (dialogo);
-    return;
 }
 
 /** Funzione che calcola il percorso dato un inizio e una fine e ne disegna il
@@ -192,7 +210,6 @@ void calcola_percorso (passaggio_t *window, GtkWidget* dialogo, int nome_partenz
     return;
 }
 
-
 /**
  * Funzione chiamata dal menu "calcola percorso".
  * Mostra la finestra di dialogo per la scelta dei nodi di inizio e fine del percorso,
@@ -201,35 +218,27 @@ void calcola_percorso (passaggio_t *window, GtkWidget* dialogo, int nome_partenz
  * @param window Puntatore ad una struct contenente tutti i puntatori gtkwidget della finestra principale.
  */
 void response_calcola (passaggio_t *window){
-    passaggio_t2 *dialogo = crea_finestra_richiesta_percorso (window->finestra, window->massimo_numero_nodi);
-    g_signal_connect_swapped (dialogo->radio_distanza, "clicked", G_CALLBACK(set_distanza), dialogo);
-    g_signal_connect_swapped (dialogo->radio_tempo,    "clicked", G_CALLBACK(set_tempo),    dialogo);
+
+   
 
     cairo_disegna(window->sfondo);
-    switch (gtk_dialog_run (GTK_DIALOG (dialogo->finestra))) {
 
-        case GTK_RESPONSE_ACCEPT: {
-            gint nome_partenza = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON(dialogo->partenza_t ));
-            gint nome_arrivo = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON(dialogo->arrivo_t ));
-            DBG(cout<<"partenza: "<<nome_partenza<<endl)
-            DBG(cout<<"arrivo:   "<<nome_arrivo  <<endl)
+    gint nome_partenza = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON(window->spin_partenza ));
+    gint nome_arrivo =   gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON(window->spin_arrivo   ));
+    DBG(cout<<"partenza: "<<nome_partenza<<endl)
+    DBG(cout<<"arrivo:   "<<nome_arrivo  <<endl)
 
-            DBG(cout<<"tipo di scelta: ";)
-            switch (dialogo->t_calcolo){
-                case per_tempo:
-                    calcola_percorso (window, dialogo->finestra, nome_partenza,nome_arrivo, leggi_peso_tempo);
-                    break;
-                case per_distanza:
-                    calcola_percorso (window, dialogo->finestra, nome_partenza,nome_arrivo, leggi_peso_km);
-                    break;
-                default:
-                    cerr<<"Scelta non inizializzata! O.o\n";
-                    break;
-            }
-        }
+    DBG(cout<<"tipo di scelta: ";)
+    switch (window->t_calcolo){
+        case per_tempo:
+            calcola_percorso (window, window->finestra, nome_partenza,nome_arrivo, leggi_peso_tempo);
+            break;
+        case per_distanza:
+            calcola_percorso (window, window->finestra, nome_partenza,nome_arrivo, leggi_peso_km);
+            break;
         default:
-            gtk_widget_destroy (dialogo->finestra);
-            delete[] dialogo;
+            cerr<<"Scelta non inizializzata! O.o\n";
+            break;
     }
     return;
 }
