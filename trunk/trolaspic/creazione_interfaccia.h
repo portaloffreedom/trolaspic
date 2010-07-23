@@ -54,7 +54,7 @@ passaggio_t2 *crea_finestra_richiesta_percorso (GtkWidget* window, int limite_no
  * @param finestra parent
  * @return puntatore al dialogo creato
  */
-GtkWidget *crea_finestra_non_carica(GtkWidget* parent);
+GtkWidget *crea_finestra_avviso(GtkWidget* parent, const gchar* testo);
 
 #endif	/* CREAZIONE_INTERFACCIA_H */
 

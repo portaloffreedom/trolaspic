@@ -155,6 +155,44 @@ void set_tempo (passaggio_t2 *dialogo){
     dialogo->t_calcolo = per_tempo;
 }
 
+/** Mostra una finestra di avviso con il testo scelto
+ *
+ * @param finestra_principale puntatore alla finestra principale
+ * @param testo testo che deve mostrare la finestra di avviso
+ */
+void finestra_di_avviso (GtkWidget* finestra_principale, const gchar *testo){
+    GtkWidget *dialogo = crea_finestra_avviso(finestra_principale,"Non è possibile trovare un percorso tra questi punti");
+    gtk_dialog_run (GTK_DIALOG (dialogo));
+    gtk_widget_destroy (dialogo);
+    return;
+}
+
+/** Funzione che calcola il percorso dato un inizio e una fine e ne disegna il
+ * tracciato sulla mappa
+ *
+ * @param window struttura contenente i puntatori ai widget della finestra principale
+ * @param dialogo puntatore alla finestra di dialogo per il calcolo del percorso
+ * @param nome_partenza nome del nodo di partenza
+ * @param nome_arrivo nome del nodo di arrivo
+ * @param leggi_peso funzione con cui prelevare il peso dagli archi
+ */
+void calcola_percorso (passaggio_t *window, GtkWidget* dialogo, int nome_partenza, int nome_arrivo, double leggi_peso(arco)){
+    if (nome_arrivo == nome_partenza){
+        finestra_di_avviso (dialogo, "I punti di inizio e di arrivo sono uguali");
+        return;
+    }
+    int end = dijkstra(nome_partenza,nome_arrivo,leggi_peso);
+    getPath(end);
+    if (end == nome_partenza){
+        finestra_di_avviso (dialogo, "Non è possibile trovare un percorso tra questi punti");
+        return;
+    }
+    cairo_disegna_percorso (window->sfondo);
+    gtk_image_set_from_pixbuf (GTK_IMAGE(window->image), window->sfondo);
+    return;
+}
+
+
 /**
  * Funzione chiamata dal menu "calcola percorso".
  * Mostra la finestra di dialogo per la scelta dei nodi di inizio e fine del percorso,
@@ -179,19 +217,13 @@ void response_calcola (passaggio_t *window){
             DBG(cout<<"tipo di scelta: ";)
             switch (dialogo->t_calcolo){
                 case per_tempo:
-                    DBG(cout<<"per tempo\n";)
-                    getPath(dijkstra(nome_partenza,nome_arrivo,leggi_peso_tempo));
-                    cairo_disegna_percorso (window->sfondo);
-                    gtk_image_set_from_pixbuf (GTK_IMAGE(window->image), window->sfondo);
+                    calcola_percorso (window, dialogo->finestra, nome_partenza,nome_arrivo, leggi_peso_tempo);
                     break;
                 case per_distanza:
-                    DBG(cout<<"per distanza\n";)
-                    getPath(dijkstra(nome_partenza,nome_arrivo,leggi_peso_km));
-                    cairo_disegna_percorso (window->sfondo);
-                    gtk_image_set_from_pixbuf (GTK_IMAGE(window->image), window->sfondo);
+                    calcola_percorso (window, dialogo->finestra, nome_partenza,nome_arrivo, leggi_peso_km);
                     break;
                 default:
-                    cerr<<"Selta non inizializzata! O.o\n";
+                    cerr<<"Scelta non inizializzata! O.o\n";
                     break;
             }
         }
@@ -207,8 +239,6 @@ void response_calcola (passaggio_t *window){
  * @param finestra_principale Puntatore alla finestra principale
  */
 void response_non_calcola (GtkWidget* finestra_principale){
-    GtkWidget *dialogo = crea_finestra_non_carica(finestra_principale);
-    gtk_dialog_run (GTK_DIALOG (dialogo));
-    gtk_widget_destroy (dialogo);
+    finestra_di_avviso (finestra_principale, "Devi caricare una mappa prima di potere calcolare un percorso!");
     return;
 }
