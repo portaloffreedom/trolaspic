@@ -156,7 +156,7 @@ int carica_mappa(const char *filename){
     int i;
     for (i=0; filename[i]!='\0';i++);
 
-    char *filename_map= new char[i];
+    char filename_map[i];
     filename_map[i--]='\0';
     filename_map[i--]='p';
     filename_map[i--]='a';
@@ -270,7 +270,7 @@ int carica_mappa(const char *filename){
 
      }
 
-    delete[] filename_map;
+    
     mappa.close();
     return numero_nodi;
 }
