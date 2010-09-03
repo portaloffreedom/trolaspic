@@ -235,5 +235,8 @@ void cairo_disegna_percorso (GdkPixbuf* sfondo){
     }
     
     GRAPH[0].size_list=0;
+    
+    cairo_destroy (cr);
+    cairo_surface_destroy(superficie);
 
 }
