@@ -1,0 +1,1 @@
+Programma navigatore attualmente basato sulle GTK
